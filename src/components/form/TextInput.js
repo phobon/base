@@ -1,0 +1,98 @@
+import styled, { css } from 'styled-components';
+import {
+  color,
+  space,
+  borderRadius,
+  border,
+  borderColor,
+  fontSize,
+  width,
+  gridColumn,
+  gridRow,
+  gridArea,
+} from 'styled-system';
+import PropTypes from 'prop-types';
+
+const isError = props => props.error && css`
+  border: 2px solid ${props.theme.colors.reds[3]};
+
+  &:hover {
+    border: 2px solid ${props.theme.colors.reds[3]};
+  }
+`;
+
+const TextInput = styled.input`
+  box-sizing: border-box;
+  position: relative;
+  ${color}
+  ${space}
+  ${fontSize}
+  ${width}
+
+  ${borderRadius}
+
+  ${border}
+  ${borderColor}
+
+  ${gridColumn}
+  ${gridRow}
+  ${gridArea}
+
+  padding-left: ${props => props.theme.space[2]}px;
+  padding-right: ${props => props.theme.space[2]}px;
+  line-height: ${props => props.theme.fontSizes[props.fontSize]}px;
+
+  width: ${props => props.fullWidth ? '100%': null};
+  height: 38px;
+
+  &::-webkit-input-placeholder {
+    color: ${props => props.theme.colors.grayscale[5]};
+  }
+
+  &:focus {
+    outline: 0;
+    border: 2px solid ${props => props.theme.colors.guidance.focus};
+    padding-left: ${props => props.theme.space[2] - 1}px;
+    padding-right: ${props => props.theme.space[2] - 1}px;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+    background-color: ${props => props.theme.colors.grayscale[6]};
+    border: 1px solid ${props => props.theme.colors.grayscale[5]};
+  }
+
+  ${isError}
+`;
+
+TextInput.displayName = 'TextInput';
+
+TextInput.propTypes = {
+  ...color.propTypes,
+  ...space.propTypes,
+  ...borderRadius.propTypes,
+  ...fontSize.propTypes,
+  ...width.propTypes,
+  ...gridColumn.propTypes,
+  ...gridRow.propTypes,
+  ...gridArea.propTypes,
+
+  disabled: PropTypes.bool,
+  error: PropTypes.any,
+  fullWidth: PropTypes.bool,
+};
+
+TextInput.defaultProps = {
+  disabled: false,
+  error: false,
+  fullWidth: false,
+  borderRadius: 3,
+  px: 2,
+  fontSize: 1,
+  bg: 'background',
+  border: '1px solid',
+  borderColor: 'grayscale.5',
+};
+
+export default TextInput;
