@@ -29,5 +29,5 @@ export {
   Button, CircleButton, SquareButton,
   Normalize, changeTheme, changeAccent,
   theme, randomA11y, randomColor,
-  useInterval, usePortal, useWindowSize,s
+  useInterval, usePortal, useWindowSize,
 };
