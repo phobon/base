@@ -11,6 +11,7 @@ import {
   maxWidth, 
   textAlign, 
   fontWeight, 
+  fontFamily,
   textStyle,
   gridColumn,
   gridRow,
@@ -36,6 +37,7 @@ const Text = styled.div`
   ${lineHeight}
   ${textAlign}
   ${fontWeight}
+  ${fontFamily}
   ${textStyle}
 
   ${position}
@@ -59,6 +61,7 @@ Text.propTypes = {
   ...space.propTypes, 
   ...color.propTypes, 
   ...fontSize.propTypes, 
+  ...fontFamily.propTypes,
   ...lineHeight.propTypes, 
   ...width.propTypes, 
   ...height.propTypes, 
