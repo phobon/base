@@ -15,7 +15,7 @@ import {
 } from './tokens';
 
 import {
-  useInterval, usePortal, useWindowSize,
+  useInterval, usePortal, useWindowSize, useTheme,
 } from './hooks';
 
 export {
@@ -29,5 +29,5 @@ export {
   Button, CircleButton, SquareButton,
   Normalize, changeTheme, changeAccent,
   theme, randomA11y, randomColor,
-  useInterval, usePortal, useWindowSize,
+  useInterval, usePortal, useWindowSize, useTheme,
 };
