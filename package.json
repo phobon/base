@@ -9,8 +9,7 @@
   "scripts": {
     "build": "rollup -c",
     "clean": "npx shx rm -rf .out && npx shx mkdir .out",
-    "watch": "rollup -c -w",
-    "prepare": "npm run clean && npm run build"
+    "watch": "rollup -c -w"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
