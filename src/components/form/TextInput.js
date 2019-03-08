@@ -13,6 +13,8 @@ import {
 } from 'styled-system';
 import PropTypes from 'prop-types';
 
+import { informationDensity } from '../../utils';
+
 const isError = props => props.error && css`
   border: 2px solid ${props.theme.colors.reds[3]};
 
@@ -21,7 +23,9 @@ const isError = props => props.error && css`
   }
 `;
 
-const TextInput = styled.input`
+const TextInput = styled.input.attrs(props => ({
+  disabled: props.isDisabled,
+}))`
   box-sizing: border-box;
   position: relative;
   ${color}
@@ -43,7 +47,7 @@ const TextInput = styled.input`
   line-height: ${props => props.theme.fontSizes[props.fontSize]}px;
 
   width: ${props => props.fullWidth ? '100%': null};
-  height: 38px;
+  height: ${props => informationDensity(props.density)}px;
 
   &::-webkit-input-placeholder {
     color: ${props => props.theme.colors.grayscale[5]};
@@ -78,9 +82,17 @@ TextInput.propTypes = {
   ...gridRow.propTypes,
   ...gridArea.propTypes,
 
-  disabled: PropTypes.bool,
+  /** Whether the input field is disabled, or not */
+  isDisabled: PropTypes.bool,
+
+  /** Optional error message to display */
   error: PropTypes.any,
+
+  /** Whether the input field should take up all available horizontal space, or not */
   fullWidth: PropTypes.bool,
+
+  /** Information density for this field */
+  density: PropTypes.oneOf(['compact', 'normal', 'spacious']),
 };
 
 TextInput.defaultProps = {
@@ -93,6 +105,7 @@ TextInput.defaultProps = {
   bg: 'background',
   border: '1px solid',
   borderColor: 'grayscale.5',
+  density: 'normal',
 };
 
 export default TextInput;

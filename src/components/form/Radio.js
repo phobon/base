@@ -161,16 +161,22 @@ Radio.propTypes = {
   ...gridRow.propTypes,
   ...gridArea.propTypes,
 
+  /** Id, required for accessibility */
   id: PropTypes.string.isRequired,
 
+  /** Label */
   label: PropTypes.string,
 
+  /** Label colour */
   labelColor: PropTypes.string,
   
+  /** Colour */
   color: PropTypes.string,
 
+  /** Border colour */
   borderColor: PropTypes.string,
 
+  /** Sizing based on theme space values */
   size: PropTypes.number,
 };
 

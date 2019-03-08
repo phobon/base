@@ -38,8 +38,10 @@ Card.displayName = 'Card';
 Card.propTypes = {
   ...Box.propTypes,
 
-  boxShadowSize: PropTypes.oneOf([ 'none', 's', 'm', 'l', 'xl' ]),
+  /** Card box shadow size */
+  boxShadowSize: PropTypes.oneOf([ 'none', 's', 'm', 'l', 'xl', 'xxl' ]),
 
+  /** Card box shadow intensity between 0 and 1 (higher is more intense) */
   boxShadowIntensity: PropTypes.number,
 };
 

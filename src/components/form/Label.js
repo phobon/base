@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import Text from '../typography/Text';
 
-const Label = styled(Text).attrs(props => ({ as: 'label' }))`
+const Label = styled(Text).attrs(() => ({ as: 'label' }))`
   display: flex;
   flex: none;
   align-items: center;

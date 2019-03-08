@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { Text } from '../typography';
 
-const Link = styled(Text).attrs(props => ({ as: 'a' }))`
+const Link = styled(Text).attrs(() => ({ as: 'a' }))`
   text-decoration: ${props => props.clean ? 'none' : 'underline dotted'};
   position: relative;
 
@@ -38,8 +38,10 @@ Link.displayName = 'Link';
 Link.propTypes = {
   ...Text.propTypes,
 
+  /** Represents a link with text-decoration removed. */
   clean: PropTypes.bool,
 
+  /** Represents an active link. */
   active: PropTypes.bool,
 };
 

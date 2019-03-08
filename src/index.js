@@ -7,7 +7,6 @@ import {
   Table,
   Checkbox, TextInput, NumberInput, PasswordInput, Label, Select, TextArea, Radio,
   Button, CircleButton, SquareButton,
-  Normalize, changeTheme, changeAccent,
 } from './components';
 
 import {
@@ -18,6 +17,11 @@ import {
   useInterval, usePortal, useWindowSize, useTheme, useAccent,
 } from './hooks';
 
+import {
+  Normalize,
+  informationDensity,
+} from './utils';
+
 export {
   Box, Flex, Scrollable, Grid, Card,
   BoxList, BoxListItem,
@@ -27,7 +31,7 @@ export {
   Table,
   Checkbox, TextInput, NumberInput, PasswordInput, Label, Select, TextArea, Radio,
   Button, CircleButton, SquareButton,
-  Normalize, changeTheme, changeAccent,
+  Normalize, informationDensity,
   theme, randomA11y, randomColor,
   useInterval, usePortal, useWindowSize, useTheme, useAccent,
 };

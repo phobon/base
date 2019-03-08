@@ -13,7 +13,6 @@ import {
 import Box from './Box';
 
 const Grid = styled(Box)`
-  display: grid;
   flex: unset;
 
   ${gridGap}
@@ -29,4 +28,9 @@ const Grid = styled(Box)`
 
 Grid.displayName = 'Grid';
 
+Grid.defaultProps = Object.assign({}, Box.defaultProps, {
+  display: 'grid',
+})
+
+/** @component */
 export default Grid;

@@ -13,7 +13,7 @@ const getWindowSize = () => ({
 const useWindowSize = () => {
   const [windowSize, setWindowSize] = useState(getWindowSize());
 
-  const handleResize = useCallback(() => setWindowSize(getWindowSize()), []);
+  const handleResize = useCallback(() => setWindowSize(getWindowSize()));
 
   useEffect(() => {
     window.addEventListener('resize', handleResize);

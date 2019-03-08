@@ -4,6 +4,7 @@ import {
   color,
   alignItems,
   alignSelf,
+  display,
   justifyContent,
   justifySelf,
   flexDirection,
@@ -35,7 +36,7 @@ const fullHeight = props => props.fullHeight && css`height: 100%;`;
 const round = props => props.round && css`border-radius: 100%;`;
 
 const Box = styled.div`
-  display: flex;
+  ${display}
   box-sizing: border-box;
 
   ${borders}
@@ -63,6 +64,10 @@ const Box = styled.div`
   ${zIndex}
 
   ${position}
+  ${top}
+  ${left}
+  ${right}
+  ${bottom}
 
   ${fullWidth}
   ${fullHeight}
@@ -109,6 +114,10 @@ Box.propTypes = {
   ...borderColor.propTypes,
   ...zIndex.propTypes,
   ...position.propTypes,
+  ...top.propTypes,
+  ...bottom.propTypes,
+  ...left.propTypes,
+  ...right.propTypes,
   ...gridColumn.propTypes,
   ...gridRow.propTypes,
   ...gridArea.propTypes,
@@ -117,14 +126,18 @@ Box.propTypes = {
   ...left.propTypes,
   ...right.propTypes,
 
+  /** Whether container should take up all available width, or not */
   fullWidth: PropTypes.bool,
 
+  /** Whether container should take up all available height, or not */
   fullHeight: PropTypes.bool,
 
+  /** Container is round */
   round: PropTypes.bool,
 };
 
 Box.defaultProps = {
+  display: 'flex',
   flex: 'none',
   alignItems: 'center',
   justifyContent: 'center',

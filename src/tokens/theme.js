@@ -63,4 +63,6 @@ const baseTheme = {
   textStyles,
 };
 
-export const lightTheme = Object.assign({}, baseTheme, { colors: lightColors });
+const lightTheme = Object.assign({}, baseTheme, { colors: lightColors });
+
+export default lightTheme;

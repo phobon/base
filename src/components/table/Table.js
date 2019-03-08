@@ -1,7 +1,50 @@
+/* eslint-disable react/no-array-index-key */
 import React from 'react';
 import styled, { css } from 'styled-components';
 import { space, width } from 'styled-system';
 import PropTypes from 'prop-types';
+
+const informationDensity = props => {
+  const densityValues = {
+    compact: 1,
+    normal: 2,
+    spacious: 3,
+  };
+
+  const d = densityValues[props.density];
+
+  return css`
+    thead {
+      th {
+        padding-top: ${props.theme.space[d]}px;
+        padding-bottom: ${props.theme.space[d]}px;
+      }
+    }
+
+    tbody {
+      tr {
+        td {
+          padding-top: ${props.theme.space[d]}px;
+          padding-bottom: ${props.theme.space[d]}px;
+          padding-right: ${props.theme.space[props.horizontalCellPadding]}px;
+        }
+
+        &:first-child {
+          td { 
+            padding-top: ${props.theme.space[d]}px;
+          }
+        }
+
+        &:last-child {
+          td {
+            border-bottom: 0;
+            padding-bottom: ${props.theme.space[d]}px;
+          }
+        }
+      }
+    }
+  `;
+};
 
 const showSeparator = props => props.showSeparator ? css`
   border-bottom: 1px dashed ${props.theme.colors.grayscale[5]};
@@ -54,16 +97,13 @@ const StyledTable = styled.table`
   }
 
   thead {
-    background-color: ${props => props.theme.colors.grayscale[6]};
-
     th {
       font-size: ${props => props.theme.fontSizes[1]}px;
       color: ${props => props.theme.colors.grayscale[2]};
       font-weight: ${props => props.theme.fontWeights.normal};
       white-space: pre;
+      background-color: ${props => props.theme.colors.grayscale[6]};
 
-      padding-top: ${props => props.theme.space[2]}px;
-      padding-bottom: ${props => props.theme.space[2]}px;
       padding-right: ${props => props.theme.space[3]}px;
 
       border-bottom: 2px solid ${props => props.theme.colors.grayscale[5]};
@@ -85,10 +125,6 @@ const StyledTable = styled.table`
       td {
         text-align: left;
 
-        padding-top: ${props => props.theme.space[2]}px;
-        padding-bottom: ${props => props.theme.space[2]}px;
-        padding-right: ${props => props.theme.space[props.space]}px;
-
         ${showSeparator}
 
         &:first-child {
@@ -99,21 +135,10 @@ const StyledTable = styled.table`
           padding-right: ${props => props.theme.space[3]}px;
         }
       }
-
-      &:first-child {
-        td { 
-          padding-top: ${props => props.theme.space[2]}px;
-        }
-      }
-
-      &:last-child {
-        td {
-          border-bottom: 0;
-          padding-bottom: ${props => props.theme.space[2]}px;
-        }
-      }
     }
   }
+
+  ${informationDensity}
 `;
 
 const Col = styled.col`
@@ -134,22 +159,22 @@ const Table = ({ id, columns, rows, ...props }) => {
     </th>
   ));
 
-  const rowItems = rows.map(r => {
-    const cells = r.cells.map((c, i) => {
-      const { fill, truncate, ...rest } = columns[i];
+  const rowItems = rows.map((r, rowIndex) => {
+    const cells = r.cells.map((c, cellIndex) => {
+      const { fill, truncate, ...rest } = columns[cellIndex];
       const cell = 
         `${fill ? 'cell--fill' : ''} 
         ${truncate ? 'cell--truncate': ''} 
         ${r.disabled ? 'cell--disabled': ''}`;
       return (
-        <td key={`${r.id}-cell__${i}`} className={cell} style={rest}>
+        <td key={`${r.id}-cell__${cellIndex}`} className={cell} style={rest}>
           <span>{c.content}</span>
         </td>
       );
     });
 
     return (
-      <tr>
+      <tr key={`${r.id}-row__${rowIndex}`}>
         {cells}
       </tr>
     )
@@ -176,17 +201,34 @@ Table.displayName = 'Table';
 
 Table.propTypes = {
   ...space.propTypes,
-  space: PropTypes.number,
+
+  /** Optional identifier */
+  id: PropTypes.node,
+
+  /** Horizontal padding */
+  horizontalCellPadding: PropTypes.number,
+
+  /** Whether to show a separator between rows, or not */
   showSeparator: PropTypes.bool,
-  columns: PropTypes.object,
+
+  /** Columns to display in this table */
+  columns: PropTypes.array,
+
+  /** Rows to display in this table */
   rows: PropTypes.array,
+
+  /** Information density */
+  density: PropTypes.oneOf(['compact', 'normal', 'spacious']),
 };
 
 Table.defaultProps = {
+  id: Math.random() * 100,
   showSeparator: true,
-  space: 5,
+  horizontalCellPadding: 5,
   columns: null,
   rows: null,
+  density: 'normal',
 };
 
+/** @component */
 export default Table;

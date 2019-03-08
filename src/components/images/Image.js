@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import {
+  display,
   space,
   width,
   height,
@@ -24,6 +25,7 @@ const round = props => props.round && css`
 `;
 
 const Image = styled.img`
+  ${display}
   ${space}
   ${width}
   ${height}
@@ -47,6 +49,7 @@ const Image = styled.img`
 Image.displayName = 'Image';
 
 Image.propTypes = {
+  ...display.propTypes,
   ...space.propTypes,
   ...width.propTypes,
   ...height.propTypes,
@@ -56,13 +59,18 @@ Image.propTypes = {
   ...gridRow.propTypes,
   ...gridArea.propTypes,
 
+  /** Image is responsive. */
   responsive: propTypes.bool,
 
+  /** Image is round. */
   round: propTypes.bool,
 };
 
 Image.defaultProps = {
   borderRadius: 0,
+
+  /** Blockify images by default */
+  display: 'block',
 };
 
 export default Image;

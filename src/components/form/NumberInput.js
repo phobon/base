@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import TextInput from './TextInput';
 
-const NumberInput = styled(TextInput).attrs(props => ({ type: 'number' }))``;
+const NumberInput = styled(TextInput).attrs(() => ({ type: 'number' }))``;
 
 NumberInput.displayName = 'NumberInput';
 

@@ -16,5 +16,4 @@ CircleButton.defaultProps = Object.assign({}, Button.defaultProps, {
   size: 'm',
 });
 
-
 export default CircleButton;

@@ -78,95 +78,13 @@ function _objectWithoutPropertiesLoose(source, excluded) {
   return target;
 }
 
-function _objectWithoutProperties(source, excluded) {
-  if (source == null) return {};
-
-  var target = _objectWithoutPropertiesLoose(source, excluded);
-
-  var key, i;
-
-  if (Object.getOwnPropertySymbols) {
-    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
-
-    for (i = 0; i < sourceSymbolKeys.length; i++) {
-      key = sourceSymbolKeys[i];
-      if (excluded.indexOf(key) >= 0) continue;
-      if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue;
-      target[key] = source[key];
-    }
-  }
-
-  return target;
-}
-
-function _taggedTemplateLiteral(strings, raw) {
+function _taggedTemplateLiteralLoose(strings, raw) {
   if (!raw) {
     raw = strings.slice(0);
   }
 
-  return Object.freeze(Object.defineProperties(strings, {
-    raw: {
-      value: Object.freeze(raw)
-    }
-  }));
-}
-
-function _slicedToArray(arr, i) {
-  return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest();
-}
-
-function _toConsumableArray(arr) {
-  return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread();
-}
-
-function _arrayWithoutHoles(arr) {
-  if (Array.isArray(arr)) {
-    for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) arr2[i] = arr[i];
-
-    return arr2;
-  }
-}
-
-function _arrayWithHoles(arr) {
-  if (Array.isArray(arr)) return arr;
-}
-
-function _iterableToArray(iter) {
-  if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter);
-}
-
-function _iterableToArrayLimit(arr, i) {
-  var _arr = [];
-  var _n = true;
-  var _d = false;
-  var _e = undefined;
-
-  try {
-    for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
-      _arr.push(_s.value);
-
-      if (i && _arr.length === i) break;
-    }
-  } catch (err) {
-    _d = true;
-    _e = err;
-  } finally {
-    try {
-      if (!_n && _i["return"] != null) _i["return"]();
-    } finally {
-      if (_d) throw _e;
-    }
-  }
-
-  return _arr;
-}
-
-function _nonIterableSpread() {
-  throw new TypeError("Invalid attempt to spread non-iterable instance");
-}
-
-function _nonIterableRest() {
-  throw new TypeError("Invalid attempt to destructure non-iterable instance");
+  strings.raw = raw;
+  return strings;
 }
 
 function createCommonjsModule(fn, module) {
@@ -991,14 +909,20 @@ var round = function round(props) {
 var Box = styled__default.div.withConfig({
   displayName: "Box",
   componentId: "jyr2uv-0"
-})(["display:flex;box-sizing:border-box;", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", ""], styledSystem.borders, styledSystem.borderRadius, styledSystem.borderColor, styledSystem.space, styledSystem.color, styledSystem.fontSize, styledSystem.alignItems, styledSystem.alignSelf, styledSystem.justifyContent, styledSystem.justifySelf, styledSystem.flexDirection, styledSystem.flex, styledSystem.flexWrap, styledSystem.order, styledSystem.gridColumn, styledSystem.gridRow, styledSystem.gridArea, styledSystem.zIndex, styledSystem.position, fullWidth, fullHeight, round, styledSystem.width, styledSystem.minWidth, styledSystem.maxWidth, styledSystem.height, styledSystem.minHeight, styledSystem.maxHeight, styledSystem.position, styledSystem.zIndex, styledSystem.top, styledSystem.left, styledSystem.bottom, styledSystem.right);
+})(["", " box-sizing:border-box;", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", ""], styledSystem.display, styledSystem.borders, styledSystem.borderRadius, styledSystem.borderColor, styledSystem.space, styledSystem.color, styledSystem.fontSize, styledSystem.alignItems, styledSystem.alignSelf, styledSystem.justifyContent, styledSystem.justifySelf, styledSystem.flexDirection, styledSystem.flex, styledSystem.flexWrap, styledSystem.order, styledSystem.gridColumn, styledSystem.gridRow, styledSystem.gridArea, styledSystem.zIndex, styledSystem.position, styledSystem.top, styledSystem.left, styledSystem.right, styledSystem.bottom, fullWidth, fullHeight, round, styledSystem.width, styledSystem.minWidth, styledSystem.maxWidth, styledSystem.height, styledSystem.minHeight, styledSystem.maxHeight, styledSystem.position, styledSystem.zIndex, styledSystem.top, styledSystem.left, styledSystem.bottom, styledSystem.right);
 Box.displayName = 'Box';
-Box.propTypes = _objectSpread({}, styledSystem.space.propTypes, styledSystem.color.propTypes, styledSystem.alignItems.propTypes, styledSystem.alignSelf.propTypes, styledSystem.justifyContent.propTypes, styledSystem.justifySelf.propTypes, styledSystem.flexDirection.propTypes, styledSystem.flex.propTypes, styledSystem.flexWrap.propTypes, styledSystem.order.propTypes, styledSystem.fontSize.propTypes, styledSystem.borderRadius.propTypes, styledSystem.width.propTypes, styledSystem.minWidth.propTypes, styledSystem.maxWidth.propTypes, styledSystem.height.propTypes, styledSystem.minHeight.propTypes, styledSystem.maxHeight.propTypes, styledSystem.borders.propTypes, styledSystem.borderColor.propTypes, styledSystem.zIndex.propTypes, styledSystem.position.propTypes, styledSystem.gridColumn.propTypes, styledSystem.gridRow.propTypes, styledSystem.gridArea.propTypes, styledSystem.top.propTypes, styledSystem.bottom.propTypes, styledSystem.left.propTypes, styledSystem.right.propTypes, {
+Box.propTypes = _objectSpread({}, styledSystem.space.propTypes, styledSystem.color.propTypes, styledSystem.alignItems.propTypes, styledSystem.alignSelf.propTypes, styledSystem.justifyContent.propTypes, styledSystem.justifySelf.propTypes, styledSystem.flexDirection.propTypes, styledSystem.flex.propTypes, styledSystem.flexWrap.propTypes, styledSystem.order.propTypes, styledSystem.fontSize.propTypes, styledSystem.borderRadius.propTypes, styledSystem.width.propTypes, styledSystem.minWidth.propTypes, styledSystem.maxWidth.propTypes, styledSystem.height.propTypes, styledSystem.minHeight.propTypes, styledSystem.maxHeight.propTypes, styledSystem.borders.propTypes, styledSystem.borderColor.propTypes, styledSystem.zIndex.propTypes, styledSystem.position.propTypes, styledSystem.top.propTypes, styledSystem.bottom.propTypes, styledSystem.left.propTypes, styledSystem.right.propTypes, styledSystem.gridColumn.propTypes, styledSystem.gridRow.propTypes, styledSystem.gridArea.propTypes, styledSystem.top.propTypes, styledSystem.bottom.propTypes, styledSystem.left.propTypes, styledSystem.right.propTypes, {
+  /** Whether container should take up all available width, or not */
   fullWidth: propTypes.bool,
+
+  /** Whether container should take up all available height, or not */
   fullHeight: propTypes.bool,
+
+  /** Container is round */
   round: propTypes.bool
 });
 Box.defaultProps = {
+  display: 'flex',
   flex: 'none',
   alignItems: 'center',
   justifyContent: 'center',
@@ -1022,8 +946,11 @@ Flex.displayName = 'Flex';
 var Grid = styled__default(Box).withConfig({
   displayName: "Grid",
   componentId: "sc-1y0kzo4-0"
-})(["display:grid;flex:unset;", " ", " ", " ", " ", " ", " ", " ", " ", ""], styledSystem.gridGap, styledSystem.gridRowGap, styledSystem.gridColumnGap, styledSystem.gridAutoFlow, styledSystem.gridAutoRows, styledSystem.gridAutoColumns, styledSystem.gridTemplateAreas, styledSystem.gridTemplateRows, styledSystem.gridTemplateColumns);
+})(["flex:unset;", " ", " ", " ", " ", " ", " ", " ", " ", ""], styledSystem.gridGap, styledSystem.gridRowGap, styledSystem.gridColumnGap, styledSystem.gridAutoFlow, styledSystem.gridAutoRows, styledSystem.gridAutoColumns, styledSystem.gridTemplateAreas, styledSystem.gridTemplateRows, styledSystem.gridTemplateColumns);
 Grid.displayName = 'Grid';
+Grid.defaultProps = Object.assign({}, Box.defaultProps, {
+  display: 'grid'
+});
 
 var direction = function direction(props) {
   return props.scrollDirection === 'vertical' ? styled.css(["overflow-y:scroll;flex-direction:column;width:100%;"]) : styled.css(["overflow-x:scroll;height:100%;"]);
@@ -1046,7 +973,7 @@ var Scrollable = function Scrollable(_ref) {
   var minimal = _ref.minimal,
       scrollDirection = _ref.scrollDirection,
       children = _ref.children,
-      props = _objectWithoutProperties(_ref, ["minimal", "scrollDirection", "children"]);
+      props = _objectWithoutPropertiesLoose(_ref, ["minimal", "scrollDirection", "children"]);
 
   return React__default.createElement(ScrollableFlex, {
     minimal: minimal,
@@ -1088,7 +1015,10 @@ var Card = styled__default(Box).withConfig({
 });
 Card.displayName = 'Card';
 Card.propTypes = _objectSpread({}, Box.propTypes, {
-  boxShadowSize: propTypes.oneOf(['none', 's', 'm', 'l', 'xl']),
+  /** Card box shadow size */
+  boxShadowSize: propTypes.oneOf(['none', 's', 'm', 'l', 'xl', 'xxl']),
+
+  /** Card box shadow intensity between 0 and 1 (higher is more intense) */
   boxShadowIntensity: propTypes.number
 });
 Card.defaultProps = Object.assign({}, Box.defaultProps, {
@@ -1108,7 +1038,7 @@ var BoxList = styled__default(Box).attrs(function (props) {
 })([""]);
 BoxList.displayName = 'BoxList';
 
-var BoxListItem = styled__default(Box).attrs(function (props) {
+var BoxListItem = styled__default(Box).attrs(function () {
   return {
     as: 'li'
   };
@@ -1129,10 +1059,13 @@ var fullHeight$1 = function fullHeight(props) {
 var Text = styled__default.div.withConfig({
   displayName: "Text",
   componentId: "sc-8esh7q-0"
-})(["box-sizing:border-box;", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", ";", ";"], styledSystem.space, styledSystem.width, styledSystem.height, styledSystem.minWidth, styledSystem.maxWidth, styledSystem.color, styledSystem.fontSize, styledSystem.lineHeight, styledSystem.textAlign, styledSystem.fontWeight, styledSystem.fontFamily, styledSystem.textStyle, styledSystem.position, styledSystem.zIndex, styledSystem.top, styledSystem.bottom, styledSystem.left, styledSystem.right, styledSystem.gridColumn, styledSystem.gridRow, styledSystem.gridArea, fullWidth$1, fullHeight$1);
+})(["box-sizing:border-box;", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", ";", ";"], styledSystem.display, styledSystem.space, styledSystem.width, styledSystem.height, styledSystem.minWidth, styledSystem.maxWidth, styledSystem.color, styledSystem.fontSize, styledSystem.lineHeight, styledSystem.textAlign, styledSystem.fontWeight, styledSystem.textStyle, styledSystem.position, styledSystem.zIndex, styledSystem.top, styledSystem.bottom, styledSystem.left, styledSystem.right, styledSystem.gridColumn, styledSystem.gridRow, styledSystem.gridArea, fullWidth$1, fullHeight$1);
 Text.displayName = 'Text';
-Text.propTypes = _objectSpread({}, styledSystem.space.propTypes, styledSystem.color.propTypes, styledSystem.fontSize.propTypes, styledSystem.fontFamily.propTypes, styledSystem.lineHeight.propTypes, styledSystem.width.propTypes, styledSystem.height.propTypes, styledSystem.minWidth.propTypes, styledSystem.maxWidth.propTypes, styledSystem.textAlign.propTypes, styledSystem.fontWeight.propTypes, styledSystem.textStyle.propTypes, styledSystem.gridColumn.propTypes, styledSystem.gridRow.propTypes, styledSystem.gridArea.propTypes, {
+Text.propTypes = _objectSpread({}, styledSystem.display.propTypes, styledSystem.space.propTypes, styledSystem.color.propTypes, styledSystem.fontSize.propTypes, styledSystem.lineHeight.propTypes, styledSystem.width.propTypes, styledSystem.height.propTypes, styledSystem.minWidth.propTypes, styledSystem.maxWidth.propTypes, styledSystem.textAlign.propTypes, styledSystem.fontWeight.propTypes, styledSystem.textStyle.propTypes, styledSystem.gridColumn.propTypes, styledSystem.gridRow.propTypes, styledSystem.gridArea.propTypes, {
+  /** Text contianer should take up all available width */
   fullWidth: propTypes.bool,
+
+  /** Text container should take up all available height */
   fullHeight: propTypes.bool
 });
 Text.defaultProps = {
@@ -1143,14 +1076,14 @@ Text.defaultProps = {
 };
 
 var defaultProps = {
-  color: 'grayscale.2',
+  color: 'grayscale.1',
   m: 0,
   fontWeight: 'light',
   lineHeight: 0,
   fontSize: 7,
   textAlign: 'left'
 };
-var H1 = styled__default(Text).attrs(function (props) {
+var H1 = styled__default(Text).attrs(function () {
   return {
     as: 'h1'
   };
@@ -1160,7 +1093,7 @@ var H1 = styled__default(Text).attrs(function (props) {
 })([""]);
 H1.displayName = 'Heading.H1';
 H1.defaultProps = defaultProps;
-var H2 = styled__default(Text).attrs(function (props) {
+var H2 = styled__default(Text).attrs(function () {
   return {
     as: 'h2'
   };
@@ -1173,7 +1106,7 @@ H2.defaultProps = Object.assign({}, defaultProps, {
   fontSize: 6,
   lineHeight: 1
 });
-var H3 = styled__default(Text).attrs(function (props) {
+var H3 = styled__default(Text).attrs(function () {
   return {
     as: 'h3'
   };
@@ -1186,7 +1119,7 @@ H3.defaultProps = Object.assign({}, defaultProps, {
   fontSize: 5,
   lineHeight: 1
 });
-var H4 = styled__default(Text).attrs(function (props) {
+var H4 = styled__default(Text).attrs(function () {
   return {
     as: 'h4'
   };
@@ -1199,7 +1132,7 @@ H4.defaultProps = Object.assign({}, defaultProps, {
   fontSize: 4,
   lineHeight: 2
 });
-var H5 = styled__default(Text).attrs(function (props) {
+var H5 = styled__default(Text).attrs(function () {
   return {
     as: 'h5'
   };
@@ -1212,7 +1145,7 @@ H5.defaultProps = Object.assign({}, defaultProps, {
   fontSize: 3,
   lineHeight: 3
 });
-var H6 = styled__default(Text).attrs(function (props) {
+var H6 = styled__default(Text).attrs(function () {
   return {
     as: 'h6'
   };
@@ -1228,7 +1161,7 @@ H6.defaultProps = Object.assign({}, defaultProps, {
 
 var Heading = function Heading(_ref) {
   var children = _ref.children,
-      props = _objectWithoutProperties(_ref, ["children"]);
+      props = _objectWithoutPropertiesLoose(_ref, ["children"]);
 
   return React__default.createElement(H3, props, children);
 };
@@ -1257,7 +1190,7 @@ var TruncateContainer = styled__default(Flex).withConfig({
 
 var Truncate = function Truncate(_ref) {
   var children = _ref.children,
-      props = _objectWithoutProperties(_ref, ["children"]);
+      props = _objectWithoutPropertiesLoose(_ref, ["children"]);
 
   return React__default.createElement(TruncateContainer, {
     justifyContent: "flex-start"
@@ -1283,17 +1216,23 @@ var round$1 = function round(props) {
 var Image = styled__default.img.withConfig({
   displayName: "Image",
   componentId: "bzb3ww-0"
-})(["", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", ""], styledSystem.space, styledSystem.width, styledSystem.height, styledSystem.borderRadius, styledSystem.position, styledSystem.zIndex, styledSystem.top, styledSystem.left, styledSystem.bottom, styledSystem.right, responsive, round$1, styledSystem.gridColumn, styledSystem.gridRow, styledSystem.gridArea);
+})(["", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", ""], styledSystem.display, styledSystem.space, styledSystem.width, styledSystem.height, styledSystem.borderRadius, styledSystem.position, styledSystem.zIndex, styledSystem.top, styledSystem.left, styledSystem.bottom, styledSystem.right, responsive, round$1, styledSystem.gridColumn, styledSystem.gridRow, styledSystem.gridArea);
 Image.displayName = 'Image';
-Image.propTypes = _objectSpread({}, styledSystem.space.propTypes, styledSystem.width.propTypes, styledSystem.height.propTypes, styledSystem.borderRadius.propTypes, styledSystem.gridColumn.propTypes, styledSystem.gridRow.propTypes, styledSystem.gridArea.propTypes, {
+Image.propTypes = _objectSpread({}, styledSystem.display.propTypes, styledSystem.space.propTypes, styledSystem.width.propTypes, styledSystem.height.propTypes, styledSystem.borderRadius.propTypes, styledSystem.gridColumn.propTypes, styledSystem.gridRow.propTypes, styledSystem.gridArea.propTypes, {
+  /** Image is responsive. */
   responsive: propTypes.bool,
+
+  /** Image is round. */
   round: propTypes.bool
 });
 Image.defaultProps = {
-  borderRadius: 0
+  borderRadius: 0,
+
+  /** Blockify images by default */
+  display: 'block'
 };
 
-var Vector = styled__default(Image).attrs(function (props) {
+var Vector = styled__default(Image).attrs(function () {
   return {
     as: 'svg',
     xmlns: 'http://www.w3.org/2000/svg'
@@ -1302,14 +1241,14 @@ var Vector = styled__default(Image).attrs(function (props) {
   displayName: "Vector",
   componentId: "sc-1cfwhg6-0"
 })(["fill:", ";"], function (props) {
-  return styledSystem.themeGet("colors.".concat(props.color), '#FFF');
+  return styledSystem.themeGet("colors." + props.color, '#FFF');
 });
 Vector.defaultProps = {
   color: 'foreground'
 };
 Vector.displayName = 'Vector';
 
-var Link = styled__default(Text).attrs(function (props) {
+var Link = styled__default(Text).attrs(function () {
   return {
     as: 'a'
   };
@@ -1327,7 +1266,10 @@ var Link = styled__default(Text).attrs(function (props) {
 });
 Link.displayName = 'Link';
 Link.propTypes = _objectSpread({}, Text.propTypes, {
+  /** Represents a link with text-decoration removed. */
   clean: propTypes.bool,
+
+  /** Represents an active link. */
   active: propTypes.bool
 });
 Link.defaultProps = Object.assign({}, Text.defaultProps, {
@@ -1337,6 +1279,16 @@ Link.defaultProps = Object.assign({}, Text.defaultProps, {
   active: false
 });
 
+var informationDensity = function informationDensity(props) {
+  var densityValues = {
+    compact: 1,
+    normal: 2,
+    spacious: 3
+  };
+  var d = densityValues[props.density];
+  return styled.css(["thead{th{padding-top:", "px;padding-bottom:", "px;}}tbody{tr{td{padding-top:", "px;padding-bottom:", "px;padding-right:", "px;}&:first-child{td{padding-top:", "px;}}&:last-child{td{border-bottom:0;padding-bottom:", "px;}}}}"], props.theme.space[d], props.theme.space[d], props.theme.space[d], props.theme.space[d], props.theme.space[props.horizontalCellPadding], props.theme.space[d], props.theme.space[d]);
+};
+
 var showSeparator = function showSeparator(props) {
   return props.showSeparator ? styled.css(["border-bottom:1px dashed ", ";"], props.theme.colors.grayscale[5]) : styled.css(["border-bottom:1px solid transparent;"]);
 };
@@ -1344,14 +1296,12 @@ var showSeparator = function showSeparator(props) {
 var StyledTable = styled__default.table.withConfig({
   displayName: "Table__StyledTable",
   componentId: "sc-1fbhr5n-0"
-})(["", " width:100%;border-spacing:0;border-collapse:separate;color:", ";box-sizing:border-box;border-bottom:2px solid ", ";th,td{vertical-align:top;text-align:left;box-sizing:border-box;&:last-child{padding-right:0;}&.cell--numeric{text-align:right;}&.cell--fill{width:100%;}&.cell--truncate{position:relative;> *{position:absolute;left:0;right:", "px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}}&.cell--disabled{opacity:0.3;}}thead{background-color:", ";th{font-size:", "px;color:", ";font-weight:", ";white-space:pre;padding-top:", "px;padding-bottom:", "px;padding-right:", "px;border-bottom:2px solid ", ";&:first-child{padding-left:", "px;border-radius:", "px 0 0 0;}&:last-child{padding-right:", "px;border-radius:0 ", "px 0 0;}}}tbody{tr{td{text-align:left;padding-top:", "px;padding-bottom:", "px;padding-right:", "px;", " &:first-child{padding-left:", "px;}&:last-child{padding-right:", "px;}}&:first-child{td{padding-top:", "px;}}&:last-child{td{border-bottom:0;padding-bottom:", "px;}}}}"], styledSystem.space, function (props) {
+})(["", " width:100%;border-spacing:0;border-collapse:separate;color:", ";box-sizing:border-box;border-bottom:2px solid ", ";th,td{vertical-align:top;text-align:left;box-sizing:border-box;&:last-child{padding-right:0;}&.cell--numeric{text-align:right;}&.cell--fill{width:100%;}&.cell--truncate{position:relative;> *{position:absolute;left:0;right:", "px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}}&.cell--disabled{opacity:0.3;}}thead{th{font-size:", "px;color:", ";font-weight:", ";white-space:pre;background-color:", ";padding-right:", "px;border-bottom:2px solid ", ";&:first-child{padding-left:", "px;border-radius:", "px 0 0 0;}&:last-child{padding-right:", "px;border-radius:0 ", "px 0 0;}}}tbody{tr{td{text-align:left;", " &:first-child{padding-left:", "px;}&:last-child{padding-right:", "px;}}}}", ""], styledSystem.space, function (props) {
   return props.theme.colors.foreground;
 }, function (props) {
   return props.theme.colors.grayscale[5];
 }, function (props) {
   return props.theme.space[3];
-}, function (props) {
-  return props.theme.colors.grayscale[6];
 }, function (props) {
   return props.theme.fontSizes[1];
 }, function (props) {
@@ -1359,9 +1309,7 @@ var StyledTable = styled__default.table.withConfig({
 }, function (props) {
   return props.theme.fontWeights.normal;
 }, function (props) {
-  return props.theme.space[2];
-}, function (props) {
-  return props.theme.space[2];
+  return props.theme.colors.grayscale[6];
 }, function (props) {
   return props.theme.space[3];
 }, function (props) {
@@ -1374,21 +1322,11 @@ var StyledTable = styled__default.table.withConfig({
   return props.theme.space[3];
 }, function (props) {
   return props.theme.radii[3];
-}, function (props) {
-  return props.theme.space[2];
-}, function (props) {
-  return props.theme.space[2];
-}, function (props) {
-  return props.theme.space[props.space];
 }, showSeparator, function (props) {
   return props.theme.space[3];
 }, function (props) {
   return props.theme.space[3];
-}, function (props) {
-  return props.theme.space[2];
-}, function (props) {
-  return props.theme.space[2];
-});
+}, informationDensity);
 var Col = styled__default.col.withConfig({
   displayName: "Table__Col",
   componentId: "sc-1fbhr5n-1"
@@ -1398,53 +1336,70 @@ var Table = function Table(_ref) {
   var id = _ref.id,
       columns = _ref.columns,
       rows = _ref.rows,
-      props = _objectWithoutProperties(_ref, ["id", "columns", "rows"]);
+      props = _objectWithoutPropertiesLoose(_ref, ["id", "columns", "rows"]);
 
   var cols = columns.map(function (c, i) {
     return React__default.createElement(Col, _extends({
-      key: "".concat(id, "__col__").concat(i)
+      key: id + "__col__" + i
     }, c));
   });
   var header = columns.map(function (c, i) {
     return React__default.createElement("th", {
-      key: "".concat(id, "__header__").concat(i),
-      className: "".concat(c.type === 'numeric' ? 'cell--numeric' : '')
+      key: id + "__header__" + i,
+      className: "" + (c.type === 'numeric' ? 'cell--numeric' : '')
     }, c.label);
   });
-  var rowItems = rows.map(function (r) {
-    var cells = r.cells.map(function (c, i) {
-      var _columns$i = columns[i],
-          fill = _columns$i.fill,
-          truncate = _columns$i.truncate,
-          rest = _objectWithoutProperties(_columns$i, ["fill", "truncate"]);
+  var rowItems = rows.map(function (r, rowIndex) {
+    var cells = r.cells.map(function (c, cellIndex) {
+      var _columns$cellIndex = columns[cellIndex],
+          fill = _columns$cellIndex.fill,
+          truncate = _columns$cellIndex.truncate,
+          rest = _objectWithoutPropertiesLoose(_columns$cellIndex, ["fill", "truncate"]);
 
-      var cell = "".concat(fill ? 'cell--fill' : '', " \n        ").concat(truncate ? 'cell--truncate' : '', " \n        ").concat(r.disabled ? 'cell--disabled' : '');
+      var cell = (fill ? 'cell--fill' : '') + " \n        " + (truncate ? 'cell--truncate' : '') + " \n        " + (r.disabled ? 'cell--disabled' : '');
       return React__default.createElement("td", {
-        key: "".concat(r.id, "-cell__").concat(i),
+        key: r.id + "-cell__" + cellIndex,
         className: cell,
         style: rest
       }, React__default.createElement("span", null, c.content));
     });
-    return React__default.createElement("tr", null, cells);
+    return React__default.createElement("tr", {
+      key: r.id + "-row__" + rowIndex
+    }, cells);
   });
   return React__default.createElement(StyledTable, props, React__default.createElement("colgroup", null, cols), React__default.createElement("thead", null, React__default.createElement("tr", null, header)), React__default.createElement("tbody", null, rowItems));
 };
 
 Table.displayName = 'Table';
 Table.propTypes = _objectSpread({}, styledSystem.space.propTypes, {
-  space: propTypes.number,
+  /** Optional identifier */
+  id: propTypes.node,
+
+  /** Horizontal padding */
+  horizontalCellPadding: propTypes.number,
+
+  /** Whether to show a separator between rows, or not */
   showSeparator: propTypes.bool,
-  columns: propTypes.object,
-  rows: propTypes.array
+
+  /** Columns to display in this table */
+  columns: propTypes.array,
+
+  /** Rows to display in this table */
+  rows: propTypes.array,
+
+  /** Information density */
+  density: propTypes.oneOf(['compact', 'normal', 'spacious'])
 });
 Table.defaultProps = {
+  id: Math.random() * 100,
   showSeparator: true,
-  space: 5,
+  horizontalCellPadding: 5,
   columns: null,
-  rows: null
+  rows: null,
+  density: 'normal'
 };
 
-var Label = styled__default(Text).attrs(function (props) {
+var Label = styled__default(Text).attrs(function () {
   return {
     as: 'label'
   };
@@ -1459,12 +1414,12 @@ Label.defaultProps = Object.assign({}, Text.defaultProps, {
 });
 
 var labelBorder = function labelBorder(props) {
-  var color = props.error ? props.theme.colors.reds[3] : styledSystem.themeGet("colors.".concat(props.borderColor))(props);
+  var color = props.error ? props.theme.colors.reds[3] : styledSystem.themeGet("colors." + props.borderColor)(props);
   return styled.css(["border:2px solid ", ";"], color || props.borderColor);
 };
 
 var labelBackground = function labelBackground(props) {
-  var color = styledSystem.themeGet("colors.".concat(props.color))(props);
+  var color = styledSystem.themeGet("colors." + props.color)(props);
   return styled.css(["background-color:", ";"], color || props.color);
 };
 
@@ -1503,7 +1458,7 @@ var Checkbox = function Checkbox(_ref) {
       name = _ref.name,
       size = _ref.size,
       className = _ref.className,
-      props = _objectWithoutProperties(_ref, ["id", "label", "labelColor", "onChange", "disabled", "checked", "required", "fontSize", "fontWeight", "textStyle", "name", "size", "className"]);
+      props = _objectWithoutPropertiesLoose(_ref, ["id", "label", "labelColor", "onChange", "disabled", "checked", "required", "fontSize", "fontWeight", "textStyle", "name", "size", "className"]);
 
   return React__default.createElement(CheckboxContainer, _extends({}, props, {
     size: size,
@@ -1530,11 +1485,22 @@ var Checkbox = function Checkbox(_ref) {
 
 Checkbox.displayName = 'Checkbox';
 Checkbox.propTypes = _objectSpread({}, styledSystem.space.propTypes, styledSystem.gridColumn.propTypes, styledSystem.gridRow.propTypes, styledSystem.gridArea.propTypes, {
+  /** Id, required for accessibility */
   id: propTypes.string.isRequired,
+
+  /** Label */
   label: propTypes.string,
+
+  /** Label colour */
   labelColor: propTypes.string,
+
+  /** Colour */
   color: propTypes.string,
+
+  /** Border colour */
   borderColor: propTypes.string,
+
+  /** Sizing based on theme space values */
   size: propTypes.number
 });
 Checkbox.defaultProps = {
@@ -1545,14 +1511,38 @@ Checkbox.defaultProps = {
   size: 3
 };
 
+function _templateObject() {
+  var data = _taggedTemplateLiteralLoose(["\n  :root, body {\n    width: 100vw;\n    min-height: 100vh;\n\n    margin: 0;\n    padding: 0;\n\n    font-size: 8px;\n    overflow-x: hidden;\n  }\n\n  body {\n    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;\n    font-size: 14px;\n    font-style: normal;\n    font-weight: 400;\n    line-height: 1.43;\n\n    // Specific layout resets.\n    display: flex;\n    flex: none;\n    flex-direction: column;\n  }\n\n  *, ::before, ::after {\n    box-sizing: border-box;\n  }\n\n  a,\n  a:hover,\n  a:visited {\n    text-decoration: none;\n  }\n\n  ul {\n    margin: 0;\n    padding: 0;\n    list-style-type: none;\n  }\n\n  code,\n  kbd {\n    font-family: \"SF Mono\", \"Segoe UI Mono\", \"Roboto Mono\", \"Ubuntu Mono\", Menlo, Courier, monospace;\n  }\n\n  template {\n    display: none;\n  }\n\n  article,\n  aside,\n  details,\n  figcaption,\n  figure,\n  footer,\n  header,\n  hgroup,\n  main,\n  menu,\n  nav,\n  section {\n    display: block;\n  }\n\n  html,\n  body,\n  p,\n  div,\n  h1,\n  h2,\n  h3,\n  h4,\n  h5,\n  h6,\n  ul,\n  ol,\n  dl,\n  img,\n  pre,\n  form,\n  fieldset {\n    margin: 0;\n    padding: 0;\n  }\n\n  img,\n  fieldset {\n    border: 0;\n  }\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var Normalize = styled.createGlobalStyle(_templateObject());
+
+var informationDensity$1 = function informationDensity(density) {
+  var densities = {
+    compact: 32,
+    normal: 40,
+    spacious: 48
+  };
+  return densities[density];
+};
+
 var isError = function isError(props) {
   return props.error && styled.css(["border:2px solid ", ";&:hover{border:2px solid ", ";}"], props.theme.colors.reds[3], props.theme.colors.reds[3]);
 };
 
-var TextInput = styled__default.input.withConfig({
+var TextInput = styled__default.input.attrs(function (props) {
+  return {
+    disabled: props.isDisabled
+  };
+}).withConfig({
   displayName: "TextInput",
   componentId: "p7hmrn-0"
-})(["box-sizing:border-box;position:relative;", " ", " ", " ", " ", " ", " ", " ", " ", " ", " padding-left:", "px;padding-right:", "px;line-height:", "px;width:", ";height:38px;&::-webkit-input-placeholder{color:", ";}&:focus{outline:0;border:2px solid ", ";padding-left:", "px;padding-right:", "px;}&:disabled{opacity:0.5;pointer-events:none;background-color:", ";border:1px solid ", ";}", ""], styledSystem.color, styledSystem.space, styledSystem.fontSize, styledSystem.width, styledSystem.borderRadius, styledSystem.border, styledSystem.borderColor, styledSystem.gridColumn, styledSystem.gridRow, styledSystem.gridArea, function (props) {
+})(["box-sizing:border-box;position:relative;", " ", " ", " ", " ", " ", " ", " ", " ", " ", " padding-left:", "px;padding-right:", "px;line-height:", "px;width:", ";height:", "px;&::-webkit-input-placeholder{color:", ";}&:focus{outline:0;border:2px solid ", ";padding-left:", "px;padding-right:", "px;}&:disabled{opacity:0.5;pointer-events:none;background-color:", ";border:1px solid ", ";}", ""], styledSystem.color, styledSystem.space, styledSystem.fontSize, styledSystem.width, styledSystem.borderRadius, styledSystem.border, styledSystem.borderColor, styledSystem.gridColumn, styledSystem.gridRow, styledSystem.gridArea, function (props) {
   return props.theme.space[2];
 }, function (props) {
   return props.theme.space[2];
@@ -1560,6 +1550,8 @@ var TextInput = styled__default.input.withConfig({
   return props.theme.fontSizes[props.fontSize];
 }, function (props) {
   return props.fullWidth ? '100%' : null;
+}, function (props) {
+  return informationDensity$1(props.density);
 }, function (props) {
   return props.theme.colors.grayscale[5];
 }, function (props) {
@@ -1575,9 +1567,17 @@ var TextInput = styled__default.input.withConfig({
 }, isError);
 TextInput.displayName = 'TextInput';
 TextInput.propTypes = _objectSpread({}, styledSystem.color.propTypes, styledSystem.space.propTypes, styledSystem.borderRadius.propTypes, styledSystem.fontSize.propTypes, styledSystem.width.propTypes, styledSystem.gridColumn.propTypes, styledSystem.gridRow.propTypes, styledSystem.gridArea.propTypes, {
-  disabled: propTypes.bool,
+  /** Whether the input field is disabled, or not */
+  isDisabled: propTypes.bool,
+
+  /** Optional error message to display */
   error: propTypes.any,
-  fullWidth: propTypes.bool
+
+  /** Whether the input field should take up all available horizontal space, or not */
+  fullWidth: propTypes.bool,
+
+  /** Information density for this field */
+  density: propTypes.oneOf(['compact', 'normal', 'spacious'])
 });
 TextInput.defaultProps = {
   disabled: false,
@@ -1588,10 +1588,11 @@ TextInput.defaultProps = {
   fontSize: 1,
   bg: 'background',
   border: '1px solid',
-  borderColor: 'grayscale.5'
+  borderColor: 'grayscale.5',
+  density: 'normal'
 };
 
-var NumberInput = styled__default(TextInput).attrs(function (props) {
+var NumberInput = styled__default(TextInput).attrs(function () {
   return {
     type: 'number'
   };
@@ -1601,20 +1602,22 @@ var NumberInput = styled__default(TextInput).attrs(function (props) {
 })([""]);
 NumberInput.displayName = 'NumberInput';
 
-var TextArea = styled__default(TextInput).attrs(function (props) {
+var TextArea = styled__default(TextInput).attrs(function () {
   return {
     as: 'textarea'
   };
 }).withConfig({
   displayName: "TextArea",
   componentId: "sc-9ceov9-0"
-})([""]);
+})(["height:auto;min-height:", "px;"], function (props) {
+  return props.theme.space[5];
+});
 TextArea.displayName = 'TextArea';
 TextArea.defaultProps = Object.assign({}, TextInput.defaultProps, {
   py: 2
 });
 
-var PasswordInput = styled__default(TextInput).attrs(function (props) {
+var PasswordInput = styled__default(TextInput).attrs(function () {
   return {
     type: 'password'
   };
@@ -1624,7 +1627,7 @@ var PasswordInput = styled__default(TextInput).attrs(function (props) {
 })([""]);
 PasswordInput.displayName = 'PasswordInput';
 
-var Select = styled__default(TextInput).attrs(function (props) {
+var Select = styled__default(TextInput).attrs(function () {
   return {
     as: 'select'
   };
@@ -1639,12 +1642,12 @@ var labelBorder$1 = function labelBorder(props) {
     return styled.css(["border:2px solid ", ";"], props.theme.colors.reds[3]);
   }
 
-  var color = styledSystem.themeGet("colors.".concat(props.borderColor))(props);
+  var color = styledSystem.themeGet("colors." + props.borderColor)(props);
   return styled.css(["border:2px solid ", ";"], color || props.borderColor);
 };
 
 var labelBackground$1 = function labelBackground(props) {
-  var color = styledSystem.themeGet("colors.".concat(props.color))(props);
+  var color = styledSystem.themeGet("colors." + props.color)(props);
   return styled.css(["background-color:", ";"], color || props.color);
 };
 
@@ -1681,7 +1684,7 @@ var Radio = function Radio(_ref) {
       name = _ref.name,
       size = _ref.size,
       className = _ref.className,
-      props = _objectWithoutProperties(_ref, ["id", "label", "labelColor", "onChange", "disabled", "checked", "required", "fontSize", "fontWeight", "textStyle", "name", "size", "className"]);
+      props = _objectWithoutPropertiesLoose(_ref, ["id", "label", "labelColor", "onChange", "disabled", "checked", "required", "fontSize", "fontWeight", "textStyle", "name", "size", "className"]);
 
   return React__default.createElement(RadioContainer, _extends({}, props, {
     size: size,
@@ -1708,11 +1711,22 @@ var Radio = function Radio(_ref) {
 
 Radio.displayName = 'Radio';
 Radio.propTypes = _objectSpread({}, styledSystem.space.propTypes, styledSystem.gridColumn.propTypes, styledSystem.gridRow.propTypes, styledSystem.gridArea.propTypes, {
+  /** Id, required for accessibility */
   id: propTypes.string.isRequired,
+
+  /** Label */
   label: propTypes.string,
+
+  /** Label colour */
   labelColor: propTypes.string,
+
+  /** Colour */
   color: propTypes.string,
+
+  /** Border colour */
   borderColor: propTypes.string,
+
+  /** Sizing based on theme space values */
   size: propTypes.number
 });
 Radio.defaultProps = {
@@ -1722,8 +1736,6 @@ Radio.defaultProps = {
   borderColor: 'grayscale.4',
   size: 3
 };
-
-// Once this is 'fixed', these should be moved back there.
 
 var buttonVariant = function buttonVariant(props) {
   var tertiary = styled.css(["background-color:", ";border-color:transparent;color:", ";fill:", ";&:hover{background-color:", ";}"], props.theme.colors.background, props.theme.colors.grayscale[1], props.theme.colors.grayscale[1], props.theme.colors.grayscale[5]);
@@ -1735,7 +1747,8 @@ var buttonVariant = function buttonVariant(props) {
     danger: styled.css(["background-color:", ";border-color:", ";color:", ";fill:", ";&:hover{background-color:", ";color:", ";fill:", ";}"], props.theme.colors.guidance.error[1], props.theme.colors.guidance.error[0], props.theme.colors.guidance.error[0], props.theme.colors.guidance.error[0], props.theme.colors.reds[5], props.theme.colors.guidance.error[0], props.theme.colors.guidance.error[0]),
     success: styled.css(["background-color:", ";border-color:", ";color:", ";fill:", ";&:hover{background-color:", ";color:", ";fill:", ";}"], props.theme.colors.guidance.success[1], props.theme.colors.guidance.success[0], props.theme.colors.guidance.success[0], props.theme.colors.guidance.success[0], props.theme.colors.greens[5], props.theme.colors.guidance.success[0], props.theme.colors.guidance.success[0]),
     subtle: tertiary,
-    link: styled.css(["background-color:transparent;border:0;color:", ";fill:", ";padding:0;text-decoration:underline dotted;&:hover{color:", ";fill:", ";text-decoration:underline;}"], props.theme.colors.grayscale[1], props.theme.colors.grayscale[1], props.theme.colors.accent[1], props.theme.colors.accent[1])
+    link: styled.css(["background-color:transparent;border:0;color:", ";fill:", ";padding:0;text-decoration:underline dotted;&:hover{color:", ";fill:", ";text-decoration:underline;}"], props.theme.colors.grayscale[1], props.theme.colors.grayscale[1], props.theme.colors.accent[1], props.theme.colors.accent[1]),
+    clean: styled.css(["background:0;border:0;color:inherit;fill:inherit;padding:0;width:unset;height:unset;&:hover{color:inherit;fill:inherit;}"])
   };
   return buttonVariants[props.variant];
 };
@@ -1745,16 +1758,17 @@ var isToggled = function isToggled(props) {
     return '';
   }
 
-  var tertiary = styled.css(["background-color:", ";&:hover{background-color:", ";}"], props.theme.colors.grayscale[5], props.theme.colors.grayscale[6]);
+  var tertiary = styled.css(["background-color:", ";color:", ";&:hover{background-color:", ";}"], props.theme.colors.grayscale[2], props.theme.colors.grayscale[6], props.theme.colors.grayscale[1]);
   var isToggledVariants = {
     primary: styled.css(["background-color:", ";&:hover{background-color:", ";}"], props.theme.colors.accent[0], props.theme.colors.accent[1]),
-    secondary: styled.css(["background-color:", ";&:hover{background-color:", ";}"], props.theme.colors.grayscale[5], props.theme.colors.grayscale[6]),
+    secondary: styled.css(["background-color:", ";color:", ";&:hover{background-color:", ";}"], props.theme.colors.grayscale[2], props.theme.colors.grayscale[6], props.theme.colors.grayscale[1]),
     tertiary: tertiary,
     warning: styled.css(["background-color:", ";&:hover{background-color:", ";}"], props.theme.colors.oranges[5], props.theme.colors.guidance.warning[1]),
     danger: styled.css(["background-color:", ";&:hover{background-color:", ";}"], props.theme.colors.reds[5], props.theme.colors.guidance.error[1]),
     success: styled.css(["background-color:", ";&:hover{background-color:", ";}"], props.theme.colors.greens[5], props.theme.colors.guidance.success[1]),
     subtle: tertiary,
-    link: styled.css(["color:", ";fill:", ";text-decoration:underline;&:hover{color:", ";fill:", ";text-decoration:underline dotted;}"], props.theme.colors.accent[1], props.theme.colors.accent[1], props.theme.colors.grayscale[1], props.theme.colors.grayscale[1])
+    link: styled.css(["color:", ";fill:", ";text-decoration:underline;&:hover{color:", ";fill:", ";text-decoration:underline dotted;}"], props.theme.colors.accent[1], props.theme.colors.accent[1], props.theme.colors.grayscale[1], props.theme.colors.grayscale[1]),
+    clean: styled.css([""])
   };
   return isToggledVariants[props.variant];
 };
@@ -1783,7 +1797,7 @@ var Button = styled__default.button.attrs(function (props) {
 }).withConfig({
   displayName: "Button",
   componentId: "sc-353pnt-0"
-})(["box-sizing:border-box;display:flex;flex:none;position:relative;", " ", " border:0;cursor:pointer;transition:border-color 180ms ease-out,background-color 180ms ease-out,color 180ms ease-out,fill 180ms ease-out,transform 180ms ease-out,opacity 180ms ease-out;", " ", " ", " ", " ", " ", " ", " &:focus{outline:0;&::after{position:absolute;top:-2px;left:-2px;right:-2px;bottom:-2px;content:\"\";box-shadow:0 0 0 2px ", ";border-radius:", "px;pointer-events:none;z-index:1;}}", " ", " ", " ", " ", " ", " &:disabled{opacity:0.5;background-color:", ";border:0;color:", ";fill:", ";pointer-events:none;}"], styledSystem.alignItems, styledSystem.justifyContent, styledSystem.fontSize, size, styledSystem.space, styledSystem.width, styledSystem.height, fullWidth$2, fullHeight$2, function (props) {
+})(["box-sizing:border-box;display:flex;flex:none;position:relative;", " ", " border:0;cursor:pointer;transition:border-color 180ms ease-out,background-color 180ms ease-out,color 180ms ease-out,fill 180ms ease-out,transform 180ms ease-out,opacity 180ms ease-out;", " ", " ", " ", " ", " ", " ", " ", " &:focus{outline:0;&::after{position:absolute;top:-2px;left:-2px;right:-2px;bottom:-2px;content:\"\";box-shadow:0 0 0 2px ", ";border-radius:", "px;pointer-events:none;z-index:1;}}", " ", " ", " ", " ", " ", " &:disabled{opacity:0.5;background-color:", ";border:0;color:", ";fill:", ";pointer-events:none;}"], styledSystem.alignItems, styledSystem.justifyContent, styledSystem.fontSize, styledSystem.fontWeight, size, styledSystem.space, styledSystem.width, styledSystem.height, fullWidth$2, fullHeight$2, function (props) {
   return props.theme.colors.guidance.focus;
 }, function (props) {
   return props.theme.radii[props.borderRadius];
@@ -1795,13 +1809,26 @@ var Button = styled__default.button.attrs(function (props) {
   return props.theme.colors.grayscale[4];
 });
 Button.displayName = 'Button';
-Button.propTypes = _objectSpread({}, styledSystem.space.propTypes, styledSystem.color.propTypes, styledSystem.width.propTypes, styledSystem.height.propTypes, styledSystem.borderRadius.propTypes, styledSystem.borderColor.propTypes, styledSystem.alignItems.propTypes, styledSystem.justifyContent.propTypes, styledSystem.fontSize.propTypes, {
+Button.propTypes = _objectSpread({}, styledSystem.space.propTypes, styledSystem.color.propTypes, styledSystem.width.propTypes, styledSystem.height.propTypes, styledSystem.borderRadius.propTypes, styledSystem.borderColor.propTypes, styledSystem.alignItems.propTypes, styledSystem.justifyContent.propTypes, styledSystem.fontSize.propTypes, styledSystem.fontWeight.propTypes, {
+  /** Whether the button is toggled. or not */
   isToggled: propTypes.bool,
+
+  /** Whether the button is disabled. or not */
   isDisabled: propTypes.bool,
+
+  /** Sizes to the full width of its parent container, or sizes to content */
   fullWidth: propTypes.bool,
+
+  /** Sizes to the full height of its parent container, or sizes to content */
   fullHeight: propTypes.bool,
-  variant: propTypes.oneOf(['primary', 'secondary', 'tertiary', 'danger', 'warning', 'success', 'subtle', 'link']),
+
+  /** Button variant */
+  variant: propTypes.oneOf(['primary', 'secondary', 'tertiary', 'danger', 'warning', 'success', 'subtle', 'link', 'clean']),
+
+  /** Button size */
   size: propTypes.oneOf(['s', 'm', 'l']),
+
+  /** Button type */
   type: propTypes.string
 });
 Button.defaultProps = {
@@ -1814,7 +1841,6 @@ Button.defaultProps = {
   variant: 'secondary',
   alignItems: 'center',
   justifyContent: 'center',
-  whiteSpace: 'nowrap',
   size: 'm',
   type: 'button'
 };
@@ -1844,17 +1870,6 @@ SquareButton.defaultProps = Object.assign({}, Button.defaultProps, {
   justifyContent: 'center',
   size: 'm'
 });
-
-function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  :root, body {\n    width: 100%;\n    height: 100%;\n\n    margin: 0;\n    padding: 0;\n\n    font-size: 8px;\n    overflow-x: hidden;\n  }\n\n  body {\n    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;\n    font-size: 14px;\n    font-style: normal;\n    font-weight: 400;\n    line-height: 1.43;\n\n    // Specific layout resets.\n    display: flex;\n    flex: none;\n    flex-direction: column;\n  }\n\n  *, ::before, ::after {\n    box-sizing: border-box;\n  }\n\n  a,\n  a:hover,\n  a:visited {\n    text-decoration: none;\n  }\n\n  ul {\n    margin: 0;\n    padding: 0;\n    list-style-type: none;\n  }\n\n  code,\n  kbd {\n    font-family: \"SF Mono\", \"Segoe UI Mono\", \"Roboto Mono\", \"Ubuntu Mono\", Menlo, Courier, monospace;\n  }\n\n  template {\n    display: none;\n  }\n\n  article,\n  aside,\n  details,\n  figcaption,\n  figure,\n  footer,\n  header,\n  hgroup,\n  main,\n  menu,\n  nav,\n  section {\n    display: block;\n  }\n\n  html,\n  body,\n  p,\n  div,\n  h1,\n  h2,\n  h3,\n  h4,\n  h5,\n  h6,\n  ul,\n  ol,\n  dl,\n  img,\n  pre,\n  form,\n  fieldset {\n    margin: 0;\n    padding: 0;\n  }\n\n  img,\n  fieldset {\n    border: 0;\n  }\n"]);
-
-  _templateObject = function _templateObject() {
-    return data;
-  };
-
-  return data;
-}
-var Normalize = styled.createGlobalStyle(_templateObject());
 
 var breakpoints = ['40em', '52em', '64em'];
 
@@ -1949,22 +1964,22 @@ var randomColor = function randomColor() {
 };
 
 var lightSwatch = {
-  background: "var(--c-background, ".concat(white, ")"),
-  foreground: "var(--c-foreground, ".concat(grayscale[0], ")"),
-  grayscale: _toConsumableArray(grayscale)
+  background: "var(--c-background, " + white + ")",
+  foreground: "var(--c-foreground, " + grayscale[0] + ")",
+  grayscale: [].concat(grayscale)
 }; // Construct a base colors object to use in a theme.
 
 var baseColors = {
   // Primary palettes
   black: black,
   white: white,
-  accent: _toConsumableArray(colour.accent),
+  accent: [].concat(colour.accent),
   // Secondary palettes
-  blues: _toConsumableArray(colour.blues),
-  reds: _toConsumableArray(colour.reds),
-  oranges: _toConsumableArray(colour.oranges),
-  greens: _toConsumableArray(colour.greens),
-  purples: _toConsumableArray(colour.purples),
+  blues: [].concat(colour.blues),
+  reds: [].concat(colour.reds),
+  oranges: [].concat(colour.oranges),
+  greens: [].concat(colour.greens),
+  purples: [].concat(colour.purples),
   // Guidance palettes
   guidance: {
     info: [colour.blues[0], colour.blues[6]],
@@ -1993,47 +2008,6 @@ var lightTheme = Object.assign({}, baseTheme, {
   colors: lightColors
 });
 
-var reverseGrayscale = [].concat(_toConsumableArray(colour.grayscale.slice(1)), [lightTheme.colors.white]);
-reverseGrayscale.reverse();
-
-var getTheme = function getTheme(type) {
-  var themeDefinitions = {
-    light: {
-      foreground: colour.grayscale[0],
-      background: lightTheme.colors.white,
-      grayscale: _toConsumableArray(colour.grayscale)
-    },
-    dark: {
-      foreground: lightTheme.colors.white,
-      background: colour.grayscale[0],
-      grayscale: reverseGrayscale
-    }
-  };
-  return themeDefinitions[type];
-};
-
-var changeTheme = function changeTheme(type) {
-  var root = document.querySelector(':root');
-  var newTheme = getTheme(type, root);
-  root.style.setProperty('--c-foreground', newTheme.foreground);
-  root.style.setProperty('--c-background', newTheme.background);
-  newTheme.grayscale.forEach(function (c, i) {
-    root.style.setProperty("--c-grayscale-".concat(i), c);
-  });
-};
-changeTheme.defaultProps = {
-  type: 'light'
-};
-var changeAccent = function changeAccent(colour$$1) {
-  var root = document.querySelector(':root');
-
-  var newColours = _toConsumableArray(lightTheme.colors[colour$$1]);
-
-  newColours.forEach(function (c, i) {
-    root.style.setProperty("--c-accent-".concat(i), c);
-  });
-};
-
 var getWindowSize = function getWindowSize() {
   return {
     innerWidth: window.innerWidth,
@@ -2049,13 +2023,12 @@ var getWindowSize = function getWindowSize() {
 
 var useWindowSize = function useWindowSize() {
   var _useState = React.useState(getWindowSize()),
-      _useState2 = _slicedToArray(_useState, 2),
-      windowSize = _useState2[0],
-      setWindowSize = _useState2[1];
+      windowSize = _useState[0],
+      setWindowSize = _useState[1];
 
   var handleResize = React.useCallback(function () {
     return setWindowSize(getWindowSize());
-  }, []);
+  });
   React.useEffect(function () {
     window.addEventListener('resize', handleResize);
     return function () {
@@ -2069,9 +2042,8 @@ var selector = '#base__portal';
 
 var usePortal = function usePortal(child) {
   var _useState = React.useState(null),
-      _useState2 = _slicedToArray(_useState, 2),
-      container = _useState2[0],
-      setContainer = _useState2[1];
+      container = _useState[0],
+      setContainer = _useState[1];
 
   if (typeof window === 'undefined') {
     return null;
@@ -2113,36 +2085,41 @@ var useInterval = function useInterval(callback, delay) {
         return clearInterval(id);
       };
     }
+
+    return null;
   }, [delay]);
 };
 
-var themeDefinitions = {
-  light: {
-    foreground: colour.grayscale[0],
-    background: lightTheme.colors.white,
-    grayscale: _toConsumableArray(colour.grayscale)
-  },
-  dark: {
-    foreground: 'hsl(220, 4%, 98%)',
-    background: 'hsl(228, 34%, 9%)',
-    grayscale: _toConsumableArray(colour.reverseGrayscale)
-  }
+var getTheme = function getTheme(type) {
+  var themeDefinitions = {
+    light: {
+      foreground: colour.grayscale[0],
+      background: lightTheme.colors.white,
+      grayscale: [].concat(colour.grayscale)
+    },
+    dark: {
+      foreground: 'hsl(220, 4%, 98%)',
+      background: 'hsl(228, 34%, 9%)',
+      grayscale: [].concat(colour.reverseGrayscale)
+    }
+  };
+  return themeDefinitions[type];
 };
 
 var useTheme = function useTheme() {
   var _useState = React.useState('light'),
-      _useState2 = _slicedToArray(_useState, 2),
-      theme = _useState2[0],
-      setTheme = _useState2[1];
+      theme = _useState[0],
+      setTheme = _useState[1];
 
   React.useEffect(function () {
     return void requestAnimationFrame(function () {
+      // eslint-disable-line no-void
       var root = document.querySelector(':root');
-      var newTheme = themeDefinitions[theme];
+      var newTheme = getTheme(theme, root);
       root.style.setProperty('--c-foreground', newTheme.foreground);
       root.style.setProperty('--c-background', newTheme.background);
       newTheme.grayscale.forEach(function (c, i) {
-        root.style.setProperty("--c-grayscale-".concat(i), c);
+        root.style.setProperty("--c-grayscale-" + i, c);
       });
     }, [theme]);
   });
@@ -2150,19 +2127,17 @@ var useTheme = function useTheme() {
 };
 
 var useAccent = function useAccent() {
-  var _useState = React.useState('blues'),
-      _useState2 = _slicedToArray(_useState, 2),
-      accent = _useState2[0],
-      setAccent = _useState2[1];
+  var _useState = React.useState('greens'),
+      accent = _useState[0],
+      setAccent = _useState[1];
 
   React.useEffect(function () {
     return void requestAnimationFrame(function () {
+      // eslint-disable-line no-void
       var root = document.querySelector(':root');
-
-      var newColours = _toConsumableArray(colour[accent]);
-
+      var newColours = [].concat(colour[accent]);
       newColours.forEach(function (c, i) {
-        root.style.setProperty("--c-accent-".concat(i), c);
+        root.style.setProperty("--c-accent-" + i, c);
       });
     }, [accent]);
   });
@@ -2195,8 +2170,7 @@ exports.Button = Button;
 exports.CircleButton = CircleButton;
 exports.SquareButton = SquareButton;
 exports.Normalize = Normalize;
-exports.changeTheme = changeTheme;
-exports.changeAccent = changeAccent;
+exports.informationDensity = informationDensity$1;
 exports.theme = lightTheme;
 exports.randomA11y = randomA11y;
 exports.randomColor = randomColor;

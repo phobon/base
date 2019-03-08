@@ -8,12 +8,12 @@ import {
   alignItems,
   justifyContent,
   fontSize,
+  fontWeight,
   border,
-  borderColor} from 'styled-system';
+  borderColor,
+} from 'styled-system';
 import PropTypes from 'prop-types';
 
-// This is basically taken from tokens/buttons.js in order to pull in themed values for button styles.
-// Once this is 'fixed', these should be moved back there.
 const buttonVariant = props => {
   const tertiary = css`
     background-color: ${props.theme.colors.background};
@@ -95,6 +95,19 @@ const buttonVariant = props => {
         text-decoration: underline;
       }
     `,
+    clean: css`
+      background: 0;
+      border: 0;
+      color: inherit;
+      fill: inherit;
+      padding: 0;
+      width: unset;
+      height: unset;
+      &:hover {
+        color: inherit;
+        fill: inherit;
+      }
+    `,
   };
 
   return buttonVariants[props.variant];
@@ -106,9 +119,10 @@ const isToggled = props => {
   }
 
   const tertiary = css`
-    background-color: ${props.theme.colors.grayscale[5]};
+    background-color: ${props.theme.colors.grayscale[2]};
+      color: ${props.theme.colors.grayscale[6]};
     &:hover {
-      background-color: ${props.theme.colors.grayscale[6]};
+      background-color: ${props.theme.colors.grayscale[1]};
     }
   `;
   const isToggledVariants = {
@@ -119,9 +133,10 @@ const isToggled = props => {
       }
     `,
     secondary: css`
-      background-color: ${props.theme.colors.grayscale[5]};
+      background-color: ${props.theme.colors.grayscale[2]};
+      color: ${props.theme.colors.grayscale[6]};
       &:hover {
-        background-color: ${props.theme.colors.grayscale[6]};
+        background-color: ${props.theme.colors.grayscale[1]};
       }
     `,
     tertiary,
@@ -155,6 +170,8 @@ const isToggled = props => {
         fill: ${props.theme.colors.grayscale[1]};
         text-decoration: underline dotted;
       }
+    `,
+    clean: css`
     `,
   };
 
@@ -192,72 +209,73 @@ const size = props => {
 const Button = styled.button.attrs(props => ({
   disabled: props.isDisabled,
 }))`
-    box-sizing: border-box;
-    display: flex;
-    flex: none;
-    position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex: none;
+  position: relative;
 
-    ${alignItems}
-    ${justifyContent}
+  ${alignItems}
+  ${justifyContent}
 
-    border: 0;
+  border: 0;
 
-    cursor: pointer;
+  cursor: pointer;
 
-    transition:
-      border-color 180ms ease-out,
-      background-color 180ms ease-out,
-      color 180ms ease-out,
-      fill 180ms ease-out,
-      transform 180ms ease-out,
-      opacity 180ms ease-out;
+  transition:
+    border-color 180ms ease-out,
+    background-color 180ms ease-out,
+    color 180ms ease-out,
+    fill 180ms ease-out,
+    transform 180ms ease-out,
+    opacity 180ms ease-out;
 
-    ${fontSize}
+  ${fontSize}
+  ${fontWeight}
 
-    ${size}
+  ${size}
 
-    ${space}
-    ${width}
-    ${height}
+  ${space}
+  ${width}
+  ${height}
 
-    ${fullWidth}
-    ${fullHeight}
+  ${fullWidth}
+  ${fullHeight}
 
-    &:focus {
-      outline: 0;
+  &:focus {
+    outline: 0;
 
-      &::after {
-        position: absolute;
-        top: -2px;
-        left: -2px;
-        right: -2px;
-        bottom: -2px;
-        content: "";
-        box-shadow: 0 0 0 2px ${props => props.theme.colors.guidance.focus};
-        border-radius: ${props => props.theme.radii[props.borderRadius]}px;
-        pointer-events: none;
-        z-index: 1;
-      }
-    }
-
-    ${buttonVariant}
-
-    /* color, border, borderColor, borderRadius and isToggled/disabled need precedence over buttonVariants */
-    ${color}
-    ${border}
-    ${borderColor}
-    ${borderRadius}
-
-    ${isToggled}
-
-    &:disabled {
-      opacity: 0.5;
-      background-color: ${props => props.theme.colors.grayscale[6]};
-      border: 0;
-      color: ${props => props.theme.colors.grayscale[4]};
-      fill: ${props => props.theme.colors.grayscale[4]};
+    &::after {
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      content: "";
+      box-shadow: 0 0 0 2px ${props => props.theme.colors.guidance.focus};
+      border-radius: ${props => props.theme.radii[props.borderRadius]}px;
       pointer-events: none;
+      z-index: 1;
     }
+  }
+
+  ${buttonVariant}
+
+  /* color, border, borderColor, borderRadius and isToggled/disabled need precedence over buttonVariants */
+  ${color}
+  ${border}
+  ${borderColor}
+  ${borderRadius}
+
+  ${isToggled}
+
+  &:disabled {
+    opacity: 0.5;
+    background-color: ${props => props.theme.colors.grayscale[6]};
+    border: 0;
+    color: ${props => props.theme.colors.grayscale[4]};
+    fill: ${props => props.theme.colors.grayscale[4]};
+    pointer-events: none;
+  }
 `;
 
 Button.displayName = 'Button';
@@ -272,19 +290,27 @@ Button.propTypes = {
   ...alignItems.propTypes,
   ...justifyContent.propTypes,
   ...fontSize.propTypes,
+  ...fontWeight.propTypes,
 
+  /** Whether the button is toggled. or not */
   isToggled: PropTypes.bool,
 
+  /** Whether the button is disabled. or not */
   isDisabled: PropTypes.bool,
 
+  /** Sizes to the full width of its parent container, or sizes to content */
   fullWidth: PropTypes.bool,
 
+  /** Sizes to the full height of its parent container, or sizes to content */
   fullHeight: PropTypes.bool,
 
-  variant: PropTypes.oneOf(['primary', 'secondary', 'tertiary', 'danger', 'warning', 'success', 'subtle', 'link']),
+  /** Button variant */
+  variant: PropTypes.oneOf(['primary', 'secondary', 'tertiary', 'danger', 'warning', 'success', 'subtle', 'link', 'clean']),
 
+  /** Button size */
   size: PropTypes.oneOf(['s', 'm', 'l']),
 
+  /** Button type */
   type: PropTypes.string,
 };
 
@@ -298,7 +324,6 @@ Button.defaultProps = {
   variant: 'secondary',
   alignItems: 'center',
   justifyContent: 'center',
-  whiteSpace: 'nowrap',
   size: 'm',
   type: 'button',
 };

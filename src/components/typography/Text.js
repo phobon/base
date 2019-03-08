@@ -11,7 +11,6 @@ import {
   maxWidth, 
   textAlign, 
   fontWeight, 
-  fontFamily,
   textStyle,
   gridColumn,
   gridRow,
@@ -19,6 +18,7 @@ import {
   position,
   zIndex,
   top, left, bottom, right,
+  display,
 } from 'styled-system';
 
 const fullWidth = props => props.fullWidth && 'width: 100%';
@@ -27,6 +27,7 @@ const fullHeight = props => props.fullHeight && 'height: 100%';
 const Text = styled.div`
   box-sizing: border-box;
   
+  ${display}
   ${space}
   ${width}
   ${height}
@@ -37,7 +38,6 @@ const Text = styled.div`
   ${lineHeight}
   ${textAlign}
   ${fontWeight}
-  ${fontFamily}
   ${textStyle}
 
   ${position}
@@ -58,10 +58,10 @@ const Text = styled.div`
 Text.displayName = 'Text';
 
 Text.propTypes = {
+  ...display.propTypes,
   ...space.propTypes, 
   ...color.propTypes, 
   ...fontSize.propTypes, 
-  ...fontFamily.propTypes,
   ...lineHeight.propTypes, 
   ...width.propTypes, 
   ...height.propTypes, 
@@ -75,8 +75,10 @@ Text.propTypes = {
   ...gridRow.propTypes,
   ...gridArea.propTypes,
 
+  /** Text contianer should take up all available width */
   fullWidth: PropTypes.bool,
 
+  /** Text container should take up all available height */
   fullHeight: PropTypes.bool,
 };
 

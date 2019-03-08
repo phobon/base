@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Text from './Text';
 
 const defaultProps = {
-  color: 'grayscale.2',
+  color: 'grayscale.1',
   m: 0,
   fontWeight: 'light',
   lineHeight: 0,
@@ -12,39 +12,39 @@ const defaultProps = {
   textAlign: 'left',
 };
 
-const H1 = styled(Text).attrs(props => ({ as: 'h1' }))``;
+const H1 = styled(Text).attrs(() => ({ as: 'h1' }))``;
 H1.displayName = 'Heading.H1';
 H1.defaultProps = defaultProps;
 
-const H2 = styled(Text).attrs(props => ({ as: 'h2' }))``;
+const H2 = styled(Text).attrs(() => ({ as: 'h2' }))``;
 H2.displayName = 'Heading.H2';
 H2.defaultProps = Object.assign({}, defaultProps, {
   fontSize: 6,
   lineHeight: 1,
 });
 
-const H3 = styled(Text).attrs(props => ({ as: 'h3' }))``;
+const H3 = styled(Text).attrs(() => ({ as: 'h3' }))``;
 H3.displayName = 'Heading.H3';
 H3.defaultProps = Object.assign({}, defaultProps, {
   fontSize: 5,
   lineHeight: 1,
 });
 
-const H4 = styled(Text).attrs(props => ({ as: 'h4' }))``;
+const H4 = styled(Text).attrs(() => ({ as: 'h4' }))``;
 H4.displayName = 'Heading.H4';
 H4.defaultProps = Object.assign({}, defaultProps, {
   fontSize: 4,
   lineHeight: 2,
 });
 
-const H5 = styled(Text).attrs(props => ({ as: 'h5' }))``;
+const H5 = styled(Text).attrs(() => ({ as: 'h5' }))``;
 H5.displayName = 'Heading.H5';
 H5.defaultProps = Object.assign({}, defaultProps, {
   fontSize: 3,
   lineHeight: 3,
 });
 
-const H6 = styled(Text).attrs(props => ({ as: 'h6' }))``;
+const H6 = styled(Text).attrs(() => ({ as: 'h6' }))``;
 H6.displayName = 'Heading.H6';
 H6.defaultProps = Object.assign({}, defaultProps, {
   fontSize: 2,

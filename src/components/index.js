@@ -13,11 +13,6 @@ import {
   Button, CircleButton, SquareButton,
 } from './buttons';
 
-import {
-  Normalize,
-  changeTheme, changeAccent,
-} from './utils';
-
 export {
   Box, Flex, Scrollable, Grid, Card,
   BoxList, BoxListItem,
@@ -27,5 +22,4 @@ export {
   Table,
   Checkbox, TextInput, NumberInput, PasswordInput, Label, Select, TextArea, Radio,
   Button, CircleButton, SquareButton,
-  Normalize, changeTheme, changeAccent,
 };

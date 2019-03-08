@@ -1,26 +1,12 @@
 import { useState, useEffect } from 'react';
-import { theme } from '../tokens';
-import { colour } from '../tokens/palettes';
-
-const themeDefinitions = {
-  light: {
-    foreground: colour.grayscale[0],
-    background: theme.colors.white,
-    grayscale: [...colour.grayscale],
-  },
-  dark: {
-    foreground: 'hsl(220, 4%, 98%)',
-    background: 'hsl(228, 34%, 9%)',
-    grayscale: [...colour.reverseGrayscale],
-  },
-};
+import getTheme from './getTheme';
 
 const useTheme = () => {
   const [theme, setTheme] = useState('light');
 
-  useEffect(() => void requestAnimationFrame(() => {
+  useEffect(() => void requestAnimationFrame(() => { // eslint-disable-line no-void
     const root = document.querySelector(':root');
-    const newTheme = themeDefinitions[theme];
+    const newTheme = getTheme(theme, root);
 
     root.style.setProperty('--c-foreground', newTheme.foreground);
     root.style.setProperty('--c-background', newTheme.background);
