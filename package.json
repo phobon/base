@@ -16,7 +16,7 @@
   "scripts": {
     "build:cjs": "cross-env NODE_ENV=cjs babel src -o dist/index.cjs.js",
     "build:esm": "cross-env NODE_ENV=esm babel src -o dist/index.esm.js",
-    "clean": "rm -rf dist && mkdir dist",
+    "clean": "npx shx rm -rf dist && npx shx mkdir dist",
     "prepare": "npm run clean && npm run build:cjs && npm run build:esm"
   },
   "devDependencies": {
