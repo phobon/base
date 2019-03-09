@@ -20,6 +20,7 @@ import {
 import {
   Normalize,
   informationDensity,
+  destructureLayoutProps,
 } from './utils';
 
 export {
@@ -31,7 +32,7 @@ export {
   Table,
   Checkbox, TextInput, NumberInput, PasswordInput, Label, Select, TextArea, Radio,
   Button, CircleButton, SquareButton,
-  Normalize, informationDensity,
+  Normalize, informationDensity, destructureLayoutProps
   theme, randomA11y, randomColor,
   useInterval, usePortal, useWindowSize, useTheme, useAccent,
 };

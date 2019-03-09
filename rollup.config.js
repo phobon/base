@@ -9,7 +9,7 @@ export default {
     file: 'dist/index.js',
     format: 'cjs',
   },
-  external: id => /^react|react-|styled-components|styled-system|rmdi/.test(id),
+  external: id => /^react|react-|styled-components|styled-system/.test(id),
   plugins: [
     babel({
       exclude: ['node_modules/**'],
