@@ -1,1 +1,4 @@
-export {default} from './theme';
+import theme from './theme';
+import { randomA11y, randomColor } from './palettes';
+
+export { theme, randomA11y, randomColor }
