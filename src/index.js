@@ -32,7 +32,7 @@ export {
   Table,
   Checkbox, TextInput, NumberInput, PasswordInput, Label, Select, TextArea, Radio,
   Button, CircleButton, SquareButton,
-  Normalize, informationDensity, destructureLayoutProps
+  Normalize, informationDensity, destructureLayoutProps,
   theme, randomA11y, randomColor,
   useInterval, usePortal, useWindowSize, useTheme, useAccent,
 };
