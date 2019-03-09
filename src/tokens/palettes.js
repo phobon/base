@@ -11,6 +11,7 @@ export const grayscale = [
   'var(--c-grayscale-4, hsl(228, 6%, 65%))',
   'var(--c-grayscale-5, hsl(223, 6%, 78%))',
   'var(--c-grayscale-6, hsl(220, 7%, 91%))',
+  'var(--c-grayscale-7, hsl(220, 6%, 96%))',
 ];
 
 export const colour = {
@@ -23,7 +24,7 @@ export const colour = {
     'var(--c-accent-5, hsl(197, 72%, 74%))',
     'var(--c-accent-6, hsl(199, 84%, 90%))',
   ],
-
+  
   grayscale: [
     'hsl(228, 34%, 11%)',
     'hsl(227, 14%, 25%)',
