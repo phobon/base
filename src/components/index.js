@@ -9,10 +9,6 @@ import {
   Checkbox, TextInput, NumberInput, PasswordInput, Label, Select, TextArea, Radio,
 } from './form';
 
-import {
-  Button, CircleButton, SquareButton,
-} from './buttons';
-
 export {
   Box, Flex, Scrollable, Grid, Card,
   BoxList, BoxListItem,
@@ -21,5 +17,4 @@ export {
   Link,
   Table,
   Checkbox, TextInput, NumberInput, PasswordInput, Label, Select, TextArea, Radio,
-  Button, CircleButton, SquareButton,
 };

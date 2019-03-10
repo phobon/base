@@ -6,7 +6,6 @@ import {
   Link,
   Table,
   Checkbox, TextInput, NumberInput, PasswordInput, Label, Select, TextArea, Radio,
-  Button, CircleButton, SquareButton,
 } from './components';
 
 import {
@@ -31,7 +30,6 @@ export {
   Link,
   Table,
   Checkbox, TextInput, NumberInput, PasswordInput, Label, Select, TextArea, Radio,
-  Button, CircleButton, SquareButton,
   Normalize, informationDensity, destructureLayoutProps,
   theme, randomA11y, randomColor,
   useInterval, usePortal, useWindowSize, useTheme, useAccent,
