@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { Text } from '../typography';
 
 const Link = styled(Text).attrs(() => ({ as: 'a' }))`
-  text-decoration: ${props => props.clean ? 'none' : 'underline dotted'};
+  text-decoration: ${props => props.clean ? 'none' : 'underline dashed'};
   position: relative;
 
   &:hover {

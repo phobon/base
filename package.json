@@ -15,7 +15,8 @@
   "scripts": {
     "build": "rollup -c",
     "clean": "npx shx rm -rf dist && mkdir dist",
-    "prepare": "npm run clean && npm run build"
+    "prepare": "npm run clean && npm run build",
+    "storybook": "start-storybook"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
@@ -25,6 +26,9 @@
     "@babel/plugin-transform-regenerator": "^7.3.4",
     "@babel/preset-env": "^7.3.4",
     "@babel/preset-react": "^7.0.0",
+    "@storybook/addon-actions": "^5.0.1",
+    "@storybook/addons": "^5.0.1",
+    "@storybook/react": "^5.0.1",
     "babel-loader": "^8.0.5",
     "babel-plugin-styled-components": "^1.10.0",
     "cross-env": "^5.2.0",
