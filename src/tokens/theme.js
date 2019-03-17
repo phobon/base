@@ -15,9 +15,6 @@ import radii from './radii';
 
 import { white, black, focus, grayscale, colour } from './palettes';
 
-const reverseGrayscale = [...grayscale.slice(1), '#FFF'];
-reverseGrayscale.reverse();
-
 const lightSwatch = {
   background: `var(--c-background, ${white})`,
   foreground: `var(--c-foreground, ${grayscale[0]})`,

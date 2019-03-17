@@ -106,6 +106,7 @@ TextInput.defaultProps = {
   fontSize: 1,
   bg: 'background',
   border: '2px solid',
+  color: 'foreground',
   borderColor: 'grayscale.5',
   density: 'normal',
 };

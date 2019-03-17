@@ -6,7 +6,7 @@ const useTheme = (initial = 'light') => {
 
   useEffect(() => void requestAnimationFrame(() => { // eslint-disable-line no-void
     const root = document.querySelector(':root');
-    const newTheme = getTheme(theme, root);
+    const newTheme = getTheme(theme);
 
     root.style.setProperty('--c-foreground', newTheme.foreground);
     root.style.setProperty('--c-background', newTheme.background);
