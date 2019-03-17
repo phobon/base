@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import getTheme from './getTheme';
 
-const useTheme = () => {
-  const [theme, setTheme] = useState('light');
+const useTheme = (initial = 'light') => {
+  const [theme, setTheme] = useState(initial);
 
   useEffect(() => void requestAnimationFrame(() => { // eslint-disable-line no-void
     const root = document.querySelector(':root');
@@ -15,7 +15,7 @@ const useTheme = () => {
     });
   }, [theme]));
 
-  return [theme, setTheme];
+  return setTheme;
 };
 
 export default useTheme;
