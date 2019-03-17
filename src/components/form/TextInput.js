@@ -23,6 +23,8 @@ const isError = props => props.error && css`
   }
 `;
 
+const fullWidth = props => props.fullWidth && css`width: 100%;`;
+
 const TextInput = styled.input.attrs(props => ({
   disabled: props.isDisabled,
 }))`
@@ -46,25 +48,25 @@ const TextInput = styled.input.attrs(props => ({
   padding-right: ${props => props.theme.space[2]}px;
   line-height: ${props => props.theme.fontSizes[props.fontSize]}px;
 
-  width: ${props => props.fullWidth ? '100%': null};
+  ${fullWidth}
   height: ${props => informationDensity(props.density)}px;
 
   &::-webkit-input-placeholder {
-    color: ${props => props.theme.colors.grayscale[5]};
+    color: ${props => props.theme.colors.grayscale[4]};
   }
 
   &:focus {
     outline: 0;
     border: 2px solid ${props => props.theme.colors.guidance.focus};
-    padding-left: ${props => props.theme.space[2] - 1}px;
-    padding-right: ${props => props.theme.space[2] - 1}px;
+    padding-left: ${props => props.theme.space[2]}px;
+    padding-right: ${props => props.theme.space[2]}px;
   }
 
   &:disabled {
     opacity: 0.5;
     pointer-events: none;
     background-color: ${props => props.theme.colors.grayscale[6]};
-    border: 1px solid ${props => props.theme.colors.grayscale[5]};
+    border: 2px solid ${props => props.theme.colors.grayscale[5]};
   }
 
   ${isError}
@@ -103,7 +105,7 @@ TextInput.defaultProps = {
   px: 2,
   fontSize: 1,
   bg: 'background',
-  border: '1px solid',
+  border: '2px solid',
   borderColor: 'grayscale.5',
   density: 'normal',
 };
