@@ -15,7 +15,7 @@ const useTheme = (initial = 'light') => {
     });
   }, [theme]));
 
-  return setTheme;
+  return [theme, setTheme];
 };
 
 export default useTheme;
