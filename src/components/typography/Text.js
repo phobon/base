@@ -21,8 +21,7 @@ import {
   display,
 } from 'styled-system';
 
-const fullWidth = props => props.fullWidth && 'width: 100%';
-const fullHeight = props => props.fullHeight && 'height: 100%';
+import { fullWidth, fullHeight } from '../../utils';
 
 const Text = styled.div`
   box-sizing: border-box;

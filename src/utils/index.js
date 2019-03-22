@@ -1,5 +1,9 @@
 import Normalize from './Normalize';
-import informationDensity from './informationDensity';
+import { informationDensity, fullWidth, fullHeight, round } from './visualProps';
 import destructureLayoutProps from './destructureLayoutProps';
 
-export { Normalize, informationDensity, destructureLayoutProps }
+export {
+  Normalize,
+  informationDensity, fullWidth, fullHeight, round,
+  destructureLayoutProps
+}

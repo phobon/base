@@ -12,16 +12,13 @@ import {
   zIndex,
   top, left, bottom, right,
 } from 'styled-system';
-
 import propTypes from 'prop-types';
+
+import { round } from '../../utils';
 
 const responsive = props => props.responsive && css`
   width: 100%;
   height: auto;
-`;
-
-const round = props => props.round && css`
-  border-radius: 100%;
 `;
 
 const Image = styled.img`

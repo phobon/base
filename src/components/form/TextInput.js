@@ -13,17 +13,17 @@ import {
 } from 'styled-system';
 import PropTypes from 'prop-types';
 
-import { informationDensity } from '../../utils';
+import { informationDensity, fullWidth } from '../../utils';
 
 const isError = props => props.error && css`
   border: 2px solid ${props.theme.colors.reds[3]};
+  color: ${props.theme.colors.guidance.error[0]};
+  background-color: ${props.theme.colors.guidance.error[1]};
 
   &:hover {
     border: 2px solid ${props.theme.colors.reds[3]};
   }
 `;
-
-const fullWidth = props => props.fullWidth && css`width: 100%;`;
 
 const TextInput = styled.input.attrs(props => ({
   disabled: props.isDisabled,
@@ -52,7 +52,7 @@ const TextInput = styled.input.attrs(props => ({
   height: ${props => informationDensity(props.density)}px;
 
   &::-webkit-input-placeholder {
-    color: ${props => props.theme.colors.grayscale[4]};
+    color: ${props => props.theme.colors.grayscale[5]};
   }
 
   &:focus {
@@ -63,10 +63,10 @@ const TextInput = styled.input.attrs(props => ({
   }
 
   &:disabled {
-    opacity: 0.5;
+    opacity: 0.2;
     pointer-events: none;
     background-color: ${props => props.theme.colors.grayscale[6]};
-    border: 2px solid ${props => props.theme.colors.grayscale[5]};
+    border: 2px solid ${props => props.theme.colors.grayscale[6]};
   }
 
   ${isError}
@@ -104,10 +104,10 @@ TextInput.defaultProps = {
   borderRadius: 3,
   px: 2,
   fontSize: 1,
-  bg: 'background',
+  bg: 'grayscale.7',
   border: '2px solid',
   color: 'foreground',
-  borderColor: 'grayscale.5',
+  borderColor: 'grayscale.7',
   density: 'normal',
 };
 

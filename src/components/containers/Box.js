@@ -30,10 +30,7 @@ import {
 } from 'styled-system';
 import PropTypes from 'prop-types';
 
-const fullWidth = props => props.fullWidth && css`width: 100%;`;
-const fullHeight = props => props.fullHeight && css`height: 100%;`;
-
-const round = props => props.round && css`border-radius: 100%;`;
+import { fullWidth, fullHeight, round } from '../../utils';
 
 const Box = styled.div`
   ${display}

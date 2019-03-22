@@ -12,21 +12,53 @@ import PropTypes from 'prop-types';
 import Label from './Label';
 
 const labelBorder = props => {
-  const color = props.error
-    ? props.theme.colors.reds[3]
-    : themeGet(`colors.${props.borderColor}`)(props);
+  if (props.error) {
+    return css`
+      border: 2px solid ${props.theme.colors.reds[3]};
+    `;
+  }
 
   return css`
-    border: 2px solid ${color || props.borderColor};
+    border: 2px solid ${props.theme.colors.grayscale[6]};
   `;
 };
+const checkedLabelBorder = props => {
+  if (props.error) {
+    return css`
+      border: 2px solid ${props.theme.colors.reds[3]};
+    `;
+  }
+
+  const color = themeGet(`colors.${props.color}`)(props);
+
+  return css`
+    border: 2px solid ${color || props.color};
+  `;
+}
 const labelBackground = props => {
+  if (props.error) {
+    return css`
+      background-color: ${props.theme.colors.guidance.error[1]};
+    `;
+  }
+
+  return css`
+    background-color: ${props.theme.colors.grayscale[6]};
+  `;
+};
+const checkedLabelBackground = props => {
+  if (props.error) {
+    return css`
+      background-color: ${props.theme.colors.guidance.error[1]};
+    `;
+  }
+
   const color = themeGet(`colors.${props.color}`)(props);
 
   return css`
     background-color: ${color || props.color};
   `;
-};
+}
 
 const CheckboxContainer = styled.div`
   display: flex;
@@ -54,6 +86,7 @@ const CheckboxContainer = styled.div`
       top: 0;
       width: ${props => props.theme.space[props.size]}px;
       height: ${props => props.theme.space[props.size]}px;
+      ${labelBackground}
       ${labelBorder}
       border-radius: ${props => props.theme.radii[3]}px;
       box-sizing: content-box;
@@ -90,8 +123,8 @@ const CheckboxContainer = styled.div`
     }
     &:checked + label::before {
       opacity: 0.9;
-      ${labelBorder}
-      ${labelBackground}
+      ${checkedLabelBackground}
+      ${checkedLabelBorder}
     }
 
     &:focus + label::before {
@@ -172,9 +205,6 @@ Checkbox.propTypes = {
   /** Colour */
   color: PropTypes.string,
 
-  /** Border colour */
-  borderColor: PropTypes.string,
-
   /** Sizing based on theme space values */
   size: PropTypes.number,
 };
@@ -183,7 +213,6 @@ Checkbox.defaultProps = {
   label: null,
   labelColor: 'foreground',
   color: 'accent.3',
-  borderColor: 'grayscale.4',
   size: 3,
 };
 
