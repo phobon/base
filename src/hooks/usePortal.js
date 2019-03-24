@@ -1,10 +1,8 @@
 import { useState } from 'react';
 import { createPortal } from 'react-dom';
 
-const selector = '#base__portal';
-
-const usePortal = (child, initialContainer = null) => {
-  const [container, setContainer] = useState(initialContainer);
+const usePortal = (child, selector = '#base__portal') => {
+  const [container, setContainer] = useState(null);
 
   if (typeof window === 'undefined') {
     return null;
