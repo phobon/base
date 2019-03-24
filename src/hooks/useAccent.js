@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
 import { colour } from '../tokens/palettes';
 
-const useAccent = () => {
-  const [accent, setAccent] = useState('greens');
+const useAccent = (initial = 'greens', accentFunction = null) => {
+  const [accent, setAccent] = useState(initial);
 
   useEffect(() => void requestAnimationFrame(() => { // eslint-disable-line no-void
     const root = document.querySelector(':root');
 
-    const newColours = [...colour[accent]];
+    const newColours = accentFunction ? accentFunction : [...colour[accent]];
     newColours.forEach((c, i) => {
       root.style.setProperty(`--c-accent-${i}`, c);
     });
