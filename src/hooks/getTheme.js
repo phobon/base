@@ -1,4 +1,3 @@
-import { theme } from '../tokens';
 import { colour } from '../tokens/palettes';
 
 const getTheme = (type) => {
@@ -9,8 +8,8 @@ const getTheme = (type) => {
       grayscale: [...colour.grayscale],
     },
     dark: {
-      foreground: 'hsl(220, 4%, 98%)',
-      background: 'hsl(228, 22%, 22%)',
+      foreground: 'hsl(228, 62%, 95%)',
+      background: 'hsl(221, 20%, 22%)',
       grayscale: [...colour.reverseGrayscale],
     },
   };
