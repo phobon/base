@@ -18,8 +18,8 @@ import {
 
 import {
   Normalize,
-  informationDensity,
-  destructureLayoutProps,
+  informationDensity, fullWidth, fullHeight, round,
+  destructureLayoutProps
 } from './utils';
 
 export {
@@ -30,7 +30,9 @@ export {
   Link,
   Table,
   Checkbox, TextInput, NumberInput, PasswordInput, Label, Select, TextArea, Radio,
-  Normalize, informationDensity, destructureLayoutProps,
+  Normalize,
+  informationDensity, fullWidth, fullHeight, round,
+  destructureLayoutProps,
   theme, randomA11y, randomColor,
   useInterval, usePortal, useWindowSize, useTheme, useAccent,
 };
