@@ -4,7 +4,7 @@
  */
 const destructureLayoutProps = (props) => {
   const { m, my, mx, mt, mb, ml, mr, position, top, left, right, bottom, width, height, fullWidth, fullHeight, ...passthroughProps } = props;
-  const layoutProps = { m, my, mx, mt, mb, ml, mr, top, left, right, bottom, fullWidth, fullHeight, width, height };
+  const layoutProps = { m, my, mx, mt, mb, ml, mr, position, top, left, right, bottom, width, height, fullWidth, fullHeight };
 
   return [layoutProps, passthroughProps];
 };
