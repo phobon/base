@@ -109,3 +109,16 @@ export const randomColor = () => {
   const item = Math.floor(Math.random() * palette.length);
   return colour[palette][item];
 };
+
+export const themeDefinitions = {
+  light: {
+    foreground: 'hsl(228, 34%, 11%)',
+    background: 'hsl(0, 0%, 100%)',
+    grayscale: [...colour.lightGrayscale],
+  },
+  dark: {
+    foreground: 'hsl(228, 62%, 95%)',
+    background: 'hsl(221, 20%, 22%)',
+    grayscale: [...colour.darkGrayscale],
+  },
+};

@@ -1,8 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
+
+import useCachedState from './useCachedState';
 import { colour } from '../tokens/palettes';
 
 const useAccent = (initial = 'greens', accentFunction = null) => {
-  const [accent, setAccent] = useState(initial);
+  const [accent, setAccent] = useCachedState('theme', initial);
 
   useEffect(() => void requestAnimationFrame(() => { // eslint-disable-line no-void
     const root = document.querySelector(':root');

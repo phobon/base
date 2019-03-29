@@ -3,6 +3,7 @@ import usePortal from './usePortal';
 import useInterval from './useInterval';
 import useTheme from './useTheme';
 import useAccent from './useAccent';
+import useCachedState from './useCachedState';
 
 export {
   useWindowSize,
@@ -10,4 +11,5 @@ export {
   useInterval,
   useTheme,
   useAccent,
+  useCachedState,
 }

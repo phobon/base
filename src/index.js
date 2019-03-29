@@ -13,7 +13,7 @@ import {
 } from './tokens';
 
 import {
-  useInterval, usePortal, useWindowSize, useTheme, useAccent,
+  useInterval, usePortal, useWindowSize, useTheme, useAccent, useCachedState,
 } from './hooks';
 
 import {
@@ -34,5 +34,5 @@ export {
   informationDensity, fullWidth, fullHeight, round,
   destructureLayoutProps,
   theme, randomA11y, randomColor,
-  useInterval, usePortal, useWindowSize, useTheme, useAccent,
+  useInterval, usePortal, useWindowSize, useTheme, useAccent, useCachedState,
 };

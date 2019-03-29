@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
+import useCachedState from './useCachedState';
 import getTheme from './getTheme';
 
 const useTheme = (initial = 'light', themeFunction = getTheme) => {
-  const [theme, setTheme] = useState(initial);
+  const [theme, setTheme] = useCachedState('theme', initial);
 
   useEffect(() => void requestAnimationFrame(() => { // eslint-disable-line no-void
     const root = document.querySelector(':root');
