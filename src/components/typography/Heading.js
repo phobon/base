@@ -8,7 +8,7 @@ const defaultProps = {
   m: 0,
   fontWeight: 'light',
   lineHeight: 0,
-  fontSize: 7,
+  fontSize: 8,
   textAlign: 'left',
 };
 
@@ -19,35 +19,35 @@ H1.defaultProps = defaultProps;
 const H2 = styled(Text).attrs(() => ({ as: 'h2' }))``;
 H2.displayName = 'Heading.H2';
 H2.defaultProps = Object.assign({}, defaultProps, {
-  fontSize: 6,
+  fontSize: 7,
   lineHeight: 1,
 });
 
 const H3 = styled(Text).attrs(() => ({ as: 'h3' }))``;
 H3.displayName = 'Heading.H3';
 H3.defaultProps = Object.assign({}, defaultProps, {
-  fontSize: 5,
+  fontSize: 6,
   lineHeight: 1,
 });
 
 const H4 = styled(Text).attrs(() => ({ as: 'h4' }))``;
 H4.displayName = 'Heading.H4';
 H4.defaultProps = Object.assign({}, defaultProps, {
-  fontSize: 4,
+  fontSize: 5,
   lineHeight: 2,
 });
 
 const H5 = styled(Text).attrs(() => ({ as: 'h5' }))``;
 H5.displayName = 'Heading.H5';
 H5.defaultProps = Object.assign({}, defaultProps, {
-  fontSize: 3,
+  fontSize: 4,
   lineHeight: 3,
 });
 
 const H6 = styled(Text).attrs(() => ({ as: 'h6' }))``;
 H6.displayName = 'Heading.H6';
 H6.defaultProps = Object.assign({}, defaultProps, {
-  fontSize: 2,
+  fontSize: 3,
   lineHeight: 4,
 });
 
