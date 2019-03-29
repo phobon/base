@@ -47,7 +47,7 @@ const informationDensity = props => {
 };
 
 const showSeparator = props => props.showSeparator ? css`
-  border-bottom: 1px dashed ${props.theme.colors.grayscale[5]};
+  border-bottom: 1px dashed ${props.theme.colors.grayscale[6]};
 `: css`
   border-bottom: 1px solid transparent;
 `;
@@ -59,7 +59,7 @@ const StyledTable = styled.table`
   border-collapse: separate;
   color: ${props => props.theme.colors.foreground};
   box-sizing: border-box;
-  border-bottom: 2px solid ${props => props.theme.colors.grayscale[5]};
+  border-bottom: 2px solid ${props => props.theme.colors.grayscale[6]};
 
   th, td {
     vertical-align: top;
@@ -102,11 +102,11 @@ const StyledTable = styled.table`
       color: ${props => props.theme.colors.grayscale[2]};
       font-weight: ${props => props.theme.fontWeights.normal};
       white-space: pre;
-      background-color: ${props => props.theme.colors.grayscale[6]};
+      background-color: ${props => props.theme.colors.grayscale[7]};
 
       padding-right: ${props => props.theme.space[3]}px;
 
-      border-bottom: 2px solid ${props => props.theme.colors.grayscale[5]};
+      border-bottom: 2px solid ${props => props.theme.colors.grayscale[6]};
 
       &:first-child {
         padding-left: ${props => props.theme.space[3]}px;

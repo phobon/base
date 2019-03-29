@@ -30,4 +30,10 @@ storiesOf('Form/Checkbox', module)
       <Checkbox label="textStyle" id="3" mb={3} textStyle="monospace" />
       <Checkbox label="labelColor" id="4" labelColor="oranges.3" />
     </Box>
+  ))
+  .add('With different states', () => (
+    <Box flexDirection="column" alignItems="flex-start">
+      <Checkbox label="error" id="1" mb={3} error />
+      <Checkbox label="disabled" id="2" disabled />
+    </Box>
   ));

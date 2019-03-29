@@ -133,8 +133,8 @@ const CheckboxContainer = styled.div`
       border: 2px solid ${props => props.theme.colors.guidance.focus};
     }
     
-    &:disabled + label {
-      opacity: 0.5;
+    &:disabled + label::before {
+      opacity: 0.2;
       pointer-events: none;
     }
   }

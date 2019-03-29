@@ -30,4 +30,10 @@ storiesOf('Form/Radio', module)
       <Radio label="textStyle" id="3" mb={3} textStyle="monospace" />
       <Radio label="labelColor" id="4" labelColor="oranges.3" />
     </Box>
+  ))
+  .add('With different states', () => (
+    <Box flexDirection="column" alignItems="flex-start">
+      <Radio label="error" id="1" mb={3} error />
+      <Radio label="disabled" id="2" disabled />
+    </Box>
   ));

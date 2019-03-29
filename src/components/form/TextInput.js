@@ -20,16 +20,19 @@ const isError = props => props.error && css`
   color: ${props.theme.colors.guidance.error[0]};
   background-color: ${props.theme.colors.guidance.error[1]};
 
+  &::-webkit-input-placeholder {
+    color: ${props => props.theme.colors.guidance.error[0]};
+  }
+
   &:hover {
     border: 2px solid ${props.theme.colors.reds[3]};
   }
 `;
 
-const TextInput = styled.input.attrs(props => ({
-  disabled: props.isDisabled,
-}))`
+const TextInput = styled.input`
   box-sizing: border-box;
   position: relative;
+
   ${color}
   ${space}
   ${fontSize}
@@ -83,9 +86,6 @@ TextInput.propTypes = {
   ...gridColumn.propTypes,
   ...gridRow.propTypes,
   ...gridArea.propTypes,
-
-  /** Whether the input field is disabled, or not */
-  isDisabled: PropTypes.bool,
 
   /** Optional error message to display */
   error: PropTypes.any,
