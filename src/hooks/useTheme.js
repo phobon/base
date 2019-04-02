@@ -3,7 +3,7 @@ import useCachedState from './useCachedState';
 import getTheme from './getTheme';
 
 const useTheme = (initial = 'light', themeFunction = getTheme) => {
-  const [theme, setTheme] = useCachedState('theme', initial);
+  const [theme, setTheme] = useCachedState('phobon__base:theme', initial);
 
   useEffect(() => void requestAnimationFrame(() => { // eslint-disable-line no-void
     const root = document.querySelector(':root');
