@@ -1,10 +1,11 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import {
   space,
   color,
   alignItems,
   alignSelf,
   display,
+  overflow,
   justifyContent,
   justifySelf,
   flexDirection,
@@ -42,6 +43,8 @@ const Box = styled.div`
 
   ${space}
   ${color}
+
+  ${overflow}
 
   ${fontSize}
 
@@ -122,6 +125,7 @@ Box.propTypes = {
   ...bottom.propTypes,
   ...left.propTypes,
   ...right.propTypes,
+  ...overflow.propTypes,
 
   /** Whether container should take up all available width, or not */
   fullWidth: PropTypes.bool,
