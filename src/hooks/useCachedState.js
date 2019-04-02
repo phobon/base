@@ -23,7 +23,7 @@ const useCachedState = (key, initialValue = null) => {
     window.localStorage.setItem(stateKey, state);
   }, [key])
 
-  return [state.key, setCachedState];
+  return [state[key], setCachedState];
 };
 
 export default useCachedState;
