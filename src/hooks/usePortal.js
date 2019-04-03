@@ -4,10 +4,6 @@ import { createPortal } from 'react-dom';
 const usePortal = (child, selector = '#base__portal') => {
   const [container, setContainer] = useState(null);
 
-  if (typeof window === 'undefined') {
-    return null;
-  }
-
   if (!container) {
     let c = document.querySelector(selector);
     if (!c) {
