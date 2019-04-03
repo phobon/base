@@ -5,6 +5,10 @@ import { colour } from '../tokens/palettes';
 
 const useAccent = (initial = 'greens', accentFunction = null) => {
   const [accent, setAccent] = useCachedState('theme', initial);
+  
+  if (typeof window === 'undefined') {
+    return null;
+  }
 
   useEffect(() => void requestAnimationFrame(() => { // eslint-disable-line no-void
     const root = document.querySelector(':root');

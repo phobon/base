@@ -5,6 +5,10 @@ import getTheme from './getTheme';
 const useTheme = (initial = 'light', themeFunction = getTheme) => {
   const [theme, setTheme] = useCachedState('phobon__base:theme', initial);
 
+  if (typeof window === 'undefined') {
+    return null;
+  }
+
   useEffect(() => void requestAnimationFrame(() => { // eslint-disable-line no-void
     const root = document.querySelector(':root');
     const newTheme = themeFunction(theme);
