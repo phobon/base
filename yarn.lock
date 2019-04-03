@@ -1652,6 +1652,11 @@
     react-lifecycles-compat "^3.0.4"
     warning "^3.0.0"
 
+"@sheerun/mutationobserver-shim@^0.3.2":
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/@sheerun/mutationobserver-shim/-/mutationobserver-shim-0.3.2.tgz#8013f2af54a2b7d735f71560ff360d3a8176a87b"
+  integrity sha512-vTCdPp/T/Q3oSqwHmZ5Kpa9oI7iLtGl3RQaA/NyLHikvcrPxACkkKVr/XzkSPJWXHRhKGzVvb0urJsbMlRxi1Q==
+
 "@storybook/addon-actions@^5.0.5":
   version "5.0.5"
   resolved "https://registry.yarnpkg.com/@storybook/addon-actions/-/addon-actions-5.0.5.tgz#9179d08262c326c865021f5ecd173708c82edc87"
@@ -4247,6 +4252,16 @@ dom-serializer@0:
     domelementtype "^1.3.0"
     entities "^1.1.1"
 
+dom-testing-library@^3.18.2:
+  version "3.18.2"
+  resolved "https://registry.yarnpkg.com/dom-testing-library/-/dom-testing-library-3.18.2.tgz#07d65166743ad3299b7bee5b488e9622c31241bc"
+  integrity sha512-+nYUgGhHarrCY8kLVmyHlgM+IGwBXXrYsWIJB6vpAx2ne9WFgKfwMGcOkkTKQhuAro0sP6RIuRGfm5NF3+ccmQ==
+  dependencies:
+    "@babel/runtime" "^7.3.4"
+    "@sheerun/mutationobserver-shim" "^0.3.2"
+    pretty-format "^24.5.0"
+    wait-for-expect "^1.1.0"
+
 dom-walk@^0.1.0:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/dom-walk/-/dom-walk-0.1.1.tgz#672226dc74c8f799ad35307df936aba11acd6018"
@@ -6140,6 +6155,11 @@ jest-leak-detector@^24.6.0:
   dependencies:
     pretty-format "^24.6.0"
 
+jest-localstorage-mock@^2.4.0:
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/jest-localstorage-mock/-/jest-localstorage-mock-2.4.0.tgz#c6073810735dd3af74020ea6c3885ec1cc6d0d13"
+  integrity sha512-/mC1JxnMeuIlAaQBsDMilskC/x/BicsQ/BXQxEOw+5b1aGZkkOAqAF3nu8yq449CpzGtp5jJ5wCmDNxLgA2m6A==
+
 jest-matcher-utils@^24.6.0:
   version "24.6.0"
   resolved "https://registry.yarnpkg.com/jest-matcher-utils/-/jest-matcher-utils-24.6.0.tgz#8562d38a760238656806df2f77daeca9a0c5851a"
@@ -7860,7 +7880,7 @@ pretty-error@^2.1.1:
     renderkid "^2.0.1"
     utila "~0.4"
 
-pretty-format@^24.6.0:
+pretty-format@^24.5.0, pretty-format@^24.6.0:
   version "24.6.0"
   resolved "https://registry.yarnpkg.com/pretty-format/-/pretty-format-24.6.0.tgz#66124fe5ea5c4d473337a204ece220e8fdc9806c"
   integrity sha512-xEeJZFqXgvzSEMxoZ3j4aTaax/pl1upVsfMstcIC048Id84Ve5aqX0WkAta/wFIBLDRz6Tbuj6HcoBXRNk7rtA==
@@ -8232,6 +8252,14 @@ react-helmet-async@^0.2.0:
     react-fast-compare "^2.0.2"
     shallowequal "^1.0.2"
 
+react-hooks-testing-library@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/react-hooks-testing-library/-/react-hooks-testing-library-0.4.0.tgz#601f7eda1e817f57a86ef3fe0a17a1fdd771122b"
+  integrity sha512-N/MBIlycPeeAOJwFloUnwpKLBDH2y0L17srRMw1bI/dCyYYC2zKwg9Xccxwy4HFVAGfO9uweVrAGFvOnc6YvUw==
+  dependencies:
+    "@babel/runtime" "^7.4.2"
+    react-testing-library "^6.0.3"
+
 react-hotkeys@2.0.0-pre4:
   version "2.0.0-pre4"
   resolved "https://registry.yarnpkg.com/react-hotkeys/-/react-hotkeys-2.0.0-pre4.tgz#a1c248a51bdba4282c36bf3204f80d58abc73333"
@@ -8318,6 +8346,14 @@ react-syntax-highlighter@^8.0.1:
     lowlight "~1.9.1"
     prismjs "^1.8.4"
     refractor "^2.4.1"
+
+react-testing-library@^6.0.3:
+  version "6.0.4"
+  resolved "https://registry.yarnpkg.com/react-testing-library/-/react-testing-library-6.0.4.tgz#18aec01bcb8505df5da612c68cf0be134e0f44ae"
+  integrity sha512-7D6/hIvyOr8c51UHgH9CL2ZlzYPFI2Jmjm9hMuUvKR9mIiOEaWr5A7CZ9r7zO9tCK5D15r4uj71BHfJ7Zus3qw==
+  dependencies:
+    "@babel/runtime" "^7.4.2"
+    dom-testing-library "^3.18.2"
 
 react-textarea-autosize@^7.0.4:
   version "7.1.0"
@@ -10080,6 +10116,11 @@ w3c-hr-time@^1.0.1:
   integrity sha1-gqwr/2PZUOqeMYmlimViX+3xkEU=
   dependencies:
     browser-process-hrtime "^0.1.2"
+
+wait-for-expect@^1.1.0:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/wait-for-expect/-/wait-for-expect-1.1.1.tgz#9cd10e07d52810af9e0aaf509872e38f3c3d81ae"
+  integrity sha512-vd9JOqqEcBbCDhARWhW85ecjaEcfBLuXgVBqatfS3iw6oU4kzAcs+sCNjF+TC9YHPImCW7ypsuQc+htscIAQCw==
 
 walker@~1.0.5:
   version "1.0.7"

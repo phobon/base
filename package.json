@@ -35,8 +35,10 @@
     "babel-plugin-styled-components": "^1.10.0",
     "cross-env": "^5.2.0",
     "jest": "^24.6.0",
+    "jest-localstorage-mock": "^2.4.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-hooks-testing-library": "^0.4.0",
     "rollup": "^1.7.4",
     "rollup-plugin-babel": "^4.3.2",
     "rollup-plugin-commonjs": "^9.2.2",
@@ -60,5 +62,10 @@
   "bugs": {
     "url": "https://github.com/phobon/base/issues"
   },
-  "homepage": "https://github.com/phobon/base#readme"
+  "homepage": "https://github.com/phobon/base#readme",
+  "jest": {
+    "setupFiles": [
+      "jest-localstorage-mock"
+    ]
+  }
 }
