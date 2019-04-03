@@ -1,6 +1,6 @@
 {
   "name": "@phobon/base",
-  "version": "1.5.8",
+  "version": "1.6.0",
   "description": "Essential compositional components using styled-components and styled-system",
   "main": "dist/index.js",
   "author": "Ben McCormick",
@@ -15,7 +15,7 @@
   "scripts": {
     "build": "rollup -c",
     "clean": "npx shx rm -rf dist && mkdir dist",
-    "prepare": "npm run clean && npm run build",
+    "prepare": "npm run clean && npm run build && npm run test",
     "storybook": "start-storybook",
     "test": "jest"
   },
