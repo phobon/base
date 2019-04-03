@@ -1,5 +1,5 @@
 import 'jest-localstorage-mock';
-import { renderHook, cleanup, act } from 'react-hooks-testing-library'
+import { renderHook, cleanup, act } from 'react-hooks-testing-library';
 
 import useCachedState from './useCachedState';
 
@@ -14,10 +14,30 @@ test('localStorage should work', () => {
   expect(returnedOutput).toBe(output);
 });
 
-test('useCachedState', () => {
-  const { result } = renderHook(() => useCachedState('testKey', 'test'));
+const storageObject = { key: 'value' };
+const storageArray = [0, 1];
 
-  const [item, setItem] = result.current;
+test('useCachedState with simple values', () => {
+  const { result } = renderHook(() => useCachedState('cachedstate:string', 'test'));
 
-  expect(item).toBe('test');
+  expect(result.current[0]).toBe('test');
+
+  act(() => result.current[1]('something else'));
+  expect(result.current[0]).toBe('something else');
+
+  act(() => result.current[1](115511));
+  expect(result.current[0]).toBe(115511);
+});
+
+test('useCachedState with objects', () => {
+  const { result } = renderHook(() => useCachedState('cachedstate:object', storageObject));
+
+  expect(result.current[0]).toEqual(storageObject);
+
+  const newObject = { key1: [1, 2, 3], key2: { subKey: 'test' } };
+  act(() => result.current[1](newObject));
+  expect(result.current[0]).toEqual(newObject);
+
+  act(() => result.current[1](storageArray));
+  expect(result.current[0]).toEqual(storageArray);
 });
