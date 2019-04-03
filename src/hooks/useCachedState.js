@@ -12,8 +12,8 @@ const useCachedState = (key, initialValue = null) => {
     if (!state && initialValue) {
       const s = {};
       s[key] = initialValue;
-      setState(state);
-      window.localStorage.setItem(stateKey, state);
+      window.localStorage.setItem(stateKey, s);
+      setState(s);
     };
   }, [key])
 
