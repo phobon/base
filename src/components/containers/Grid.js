@@ -13,8 +13,6 @@ import {
 import Box from './Box';
 
 const Grid = styled(Box)`
-  flex: unset;
-
   ${gridGap}
   ${gridRowGap}
   ${gridColumnGap}
