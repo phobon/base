@@ -16,7 +16,6 @@ import {
   order,
   fontSize,
   borderRadius,
-  overflow,
   width,
   minWidth,
   maxWidth,
@@ -39,7 +38,6 @@ import { fullWidth, fullHeight, round } from '../../utils';
 const Box = styled.div`
   box-sizing: border-box;
   ${display}
-  ${overflow}
 
   ${borders}
   ${borderRadius}
