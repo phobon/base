@@ -124,7 +124,6 @@ Box.propTypes = {
   ...left.propTypes,
   ...right.propTypes,
   ...bottom.propTypes,
-  ...whiteSpace.propTypes,
   ...fullWidth.propTypes,
   ...fullHeight.propTypes,
   ...round.propTypes,
