@@ -5,7 +5,7 @@ import { Box } from '../containers';
 import NumberInput from './NumberInput';
 import Label from './Label';
 
-storiesOf('Core/Form/NumberInput', module)
+storiesOf('Form/NumberInput', module)
   .add('With and without hiding spin buttons', () => (
     <Box flexDirection="column" alignItems="flex-start">
       <Label mb={1}>With spin buttons</Label>
