@@ -6,6 +6,8 @@ import {
   alignSelf,
   display,
   overflow,
+  backgroundImage,
+  backgroundSize,
   justifyContent,
   justifySelf,
   flexDirection,
@@ -14,6 +16,7 @@ import {
   order,
   fontSize,
   borderRadius,
+  overflow,
   width,
   minWidth,
   maxWidth,
@@ -34,8 +37,9 @@ import PropTypes from 'prop-types';
 import { fullWidth, fullHeight, round } from '../../utils';
 
 const Box = styled.div`
-  ${display}
   box-sizing: border-box;
+  ${display}
+  ${overflow}
 
   ${borders}
   ${borderRadius}
@@ -56,6 +60,9 @@ const Box = styled.div`
   ${flex}
   ${flexWrap}
   ${order}
+
+  ${backgroundImage}
+  ${backgroundSize}
 
   ${gridColumn}
   ${gridRow}
@@ -92,8 +99,16 @@ const Box = styled.div`
 Box.displayName = 'Box';
 
 Box.propTypes = {
+  ...display.propTypes,
+  ...overflow.propTypes,
+  ...borders.propTypes,
+  ...borderRadius.propTypes,
+  ...borderColor.propTypes,
   ...space.propTypes,
   ...color.propTypes,
+  ...backgroundImage.propTypes,
+  ...backgroundSize.propTypes,
+  ...fontSize.propTypes,
   ...alignItems.propTypes,
   ...alignSelf.propTypes,
   ...justifyContent.propTypes,
@@ -102,30 +117,25 @@ Box.propTypes = {
   ...flex.propTypes,
   ...flexWrap.propTypes,
   ...order.propTypes,
-  ...fontSize.propTypes,
-  ...borderRadius.propTypes,
+  ...gridColumn.propTypes,
+  ...gridRow.propTypes,
+  ...gridArea.propTypes,
+  ...zIndex.propTypes,
+  ...position.propTypes,
+  ...top.propTypes,
+  ...left.propTypes,
+  ...right.propTypes,
+  ...bottom.propTypes,
+  ...whiteSpace.propTypes,
+  ...fullWidth.propTypes,
+  ...fullHeight.propTypes,
+  ...round.propTypes,
   ...width.propTypes,
   ...minWidth.propTypes,
   ...maxWidth.propTypes,
   ...height.propTypes,
   ...minHeight.propTypes,
   ...maxHeight.propTypes,
-  ...borders.propTypes,
-  ...borderColor.propTypes,
-  ...zIndex.propTypes,
-  ...position.propTypes,
-  ...top.propTypes,
-  ...bottom.propTypes,
-  ...left.propTypes,
-  ...right.propTypes,
-  ...gridColumn.propTypes,
-  ...gridRow.propTypes,
-  ...gridArea.propTypes,
-  ...top.propTypes,
-  ...bottom.propTypes,
-  ...left.propTypes,
-  ...right.propTypes,
-  ...overflow.propTypes,
 
   /** Whether container should take up all available width, or not */
   fullWidth: PropTypes.bool,
