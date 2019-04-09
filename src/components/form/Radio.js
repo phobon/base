@@ -1,9 +1,6 @@
 import React from 'react';
 import {
   space,
-  gridColumn,
-  gridRow,
-  gridArea,
   themeGet,
 } from 'styled-system';
 import styled, { css } from 'styled-components';
@@ -68,11 +65,8 @@ const RadioContainer = styled.div`
   position: relative;
   height: ${props => props.theme.space[props.size] + 4}px;
   min-width: ${props => props.theme.space[props.size] + 4}px;
-  ${space}
 
-  ${gridColumn}
-  ${gridRow}
-  ${gridArea}
+  ${space}
 
   label {
     height: 100%;
@@ -188,9 +182,6 @@ Radio.displayName = 'Radio';
 
 Radio.propTypes = {
   ...space.propTypes,
-  ...gridColumn.propTypes,
-  ...gridRow.propTypes,
-  ...gridArea.propTypes,
 
   /** Id, required for accessibility */
   id: PropTypes.string.isRequired,

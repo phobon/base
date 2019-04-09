@@ -8,7 +8,7 @@ import Flex from './Flex';
 const TestFlex = styled(Flex)``;
 TestFlex.defaultProps = Object.assign({}, Flex.defaultProps, {
   height: 100,
-  bg: 'purples.2',
+  bg: 'purples.4',
   color: 'white',
 });
 
@@ -16,13 +16,13 @@ const TestBox = styled(Box)``;
 TestBox.defaultProps = Object.assign({}, Box.defaultProps, {
   width: 100,
   height: 100,
-  bg: 'blues.2',
+  bg: 'blues.4',
   color: 'white',
 });
 
 storiesOf('Containers/Flex', module)
   .add('With different composition', () => (
-    <Flex flexDirection="column" fullWidth>
+    <Box flexDirection="column" fullWidth>
       <Flex mb={3} fullWidth>
         <TestFlex>Flex</TestFlex>
         <TestBox>Box</TestBox>
@@ -40,12 +40,6 @@ storiesOf('Containers/Flex', module)
         <TestBox>Box</TestBox>
         <TestFlex>Flex</TestFlex>
       </Flex>
-    </Flex>
-  ))
-  .add('With wrapping', () => (
-    <Box fullWidth flexWrap="wrap" width={2 / 3}>
-      <TestFlex minWidth={300} mr={3} mb={3}>Flex</TestFlex>
-      <TestFlex minWidth={300} mr={3} mb={3}>Flex</TestFlex>
     </Box>
   ))
   .add('With different justification', () => (

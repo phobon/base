@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
+
 import Box from './Box';
 
 const boxShadow = props => {
@@ -45,11 +46,15 @@ Card.propTypes = {
   boxShadowIntensity: PropTypes.number,
 };
 
-Card.defaultProps = Object.assign({}, Box.defaultProps, {
+Card.defaultProps = {
+  flex: 'none',
+  alignItems: 'center',
+  justifyContent: 'center',
+  color: 'foreground',
   bg: 'background',
   borderRadius: 3,
   boxShadowSize: 'l',
   boxShadowIntensity: 1,
-});
+};
 
 export default Card;

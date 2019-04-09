@@ -38,7 +38,7 @@ storiesOf('Tokens/Palettes', module)
               </Box>
             
               <Flex fullWidth fullHeight borderRadius={4} bg={g}>
-                <Heading.H1 color="foreground">Text Here</Heading.H1>
+                <Heading.H1 color="foreground" css={{ textAlign: 'center' }}>Text Here</Heading.H1>
               </Flex>
             </Box>
           ))}
@@ -71,7 +71,7 @@ storiesOf('Tokens/Palettes', module)
               </Box>
             
               <Flex fullWidth fullHeight borderRadius={4} bg={g}>
-                <Heading.H1 color="hsl(228, 62%, 95%)">Text Here</Heading.H1>
+                <Heading.H1 color="hsl(228, 62%, 95%)" css={{ textAlign: 'center' }}>Text Here</Heading.H1>
               </Flex>
             </Box>
           ))}

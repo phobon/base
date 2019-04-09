@@ -3,17 +3,13 @@ import {
   color,
   space,
   borderRadius,
-  border,
-  borderColor,
+  borders,
   fontSize,
   width,
-  gridColumn,
-  gridRow,
-  gridArea,
 } from 'styled-system';
 import PropTypes from 'prop-types';
 
-import { informationDensity, fullWidth } from '../../utils';
+import { density, cover } from '../../utils';
 
 const isError = props => props.error && css`
   border: 2px solid ${props.theme.colors.reds[3]};
@@ -40,19 +36,14 @@ const TextInput = styled.input`
 
   ${borderRadius}
 
-  ${border}
-  ${borderColor}
-
-  ${gridColumn}
-  ${gridRow}
-  ${gridArea}
+  ${borders}
 
   padding-left: ${props => props.theme.space[2]}px;
   padding-right: ${props => props.theme.space[2]}px;
   line-height: ${props => props.theme.fontSizes[props.fontSize]}px;
 
-  ${fullWidth}
-  height: ${props => informationDensity(props.density)}px;
+  ${cover}
+  ${density}
 
   &::-webkit-input-placeholder {
     color: ${props => props.theme.colors.grayscale[5]};
@@ -80,21 +71,14 @@ TextInput.displayName = 'TextInput';
 TextInput.propTypes = {
   ...color.propTypes,
   ...space.propTypes,
-  ...borderRadius.propTypes,
   ...fontSize.propTypes,
   ...width.propTypes,
-  ...gridColumn.propTypes,
-  ...gridRow.propTypes,
-  ...gridArea.propTypes,
+  ...borderRadius.propTypes,
+  ...borders.propTypes,
+  ...density.propTypes,
 
   /** Optional error message to display */
   error: PropTypes.any,
-
-  /** Whether the input field should take up all available horizontal space, or not */
-  fullWidth: PropTypes.bool,
-
-  /** Information density for this field */
-  density: PropTypes.oneOf(['compact', 'normal', 'spacious']),
 };
 
 TextInput.defaultProps = {

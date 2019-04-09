@@ -4,15 +4,15 @@ import PropTypes from 'prop-types';
 import Text from './Text'
 import { Flex } from '../containers';
 
-const TruncateText = styled(Text)`
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-`;
-const TruncateContainer = styled(Flex)`
-  min-width: 0;
-  max-width: 100%;
-`;
+const TruncateText = styled(Text)({
+  overflow: 'hidden',
+  whiteSpace: 'nowrap',
+  textOverflow: 'ellipsis',
+});
+const TruncateContainer = styled(Flex)({
+  minWidth: 0,
+  maxWidth: '100%',
+});
 
 const Truncate = ({ children, ...props }) => (
   <TruncateContainer justifyContent="flex-start">

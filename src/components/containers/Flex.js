@@ -1,10 +1,8 @@
 import styled from 'styled-components';
 import Box from './Box';
 
-const Flex = styled(Box)``;
-
-Flex.defaultProps = Object.assign({}, Box.defaultProps, {
-  flex: '1 0 0%',
+const Flex = styled(Box)({
+  flex: '1',
 });
 
 Flex.displayName = 'Flex';

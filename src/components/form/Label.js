@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 import Text from '../typography/Text';
 
-const Label = styled(Text).attrs(() => ({ as: 'label' }))`
-  display: flex;
-  flex: none;
-  align-items: center;
-  justify-content: center;
-`;
+const Label = styled(Text).attrs(() => ({ as: 'label' }))({
+  display: 'flex',
+  flex: 'none',
+  alignItems: 'center',
+  justifyContent: 'center',
+});
 
 Label.displayName = 'Label';
 
