@@ -147,8 +147,8 @@ const Col = styled.col`
 `;
 
 const Table = ({ id, columns, rows, ...props }) => {  
-  const cols = columns.map((c, i) => (
-    <Col key={`${id}__col__${i}`} {...c} />
+  const cols = columns.map(({ fill, truncate, ...rest }, i) => (
+    <Col key={`${id}__col__${i}`} {...rest} />
   ));
 
   const header = columns.map((c, i) => (
