@@ -7,12 +7,7 @@ import {
 } from 'styled-system';
 import propTypes from 'prop-types';
 
-import { round } from '../../utils';
-
-const responsive = props => props.responsive && css`
-  width: 100%;
-  height: auto;
-`;
+import { cover, round } from '../../utils';
 
 const Image = styled.img({
   display: 'block',
@@ -21,7 +16,7 @@ const Image = styled.img({
   width,
   height,
   borderRadius,
-  responsive,
+  cover,
   round,
 );
 
@@ -32,12 +27,8 @@ Image.propTypes = {
   ...width.propTypes,
   ...height.propTypes,
   ...borderRadius.propTypes,
-
-  /** Image is responsive. */
-  responsive: propTypes.bool,
-
-  /** Image is round. */
-  round: propTypes.bool,
+  ...cover.propTypes,
+  ...round.propTypes,
 };
 
 export default Image;

@@ -16,7 +16,7 @@ storiesOf('Images/Image', module)
     <React.Fragment>
       <Image src="https://source.unsplash.com/random/400x400" mr={3} />
       <Box width={200} height={200}>
-        <Image src="https://source.unsplash.com/random/400x400" responsive />
+        <Image src="https://source.unsplash.com/random/400x400" cover />
       </Box>
     </React.Fragment>
   ));

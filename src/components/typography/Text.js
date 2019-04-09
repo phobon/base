@@ -9,7 +9,7 @@ import {
   textStyle,
 } from 'styled-system';
 
-import { fullWidth } from '../../utils';
+import { cover } from '../../utils';
 
 const Text = styled.div({
   boxSizing: 'border-box',
@@ -20,7 +20,7 @@ const Text = styled.div({
   lineHeight,
   width,
   textStyle,
-  fullWidth,
+  cover,
 );
 
 Text.displayName = 'Text';
@@ -32,9 +32,7 @@ Text.propTypes = {
   ...lineHeight.propTypes,
   ...width.propTypes,
   ...textStyle.propTypes,
-
-  /** Text contianer should take up all available width */
-  fullWidth: PropTypes.bool,
+  ...cover.propTypes,
 };
 
 Text.defaultProps = {

@@ -5,6 +5,7 @@ import {
   layout,
   flexbox,
   border,
+  cover,
 } from '../../utils';
 
 const Box = styled.div({
@@ -15,23 +16,16 @@ const Box = styled.div({
   layout,
   flexbox,
   border,
+  cover,
 );
 
 Box.displayName = 'Box';
 
 Box.propTypes = {
-  ...layout,
-  ...flexbox,
-  ...border,
-
-  /** Whether container should take up all available width, or not */
-  fullWidth: PropTypes.bool,
-
-  /** Whether container should take up all available height, or not */
-  fullHeight: PropTypes.bool,
-
-  /** Container is round */
-  round: PropTypes.bool,
+  ...layout.propTypes,
+  ...flexbox.propTypes,
+  ...border.propTypes,
+  ...cover.propTypes,
 };
 
 Box.defaultProps = {

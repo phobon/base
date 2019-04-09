@@ -2,11 +2,6 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
 import Box from './Box';
-import {
-  layout,
-  flexbox,
-  border,
-} from '../../utils';
 
 const boxShadow = props => {
   const boxShadows = {
@@ -21,11 +16,7 @@ const boxShadow = props => {
   return boxShadows[props.boxShadowSize];
 };
 
-const Card = styled.div`
-  ${layout}
-  ${flexbox}
-  ${border}
-
+const Card = styled(Box)`
   position: relative;
 
   &::before {
@@ -46,9 +37,7 @@ const Card = styled.div`
 Card.displayName = 'Card';
 
 Card.propTypes = {
-  ...layout.propTypes,
-  ...flexbox.propTypes,
-  ...border.propTypes,
+  ...Box.propTypes,
 
   /** Card box shadow size */
   boxShadowSize: PropTypes.oneOf([ 'none', 's', 'm', 'l', 'xl', 'xxl' ]),

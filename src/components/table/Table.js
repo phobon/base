@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components';
 import { space, width } from 'styled-system';
 import PropTypes from 'prop-types';
 
-const informationDensity = props => {
+const density = props => {
   const densityValues = {
     compact: 1,
     normal: 2,
@@ -138,7 +138,7 @@ const StyledTable = styled.table`
     }
   }
 
-  ${informationDensity}
+  ${density}
 `;
 
 const Col = styled.col`

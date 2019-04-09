@@ -9,7 +9,8 @@ import {
   maxHeight,
 } from 'styled-system';
 
-import { fullWidth, fullHeight, round } from './visualProps';
+import cover from './cover';
+import round from './round';
 
 const layout = compose(
   space,
@@ -19,8 +20,7 @@ const layout = compose(
   maxWidth,
   height,
   maxHeight,
-  fullWidth,
-  fullHeight,
+  cover,
   round,
 );
 

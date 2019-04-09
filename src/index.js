@@ -17,9 +17,10 @@ import {
 } from './hooks';
 
 import {
+  border, flexbox, layout, position, typography, grid,
+  density, cover, round,
   Normalize,
-  informationDensity, fullWidth, fullHeight, round,
-  destructureLayoutProps
+  destructureLayoutProps,
 } from './utils';
 
 export {
@@ -30,8 +31,9 @@ export {
   Link,
   Table,
   Checkbox, TextInput, NumberInput, PasswordInput, Label, Select, TextArea, Radio,
+  border, flexbox, layout, position, typography, grid,
+  density, cover, round,
   Normalize,
-  informationDensity, fullWidth, fullHeight, round,
   destructureLayoutProps,
   theme, randomA11y, randomColor,
   useInterval, usePortal, useWindowSize, useTheme, useAccent, useCachedState,
