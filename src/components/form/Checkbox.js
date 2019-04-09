@@ -1,9 +1,6 @@
 import React from 'react';
 import {
   space,
-  gridColumn,
-  gridRow,
-  gridArea,
   themeGet,
 } from 'styled-system';
 import styled, { css } from 'styled-components';
@@ -69,10 +66,6 @@ const CheckboxContainer = styled.div`
   height: ${props => props.theme.space[props.size] + 4}px;
   min-width: ${props => props.theme.space[props.size] + 4}px;
   ${space}
-
-  ${gridColumn}
-  ${gridRow}
-  ${gridArea}
 
   label {
     height: 100%;
@@ -189,9 +182,6 @@ Checkbox.displayName = 'Checkbox';
 
 Checkbox.propTypes = {
   ...space.propTypes,
-  ...gridColumn.propTypes,
-  ...gridRow.propTypes,
-  ...gridArea.propTypes,
 
   /** Id, required for accessibility */
   id: PropTypes.string.isRequired,

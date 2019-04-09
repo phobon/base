@@ -1,34 +1,25 @@
 import styled from 'styled-components';
-import {
-  gridGap,
-  gridRowGap,
-  gridColumnGap,
-  gridAutoFlow,
-  gridAutoRows,
-  gridAutoColumns,
-  gridTemplateAreas,
-  gridTemplateRows,
-  gridTemplateColumns,
-} from 'styled-system';
-import Box from './Box';
 
-const Grid = styled(Box)`
-  ${gridGap}
-  ${gridRowGap}
-  ${gridColumnGap}
-  ${gridAutoFlow}
-  ${gridAutoRows}
-  ${gridAutoColumns}
-  ${gridTemplateAreas}
-  ${gridTemplateRows}
-  ${gridTemplateColumns}
-`;
+import Box from './Box';
+import { grid } from '../../utils';
+
+const Grid = styled(Box)({
+    display: 'grid',
+  },
+  grid,
+);
 
 Grid.displayName = 'Grid';
 
-Grid.defaultProps = Object.assign({}, Box.defaultProps, {
-  display: 'grid',
-})
+Grid.propTypes = {
+  ...grid.propTypes,
+};
 
-/** @component */
+Grid.defaultProps = {
+  flex: 'none',
+  alignItems: 'center',
+  justifyContent: 'center',
+  color: 'foreground',
+};
+
 export default Grid;

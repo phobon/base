@@ -3,13 +3,9 @@ import {
   color,
   space,
   borderRadius,
-  border,
-  borderColor,
+  borders,
   fontSize,
   width,
-  gridColumn,
-  gridRow,
-  gridArea,
 } from 'styled-system';
 import PropTypes from 'prop-types';
 
@@ -40,12 +36,7 @@ const TextInput = styled.input`
 
   ${borderRadius}
 
-  ${border}
-  ${borderColor}
-
-  ${gridColumn}
-  ${gridRow}
-  ${gridArea}
+  ${borders}
 
   padding-left: ${props => props.theme.space[2]}px;
   padding-right: ${props => props.theme.space[2]}px;
@@ -80,12 +71,10 @@ TextInput.displayName = 'TextInput';
 TextInput.propTypes = {
   ...color.propTypes,
   ...space.propTypes,
-  ...borderRadius.propTypes,
   ...fontSize.propTypes,
   ...width.propTypes,
-  ...gridColumn.propTypes,
-  ...gridRow.propTypes,
-  ...gridArea.propTypes,
+  ...borderRadius.propTypes,
+  ...borders.propTypes,
 
   /** Optional error message to display */
   error: PropTypes.any,

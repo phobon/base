@@ -230,5 +230,4 @@ Table.defaultProps = {
   density: 'normal',
 };
 
-/** @component */
 export default Table;

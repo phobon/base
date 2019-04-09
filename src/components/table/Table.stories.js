@@ -87,20 +87,20 @@ storiesOf('Table', module)
 
     return (
       <Box flexDirection="column" fullWidth alignItems="flex-start">
-        <Heading.H4 mb={3}>Compact density</Heading.H4>
+        <Heading.H6 mb={3}>Compact density</Heading.H6>
         <Table
           mb={6}
           density="compact"
           columns={firstColumnData}
           rows={firstRows} />
 
-        <Heading.H4 mb={3}>Normal density</Heading.H4>
+        <Heading.H6 mb={3}>Normal density</Heading.H6>
         <Table
           mb={6}
           columns={firstColumnData}
           rows={firstRows} />
 
-        <Heading.H4 mb={3}>Spacious density</Heading.H4>
+        <Heading.H6 mb={3}>Spacious density</Heading.H6>
         <Table
           density="spacious"
           columns={firstColumnData}

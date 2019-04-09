@@ -11,9 +11,7 @@ const spinButtons = props => props.hideSpinButtons && css`
   -moz-appearance:textfield;
 `;
 
-const NumberInput = styled(TextInput)`
-  ${spinButtons}
-`;
+const NumberInput = styled(TextInput).attrs(() => ({ type: 'number' }))({}, spinButtons);
 
 NumberInput.displayName = 'NumberInput';
 

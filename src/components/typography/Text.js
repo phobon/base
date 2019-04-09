@@ -5,80 +5,36 @@ import {
   color, 
   fontSize, 
   lineHeight, 
-  width, 
-  height, 
-  minWidth, 
-  maxWidth, 
-  textAlign, 
-  fontWeight, 
+  width,
   textStyle,
-  gridColumn,
-  gridRow,
-  gridArea,
-  position,
-  zIndex,
-  top, left, bottom, right,
-  display,
 } from 'styled-system';
 
-import { fullWidth, fullHeight } from '../../utils';
+import { fullWidth } from '../../utils';
 
-const Text = styled.div`
-  box-sizing: border-box;
-  
-  ${display}
-  ${space}
-  ${width}
-  ${height}
-  ${minWidth}
-  ${maxWidth}
-  ${color}
-  ${fontSize}
-  ${lineHeight}
-  ${textAlign}
-  ${fontWeight}
-  ${textStyle}
-
-  ${position}
-  ${zIndex}
-  ${top}
-  ${bottom}
-  ${left}
-  ${right}
-
-  ${gridColumn}
-  ${gridRow}
-  ${gridArea}
-
-  ${fullWidth};
-  ${fullHeight};
-`;
+const Text = styled.div({
+  boxSizing: 'border-box',
+},
+  space,
+  color,
+  fontSize,
+  lineHeight,
+  width,
+  textStyle,
+  fullWidth,
+);
 
 Text.displayName = 'Text';
 
 Text.propTypes = {
-  ...display.propTypes,
-  ...space.propTypes, 
-  ...color.propTypes, 
-  ...fontSize.propTypes, 
-  ...lineHeight.propTypes, 
-  ...width.propTypes, 
-  ...height.propTypes, 
-  ...minWidth.propTypes, 
-  ...maxWidth.propTypes, 
-  ...textAlign.propTypes, 
-  ...fontWeight.propTypes, 
-  ...textStyle.propTypes, 
-
-  ...gridColumn.propTypes,
-  ...gridRow.propTypes,
-  ...gridArea.propTypes,
+  ...space.propTypes,
+  ...color.propTypes,
+  ...fontSize.propTypes,
+  ...lineHeight.propTypes,
+  ...width.propTypes,
+  ...textStyle.propTypes,
 
   /** Text contianer should take up all available width */
   fullWidth: PropTypes.bool,
-
-  /** Text container should take up all available height */
-  fullHeight: PropTypes.bool,
 };
 
 Text.defaultProps = {

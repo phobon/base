@@ -1,6 +1,12 @@
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
+
 import Box from './Box';
+import {
+  layout,
+  flexbox,
+  border,
+} from '../../utils';
 
 const boxShadow = props => {
   const boxShadows = {
@@ -15,7 +21,11 @@ const boxShadow = props => {
   return boxShadows[props.boxShadowSize];
 };
 
-const Card = styled(Box)`
+const Card = styled.div`
+  ${layout}
+  ${flexbox}
+  ${border}
+
   position: relative;
 
   &::before {
@@ -36,7 +46,9 @@ const Card = styled(Box)`
 Card.displayName = 'Card';
 
 Card.propTypes = {
-  ...Box.propTypes,
+  ...layout.propTypes,
+  ...flexbox.propTypes,
+  ...border.propTypes,
 
   /** Card box shadow size */
   boxShadowSize: PropTypes.oneOf([ 'none', 's', 'm', 'l', 'xl', 'xxl' ]),
@@ -45,11 +57,15 @@ Card.propTypes = {
   boxShadowIntensity: PropTypes.number,
 };
 
-Card.defaultProps = Object.assign({}, Box.defaultProps, {
+Card.defaultProps = {
+  flex: 'none',
+  alignItems: 'center',
+  justifyContent: 'center',
+  color: 'foreground',
   bg: 'background',
   borderRadius: 3,
   boxShadowSize: 'l',
   boxShadowIntensity: 1,
-});
+};
 
 export default Card;

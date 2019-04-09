@@ -30,9 +30,9 @@ storiesOf('Containers/Grid', module)
   })
   .add('With area-based composition', () => (
     <Grid gridGap={3} gridTemplateRows="repeat(4, 100px)" gridTemplateColumns="repeat(4, 100px)">
-      <Box fullHeight borderRadius={3} bg="oranges.3" gridArea="1 / 1 / 2 / span 4" />
-      <Box fullHeight borderRadius={3} bg="blues.3" gridArea="2 / 1 / span 3 / 2" />
-      <Box fullHeight borderRadius={3} bg="purples.3" gridArea="2 / 2 / span 2 / span 3" />
-      <Box fullHeight borderRadius={3} bg="greens.3" gridArea="4 / 2 / 5 / span 3" />
+      <Box fullHeight borderRadius={3} bg="oranges.3" css={{ gridArea: "1 / 1 / 2 / span 4" }} />
+      <Box fullHeight borderRadius={3} bg="blues.3" css={{ gridArea: "2 / 1 / span 3 / 2" }} />
+      <Box fullHeight borderRadius={3} bg="purples.3" css={{ gridArea: "2 / 2 / span 2 / span 3" }} />
+      <Box fullHeight borderRadius={3} bg="greens.3" css={{ gridArea: "4 / 2 / 5 / span 3" }} />
     </Grid>
   ));
