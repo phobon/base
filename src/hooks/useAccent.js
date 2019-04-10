@@ -9,7 +9,7 @@ const useAccent = (initial = 'greens', accentFunction = null) => {
   useEffect(() => void requestAnimationFrame(() => { // eslint-disable-line no-void
     const root = document.querySelector(':root');
 
-    const newColours = accentFunction ? accentFunction : [...colour[accent]];
+    const newColours = accentFunction || [...colour[accent]];
     newColours.forEach((c, i) => {
       root.style.setProperty(`--c-accent-${i}`, c);
     });

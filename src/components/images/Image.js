@@ -1,11 +1,10 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import {
   space,
   width,
   height,
   borderRadius,
 } from 'styled-system';
-import propTypes from 'prop-types';
 
 import { cover, round } from '../../utils';
 

@@ -25,7 +25,7 @@ storiesOf('Typography/Truncate', module)
   ))
   .add('Without width constraints', () => (
     <Box flexDirection="column" fullWidth alignItems="flex-start">
-      <Truncate mb={3}  bg="grayscale.7" fullWidth>
+      <Truncate mb={3} bg="grayscale.7" fullWidth>
         {text}
       </Truncate>
 

@@ -17,7 +17,7 @@ const isError = props => props.error && css`
   background-color: ${props.theme.colors.guidance.error[1]};
 
   &::-webkit-input-placeholder {
-    color: ${props => props.theme.colors.guidance.error[0]};
+    color: ${props.theme.colors.guidance.error[0]};
   }
 
   &:hover {

@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
@@ -25,7 +26,7 @@ storiesOf('Tokens/Palettes', module)
           ))}
         </Grid>
         <Grid fullWidth fullHeight gridTemplateColumns="1fr 1fr" gridAutoRows="auto" gridGap={8} p={5}>
-          {grayscale.map((g, i) => (
+          {grayscale.map(g => (
             <Box fullWidth fullHeight key={g}>
               <Box flexDirection="column" alignItems="flex-start" mr={3}>
                 <Heading.H1 color={g} mb={3}>Heading.H1</Heading.H1>
@@ -58,7 +59,7 @@ storiesOf('Tokens/Palettes', module)
           ))}
         </Grid>
         <Grid fullWidth fullHeight gridTemplateColumns="1fr 1fr" gridAutoRows="auto" gridGap={8} p={5}>
-          {grayscale.map((g, i) => (
+          {grayscale.map(g => (
             <Box fullWidth fullHeight key={g}>
               <Box flexDirection="column" alignItems="flex-start" mr={3}>
                 <Heading.H1 color={g} mb={3}>Heading.H1</Heading.H1>

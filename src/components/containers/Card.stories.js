@@ -7,7 +7,7 @@ import Card from './Card';
 storiesOf('Containers/Card', module)
   .add('With and without content', () => (
     <React.Fragment>
-      <Card width={150} height={50} mr={3}/>
+      <Card width={150} height={50} mr={3} />
       <Card p={4}>
         Some content
       </Card>
