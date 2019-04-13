@@ -28,4 +28,11 @@ storiesOf('Typography/Text', module)
       <Text color="grayscale.1" mb={3}>Theme colour: grayscale.1</Text>
       <Text color="purples.2">Theme colour: purples.2</Text>
     </Box>
+  ))
+  .add('With different fontWeights', () => (
+    <Box flexDirection="column" alignItems="flex-start">
+      <Text fontWeight="light" mb={3}>fontWeight: light</Text>
+      <Text mb={3}>fontWeight: normal</Text>
+      <Text fontWeight="bold">fontWeight: bold</Text>
+    </Box>
   ));

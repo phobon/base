@@ -8,9 +8,7 @@ storiesOf('Containers/Card', module)
   .add('With and without content', () => (
     <React.Fragment>
       <Card width={150} height={50} mr={3} />
-      <Card p={4}>
-        Some content
-      </Card>
+      <Card p={4}>Some content</Card>
     </React.Fragment>
   ))
   .add('With different box shadow sizes', () => (

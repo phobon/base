@@ -1,36 +1,19 @@
 import styled from 'styled-components';
-import { 
-  space, 
-  color, 
-  fontSize, 
-  lineHeight, 
-  width,
-  textStyle,
-} from 'styled-system';
-
-import { cover } from '../../utils';
+import { cover, layout, typography } from '../../utils';
 
 const Text = styled.div({
   boxSizing: 'border-box',
 },
-  space,
-  color,
-  fontSize,
-  lineHeight,
-  width,
-  textStyle,
+  layout,
+  typography,
   cover,
 );
 
 Text.displayName = 'Text';
 
 Text.propTypes = {
-  ...space.propTypes,
-  ...color.propTypes,
-  ...fontSize.propTypes,
-  ...lineHeight.propTypes,
-  ...width.propTypes,
-  ...textStyle.propTypes,
+  ...layout.propTypes,
+  ...typography.propTypes,
   ...cover.propTypes,
 };
 

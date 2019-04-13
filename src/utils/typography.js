@@ -1,6 +1,7 @@
 import {
   compose,
   fontSize,
+  fontWeight,
   lineHeight,
   textAlign,
   textStyle,
@@ -8,6 +9,7 @@ import {
 
 const typography = compose(
   fontSize,
+  fontWeight,
   lineHeight,
   textAlign,
   textStyle,
