@@ -40,7 +40,7 @@ const minimalStyle = props => props.minimal && css`
   }
 
   &::-webkit-scrollbar-track {
-    background-color: hsla(0, 0%, 0%, 0);
+    background-color: inherit;
     border-radius: ${props.theme.radii[3]}px;
   }
 
@@ -70,9 +70,9 @@ const ScrollableFlex = styled(Flex)`
   ${minimalStyle}
 `;
 
-const Scrollable = ({ minimal, scrollDirection, children, ...props }) => (
-  <ScrollableFlex minimal={minimal} scrollDirection={scrollDirection}>
-    <Flex alignItems="flex-start" justifyContent="flex-start" {...props}>
+const Scrollable = ({ minimal, scrollDirection, children, bg, ...props }) => (
+  <ScrollableFlex minimal={minimal} scrollDirection={scrollDirection} bg={bg}>
+    <Flex alignItems="flex-start" justifyContent="flex-start" bg={bg} {...props}>
       {children}
     </Flex>
   </ScrollableFlex>

@@ -1,6 +1,6 @@
 {
   "name": "@phobon/base",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Essential compositional components using styled-components and styled-system",
   "main": "dist/index.js",
   "author": "Ben McCormick",

@@ -45,7 +45,7 @@ storiesOf('Containers/Scrollable', module)
   ))
   .add('With minimally-styled scrollbar', () => (
     <Box width={1 / 3} height={450} flexDirection="column">
-      <Scrollable minimal>
+      <Scrollable minimal bg="blues.3">
         {generatedItems()}
       </Scrollable>
     </Box>
