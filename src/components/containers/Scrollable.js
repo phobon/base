@@ -31,7 +31,7 @@ const childDirection = props => props.scrollDirection === 'vertical'
 const minimalStyle = props => props.minimal && css`
   &:hover {
     &::-webkit-scrollbar-thumb {
-      background-color: rgba(0, 0, 0, 0.4);
+      background-color: hsla(0, 0%, 0%, 0.4);
     }
   }
 
@@ -40,16 +40,17 @@ const minimalStyle = props => props.minimal && css`
   }
 
   &::-webkit-scrollbar-track {
-    background: 0;
+    background-color: hsla(0, 0%, 0%, 0);
     border-radius: ${props.theme.radii[3]}px;
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: rgba(0, 0, 0, 0.2);
+    transition: background-color 180ms ease-out;
+    background-color: hsla(0, 0%, 0%, 0);
     border-radius: ${props.theme.radii[3]}px;
 
     &:hover {
-      background-color: rgba(0, 0, 0, 0.4);
+      background-color: hsla(0, 0%, 0%, 0.4);
     }
   }
 `;
