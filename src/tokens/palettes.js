@@ -3,27 +3,27 @@ export const black = 'hsl(0, 0%, 0%)';
 export const transparent = 'hsla(0, 0%, 0%, 0)';
 export const focus = 'hsl(211, 97%, 61%)';
 
-// https://www.colorbox.io/#steps=8#hue_start=220#hue_end=230#hue_curve=easeOutQuad#sat_start=3#sat_end=15#sat_curve=easeInOutSine#sat_rate=126#lum_start=99#lum_end=19#lum_curve=easeInOutSine#minor_steps_map=none
+// https://www.colorbox.io/#steps=8#hue_start=220#hue_end=230#hue_curve=easeOutQuad#sat_start=2#sat_end=15#sat_curve=easeInOutSine#sat_rate=126#lum_start=100#lum_end=19#lum_curve=easeInOutSine#minor_steps_map=none
 const lightGrayscale = [
   'hsl(227, 10%, 17%)',
   'hsl(229, 10%, 21%)',
-  'hsl(231, 8%, 30%)',
-  'hsl(229, 7%, 46%)',
-  'hsl(226, 10%, 66%)',
-  'hsl(223, 16%, 82%)',
-  'hsl(224, 31%, 93%)',
-  'hsl(220, 60%, 97%)',
+  'hsl(229, 9%, 31%)',
+  'hsl(229, 7%, 47%)',
+  'hsl(228, 9%, 66%)',
+  'hsl(225, 14%, 84%)',
+  'hsl(225, 29%, 95%)',
+  'hsl(220, 100%, 99%)',
 ];
 // https://www.colorbox.io/#steps=8#hue_start=220#hue_end=230#hue_curve=easeOutQuad#sat_start=27#sat_end=5#sat_curve=easeInOutSine#sat_rate=126#lum_start=31#lum_end=93#lum_curve=easeInOutSine#minor_steps_map=none
 const darkGrayscale = [
-  'hsl(228, 29%, 90%)',
-  'hsl(229, 25%, 86%)',
-  'hsl(230, 20%, 77%)',
-  'hsl(228, 16%, 64%)',
-  'hsl(227, 13%, 48%)',
-  'hsl(225, 17%, 35%)',
-  'hsl(221, 20%, 28%)',
-  'hsl(215, 22%, 26%)',
+  'hsl(216, 29%, 90%)',
+  'hsl(219, 25%, 86%)',
+  'hsl(217, 20%, 77%)',
+  'hsl(218, 16%, 64%)',
+  'hsl(218, 13%, 48%)',
+  'hsl(217, 17%, 35%)',
+  'hsl(219, 20%, 28%)',
+  'hsl(220, 21%, 26%)',
 ];
 
 // https://www.colorbox.io/#steps=7#hue_start=174#hue_end=175#hue_curve=easeInOutSine#sat_start=93#sat_end=17#sat_curve=easeInSine#sat_rate=107#lum_start=29#lum_end=96#lum_curve=linear#minor_steps_map=0
@@ -117,8 +117,8 @@ export const themeDefinitions = {
     grayscale: [...colour.lightGrayscale],
   },
   dark: {
-    foreground: 'hsl(228, 62%, 95%)',
-    background: 'hsl(221, 20%, 22%)',
+    foreground: 'hsl(220, 62%, 95%)',
+    background: 'hsl(221, 18%, 21%)',
     grayscale: [...colour.darkGrayscale],
   },
 };
