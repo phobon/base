@@ -2,10 +2,12 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { Text } from '../typography';
+import { focus } from '../../utils';
 
 const Link = styled(Text).attrs(() => ({ as: 'a' }))`
   text-decoration: ${props => props.clean ? 'none' : 'underline dashed'};
   position: relative;
+  border-radius: ${props => props.theme.radii[3]}px;
 
   &:hover {
     color: ${props => props.theme.colors.accent[3]};
@@ -16,21 +18,7 @@ const Link = styled(Text).attrs(() => ({ as: 'a' }))`
     text-decoration: none;
   }
 
-  &:focus {
-    outline: 0;
-
-    &::after {
-      position: absolute;
-      top: -2px;
-      left: -2px;
-      right: -2px;
-      bottom: -2px;
-      content: "";
-      box-shadow: 0 0 0 2px ${props => props.theme.colors.guidance.focus};
-      border-radius: ${props => props.theme.radii[2]}px;
-      pointer-events: none;
-    }
-  }
+  ${focus}
 `;
 
 Link.displayName = 'Link';
