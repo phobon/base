@@ -14,16 +14,16 @@ const lightGrayscale = [
   'hsl(225, 29%, 95%)',
   'hsl(220, 100%, 99%)',
 ];
-// https://www.colorbox.io/#steps=8#hue_start=220#hue_end=230#hue_curve=easeOutQuad#sat_start=27#sat_end=5#sat_curve=easeInOutSine#sat_rate=126#lum_start=31#lum_end=93#lum_curve=easeInOutSine#minor_steps_map=none
+// https://www.colorbox.io/#steps=8#hue_start=220#hue_end=217#hue_curve=easeOutQuad#sat_start=27#sat_end=5#sat_curve=easeInOutSine#sat_rate=126#lum_start=29#lum_end=93#lum_curve=easeInOutSine#minor_steps_map=none
 const darkGrayscale = [
   'hsl(216, 29%, 90%)',
   'hsl(219, 25%, 86%)',
   'hsl(217, 20%, 77%)',
-  'hsl(218, 16%, 64%)',
-  'hsl(218, 13%, 48%)',
-  'hsl(217, 17%, 35%)',
-  'hsl(219, 20%, 28%)',
-  'hsl(220, 21%, 26%)',
+  'hsl(217, 15%, 63%)',
+  'hsl(219, 13%, 47%)',
+  'hsl(218, 17%, 34%)',
+  'hsl(220, 20%, 27%)',
+  'hsl(220, 20%, 24%)',
 ];
 
 // https://www.colorbox.io/#steps=7#hue_start=174#hue_end=175#hue_curve=easeInOutSine#sat_start=93#sat_end=17#sat_curve=easeInSine#sat_rate=107#lum_start=29#lum_end=96#lum_curve=linear#minor_steps_map=0
