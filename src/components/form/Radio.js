@@ -16,7 +16,7 @@ const labelBorder = props => {
   }
 
   return css`
-    border: 2px solid ${props.theme.colors.grayscale[6]};
+    border: 2px solid ${props.theme.colors.grayscale[7]};
   `;
 };
 const checkedLabelBorder = props => {
@@ -40,7 +40,7 @@ const labelBackground = props => {
   }
 
   return css`
-    background-color: ${props.theme.colors.grayscale[6]};
+    background-color: ${props.theme.colors.grayscale[7]};
   `;
 };
 const checkedLabelBackground = props => {

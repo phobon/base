@@ -38,10 +38,10 @@ const baseColors = {
 
   // Guidance palettes
   guidance: {
-    info: [colour.blues[0], colour.blues[6]],
-    error: [colour.reds[0], colour.reds[6]],
-    warning: [colour.oranges[0], colour.oranges[7]],
-    success: [colour.greens[0], colour.greens[6]],
+    info: [colour.blues[0], colour.blues[7]],
+    error: [colour.reds[0], colour.reds[7]],
+    warning: [colour.oranges[0], colour.oranges[8]],
+    success: [colour.greens[0], colour.greens[7]],
     focus,
   },
 };

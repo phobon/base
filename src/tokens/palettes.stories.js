@@ -26,7 +26,7 @@ storiesOf('Tokens/Palettes', module)
           ))}
         </Grid>
         <Grid fullWidth fullHeight gridTemplateColumns="1fr 1fr" gridAutoRows="auto" gridGap={8} p={5}>
-          {grayscale.map(g => (
+          {grayscale.map((g, i) => (
             <Box fullWidth fullHeight key={g}>
               <Box flexDirection="column" alignItems="flex-start" mr={3}>
                 <Heading.H1 color={g} mb={3}>Heading.H1</Heading.H1>
@@ -39,7 +39,7 @@ storiesOf('Tokens/Palettes', module)
               </Box>
             
               <Flex fullWidth fullHeight borderRadius={4} bg={g}>
-                <Heading.H1 color="foreground" css={{ textAlign: 'center' }}>Text Here</Heading.H1>
+                <Heading.H1 color="foreground" css={{ textAlign: 'center' }}>{`grayscale.${grayscale.length - 1 - i}`}</Heading.H1>
               </Flex>
             </Box>
           ))}
@@ -59,7 +59,7 @@ storiesOf('Tokens/Palettes', module)
           ))}
         </Grid>
         <Grid fullWidth fullHeight gridTemplateColumns="1fr 1fr" gridAutoRows="auto" gridGap={8} p={5}>
-          {grayscale.map(g => (
+          {grayscale.map((g, i) => (
             <Box fullWidth fullHeight key={g}>
               <Box flexDirection="column" alignItems="flex-start" mr={3}>
                 <Heading.H1 color={g} mb={3}>Heading.H1</Heading.H1>
@@ -72,7 +72,7 @@ storiesOf('Tokens/Palettes', module)
               </Box>
             
               <Flex fullWidth fullHeight borderRadius={4} bg={g}>
-                <Heading.H1 color="hsl(228, 62%, 95%)" css={{ textAlign: 'center' }}>Text Here</Heading.H1>
+                <Heading.H1 color="hsl(228, 62%, 95%)" css={{ textAlign: 'center' }}>{`grayscale.${grayscale.length - 1 - i}`}</Heading.H1>
               </Flex>
             </Box>
           ))}
@@ -81,7 +81,7 @@ storiesOf('Tokens/Palettes', module)
   )})
   .add('With light secondary palettes', () => {  
     return (
-      <Grid fullWidth fullHeight gridTemplateColumns="repeat(8, 1fr)" gridAutoRows="48px" gridRowGap={7} p={5}>
+      <Grid fullWidth fullHeight gridTemplateColumns="repeat(10, 1fr)" gridAutoRows="48px" gridRowGap={7} p={5}>
         {colour.blues.map((g, i) => (
           <SmallColourBox borderRadius={0} key={g} bg={g} color="white">{`blues.${i}`}</SmallColourBox>
         ))}
@@ -101,7 +101,7 @@ storiesOf('Tokens/Palettes', module)
   )})
   .add('With dark secondary palettes', () => {  
     return (
-      <Grid fullWidth fullHeight gridTemplateColumns="repeat(8, 1fr)" gridAutoRows="48px" gridRowGap={7} bg="hsl(221, 20%, 22%)" p={5}>
+      <Grid fullWidth fullHeight gridTemplateColumns="repeat(10, 1fr)" gridAutoRows="48px" gridRowGap={7} bg="hsl(221, 20%, 22%)" p={5}>
         {colour.blues.map((g, i) => (
           <SmallColourBox borderRadius={0} key={g} bg={g} color="white">{`blues.${i}`}</SmallColourBox>
         ))}

@@ -59,8 +59,8 @@ const TextInput = styled.input`
   &:disabled {
     opacity: 0.2;
     pointer-events: none;
-    background-color: ${props => props.theme.colors.grayscale[6]};
-    border: 2px solid ${props => props.theme.colors.grayscale[6]};
+    background-color: ${props => props.theme.colors.grayscale[7]};
+    border: 2px solid ${props => props.theme.colors.grayscale[7]};
   }
 
   ${isError}
@@ -88,10 +88,10 @@ TextInput.defaultProps = {
   borderRadius: 3,
   px: 2,
   fontSize: 1,
-  bg: 'grayscale.7',
+  bg: 'grayscale.8',
   border: '2px solid',
   color: 'foreground',
-  borderColor: 'grayscale.7',
+  borderColor: 'grayscale.8',
   density: 'normal',
 };
 
