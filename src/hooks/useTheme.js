@@ -6,7 +6,6 @@ const useTheme = (initial = 'light', themeFunction = getTheme) => {
 
   useEffect(() => {
     if (theme) {
-      console.log('useTheme', theme);
       requestAnimationFrame(() => { // eslint-disable-line no-void
         const root = document.querySelector(':root');
         const newTheme = themeFunction(theme);
