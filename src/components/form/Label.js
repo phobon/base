@@ -12,7 +12,7 @@ Label.displayName = 'Label';
 
 Label.defaultProps = Object.assign({}, Text.defaultProps, {
   color: 'grayscale.2',
-  fontSize: 0,
+  fontSize: 1,
 });
 
 export default Label;
