@@ -15,7 +15,7 @@ storiesOf('Form/TextInput', module)
   ))
   .add('With different states', () => (
     <Box width={1 / 2} flexDirection="column" alignItems="flex-start">
-      <TextInput value={null} mb={3} placeholder="error" error />
+      <TextInput value={null} mb={3} placeholder="invalid" invalid />
       <TextInput value={null} mb={3} fullWidth placeholder="disabled" disabled />
     </Box>
   ));

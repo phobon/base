@@ -15,7 +15,7 @@ storiesOf('Form/PasswordInput', module)
   ))
   .add('With different states', () => (
     <Box width={1 / 2} flexDirection="column" alignItems="flex-start">
-      <PasswordInput value={null} mb={3} placeholder="error" error />
+      <PasswordInput value={null} mb={3} placeholder="invalid" invalid />
       <PasswordInput value={null} mb={3} fullWidth placeholder="disabled" disabled />
     </Box>
   ));

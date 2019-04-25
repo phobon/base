@@ -2,7 +2,6 @@ import styled, { css } from 'styled-components';
 import {
   color,
   space,
-  borderRadius,
   borders,
   fontSize,
   width,
@@ -11,36 +10,31 @@ import PropTypes from 'prop-types';
 
 import { density, cover } from '../../utils';
 
-const isError = props => props.error && css`
-  border: 2px solid ${props.theme.colors.reds[3]};
-  color: ${props.theme.colors.guidance.error[0]};
-  background-color: ${props.theme.colors.guidance.error[1]};
-
-  &::-webkit-input-placeholder {
-    color: ${props.theme.colors.guidance.error[0]};
-  }
-
-  &:hover {
-    border: 2px solid ${props.theme.colors.reds[3]};
-  }
+const inputRadius = props => css`
+  border-radius: ${props.theme.radii[props.borderRadius]}px ${props.theme.radii[props.borderRadius]}px 0px 0px;
 `;
 
-const TextInput = styled.input`
+const TextInput = styled.input.attrs(props => ({
+  'aria-invalid': props.invalid ? true : undefined,
+}))`
   box-sizing: border-box;
   position: relative;
+  overflow: hidden;
 
   ${color}
   ${space}
   ${fontSize}
   ${width}
 
-  ${borderRadius}
-
   ${borders}
+
+  ${inputRadius}
 
   padding-left: ${props => props.theme.space[2]}px;
   padding-right: ${props => props.theme.space[2]}px;
   line-height: ${props => props.theme.fontSizes[props.fontSize]}px;
+
+  box-shadow: 0px 2px 0px 0px ${props => props.theme.colors.grayscale[7]};
 
   ${cover}
   ${density}
@@ -51,7 +45,7 @@ const TextInput = styled.input`
 
   &:focus {
     outline: 0;
-    border: 2px solid ${props => props.theme.colors.guidance.focus};
+    box-shadow: 0px 2px 0px 0px ${props => props.theme.colors.guidance.focus};
     padding-left: ${props => props.theme.space[2]}px;
     padding-right: ${props => props.theme.space[2]}px;
   }
@@ -60,10 +54,16 @@ const TextInput = styled.input`
     opacity: 0.2;
     pointer-events: none;
     background-color: ${props => props.theme.colors.grayscale[7]};
-    border: 2px solid ${props => props.theme.colors.grayscale[7]};
+    box-shadow: 0px 2px 0px 0px ${props => props.theme.colors.grayscale[6]};
   }
 
-  ${isError}
+  &[aria-invalid="true"] {
+    box-shadow: 0px 2px 0px 0px ${props => props.theme.colors.reds[5]};
+
+    &:hover {
+      box-shadow: 0px 2px 0px 0px ${props => props.theme.colors.reds[7]};
+    }
+  }
 `;
 
 TextInput.displayName = 'TextInput';
@@ -73,17 +73,16 @@ TextInput.propTypes = {
   ...space.propTypes,
   ...fontSize.propTypes,
   ...width.propTypes,
-  ...borderRadius.propTypes,
   ...borders.propTypes,
   ...density.propTypes,
 
-  /** Optional error message to display */
-  error: PropTypes.any,
+  /** If this input is invalid, or not */
+  invalid: PropTypes.bool,
 };
 
 TextInput.defaultProps = {
   disabled: false,
-  error: false,
+  invalid: false,
   fullWidth: false,
   borderRadius: 3,
   px: 2,

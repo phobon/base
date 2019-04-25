@@ -8,48 +8,14 @@ import PropTypes from 'prop-types';
 
 import Label from './Label';
 
-const labelBorder = props => {
-  if (props.error) {
-    return css`
-      border: 2px solid ${props.theme.colors.reds[3]};
-    `;
-  }
-
-  return css`
-    border: 2px solid ${props.theme.colors.grayscale[7]};
-  `;
-};
 const checkedLabelBorder = props => {
-  if (props.error) {
-    return css`
-      border: 2px solid ${props.theme.colors.reds[3]};
-    `;
-  }
-
   const color = themeGet(`colors.${props.color}`)(props);
 
   return css`
     border: 2px solid ${color || props.color};
   `;
 }
-const labelBackground = props => {
-  if (props.error) {
-    return css`
-      background-color: ${props.theme.colors.guidance.error[1]};
-    `;
-  }
-
-  return css`
-    background-color: ${props.theme.colors.grayscale[7]};
-  `;
-};
 const checkedLabelBackground = props => {
-  if (props.error) {
-    return css`
-      background-color: ${props.theme.colors.guidance.error[1]};
-    `;
-  }
-
   const color = themeGet(`colors.${props.color}`)(props);
 
   return css`
@@ -57,7 +23,9 @@ const checkedLabelBackground = props => {
   `;
 }
 
-const CheckboxContainer = styled.div`
+const CheckboxContainer = styled.div.attrs(props => ({
+  'aria-invalid': props.invalid ? true : undefined,
+}))`
   display: flex;
   flex: none;
   align-items: flex-start;
@@ -65,11 +33,11 @@ const CheckboxContainer = styled.div`
   position: relative;
   height: ${props => props.theme.space[props.size] + 4}px;
   min-width: ${props => props.theme.space[props.size] + 4}px;
+
   ${space}
 
   label {
     height: 100%;
-
     &::before {
       content: "";
       opacity: 0.7;
@@ -79,10 +47,11 @@ const CheckboxContainer = styled.div`
       top: 0;
       width: ${props => props.theme.space[props.size]}px;
       height: ${props => props.theme.space[props.size]}px;
-      ${labelBackground}
-      ${labelBorder}
       border-radius: ${props => props.theme.radii[3]}px;
       box-sizing: content-box;
+
+      border: 2px solid ${props => props.theme.colors.grayscale[7]};
+      background-color: ${props => props.theme.colors.grayscale[7]};
     }
 
     &::after {
@@ -116,8 +85,8 @@ const CheckboxContainer = styled.div`
     }
     &:checked + label::before {
       opacity: 0.9;
-      ${checkedLabelBackground}
       ${checkedLabelBorder}
+      ${checkedLabelBackground}
     }
 
     &:focus + label::before {
@@ -139,44 +108,51 @@ const CheckboxContainer = styled.div`
       }
     }
   }
+
+  &[aria-invalid="true"] {
+    label {
+      &::before {
+        border: 2px solid ${props => props.theme.colors.reds[3]};
+        background-color: ${props => props.theme.colors.guidance.error[1]};
+      }
+    }
+    input[type="radio"] {
+      &:checked + label::before {
+        border: 2px solid ${props => props.theme.colors.reds[3]};
+        background-color: ${props => props.theme.colors.guidance.error[1]};
+      }
+    }
+  }
 `;
 
 const Checkbox = ({
   id,
-  label,
-  labelColor,
   onChange,
   disabled,
   checked,
   required,
-  fontSize,
-  fontWeight,
-  textStyle,
   name,
   size,
-  className,
-  ...props }) => (
-    <CheckboxContainer {...props} size={size} disabled={disabled} className={className}>
+  invalid,
+  children,
+  ...props
+}) => {
+  const label = React.cloneElement(children, { htmlFor: id, ml: size });
+  return (
+    <CheckboxContainer size={size} disabled={disabled} invalid={invalid} {...props}>
       <input
         type="checkbox"
         id={id}
         onChange={onChange}
         disabled={disabled}
         required={required}
-        className={className}
         checked={checked}
-        name={name} />
-      <Label
-        color={labelColor}
-        fontSize={fontSize}
-        fontWeight={fontWeight}
-        textStyle={textStyle}
-        htmlFor={id}
-        ml={label ? size : 0}>
-        {label}
-      </Label>      
+        name={name}
+        aria-invalid={invalid} />
+      {label}
     </CheckboxContainer>
   );
+};
 
 Checkbox.displayName = 'Checkbox';
 
@@ -186,24 +162,23 @@ Checkbox.propTypes = {
   /** Id, required for accessibility */
   id: PropTypes.string.isRequired,
 
-  /** Label */
-  label: PropTypes.string,
-
-  /** Label colour */
-  labelColor: PropTypes.string,
+  /** Children must be a Label */
+  children: PropTypes.instanceOf(Label).isRequired,
   
-  /** Colour */
+  /** Colour of the checkbox */
   color: PropTypes.string,
 
   /** Sizing based on theme space values */
   size: PropTypes.number,
+
+  /** Whether the field is valid, or not */
+  invalid: PropTypes.bool,
 };
 
 Checkbox.defaultProps = {
-  label: null,
-  labelColor: 'foreground',
-  color: 'accent.3',
+  color: 'accent.5',
   size: 3,
+  invalid: false,
 };
 
 export default Checkbox;

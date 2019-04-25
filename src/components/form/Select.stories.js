@@ -15,15 +15,15 @@ const TestSelect = props => (
 storiesOf('Form/Select', module)
   .add('With different paddings', () => (
     <Box width={1 / 2} flexDirection="column" alignItems="flex-start">
-      <TestSelect value={null} mb={3} placeholder="default width" />
-      <TestSelect value={null} mb={3} fullWidth placeholder="fullWidth" />
-      <TestSelect value={null} mb={3} width={1 / 2} placeholder="width: 1/2" />
-      <TestSelect value={null} width={400} placeholder="width: 400px" />
+      <TestSelect value={null} mb={3} />
+      <TestSelect value={null} mb={3} fullWidth />
+      <TestSelect value={null} mb={3} width={1 / 2} />
+      <TestSelect value={null} width={400} />
     </Box>
   ))
   .add('With different states', () => (
     <Box width={1 / 2} flexDirection="column" alignItems="flex-start">
-      <TestSelect value={null} mb={3} placeholder="error" error />
-      <TestSelect value={null} mb={3} fullWidth placeholder="disabled" disabled />
+      <TestSelect value={null} mb={3} invalid />
+      <TestSelect value={null} mb={3} fullWidth disabled />
     </Box>
   ));

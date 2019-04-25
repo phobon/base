@@ -13,7 +13,7 @@ storiesOf('Form/TextArea', module)
   ))
   .add('With different states', () => (
     <Box width={1 / 2} flexDirection="column" alignItems="flex-start">
-      <TextArea value={null} mb={3} placeholder="error" error />
+      <TextArea value={null} mb={3} placeholder="invalid" invalid />
       <TextArea value={null} mb={3} fullWidth placeholder="disabled" disabled />
     </Box>
   ));

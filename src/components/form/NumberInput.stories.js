@@ -14,4 +14,10 @@ storiesOf('Form/NumberInput', module)
       <Label mb={1}>Without spin buttons</Label>
       <NumberInput value={0} id="1" hideSpinButtons />
     </Box>
+  ))
+  .add('With different states', () => (
+    <Box width={1 / 2} flexDirection="column" alignItems="flex-start">
+      <NumberInput value={null} mb={3} placeholder="invalid" invalid />
+      <NumberInput value={null} mb={3} fullWidth placeholder="disabled" disabled />
+    </Box>
   ));

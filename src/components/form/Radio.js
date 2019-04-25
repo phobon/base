@@ -8,48 +8,14 @@ import PropTypes from 'prop-types';
 
 import Label from './Label';
 
-const labelBorder = props => {
-  if (props.error) {
-    return css`
-      border: 2px solid ${props.theme.colors.reds[3]};
-    `;
-  }
-
-  return css`
-    border: 2px solid ${props.theme.colors.grayscale[7]};
-  `;
-};
 const checkedLabelBorder = props => {
-  if (props.error) {
-    return css`
-      border: 2px solid ${props.theme.colors.reds[3]};
-    `;
-  }
-
   const color = themeGet(`colors.${props.color}`)(props);
 
   return css`
     border: 2px solid ${color || props.color};
   `;
 }
-const labelBackground = props => {
-  if (props.error) {
-    return css`
-      background-color: ${props.theme.colors.guidance.error[1]};
-    `;
-  }
-
-  return css`
-    background-color: ${props.theme.colors.grayscale[7]};
-  `;
-};
 const checkedLabelBackground = props => {
-  if (props.error) {
-    return css`
-      background-color: ${props.theme.colors.guidance.error[1]};
-    `;
-  }
-
   const color = themeGet(`colors.${props.color}`)(props);
 
   return css`
@@ -57,7 +23,9 @@ const checkedLabelBackground = props => {
   `;
 }
 
-const RadioContainer = styled.div`
+const RadioContainer = styled.div.attrs(props => ({
+  'aria-invalid': props.invalid ? true : undefined,
+}))`
   display: flex;
   flex: none;
   align-items: flex-start;
@@ -79,10 +47,11 @@ const RadioContainer = styled.div`
       top: 0;
       width: ${props => props.theme.space[props.size]}px;
       height: ${props => props.theme.space[props.size]}px;
-      ${labelBorder}
-      ${labelBackground}
       border-radius: 100%;
       box-sizing: content-box;
+
+      border: 2px solid ${props => props.theme.colors.grayscale[7]};
+      background-color: ${props => props.theme.colors.grayscale[7]};
     }
 
     &::after {
@@ -139,44 +108,51 @@ const RadioContainer = styled.div`
       }
     }
   }
+
+  &[aria-invalid="true"] {
+    label {
+      &::before {
+        border: 2px solid ${props => props.theme.colors.reds[3]};
+        background-color: ${props => props.theme.colors.guidance.error[1]};
+      }
+    }
+    input[type="radio"] {
+      &:checked + label::before {
+        border: 2px solid ${props => props.theme.colors.reds[3]};
+        background-color: ${props => props.theme.colors.guidance.error[1]};
+      }
+    }
+  }
 `;
 
 const Radio = ({
   id,
-  label,
-  labelColor,
   onChange,
   disabled,
   checked,
   required,
-  fontSize,
-  fontWeight,
-  textStyle,
   name,
   size,
-  className,
-  ...props }) => (
-    <RadioContainer {...props} size={size} disabled={disabled} className={className}>
+  invalid,
+  children,
+  ...props
+}) => {
+  const label = React.cloneElement(children, { htmlFor: id, ml: size });
+  return (
+    <RadioContainer size={size} disabled={disabled} invalid={invalid} {...props}>
       <input
         type="radio"
         id={id}
         onChange={onChange}
         disabled={disabled}
         required={required}
-        className={className}
         checked={checked}
-        name={name} />
-      <Label
-        color={labelColor}
-        fontSize={fontSize}
-        fontWeight={fontWeight}
-        textStyle={textStyle}
-        htmlFor={id}
-        ml={label ? size : 0}>
-        {label}
-      </Label>      
+        name={name}
+        aria-invalid={invalid} />
+      {label}
     </RadioContainer>
   );
+};
 
 Radio.displayName = 'Radio';
 
@@ -186,24 +162,23 @@ Radio.propTypes = {
   /** Id, required for accessibility */
   id: PropTypes.string.isRequired,
 
-  /** Label */
-  label: PropTypes.string,
-
-  /** Label colour */
-  labelColor: PropTypes.string,
+  /** Children must be a Label */
+  children: PropTypes.instanceOf(Label).isRequired,
   
-  /** Colour */
+  /** Colour of the radio */
   color: PropTypes.string,
 
   /** Sizing based on theme space values */
   size: PropTypes.number,
+
+  /** Whether the field is valid, or not */
+  invalid: PropTypes.bool,
 };
 
 Radio.defaultProps = {
-  label: null,
-  labelColor: 'foreground',
-  color: 'accent.3',
+  color: 'accent.5',
   size: 3,
+  invalid: false,
 };
 
 export default Radio;
