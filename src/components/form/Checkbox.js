@@ -134,25 +134,26 @@ const Checkbox = ({
   name,
   size,
   invalid,
-  children,
+  label,
   ...props
-}) => {
-  const label = React.cloneElement(children, { htmlFor: id, ml: size });
-  return (
-    <CheckboxContainer size={size} disabled={disabled} invalid={invalid} {...props}>
-      <input
-        type="checkbox"
-        id={id}
-        onChange={onChange}
-        disabled={disabled}
-        required={required}
-        checked={checked}
-        name={name}
-        aria-invalid={invalid} />
+}) => (
+  <CheckboxContainer size={size} disabled={disabled} invalid={invalid} {...props}>
+    <input
+      type="checkbox"
+      id={id}
+      onChange={onChange}
+      disabled={disabled}
+      required={required}
+      checked={checked}
+      name={name}
+      aria-invalid={invalid} />
+    <Label
+      htmlFor={id}
+      ml={size}>
       {label}
-    </CheckboxContainer>
-  );
-};
+    </Label>
+  </CheckboxContainer>
+);
 
 Checkbox.displayName = 'Checkbox';
 
@@ -162,8 +163,8 @@ Checkbox.propTypes = {
   /** Id, required for accessibility */
   id: PropTypes.string.isRequired,
 
-  /** Children must be a Label */
-  children: PropTypes.instanceOf(Label).isRequired,
+  /** Label for a checkbox */
+  label: PropTypes.node.isRequired,
   
   /** Colour of the checkbox */
   color: PropTypes.string,

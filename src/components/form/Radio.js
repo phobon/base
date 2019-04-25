@@ -134,25 +134,26 @@ const Radio = ({
   name,
   size,
   invalid,
-  children,
+  label,
   ...props
-}) => {
-  const label = React.cloneElement(children, { htmlFor: id, ml: size });
-  return (
-    <RadioContainer size={size} disabled={disabled} invalid={invalid} {...props}>
-      <input
-        type="radio"
-        id={id}
-        onChange={onChange}
-        disabled={disabled}
-        required={required}
-        checked={checked}
-        name={name}
-        aria-invalid={invalid} />
+}) => (
+  <RadioContainer size={size} disabled={disabled} invalid={invalid} {...props}>
+    <input
+      type="radio"
+      id={id}
+      onChange={onChange}
+      disabled={disabled}
+      required={required}
+      checked={checked}
+      name={name}
+      aria-invalid={invalid} />
+    <Label
+      htmlFor={id}
+      ml={size}>
       {label}
-    </RadioContainer>
-  );
-};
+    </Label>
+  </RadioContainer>
+);
 
 Radio.displayName = 'Radio';
 
@@ -162,8 +163,8 @@ Radio.propTypes = {
   /** Id, required for accessibility */
   id: PropTypes.string.isRequired,
 
-  /** Children must be a Label */
-  children: PropTypes.instanceOf(Label).isRequired,
+  /** Label of the radio */
+  label: PropTypes.node.isRequired,
   
   /** Colour of the radio */
   color: PropTypes.string,
