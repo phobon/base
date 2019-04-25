@@ -137,7 +137,7 @@ const Checkbox = ({
   children,
   ...props
 }) => {
-  const label = React.cloneElement(children, { ...children.props, htmlFor: id, ml: size });
+  const label = React.cloneElement(children, { htmlFor: id, ml: size });
   return (
     <CheckboxContainer size={size} disabled={disabled} invalid={invalid} {...props}>
       <input
