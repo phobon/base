@@ -102,7 +102,7 @@ const StyledTable = styled.table`
       color: ${props => props.theme.colors.grayscale[2]};
       font-weight: ${props => props.theme.fontWeights.normal};
       white-space: pre;
-      background-color: ${props => props.theme.colors.grayscale[7]};
+      background-color: ${props => props.theme.colors.grayscale[8]};
 
       padding-right: ${props => props.theme.space[3]}px;
 
