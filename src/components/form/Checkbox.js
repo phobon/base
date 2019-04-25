@@ -149,7 +149,8 @@ const Checkbox = ({
       aria-invalid={invalid} />
     <Label
       htmlFor={id}
-      ml={size}>
+      ml={size}
+      alignItems="baseline">
       {label}
     </Label>
   </CheckboxContainer>
