@@ -112,7 +112,7 @@ export const randomA11y = () => {
   const palette = palettes[r];
   return [
     colour[palette][0],
-    colour[palette][5],
+    colour[palette][9],
   ];
 };
 
