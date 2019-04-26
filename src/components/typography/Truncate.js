@@ -15,7 +15,7 @@ const TruncateContainer = styled(Flex)({
 });
 
 const Truncate = ({ children, ...props }) => (
-  <TruncateContainer justifyContent="flex-start">
+  <TruncateContainer justifyContent="flex-start" color="inherit">
     <TruncateText {...props}>{children}</TruncateText>
   </TruncateContainer>
 );
