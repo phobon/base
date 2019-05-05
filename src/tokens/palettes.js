@@ -14,7 +14,7 @@ const lightGrayscale = [
   'hsl(220, 9%, 79%)',
   'hsl(216, 10%, 90%)',
   'hsl(240, 7%, 97%)',
-  'hsl(0, 0, 100%)', // background
+  'hsl(240, 5%, 99%)',
 ];
 // https://www.colorbox.io/#steps=10#hue_start=219#hue_end=216#hue_curve=easeOutQuad#sat_start=27#sat_end=8#sat_curve=easeInSine#sat_rate=100#lum_start=25#lum_end=95#lum_curve=easeInOutSine#minor_steps_map=none
 const darkGrayscale = [
@@ -27,7 +27,7 @@ const darkGrayscale = [
   'hsl(217, 14%, 36%)',
   'hsl(218, 15%, 28%)',
   'hsl(217, 15%, 24%)',
-  'hsl(220, 16%, 22%)', // background
+  'hsl(220, 16%, 22%)',
 ];
 
 // https://www.colorbox.io/#steps=9#hue_start=174#hue_end=175#hue_curve=easeInOutSine#sat_start=93#sat_end=19#sat_curve=easeInSine#sat_rate=107#lum_start=29#lum_end=99#lum_curve=linear#minor_steps_map=0
@@ -132,7 +132,7 @@ export const themeDefinitions = {
   },
   dark: {
     foreground: 'hsl(220, 62%, 95%)',
-    background: 'hsl(219, 15%, 22%)',
+    background: 'hsl(219, 12%, 18%)',
     grayscale: [...colour.darkGrayscale],
   },
 };
