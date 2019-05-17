@@ -36,7 +36,7 @@ const minimalStyle = props => props.minimal && css`
   }
 
   &::-webkit-scrollbar {
-    width: ${props.theme.space[2]}px;
+    width: ${props.theme.space[1]}px;
   }
 
   &::-webkit-scrollbar-track {
@@ -46,7 +46,7 @@ const minimalStyle = props => props.minimal && css`
 
   &::-webkit-scrollbar-thumb {
     transition: background-color 180ms ease-out;
-    background-color: hsla(0, 0%, 0%, 0);
+    background-color: hsla(0, 0%, 0%, 0.4);
     border-radius: ${props.theme.radii[3]}px;
 
     &:hover {
@@ -91,6 +91,8 @@ Scrollable.propTypes = {
 
 Scrollable.defaultProps = {
   minimal: false,
+  // eslint-disable-next-line react/default-props-match-prop-types
+  bg: 'grayscale.8',
   scrollDirection: 'vertical',
 };
 

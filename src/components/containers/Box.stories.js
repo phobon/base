@@ -6,7 +6,7 @@ import Box from './Box';
 
 const TestBox = styled(Box)``;
 TestBox.defaultProps = {
-  bg: 'grayscale.6',
+  bg: 'grayscale.8',
   p: 2,
   borderRadius: 2,
 };
