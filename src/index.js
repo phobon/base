@@ -17,7 +17,7 @@ import {
 } from './hooks';
 
 import {
-  border, flexbox, focus, layout, position, typography, grid,
+  border, flexbox, focus, layout, position, typography, grid, fill,
   density, cover, round,
   Normalize,
   destructureLayoutProps,
@@ -31,7 +31,7 @@ export {
   Link,
   Table,
   Checkbox, TextInput, NumberInput, PasswordInput, Label, Select, TextArea, Radio,
-  border, flexbox, focus, layout, position, typography, grid,
+  border, flexbox, focus, layout, position, typography, grid, fill,
   density, cover, round,
   Normalize,
   destructureLayoutProps,
