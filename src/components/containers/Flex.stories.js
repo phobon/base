@@ -6,19 +6,21 @@ import Box from './Box';
 import Flex from './Flex';
 
 const TestFlex = styled(Flex)``;
-TestFlex.defaultProps = Object.assign({}, Flex.defaultProps, {
+TestFlex.defaultProps = {
+  ...Flex.defaultProps,
   height: 100,
   bg: 'purples.4',
   color: 'white',
-});
+};
 
 const TestBox = styled(Box)``;
-TestBox.defaultProps = Object.assign({}, Box.defaultProps, {
+TestBox.defaultProps = {
+  ...Box.defaultProps,
   width: 100,
   height: 100,
   bg: 'blues.4',
   color: 'white',
-});
+};
 
 storiesOf('Containers/Flex', module)
   .add('With different composition', () => (

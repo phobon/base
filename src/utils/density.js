@@ -1,21 +1,17 @@
-import { css } from 'styled-components';
+import { style } from 'styled-system';
 import PropTypes from 'prop-types';
 
-const density = props => {
-  const densities = {
-    compact: css`
-      height: 32px;
-    `,
-    normal: css`
-      height: 40px;
-    `,
-    spacious: css`
-      height: 48px;
-    `,
-  };
-
-  return densities[props.density];
-};
+const density = style({
+  prop: 'density',
+  cssProperty: 'height',
+  key: 'densities',
+  transformValue: n => `${n}px`,
+  scale: {
+    compact: 32,
+    normal: 40,
+    spacious: 48,
+  },
+})
 
 density.propTypes = {
   density: PropTypes.oneOf(['compact', 'normal', 'spacious']),

@@ -6,6 +6,7 @@ import Box from './Box';
 
 const TestBox = styled(Box)``;
 TestBox.defaultProps = {
+  ...Box.defaultProps,
   bg: 'grayscale.8',
   p: 2,
   borderRadius: 2,
@@ -50,11 +51,15 @@ storiesOf('Containers/Box', module)
         <TestBox fullWidth>fullWidth</TestBox>
       </Box>
 
-      <Box height={400} alignItems="flex-start" fullWidth>
+      <Box height={400} alignItems="flex-start" fullWidth mb={6}>
         <TestBox flex="1" mr={3} height={200} py={2}>Pixels: 200</TestBox>
         <TestBox flex="1" mr={3} height="20vwh" py={2}>String: 20vh</TestBox>
         <TestBox flex="1" mr={3} height="80%" py={2}>String: 80%</TestBox>
         <TestBox flex="1" fullHeight>fullHeight</TestBox>
+      </Box>
+
+      <Box height={200} fullWidth>
+        <TestBox cover>cover</TestBox>
       </Box>
     </Box>
   ))

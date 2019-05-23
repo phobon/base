@@ -1,7 +1,11 @@
 import PropTypes from 'prop-types';
-import { css } from 'styled-components';
+import { style } from 'styled-system';
 
-const round = props => props.round && css`border-radius: 50%;`;
+const round = style({
+  prop: 'round',
+  cssProperty: 'borderRadius',
+  transformValue: n => n ? '50%' : 'initial',
+});
 round.propTypes = {
   round: PropTypes.bool,
 };

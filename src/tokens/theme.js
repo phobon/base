@@ -7,6 +7,7 @@ import fontWeights from './fontWeights';
 import letterSpacings from './letterSpacings';
 import lineHeights from './lineHeights';
 import textStyles from './textStyles';
+import densities from './densities';
 
 import boxShadows from './boxShadows';
 
@@ -61,6 +62,7 @@ const baseTheme = {
   boxShadows,
   space,
   textStyles,
+  densities,
 };
 
 const lightTheme = Object.assign({}, baseTheme, { colors: lightColors });

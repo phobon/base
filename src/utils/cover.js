@@ -1,13 +1,21 @@
 import PropTypes from 'prop-types';
-import { compose } from 'styled-system';
+import { style, compose } from 'styled-system';
 import { css } from 'styled-components';
 
-const fullWidth = props => props.fullWidth && css`width: 100%;`;
+const fullWidth = style({
+  prop: 'fullWidth',
+  cssProperty: 'width',
+  transformValue: n => n ? '100%' : 'auto',
+});
 fullWidth.propTypes = {
-  fullWidth: PropTypes.bool,
+  fullHeight: PropTypes.bool,
 };
 
-const fullHeight = props => props.fullHeight && css`height: 100%;`;
+const fullHeight = style({
+  prop: 'fullHeight',
+  cssProperty: 'height',
+  transformValue: n => n ? '100%' : 'auto',
+});
 fullHeight.propTypes = {
   fullHeight: PropTypes.bool,
 };
