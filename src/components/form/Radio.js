@@ -1,8 +1,7 @@
 import React from 'react';
-import {
-  space,
-  themeGet,
-} from 'styled-system';
+import { space } from 'styled-system';
+import themeGet from '@styled-system/theme-get';
+import propTypes from '@styled-system/prop-types';
 import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
 
@@ -159,7 +158,7 @@ const Radio = ({
 Radio.displayName = 'Radio';
 
 Radio.propTypes = {
-  ...space.propTypes,
+  ...propTypes.space,
 
   /** Id, required for accessibility */
   id: PropTypes.string.isRequired,

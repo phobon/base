@@ -54,8 +54,8 @@
     "rollup-plugin-babel": "^4.3.2",
     "rollup-plugin-commonjs": "^9.2.2",
     "rollup-plugin-node-resolve": "^4.0.1",
-    "styled-components": "^4.2.0",
-    "styled-system": "^4.1.0"
+    "styled-components": "^4.3.1",
+    "styled-system": "^5.0.6"
   },
   "peerDependencies": {
     "react": "^16.8.x",
@@ -63,7 +63,10 @@
     "styled-components": "^4.x",
     "styled-system": "^4.x"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@styled-system/prop-types": "^5.0.8",
+    "@styled-system/theme-get": "^5.0.6"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/phobon/base.git"

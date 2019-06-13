@@ -1,10 +1,5 @@
-import border from './border';
-import flexbox from './flexbox';
 import focus from './focus';
-import layout from './layout';
-import position from './position';
-import typography from './typography';
-import grid from './grid';
+import gridPosition from './gridPosition';
 import fill from './fill';
 
 import cover from './cover';
@@ -17,7 +12,7 @@ import Normalize from './Normalize';
 import destructureLayoutProps from './destructureLayoutProps';
 
 export {
-  border, flexbox, focus, layout, position, typography, grid, fill,
+  focus, gridPosition, fill,
   density, cover, round,
   Normalize,
   destructureLayoutProps,

@@ -1,33 +1,32 @@
 import styled from 'styled-components';
 import {
   space,
-  width,
-  height,
+  layout,
   borderRadius,
 } from 'styled-system';
+import propTypes from '@styled-system/prop-types';
 
-import { cover, round } from '../../utils';
+import { cover, round, gridPosition } from '../../utils';
 
 const Image = styled.img({
   display: 'block',
 },
   space,
-  width,
-  height,
+  layout,
   borderRadius,
   cover,
   round,
+  gridPosition,
 );
 
 Image.displayName = 'Image';
 
 Image.propTypes = {
-  ...space.propTypes,
-  ...width.propTypes,
-  ...height.propTypes,
-  ...borderRadius.propTypes,
+  ...propTypes.space,
+  ...propTypes.borderRadius,
   ...cover.propTypes,
   ...round.propTypes,
+  ...gridPosition.propTypes,
 };
 
 export default Image;

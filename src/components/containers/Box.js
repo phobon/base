@@ -1,9 +1,9 @@
 import styled from 'styled-components';
+import { layout, flexbox, border } from 'styled-system';
+import propTypes from '@styled-system/prop-types';
 
 import {
-  layout,
-  flexbox,
-  border,
+  gridPosition,
   cover,
 } from '../../utils';
 
@@ -15,15 +15,17 @@ const Box = styled.div({
   layout,
   flexbox,
   border,
+  gridPosition,
   cover,
 );
 
 Box.displayName = 'Box';
 
 Box.propTypes = {
-  ...layout.propTypes,
-  ...flexbox.propTypes,
-  ...border.propTypes,
+  ...propTypes.layout,
+  ...propTypes.flexbox,
+  ...propTypes.border,
+  ...gridPosition.propTypes,
   ...cover.propTypes,
 };
 

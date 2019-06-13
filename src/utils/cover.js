@@ -7,31 +7,26 @@ const fullWidth = style({
   cssProperty: 'width',
   transformValue: n => n ? '100%' : 'auto',
 });
-fullWidth.propTypes = {
-  fullHeight: PropTypes.bool,
-};
-
 const fullHeight = style({
   prop: 'fullHeight',
   cssProperty: 'height',
   transformValue: n => n ? '100%' : 'auto',
 });
-fullHeight.propTypes = {
-  fullHeight: PropTypes.bool,
-};
-
 const coverAll = props => props.cover && css`
   width: 100%;
   height: 100%;
 `;
-coverAll.propTypes = {
-  cover: PropTypes.bool,
-};
 
 const cover = compose(
   fullWidth,
   fullHeight,
   coverAll,
 );
+
+cover.propTypes = {
+  fullWidth: PropTypes.bool,
+  fullHeight: PropTypes.bool,
+  cover: PropTypes.bool,
+};
 
 export default cover;

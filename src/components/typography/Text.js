@@ -1,5 +1,8 @@
 import styled from 'styled-components';
-import { cover, layout, typography } from '../../utils';
+import { layout, typography } from 'styled-system';
+import propTypes from '@styled-system/prop-types';
+
+import { cover } from '../../utils';
 
 const Text = styled.div({
   boxSizing: 'border-box',
@@ -12,8 +15,8 @@ const Text = styled.div({
 Text.displayName = 'Text';
 
 Text.propTypes = {
-  ...layout.propTypes,
-  ...typography.propTypes,
+  ...propTypes.layout,
+  ...propTypes.typography,
   ...cover.propTypes,
 };
 

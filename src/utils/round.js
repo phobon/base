@@ -6,6 +6,7 @@ const round = style({
   cssProperty: 'borderRadius',
   transformValue: n => n ? '50%' : 'initial',
 });
+
 round.propTypes = {
   round: PropTypes.bool,
 };

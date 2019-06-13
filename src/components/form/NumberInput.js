@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
+
 import TextInput from './TextInput';
 
 const spinButtons = props => props.hideSpinButtons && css`
@@ -19,8 +20,10 @@ NumberInput.propTypes = {
   hideSpinButtons: PropTypes.bool,
 };
 
-NumberInput.defaultProps = Object.assign({}, TextInput.defaultProps, {
+NumberInput.defaultProps = {
+  ...TextInput.defaultProps,
+
   hideSpinButtons: false,
-});
+};
 
 export default NumberInput;

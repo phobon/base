@@ -1,8 +1,11 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { space, width } from 'styled-system';
+import { space, layout, width } from 'styled-system';
+import propTypes from '@styled-system/prop-types';
 import PropTypes from 'prop-types';
+
+import { gridPosition } from '../../utils';
 
 const density = props => {
   const densityValues = {
@@ -52,8 +55,11 @@ const showSeparator = props => props.showSeparator ? css`
   border-bottom: 1px solid transparent;
 `;
 
-const StyledTable = styled.table`
-  ${space}
+const StyledTable = styled('table')(
+  space,
+  layout,
+  gridPosition,
+)`
   width: 100%;
   border-spacing: 0;
   border-collapse: separate;
@@ -141,10 +147,9 @@ const StyledTable = styled.table`
   ${density}
 `;
 
-const Col = styled.col`
-  ${space}
-  ${width}
-`;
+const Col = styled('col')(
+  width, space,
+);
 
 const Table = ({ id, columns, rows, ...props }) => {  
   const cols = columns.map(({ fill, truncate, ...rest }, i) => (
@@ -200,7 +205,8 @@ const Table = ({ id, columns, rows, ...props }) => {
 Table.displayName = 'Table';
 
 Table.propTypes = {
-  ...space.propTypes,
+  ...propTypes.space,
+  ...propTypes.layout,
 
   /** Optional identifier */
   id: PropTypes.node,
