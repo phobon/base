@@ -4,7 +4,9 @@ import styled from 'styled-components';
 import { Text } from '../typography';
 import { focus } from '../../utils';
 
-const Link = styled(Text).attrs(() => ({ as: 'a' }))`
+const Link = styled(Text).attrs(() => ({ as: 'a' }),
+  focus,
+)`
   text-decoration: ${props => props.clean ? 'none' : 'underline dashed'};
   position: relative;
   border-radius: ${props => props.theme.radii[3]}px;
@@ -17,8 +19,6 @@ const Link = styled(Text).attrs(() => ({ as: 'a' }))`
   &:visited, &:focus {
     text-decoration: none;
   }
-
-  ${focus}
 `;
 
 Link.displayName = 'Link';

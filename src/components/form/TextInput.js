@@ -2,10 +2,11 @@ import styled, { css } from 'styled-components';
 import {
   color,
   space,
-  borders,
+  border,
   fontSize,
   width,
 } from 'styled-system';
+import propTypes from '@styled-system/prop-types';
 import PropTypes from 'prop-types';
 
 import { density, cover } from '../../utils';
@@ -21,21 +22,18 @@ const TextInput = styled.input.attrs(props => ({
   position: relative;
   overflow: hidden;
 
-  ${color}
-  ${space}
-  ${fontSize}
-  ${width}
-
-  ${borders}
-
-  ${inputRadius}
-
   padding-left: ${props => props.theme.space[2]}px;
   padding-right: ${props => props.theme.space[2]}px;
   line-height: ${props => props.theme.fontSizes[props.fontSize]}px;
 
   box-shadow: 0px 2px 0px 0px ${props => props.theme.colors.grayscale[7]};
 
+  ${color}
+  ${space}
+  ${fontSize}
+  ${width}
+  ${border}
+  ${inputRadius}
   ${cover}
   ${density}
 
@@ -69,11 +67,11 @@ const TextInput = styled.input.attrs(props => ({
 TextInput.displayName = 'TextInput';
 
 TextInput.propTypes = {
-  ...color.propTypes,
-  ...space.propTypes,
-  ...fontSize.propTypes,
-  ...width.propTypes,
-  ...borders.propTypes,
+  ...propTypes.color,
+  ...propTypes.space,
+  ...propTypes.fontSize,
+  ...propTypes.width,
+  ...propTypes.border,
   ...density.propTypes,
 
   /** If this input is invalid, or not */

@@ -1,7 +1,8 @@
 import styled from 'styled-components';
+import { grid } from 'styled-system';
+import propTypes from '@styled-system/prop-types';
 
 import Box from './Box';
-import { grid } from '../../utils';
 
 const Grid = styled(Box)({
     display: 'grid',
@@ -12,7 +13,7 @@ const Grid = styled(Box)({
 Grid.displayName = 'Grid';
 
 Grid.propTypes = {
-  ...grid.propTypes,
+  ...propTypes.grid,
 };
 
 Grid.defaultProps = {

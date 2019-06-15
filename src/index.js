@@ -17,8 +17,8 @@ import {
 } from './hooks';
 
 import {
-  border, flexbox, focus, layout, position, typography, grid, fill,
-  density, cover, round,
+  focus, gridPosition, fill,
+  density, cover, fullWidth, fullHeight, round,
   Normalize,
   destructureLayoutProps,
 } from './utils';
@@ -31,8 +31,8 @@ export {
   Link,
   Table,
   Checkbox, TextInput, NumberInput, PasswordInput, Label, Select, TextArea, Radio,
-  border, flexbox, focus, layout, position, typography, grid, fill,
-  density, cover, round,
+  focus, gridPosition, fill,
+  density, cover, fullWidth, fullHeight, round,
   Normalize,
   destructureLayoutProps,
   theme, randomA11y, randomColor,
