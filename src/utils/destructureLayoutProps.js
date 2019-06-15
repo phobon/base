@@ -3,8 +3,18 @@
  * This is useful for positioning items within an Higher Order Component and simplify the incoming API.
  */
 const destructureLayoutProps = (props) => {
-  const { m, my, mx, mt, mb, ml, mr, position, top, left, right, bottom, width, height, fullWidth, fullHeight, cover, ...passthroughProps } = props;
-  const layoutProps = { m, my, mx, mt, mb, ml, mr, position, top, left, right, bottom, width, height, fullWidth, fullHeight, cover };
+  const {
+    m, mt, mr, mb, ml, mx, my,
+    width, height, minHeight, maxHeight, minWidth, maxWidth, size,
+    position, top, right, bottom, left,
+    fullWidth, fullHeight, cover, ...passthroughProps
+  } = props;
+  const layoutProps = {
+    m, mt, mr, mb, ml, mx, my,
+    width, height, minHeight, maxHeight, minWidth, maxWidth, size,
+    position, top, right, bottom, left,
+    fullWidth, fullHeight, cover,
+  };
 
   return [layoutProps, passthroughProps];
 };
