@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { layout, flexbox, border } from 'styled-system';
+import { space, layout, flexbox, border, color, position, background } from 'styled-system';
 import propTypes from '@styled-system/prop-types';
 
 import {
@@ -12,9 +12,13 @@ const Box = styled.div({
   boxSizing: 'border-box',
   minWidth: 0,
 },
+  space,
   layout,
   flexbox,
   border,
+  color,
+  position,
+  background,
   gridPosition,
   cover,
 );
@@ -22,18 +26,22 @@ const Box = styled.div({
 Box.displayName = 'Box';
 
 Box.propTypes = {
+  ...propTypes.space,
   ...propTypes.layout,
   ...propTypes.flexbox,
   ...propTypes.border,
+  ...propTypes.color,
+  ...propTypes.position,
+  ...propTypes.background,
   ...gridPosition.propTypes,
   ...cover.propTypes,
 };
 
 Box.defaultProps = {
   flex: 'none',
+  color: 'foreground',
   alignItems: 'center',
   justifyContent: 'center',
-  color: 'foreground',
 };
 
 export default Box;

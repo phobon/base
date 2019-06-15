@@ -23,7 +23,7 @@ Label.defaultProps = {
   color: 'grayscale.2',
   fontSize: 1,
   justifyContent: 'center',
-  alignItems: 'center',
+  alignItems: 'baseline',
   flex: 'none',
 };
 

@@ -17,16 +17,7 @@ const inputRadius = props => css`
 
 const TextInput = styled.input.attrs(props => ({
   'aria-invalid': props.invalid ? true : undefined,
-}),
-  color,
-  space,
-  fontSize,
-  width,
-  border,
-  inputRadius,
-  cover,
-  density,
-)`
+}))`
   box-sizing: border-box;
   position: relative;
   overflow: hidden;
@@ -36,6 +27,15 @@ const TextInput = styled.input.attrs(props => ({
   line-height: ${props => props.theme.fontSizes[props.fontSize]}px;
 
   box-shadow: 0px 2px 0px 0px ${props => props.theme.colors.grayscale[7]};
+
+  ${color}
+  ${space}
+  ${fontSize}
+  ${width}
+  ${border}
+  ${inputRadius}
+  ${cover}
+  ${density}
 
   &::-webkit-input-placeholder {
     color: ${props => props.theme.colors.grayscale[5]};

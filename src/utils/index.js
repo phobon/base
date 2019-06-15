@@ -2,7 +2,7 @@ import focus from './focus';
 import gridPosition from './gridPosition';
 import fill from './fill';
 
-import cover from './cover';
+import cover, { fullWidth, fullHeight } from './cover';
 import round from './round';
 
 import density from './density';
@@ -13,7 +13,7 @@ import destructureLayoutProps from './destructureLayoutProps';
 
 export {
   focus, gridPosition, fill,
-  density, cover, round,
+  density, cover, fullWidth, fullHeight, round,
   Normalize,
   destructureLayoutProps,
-}
+};

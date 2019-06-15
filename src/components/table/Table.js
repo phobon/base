@@ -55,11 +55,7 @@ const showSeparator = props => props.showSeparator ? css`
   border-bottom: 1px solid transparent;
 `;
 
-const StyledTable = styled('table')(
-  space,
-  layout,
-  gridPosition,
-)`
+const StyledTable = styled.table`
   width: 100%;
   border-spacing: 0;
   border-collapse: separate;
@@ -67,6 +63,10 @@ const StyledTable = styled('table')(
   box-sizing: border-box;
   border-bottom: 2px solid ${props => props.theme.colors.grayscale[7]};
 
+  ${space}
+  ${layout}
+  ${gridPosition}
+  
   th, td {
     vertical-align: top;
     text-align: left;
