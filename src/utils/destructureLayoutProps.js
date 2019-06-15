@@ -7,13 +7,15 @@ const destructureLayoutProps = (props) => {
     m, mt, mr, mb, ml, mx, my,
     width, height, minHeight, maxHeight, minWidth, maxWidth, size,
     position, top, right, bottom, left,
-    fullWidth, fullHeight, cover, ...passthroughProps
+    fullWidth, fullHeight, cover,
+    gridArea, gridRow, gridColumn, ...passthroughProps
   } = props;
   const layoutProps = {
     m, mt, mr, mb, ml, mx, my,
     width, height, minHeight, maxHeight, minWidth, maxWidth, size,
     position, top, right, bottom, left,
     fullWidth, fullHeight, cover,
+    gridArea, gridRow, gridColumn,
   };
 
   return [layoutProps, passthroughProps];
