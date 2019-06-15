@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { space, layout, flexbox, border, color, position, background } from 'styled-system';
+import { compose, space, layout, flexbox, border, color, position, background } from 'styled-system';
 import propTypes from '@styled-system/prop-types';
 
 import {
@@ -7,18 +7,14 @@ import {
   cover,
 } from '../../utils';
 
+const boxSystem = compose(space, layout, flexbox, border, color, position, background);
+
 const Box = styled.div({
   display: 'flex',
   boxSizing: 'border-box',
   minWidth: 0,
 },
-  space,
-  layout,
-  flexbox,
-  border,
-  color,
-  position,
-  background,
+  boxSystem,
   gridPosition,
   cover,
 );

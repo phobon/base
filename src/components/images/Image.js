@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import {
+  compose,
   style,
   space,
   layout,
@@ -29,14 +30,12 @@ responsive.propTypes = {
   responsive: PropTypes.bool,
 };
 
+const imageSystem = compose(space, layout, borderRadius, background, position);
+
 const Image = styled.img({
   display: 'block',
 },
-  space,
-  layout,
-  borderRadius,
-  background,
-  position,
+  imageSystem,
   fullWidth,
   fullHeight,
   round,

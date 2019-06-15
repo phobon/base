@@ -1,7 +1,7 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { space, layout, width } from 'styled-system';
+import { compose, space, layout, width } from 'styled-system';
 import propTypes from '@styled-system/prop-types';
 import PropTypes from 'prop-types';
 
@@ -55,6 +55,8 @@ const showSeparator = props => props.showSeparator ? css`
   border-bottom: 1px solid transparent;
 `;
 
+const tableSystem = compose(space, layout, width);
+
 const StyledTable = styled.table`
   width: 100%;
   border-spacing: 0;
@@ -63,8 +65,7 @@ const StyledTable = styled.table`
   box-sizing: border-box;
   border-bottom: 2px solid ${props => props.theme.colors.grayscale[7]};
 
-  ${space}
-  ${layout}
+  ${tableSystem}
   ${gridPosition}
   
   th, td {

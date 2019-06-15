@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import {
+  compose,
   space,
   color,
   layout,
@@ -11,16 +12,13 @@ import propTypes from '@styled-system/prop-types';
 
 import { cover, gridPosition } from '../../utils';
 
+const textSystem = compose(space, color, layout, typography, position, textStyle);
+
 const Text = styled.span({
   boxSizing: 'border-box',
   display: 'block',
 },
-  space,
-  color,
-  layout,
-  typography,
-  position,
-  textStyle,
+  textSystem,
   cover,
   gridPosition,
 );

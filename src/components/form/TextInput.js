@@ -1,19 +1,11 @@
-import styled, { css } from 'styled-components';
-import {
-  color,
-  space,
-  border,
-  fontSize,
-  width,
-} from 'styled-system';
+import styled from 'styled-components';
+import { compose, color, space, border, fontSize, width } from 'styled-system';
 import propTypes from '@styled-system/prop-types';
 import PropTypes from 'prop-types';
 
 import { density, cover } from '../../utils';
 
-const inputRadius = props => css`
-  border-radius: ${props.theme.radii[props.borderRadius]}px ${props.theme.radii[props.borderRadius]}px 0px 0px;
-`;
+const textInputSystem = compose(color, space, border, fontSize, width);
 
 const TextInput = styled.input.attrs(props => ({
   'aria-invalid': props.invalid ? true : undefined,
@@ -27,13 +19,10 @@ const TextInput = styled.input.attrs(props => ({
   line-height: ${props => props.theme.fontSizes[props.fontSize]}px;
 
   box-shadow: 0px 2px 0px 0px ${props => props.theme.colors.grayscale[7]};
+  border-radius: ${props => `${props.theme.radii[props.borderRadius]}px ${props.theme.radii[props.borderRadius]}px 0px 0px`};
 
-  ${color}
-  ${space}
-  ${fontSize}
-  ${width}
-  ${border}
-  ${inputRadius}
+  ${textInputSystem}
+
   ${cover}
   ${density}
 
