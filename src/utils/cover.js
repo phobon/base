@@ -20,21 +20,21 @@ fullHeight.propTypes = {
   fullHeight: PropTypes.bool,
 };
 
-const coverAll = props => props.cover && css`
+const cover = props => props.cover ? css`
   width: 100%;
   height: 100%;
-`;
+` : null;
 
-const cover = compose(
+const fullSize = compose(
   fullWidth,
   fullHeight,
-  coverAll,
+  cover,
 );
 
-cover.propTypes = {
+fullSize.propTypes = {
   fullWidth: PropTypes.bool,
   fullHeight: PropTypes.bool,
   cover: PropTypes.bool,
 };
 
-export default cover;
+export default fullSize;
