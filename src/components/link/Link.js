@@ -33,11 +33,12 @@ Link.propTypes = {
   active: PropTypes.bool,
 };
 
-Link.defaultProps = Object.assign({}, Text.defaultProps, {
+Link.defaultProps = {
+  ...Text.defaultProps,
   color: 'accent.1',
   fontSize: 1,
   textAlign: 'left',
   active: false,
-});
+};
 
 export default Link;

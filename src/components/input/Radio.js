@@ -149,6 +149,7 @@ const Radio = ({
         checked={checked}
         name={name} />
       <Label
+        alignItems="center"
         color={labelColor}
         fontSize={fontSize}
         fontWeight={fontWeight}

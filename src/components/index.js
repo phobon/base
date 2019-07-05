@@ -1,4 +1,4 @@
-import { Box, Flex, Scrollable, Grid, Card } from './containers';
+import { Box, Flex, Scrollable, Grid, Card, Stack } from './containers';
 import { BoxList, BoxListItem } from './lists';
 import { Heading, Text, Truncate } from './typography';
 import { Image, Vector } from './images';
@@ -7,10 +7,10 @@ import Table from './table';
 
 import {
   Checkbox, TextInput, NumberInput, PasswordInput, Label, Select, TextArea, Radio,
-} from './form';
+} from './input';
 
 export {
-  Box, Flex, Scrollable, Grid, Card,
+  Box, Flex, Scrollable, Grid, Card, Stack,
   BoxList, BoxListItem,
   Heading, Text, Truncate,
   Image, Vector,

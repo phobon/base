@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react';
 import { Box } from '../containers';
 import PasswordInput from './PasswordInput';
 
-storiesOf('Form/PasswordInput', module)
+storiesOf('Input/PasswordInput', module)
   .add('With different paddings', () => (
     <Box width={1 / 2} flexDirection="column" alignItems="flex-start">
       <PasswordInput value={null} mb={3} placeholder="default width" />

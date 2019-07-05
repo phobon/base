@@ -7,7 +7,7 @@ import Label from './Label';
 
 const text = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque id sodales lectus. Nulla condimentum in turpis nec posuere. Cras ac mollis ligula, vitae volutpat risus.';
 
-storiesOf('Form/Label', module)
+storiesOf('Input/Label', module)
   .add('With different textStyles', () => (
     <Box flexDirection="column" alignItems="flex-start" fullWidth>
       <Label mb={3}>

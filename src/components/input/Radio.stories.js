@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react';
 import { Box } from '../containers';
 import Radio from './Radio';
 
-storiesOf('Form/Radio', module)
+storiesOf('Input/Radio', module)
   .add('With different sizes', () => (
     <Box flexDirection="column" alignItems="flex-start">
       <Radio label="default (3)" id="1" mb={3} />

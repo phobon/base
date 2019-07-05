@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react';
 import { Box } from '../containers';
 import Checkbox from './Checkbox';
 
-storiesOf('Form/Checkbox', module)
+storiesOf('Input/Checkbox', module)
   .add('With different sizes', () => (
     <Box flexDirection="column" alignItems="flex-start">
       <Checkbox label="default (3)" id="1" mb={3} />

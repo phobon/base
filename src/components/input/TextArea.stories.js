@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react';
 import { Box } from '../containers';
 import TextArea from './TextArea';
 
-storiesOf('Form/TextArea', module)
+storiesOf('Input/TextArea', module)
   .add('With different heights', () => (
     <Box alignItems="flex-start">
       <TextArea width={100} value={null} mr={3} placeholder="default height" />

@@ -12,7 +12,7 @@ const TestSelect = props => (
   </Select>
 );
 
-storiesOf('Form/Select', module)
+storiesOf('Input/Select', module)
   .add('With different paddings', () => (
     <Box width={1 / 2} flexDirection="column" alignItems="flex-start">
       <TestSelect value={null} mb={3} />
