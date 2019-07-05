@@ -1,6 +1,6 @@
 {
   "name": "@phobon/base",
-  "version": "2.2.6",
+  "version": "2.2.7",
   "description": "Essential compositional components using styled-components and styled-system",
   "main": "dist/index.js",
   "author": "Ben McCormick",
@@ -55,7 +55,7 @@
     "rollup-plugin-babel": "^4.3.2",
     "rollup-plugin-commonjs": "^9.2.2",
     "rollup-plugin-node-resolve": "^4.0.1",
-    "styled-components": "^5.0.0-beta.8",
+    "styled-components": "^4.3.2",
     "styled-system": "^5.0.12"
   },
   "peerDependencies": {
