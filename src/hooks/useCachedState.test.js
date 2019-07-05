@@ -1,9 +1,9 @@
 import 'jest-localstorage-mock';
-import { renderHook, cleanup, act } from 'react-hooks-testing-library';
+import { renderHook, cleanup, act } from '@testing-library/react-hooks';
 
 import useCachedState from './useCachedState';
 
-afterEach(cleanup);
+afterEach(() => cleanup);
 
 test('localStorage should work', () => {
   const key = 'testKey';
