@@ -71,7 +71,7 @@ TextInput.defaultProps = {
   disabled: false,
   invalid: false,
   fullWidth: false,
-  borderRadius: 3,
+  borderRadius: '4px 4px 0 0',
   px: 2,
   fontSize: 1,
   bg: 'grayscale.8',
