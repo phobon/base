@@ -5,7 +5,7 @@ import { css } from 'styled-components';
 export const fullWidth = style({
   prop: 'fullWidth',
   cssProperty: 'width',
-  transformValue: n => n ? '100%' : 'auto',
+  transformValue: n => n ? '100%' : null,
 });
 fullWidth.propTypes = { 
   fullWidth: PropTypes.bool,
@@ -14,7 +14,7 @@ fullWidth.propTypes = {
 export const fullHeight = style({
   prop: 'fullHeight',
   cssProperty: 'height',
-  transformValue: n => n ? '100%' : 'auto',
+  transformValue: n => n ? '100%' : null,
 });
 fullHeight.propTypes = { 
   fullHeight: PropTypes.bool,

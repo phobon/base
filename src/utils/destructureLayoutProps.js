@@ -18,6 +18,9 @@ const destructureLayoutProps = (props) => {
     gridArea, gridRow, gridColumn,
   };
 
+  // Delete any undefined objects from this object so it doesn't mess with layout props.
+  Object.keys(layoutProps).forEach(key => layoutProps[key] === undefined && delete layoutProps[key])
+
   return [layoutProps, passthroughProps];
 };
 
