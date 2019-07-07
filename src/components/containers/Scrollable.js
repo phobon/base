@@ -1,5 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
+import { themeGet } from '@styled-system/theme-get';
 import PropTypes from 'prop-types';
 
 import Flex from './Flex';
@@ -28,32 +29,39 @@ const childDirection = props => props.scrollDirection === 'vertical'
     left: 0;
     bottom: 0;
   `;
-const minimalStyle = props => props.minimal && css`
-  &:hover {
-    &::-webkit-scrollbar-thumb {
-      background-color: hsla(0, 0%, 0%, 0.4);
-    }
+const minimalStyle = ({ minimal, ...props }) => {
+  if (minimal) {
+    const color = themeGet(`colors.${props.scrollbarColor}`)(props) || props.scrollbarColor;
+    return css`
+      &:hover {
+        &::-webkit-scrollbar-thumb {
+          background-color: ${color};
+        }
+      }
+
+      &::-webkit-scrollbar {
+        width: ${props.theme.space[1]}px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background-color: inherit;
+        border-radius: ${props.theme.radii[3]}px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        transition: background-color 180ms ease-out;
+        background-color: ${color};
+        border-radius: ${props.theme.radii[3]}px;
+
+        &:hover {
+          background-color: ${color};
+        }
+      }
+    `;
   }
 
-  &::-webkit-scrollbar {
-    width: ${props.theme.space[1]}px;
-  }
-
-  &::-webkit-scrollbar-track {
-    background-color: inherit;
-    border-radius: ${props.theme.radii[3]}px;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    transition: background-color 180ms ease-out;
-    background-color: hsla(0, 0%, 0%, 0.4);
-    border-radius: ${props.theme.radii[3]}px;
-
-    &:hover {
-      background-color: hsla(0, 0%, 0%, 0.4);
-    }
-  }
-`;
+  return null;
+};
 
 const ScrollableFlex = styled(Flex)`
   position: relative;
@@ -70,8 +78,8 @@ const ScrollableFlex = styled(Flex)`
   ${minimalStyle}
 `;
 
-const Scrollable = ({ minimal, scrollDirection, children, bg, ...props }) => (
-  <ScrollableFlex minimal={minimal} scrollDirection={scrollDirection} bg={bg}>
+const Scrollable = ({ minimal, scrollDirection, scrollbarColor, children, bg, ...props }) => (
+  <ScrollableFlex minimal={minimal} scrollDirection={scrollDirection} bg={bg} scrollbarColor={scrollbarColor}>
     <Flex alignItems="flex-start" justifyContent="flex-start" bg={bg} {...props}>
       {children}
     </Flex>
@@ -87,12 +95,16 @@ Scrollable.propTypes = {
   minimal: PropTypes.bool,
 
   scrollDirection: PropTypes.oneOf(['vertical', 'horizontal']),
+
+  scrollbarColor: PropTypes.string,
 };
 
 Scrollable.defaultProps = {
   minimal: false,
   // eslint-disable-next-line react/default-props-match-prop-types
   scrollDirection: 'vertical',
+
+  scrollbarColor: 'hsla(0, 0%, 0%, 0.4)',
 };
 
 export default Scrollable;
