@@ -92,7 +92,6 @@ Scrollable.propTypes = {
 Scrollable.defaultProps = {
   minimal: false,
   // eslint-disable-next-line react/default-props-match-prop-types
-  bg: 'grayscale.8',
   scrollDirection: 'vertical',
 };
 
