@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
-import Box from './Box';
+import Stack from './Stack';
 
 const boxShadow = props => {
   const boxShadows = {
@@ -16,7 +16,7 @@ const boxShadow = props => {
   return boxShadows[props.boxShadowSize];
 };
 
-const Card = styled(Box)`
+const Card = styled(Stack)`
   position: relative;
 
   &::before {
@@ -37,7 +37,7 @@ const Card = styled(Box)`
 Card.displayName = 'Card';
 
 Card.propTypes = {
-  ...Box.propTypes,
+  ...Stack.propTypes,
 
   /** Card box shadow size */
   boxShadowSize: PropTypes.oneOf([ 'none', 's', 'm', 'l', 'xl', 'xxl' ]),
@@ -47,9 +47,8 @@ Card.propTypes = {
 };
 
 Card.defaultProps = {
-  flex: 'none',
-  alignItems: 'center',
-  justifyContent: 'center',
+  ...Stack.defaultProps,
+
   color: 'foreground',
   bg: 'background',
   borderRadius: 3,
