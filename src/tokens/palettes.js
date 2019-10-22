@@ -1,100 +1,136 @@
+import hsluv from 'hsluv';
+
 export const white = 'hsl(0, 0%, 100%)';
 export const black = 'hsl(0, 0%, 0%)';
 export const transparent = 'hsla(0, 0%, 0%, 0)';
 export const focus = 'hsl(211, 97%, 61%)';
 
+const colourMap = c => `hsl(${c[0]}, ${c[1]}%, ${c[2]}%)`;
+const hsluvMap = c => hsluv.hsluvToHex(c);
+
 // https://www.colorbox.io/#steps=10#hue_start=220#hue_end=215#hue_curve=easeOutQuad#sat_start=0#sat_end=15#sat_curve=easeInOutSine#sat_rate=126#lum_start=100#lum_end=19#lum_curve=easeInOutSine#minor_steps_map=none
-const lightGrayscale = [
-  'hsl(213, 10%, 17%)',
-  'hsl(213, 10%, 20%)',
-  'hsl(215, 9%, 25%)',
-  'hsl(214, 8%, 35%)',
-  'hsl(216, 6%, 49%)',
-  'hsl(217, 7%, 65%)',
-  'hsl(220, 9%, 79%)',
-  'hsl(216, 10%, 90%)',
-  'hsl(240, 7%, 97%)',
-  'hsl(240, 5%, 99%)',
+const lightGrayscaleRaw = [
+  [213, 10, 17],
+  [213, 10, 20],
+  [215, 9, 25],
+  [214, 8, 35],
+  [216, 6, 49],
+  [217, 7, 65],
+  [220, 9, 79],
+  [216, 10, 90],
+  [240, 7, 97],
+  [240, 5, 99],
 ];
+const lightGrayscale = lightGrayscaleRaw.map(colourMap);
+const lightGrayscaleHsluv = lightGrayscaleRaw.map(hsluvMap);
+
 // https://www.colorbox.io/#steps=10#hue_start=219#hue_end=216#hue_curve=easeOutQuad#sat_start=27#sat_end=8#sat_curve=easeInSine#sat_rate=100#lum_start=25#lum_end=95#lum_curve=easeInOutSine#minor_steps_map=none
-const darkGrayscale = [
-  'hsl(215, 42%, 91%)',
-  'hsl(216, 40%, 88%)',
-  'hsl(217, 33%, 81%)',
-  'hsl(217, 24%, 72%)',
-  'hsl(215, 17%, 60%)',
-  'hsl(217, 13%, 47%)',
-  'hsl(217, 14%, 36%)',
-  'hsl(218, 15%, 28%)',
-  'hsl(217, 15%, 24%)',
-  'hsl(220, 16%, 22%)',
+const darkGrayscaleRaw = [
+  [215, 42, 91],
+  [216, 40, 88],
+  [217, 33, 81],
+  [217, 24, 72],
+  [215, 17, 60],
+  [217, 13, 47],
+  [217, 14, 36],
+  [218, 15, 28],
+  [217, 15, 24],
+  [220, 16, 22],
 ];
+const darkGrayscale = darkGrayscaleRaw.map(colourMap);
+const darkGrayscaleHsluv = darkGrayscaleRaw.map(hsluvMap);
 
 // https://www.colorbox.io/#steps=9#hue_start=174#hue_end=175#hue_curve=easeInOutSine#sat_start=93#sat_end=19#sat_curve=easeInSine#sat_rate=107#lum_start=29#lum_end=99#lum_curve=linear#minor_steps_map=0
-const greens = [
-  'hsl(174, 100%, 15%)',
-  'hsl(174, 98%, 17%)',
-  'hsl(174, 98%, 19%)',
-  'hsl(174, 89%, 25%)',
-  'hsl(174, 76%, 31%)',
-  'hsl(175, 62%, 39%)',
-  'hsl(174, 46%, 50%)',
-  'hsl(175, 52%, 62%)',
-  'hsl(175, 61%, 75%)',
-  'hsl(175, 89%, 89%)',
+const greensRaw = [
+  [174, 100, 15],
+  [174, 98, 17],
+  [174, 98, 19],
+  [174, 89, 25],
+  [174, 76, 31],
+  [175, 62, 39],
+  [174, 46, 50],
+  [175, 52, 62],
+  [175, 61, 75],
+  [175, 45, 89],
 ];
+const greens = greensRaw.map(colourMap);
+const greensHsluv = greensRaw.map(hsluvMap);
+
 // https://www.colorbox.io/#steps=9#hue_start=28#hue_end=33#hue_curve=easeInOutSine#sat_start=100#sat_end=26#sat_curve=easeInQuad#sat_rate=100#lum_start=73#lum_end=96#lum_curve=easeInExpo#minor_steps_map=0
-const oranges = [
-  'hsl(28, 100%, 36%)',
-  'hsl(28, 98%, 40%)',
-  'hsl(28, 96%, 45%)',
-  'hsl(29, 90%, 49%)',
-  'hsl(30, 88%, 52%)',
-  'hsl(30, 89%, 57%)',
-  'hsl(32, 88%, 62%)',
-  'hsl(32, 86%, 69%)',
-  'hsl(33, 82%, 76%)',
-  'hsl(33, 76%, 84%)',
+const orangesRaw = [
+  [28, 100, 36],
+  [28, 98, 40],
+  [28, 96, 45],
+  [29, 90, 49],
+  [30, 88, 52],
+  [30, 89, 57],
+  [32, 88, 62],
+  [32, 86, 69],
+  [33, 82, 76],
+  [33, 76, 84],
 ];
+const oranges = orangesRaw.map(colourMap);
+const orangesHsluv = orangesRaw.map(hsluvMap);
+
 // https://www.colorbox.io/#steps=9#hue_start=8#hue_end=9#hue_curve=easeInOutSine#sat_start=100#sat_end=17#sat_curve=easeInSine#sat_rate=100#lum_start=53#lum_end=96#lum_curve=easeInQuad#minor_steps_map=0
-const reds = [
-  'hsl(8, 100%, 26%)',
-  'hsl(8, 99%, 29%)',
-  'hsl(8, 97%, 31%)',
-  'hsl(8, 88%, 37%)',
-  'hsl(8, 76%, 45%)',
-  'hsl(9, 68%, 53%)',
-  'hsl(9, 73%, 62%)',
-  'hsl(9, 76%, 71%)',
-  'hsl(10, 74%, 80%)',
-  'hsl(9, 68%, 88%)',
+const redsRaw = [
+  [8, 100, 26],
+  [8, 99, 29],
+  [8, 97, 31],
+  [8, 88, 37],
+  [8, 76, 45],
+  [9, 68, 53],
+  [9, 73, 62],
+  [9, 76, 71],
+  [10, 74, 80],
+  [9, 68, 88],
 ];
+const reds = redsRaw.map(colourMap);
+const redsHsluv = redsRaw.map(hsluvMap);
+
 // https://www.colorbox.io/#steps=9#hue_start=198#hue_end=200#hue_curve=easeInOutSine#sat_start=100#sat_end=17#sat_curve=easeInSine#sat_rate=100#lum_start=29#lum_end=96#lum_curve=easeInQuad#minor_steps_map=0
-const blues = [
-  'hsl(198, 100%, 15%)',
-  'hsl(198, 98%, 18%)',
-  'hsl(198, 96%, 21%)',
-  'hsl(198, 89%, 30%)',
-  'hsl(199, 76%, 39%)',
-  'hsl(199, 61%, 49%)',
-  'hsl(200, 66%, 59%)',
-  'hsl(200, 70%, 70%)',
-  'hsl(200, 71%, 80%)',
-  'hsl(200, 68%, 88%)',
+// const bluesRaw = [
+//   [198, 100, 15],
+//   [198, 98, 18],
+//   [198, 96, 21],
+//   [198, 89, 30],
+//   [200, 76, 39],
+//   [200, 61, 49],
+//   [200, 66, 59],
+//   [200, 70, 70],
+//   [200, 71, 80],
+//   [200, 50, 88],
+// ];
+const bluesRaw = [
+  [238, 100, 15],
+  [238, 100, 18],
+  [238, 100, 21],
+  [238, 100, 30],
+  [238, 100, 39],
+  [238, 100, 49],
+  [238, 100, 59],
+  [238, 80, 70],
+  [238, 100, 80],
+  [238, 100, 88],
 ];
+const blues = bluesRaw.map(colourMap);
+const bluesHsluv = bluesRaw.map(hsluvMap);
+
 // https://www.colorbox.io/#steps=9#hue_start=284#hue_end=287#hue_curve=easeInOutSine#sat_start=57#sat_end=21#sat_curve=easeInQuad#sat_rate=100#lum_start=32#lum_end=98#lum_curve=easeInQuad#minor_steps_map=0
-const purples = [
-  'hsl(283, 40%, 23%)',
-  'hsl(284, 39%, 28%)',
-  'hsl(284, 39%, 32%)',
-  'hsl(284, 37%, 43%)',
-  'hsl(285, 39%, 53%)',
-  'hsl(285, 51%, 62%)',
-  'hsl(286, 61%, 70%)',
-  'hsl(287, 70%, 76%)',
-  'hsl(287, 77%, 83%)',
-  'hsl(288, 84%, 88%)',
+const purplesRaw = [
+  [283, 40, 23],
+  [284, 39, 28],
+  [284, 39, 32],
+  [284, 37, 43],
+  [285, 39, 53],
+  [285, 51, 62],
+  [286, 61, 70],
+  [287, 70, 76],
+  [287, 77, 83],
+  [288, 65, 88],
 ];
+const purples = purplesRaw.map(colourMap);
+const purplesHsluv = purplesRaw.map(hsluvMap);
 
 const accent = blues.map((g, i) => `var(--c-accent-${i}, ${g})`)
 
@@ -103,6 +139,15 @@ export const grayscale = lightGrayscale.map((g, i) => `var(--c-grayscale-${i}, $
 export const colour = {
   accent, lightGrayscale, darkGrayscale,
   greens, oranges, reds, blues, purples,
+};
+export const colourHsluv = {
+  lightGrayscale: lightGrayscaleHsluv,
+  darkGrayscale: darkGrayscaleHsluv,
+  greens: greensHsluv,
+  oranges: orangesHsluv,
+  reds: redsHsluv,
+  blues: bluesHsluv,
+  purples: purplesHsluv,
 };
 
 const palettes = ['greens', 'oranges', 'reds', 'blues', 'purples'];

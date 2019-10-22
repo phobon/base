@@ -2,14 +2,63 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import { Box, Flex, Grid, Heading, Text } from '../components';
+import { Stack, Box, Flex, Grid, Heading, Text } from '../components';
 
-import { colour, focus } from './palettes';
+import { colour, colourHsluv, focus } from './palettes';
 
 const guidance = ['success', 'error', 'warning', 'info'];
 
 const SmallColourBox = ({ children, ...props }) => (
   <Box fullHeight fullWidth borderRadius={4} {...props}>{children}</Box>
+);
+
+const PaletteStack = ({ bg }) => (
+  <Stack fullWidth space={3} bg={bg}>
+    <Grid fullWidth fullHeight gridTemplateColumns="repeat(10, 1fr)" gridAutoRows="48px" p={5}>
+      {colour.blues.map((g, i) => (
+        <SmallColourBox borderRadius={0} key={g} bg={g} height={48} color="white">{`blues.${i}`}</SmallColourBox>
+      ))}
+      {colourHsluv.blues.map(g => (
+        <SmallColourBox borderRadius={0} key={g} bg={g} height={48} color="white" />
+      ))}
+    </Grid>
+
+    <Grid fullWidth fullHeight gridTemplateColumns="repeat(10, 1fr)" gridAutoRows="48px" p={5}>
+      {colour.greens.map((g, i) => (
+        <SmallColourBox borderRadius={0} key={g} bg={g} height={48} color="white">{`greens.${i}`}</SmallColourBox>
+      ))}
+      {colourHsluv.greens.map(g => (
+        <SmallColourBox borderRadius={0} key={g} bg={g} height={48} color="white" />
+      ))}
+    </Grid>
+
+    <Grid fullWidth fullHeight gridTemplateColumns="repeat(10, 1fr)" gridAutoRows="48px" p={5}>
+      {colour.purples.map((g, i) => (
+        <SmallColourBox borderRadius={0} key={g} bg={g} height={48} color="white">{`purples.${i}`}</SmallColourBox>
+      ))}
+      {colourHsluv.purples.map(g => (
+        <SmallColourBox borderRadius={0} key={g} bg={g} height={48} color="white" />
+      ))}
+    </Grid>
+
+    <Grid fullWidth fullHeight gridTemplateColumns="repeat(10, 1fr)" gridAutoRows="48px" p={5}>
+      {colour.oranges.map((g, i) => (
+        <SmallColourBox borderRadius={0} key={g} bg={g} height={48} color="white">{`oranges.${i}`}</SmallColourBox>
+      ))}
+      {colourHsluv.oranges.map(g => (
+        <SmallColourBox borderRadius={0} key={g} bg={g} height={48} color="white" />
+      ))}
+    </Grid>
+
+    <Grid fullWidth fullHeight gridTemplateColumns="repeat(10, 1fr)" gridAutoRows="48px" p={5}>
+      {colour.reds.map((g, i) => (
+        <SmallColourBox borderRadius={0} key={g} bg={g} height={48} color="white">{`reds.${i}`}</SmallColourBox>
+      ))}
+      {colourHsluv.reds.map(g => (
+        <SmallColourBox borderRadius={0} key={g} bg={g} height={48} color="white" />
+      ))}
+    </Grid>
+  </Stack>
 );
 
 storiesOf('Tokens/Palettes', module)
@@ -81,42 +130,10 @@ storiesOf('Tokens/Palettes', module)
   )})
   .add('With light secondary palettes', () => {  
     return (
-      <Grid fullWidth fullHeight gridTemplateColumns="repeat(10, 1fr)" gridAutoRows="48px" gridRowGap={7} p={5}>
-        {colour.blues.map((g, i) => (
-          <SmallColourBox borderRadius={0} key={g} bg={g} color="white">{`blues.${i}`}</SmallColourBox>
-        ))}
-        {colour.greens.map((g, i) => (
-          <SmallColourBox borderRadius={0} key={g} bg={g} color="white">{`greens.${i}`}</SmallColourBox>
-        ))}
-        {colour.purples.map((g, i) => (
-          <SmallColourBox borderRadius={0} key={g} bg={g} color="white">{`purples.${i}`}</SmallColourBox>
-        ))}
-        {colour.oranges.map((g, i) => (
-          <SmallColourBox borderRadius={0} key={g} bg={g} color="white">{`oranges.${i}`}</SmallColourBox>
-        ))}
-        {colour.reds.map((g, i) => (
-          <SmallColourBox borderRadius={0} key={g} bg={g} color="white">{`reds.${i}`}</SmallColourBox>
-        ))}
-      </Grid>
+      <PaletteStack />
   )})
   .add('With dark secondary palettes', () => {  
     return (
-      <Grid fullWidth fullHeight gridTemplateColumns="repeat(10, 1fr)" gridAutoRows="48px" gridRowGap={7} bg="hsl(221, 20%, 22%)" p={5}>
-        {colour.blues.map((g, i) => (
-          <SmallColourBox borderRadius={0} key={g} bg={g} color="white">{`blues.${i}`}</SmallColourBox>
-        ))}
-        {colour.greens.map((g, i) => (
-          <SmallColourBox borderRadius={0} key={g} bg={g} color="white">{`greens.${i}`}</SmallColourBox>
-        ))}
-        {colour.purples.map((g, i) => (
-          <SmallColourBox borderRadius={0} key={g} bg={g} color="white">{`purples.${i}`}</SmallColourBox>
-        ))}
-        {colour.oranges.map((g, i) => (
-          <SmallColourBox borderRadius={0} key={g} bg={g} color="white">{`oranges.${i}`}</SmallColourBox>
-        ))}
-        {colour.reds.map((g, i) => (
-          <SmallColourBox borderRadius={0} key={g} bg={g} color="white">{`reds.${i}`}</SmallColourBox>
-        ))}
-      </Grid>
+      <PaletteStack bg="grayscale.0" />
   )});
 
