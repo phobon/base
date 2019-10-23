@@ -18,7 +18,7 @@ const PaletteStack = ({ bg }) => (
       {colour.blues.map((g, i) => (
         <SmallColourBox borderRadius={0} key={g} bg={g} height={48} color="white">{`blues.${i}`}</SmallColourBox>
       ))}
-      {colourHsluv.blues.map(g => (
+      {colourHsluv.colours.blues.map(g => (
         <SmallColourBox borderRadius={0} key={g} bg={g} height={48} color="white" />
       ))}
     </Grid>
@@ -27,7 +27,7 @@ const PaletteStack = ({ bg }) => (
       {colour.greens.map((g, i) => (
         <SmallColourBox borderRadius={0} key={g} bg={g} height={48} color="white">{`greens.${i}`}</SmallColourBox>
       ))}
-      {colourHsluv.greens.map(g => (
+      {colourHsluv.colours.greens.map(g => (
         <SmallColourBox borderRadius={0} key={g} bg={g} height={48} color="white" />
       ))}
     </Grid>
@@ -36,7 +36,7 @@ const PaletteStack = ({ bg }) => (
       {colour.purples.map((g, i) => (
         <SmallColourBox borderRadius={0} key={g} bg={g} height={48} color="white">{`purples.${i}`}</SmallColourBox>
       ))}
-      {colourHsluv.purples.map(g => (
+      {colourHsluv.colours.purples.map(g => (
         <SmallColourBox borderRadius={0} key={g} bg={g} height={48} color="white" />
       ))}
     </Grid>
@@ -45,7 +45,7 @@ const PaletteStack = ({ bg }) => (
       {colour.oranges.map((g, i) => (
         <SmallColourBox borderRadius={0} key={g} bg={g} height={48} color="white">{`oranges.${i}`}</SmallColourBox>
       ))}
-      {colourHsluv.oranges.map(g => (
+      {colourHsluv.colours.oranges.map(g => (
         <SmallColourBox borderRadius={0} key={g} bg={g} height={48} color="white" />
       ))}
     </Grid>
@@ -54,7 +54,7 @@ const PaletteStack = ({ bg }) => (
       {colour.reds.map((g, i) => (
         <SmallColourBox borderRadius={0} key={g} bg={g} height={48} color="white">{`reds.${i}`}</SmallColourBox>
       ))}
-      {colourHsluv.reds.map(g => (
+      {colourHsluv.colours.reds.map(g => (
         <SmallColourBox borderRadius={0} key={g} bg={g} height={48} color="white" />
       ))}
     </Grid>
@@ -135,5 +135,19 @@ storiesOf('Tokens/Palettes', module)
   .add('With dark secondary palettes', () => {  
     return (
       <PaletteStack bg="grayscale.0" />
-  )});
+  )})
+  .add('With comparison', () => {
+    const o = Object.keys(colourHsluv.colours).map(c => colourHsluv.colours[c]);
+    return (
+      <Grid gridTemplateColumns="repeat(10, 1fr)">
+        {o.map((i, count) => (
+          <Stack width={60} key={`palette_${count}`}>
+            {i.map(c => (
+              <Box key={c} fullWidth height={40} bg={c} />
+            ))}
+          </Stack>
+        ))}
+      </Grid>
+    );
+  });
 

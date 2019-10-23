@@ -8,6 +8,71 @@ export const focus = 'hsl(211, 97%, 61%)';
 const colourMap = c => `hsl(${c[0]}, ${c[1]}%, ${c[2]}%)`;
 const hsluvMap = c => hsluv.hsluvToHex(c);
 
+const hues = {
+  blues: 258,
+  cyans: 232,
+  greens: 127,
+  yellows: 69,
+  oranges: 39,
+  reds: 12,
+  purples: 288,
+  violets: 272,
+};
+
+// const saturations = {
+//   blues: [
+//     95,
+//     94,
+//     93,
+//     92,
+//     89,
+//     85,
+//     79,
+//     69, 
+//     55,
+//     40,
+//   ]
+// }
+
+const saturations = [
+  95,
+  94,
+  93,
+  92,
+  89,
+  85,
+  79,
+  69, 
+  55,
+  40,
+];
+
+const lightnesses = [
+  30,
+  32,
+  37,
+  45,
+  57,
+  69,
+  80,
+  88,
+  93,
+  95,
+];
+
+const hsl = (colour) => saturations.map((s, i) => ([colour, s, lightnesses[i]]));
+
+// Map each of the palettes
+const paletteMapper = () => {
+  const p = {};
+  Object.keys(hues).forEach(k => {
+    p[k] = hsl(hues[k]).map(hsluvMap);
+  });
+
+  return p;
+};
+const hsluvColours = paletteMapper();
+
 // https://www.colorbox.io/#steps=10#hue_start=220#hue_end=215#hue_curve=easeOutQuad#sat_start=0#sat_end=15#sat_curve=easeInOutSine#sat_rate=126#lum_start=100#lum_end=19#lum_curve=easeInOutSine#minor_steps_map=none
 const lightGrayscaleRaw = [
   [213, 10, 17],
@@ -54,7 +119,7 @@ const greensRaw = [
   [175, 45, 89],
 ];
 const greens = greensRaw.map(colourMap);
-const greensHsluv = greensRaw.map(hsluvMap);
+// const greensHsluv = greensRaw.map(hsluvMap);
 
 // https://www.colorbox.io/#steps=9#hue_start=28#hue_end=33#hue_curve=easeInOutSine#sat_start=100#sat_end=26#sat_curve=easeInQuad#sat_rate=100#lum_start=73#lum_end=96#lum_curve=easeInExpo#minor_steps_map=0
 const orangesRaw = [
@@ -70,7 +135,7 @@ const orangesRaw = [
   [33, 76, 84],
 ];
 const oranges = orangesRaw.map(colourMap);
-const orangesHsluv = orangesRaw.map(hsluvMap);
+// const orangesHsluv = orangesRaw.map(hsluvMap);
 
 // https://www.colorbox.io/#steps=9#hue_start=8#hue_end=9#hue_curve=easeInOutSine#sat_start=100#sat_end=17#sat_curve=easeInSine#sat_rate=100#lum_start=53#lum_end=96#lum_curve=easeInQuad#minor_steps_map=0
 const redsRaw = [
@@ -86,21 +151,9 @@ const redsRaw = [
   [9, 68, 88],
 ];
 const reds = redsRaw.map(colourMap);
-const redsHsluv = redsRaw.map(hsluvMap);
+// const redsHsluv = redsRaw.map(hsluvMap);
 
 // https://www.colorbox.io/#steps=9#hue_start=198#hue_end=200#hue_curve=easeInOutSine#sat_start=100#sat_end=17#sat_curve=easeInSine#sat_rate=100#lum_start=29#lum_end=96#lum_curve=easeInQuad#minor_steps_map=0
-// const bluesRaw = [
-//   [198, 100, 15],
-//   [198, 98, 18],
-//   [198, 96, 21],
-//   [198, 89, 30],
-//   [200, 76, 39],
-//   [200, 61, 49],
-//   [200, 66, 59],
-//   [200, 70, 70],
-//   [200, 71, 80],
-//   [200, 50, 88],
-// ];
 const bluesRaw = [
   [238, 100, 15],
   [238, 100, 18],
@@ -114,7 +167,7 @@ const bluesRaw = [
   [238, 100, 88],
 ];
 const blues = bluesRaw.map(colourMap);
-const bluesHsluv = bluesRaw.map(hsluvMap);
+// const bluesHsluv = bluesRaw.map(hsluvMap);
 
 // https://www.colorbox.io/#steps=9#hue_start=284#hue_end=287#hue_curve=easeInOutSine#sat_start=57#sat_end=21#sat_curve=easeInQuad#sat_rate=100#lum_start=32#lum_end=98#lum_curve=easeInQuad#minor_steps_map=0
 const purplesRaw = [
@@ -130,7 +183,7 @@ const purplesRaw = [
   [288, 65, 88],
 ];
 const purples = purplesRaw.map(colourMap);
-const purplesHsluv = purplesRaw.map(hsluvMap);
+// const purplesHsluv = purplesRaw.map(hsluvMap);
 
 const accent = blues.map((g, i) => `var(--c-accent-${i}, ${g})`)
 
@@ -143,11 +196,7 @@ export const colour = {
 export const colourHsluv = {
   lightGrayscale: lightGrayscaleHsluv,
   darkGrayscale: darkGrayscaleHsluv,
-  greens: greensHsluv,
-  oranges: orangesHsluv,
-  reds: redsHsluv,
-  blues: bluesHsluv,
-  purples: purplesHsluv,
+  colours: { ...hsluvColours },
 };
 
 const palettes = ['greens', 'oranges', 'reds', 'blues', 'purples'];
