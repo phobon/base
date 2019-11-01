@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import { contrast } from 'chroma-js';
 
 import { Stack, Box, Flex, Grid, Heading, Text } from '../components';
 
@@ -14,7 +15,7 @@ const SmallColourBox = ({ children, ...props }) => (
 
 const PaletteStack = ({ bg }) => (
   <Stack fullWidth space={3} bg={bg}>
-    <Grid fullWidth fullHeight gridTemplateColumns="repeat(10, 1fr)" gridAutoRows="48px" p={5}>
+    <Grid fullWidth fullHeight gridTemplateColumns="repeat(10, 1fr)" gridAutoRows="48px" p={5} gridRowGap={2}>
       {colour.blues.map((g, i) => (
         <SmallColourBox borderRadius={0} key={g} bg={g} height={48} color="white">{`blues.${i}`}</SmallColourBox>
       ))}
@@ -23,7 +24,7 @@ const PaletteStack = ({ bg }) => (
       ))}
     </Grid>
 
-    <Grid fullWidth fullHeight gridTemplateColumns="repeat(10, 1fr)" gridAutoRows="48px" p={5}>
+    <Grid fullWidth fullHeight gridTemplateColumns="repeat(10, 1fr)" gridAutoRows="48px" p={5} gridRowGap={2}>
       {colour.greens.map((g, i) => (
         <SmallColourBox borderRadius={0} key={g} bg={g} height={48} color="white">{`greens.${i}`}</SmallColourBox>
       ))}
@@ -32,7 +33,7 @@ const PaletteStack = ({ bg }) => (
       ))}
     </Grid>
 
-    <Grid fullWidth fullHeight gridTemplateColumns="repeat(10, 1fr)" gridAutoRows="48px" p={5}>
+    <Grid fullWidth fullHeight gridTemplateColumns="repeat(10, 1fr)" gridAutoRows="48px" p={5} gridRowGap={2}>
       {colour.purples.map((g, i) => (
         <SmallColourBox borderRadius={0} key={g} bg={g} height={48} color="white">{`purples.${i}`}</SmallColourBox>
       ))}
@@ -41,7 +42,7 @@ const PaletteStack = ({ bg }) => (
       ))}
     </Grid>
 
-    <Grid fullWidth fullHeight gridTemplateColumns="repeat(10, 1fr)" gridAutoRows="48px" p={5}>
+    <Grid fullWidth fullHeight gridTemplateColumns="repeat(10, 1fr)" gridAutoRows="48px" p={5} gridRowGap={2}>
       {colour.oranges.map((g, i) => (
         <SmallColourBox borderRadius={0} key={g} bg={g} height={48} color="white">{`oranges.${i}`}</SmallColourBox>
       ))}
@@ -50,7 +51,7 @@ const PaletteStack = ({ bg }) => (
       ))}
     </Grid>
 
-    <Grid fullWidth fullHeight gridTemplateColumns="repeat(10, 1fr)" gridAutoRows="48px" p={5}>
+    <Grid fullWidth fullHeight gridTemplateColumns="repeat(10, 1fr)" gridAutoRows="48px" p={5} gridRowGap={2}>
       {colour.reds.map((g, i) => (
         <SmallColourBox borderRadius={0} key={g} bg={g} height={48} color="white">{`reds.${i}`}</SmallColourBox>
       ))}
@@ -138,16 +139,70 @@ storiesOf('Tokens/Palettes', module)
   )})
   .add('With comparison', () => {
     const o = Object.keys(colourHsluv.colours).map(c => colourHsluv.colours[c]);
+    delete colour.accent;
+    delete colour.lightGrayscale;
+    delete colour.darkGrayscale;
+    const t = Object.keys(colour).map(c => colour[c]);
     return (
-      <Grid gridTemplateColumns="repeat(10, 1fr)">
-        {o.map((i, count) => (
-          <Stack width={60} key={`palette_${count}`}>
-            {i.map(c => (
-              <Box key={c} fullWidth height={40} bg={c} />
-            ))}
-          </Stack>
-        ))}
-      </Grid>
+      <Box>
+        <Grid gridTemplateColumns="repeat(10, 1fr)">
+          {o.map((i, count) => (
+            <Stack width={60} key={`hsluv_palette_${count}`}>
+              {i.map(c => (
+                <Box key={c} fullWidth height={40} bg={c} />
+              ))}
+            </Stack>
+          ))}
+        </Grid>
+        <Grid gridTemplateColumns="repeat(10, 1fr)">
+          {t.map((i, count) => (
+            <Stack width={60} key={`regular_palette_${count}`}>
+              {i.map(c => (
+                <Box key={c} fullWidth height={40} bg={c} />
+              ))}
+            </Stack>
+          ))}
+        </Grid>
+      </Box>
+    );
+  })
+  .add('With contrast ratios', () => {
+    const o = Object.keys(colourHsluv.colours).map(c => colourHsluv.colours[c]);
+    const merged = [].concat.apply([], o);
+    return (
+      <Stack space={4} fullWidth>
+        <Grid fullWidth gridTemplateColumns="repeat(10, 1fr)" gridAutoRows="50px">
+          {merged.map((c, i) => (
+            <Box key={`white__${i}`} fullWidth fullHeight bg={c}>
+              <Box bg="hsla(0, 0%, 0%, 0.7)" borderRadius={3} px={1} lineHeight={1} color="white">{contrast('#fff', c).toFixed(2)}</Box>
+            </Box>
+          ))}
+        </Grid>
+        <Grid fullWidth gridTemplateColumns="repeat(10, 1fr)" gridAutoRows="50px">
+          {merged.map((c, i) => (
+            <Box key={`black__${i}`} fullWidth fullHeight bg={c}>
+              <Box bg="hsla(0, 0%, 0%, 0.7)" borderRadius={3} px={1} lineHeight={1} color="white">{contrast('#000', c).toFixed(2)}</Box>
+            </Box>
+          ))}
+        </Grid>
+
+        <Grid fullWidth gridTemplateColumns="repeat(10, 1fr)" gridAutoRows="50px">
+          {merged.map((c, i) => (
+            <Box key={`colour__${i}`} fullWidth fullHeight>
+              <Text color={c} fontSize={2}>{`${contrast('#fff', c).toFixed(2)}`}</Text>
+            </Box>
+          ))}
+        </Grid>
+
+        <Grid fullWidth gridTemplateColumns="repeat(10, 1fr)" gridAutoRows="50px" bg="grayscale.0">
+          {merged.map((c, i) => (
+            <Box key={`colour__${i}`} fullWidth fullHeight>
+              <Text color={c} fontSize={2}>{`${contrast('hsl(213, 10%, 17%)', c).toFixed(2)}`}</Text>
+            </Box>
+          ))}
+        </Grid>
+      </Stack>
+      
     );
   });
 
