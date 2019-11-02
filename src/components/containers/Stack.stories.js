@@ -1,13 +1,16 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 
 import Stack from './Stack';
 import { Text } from '../typography';
 
-storiesOf('Containers/Stack', module)
-.add('With different vertical spacings', () => (
-  <React.Fragment>
+export default {
+  component: Stack,
+  title: 'Containers/Stack',
+};
+
+export const withDifferentVerticalSpacings = () => (
+  <>
     <Stack bg="grayscale.7">
       <Text>Item 1</Text>
       <Text>Item 2</Text>
@@ -23,9 +26,10 @@ storiesOf('Containers/Stack', module)
       <Text>Item 2</Text>
       <Text>Item 3</Text>
     </Stack>
-  </React.Fragment>
-))
-.add('With different horizontal spacings', () => (
+  </>
+);
+
+export const withDifferentHorizontalSpacings = () => (
   <Stack>
     <Stack flexDirection="row" bg="grayscale.7">
       <Text>Item 1</Text>
@@ -43,5 +47,4 @@ storiesOf('Containers/Stack', module)
       <Text>Item 3</Text>
     </Stack>
   </Stack>
-));
- 
+);
