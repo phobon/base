@@ -23,19 +23,17 @@ const lightSwatch = {
   grayscale: [...grayscale],
 };
 
+const secondary = { ...colour };
+delete secondary.lightGrayscale;
+delete secondary.darkGrayscale;
+
 // Construct a base colors object to use in a theme.
 const baseColors = {
   // Primary palettes
   black,
   white,
-  accent: [...colour.accent],
-
-  // Secondary palettes
-  blues: [...colour.blues],
-  reds: [...colour.reds],
-  oranges: [...colour.oranges],
-  greens: [...colour.greens],
-  purples: [...colour.purples],
+  
+  ...secondary,
 
   // Guidance palettes
   guidance: {
