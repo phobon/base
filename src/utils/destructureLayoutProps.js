@@ -5,14 +5,14 @@
 const destructureLayoutProps = (props) => {
   const {
     m, mt, mr, mb, ml, mx, my,
-    width, height, minHeight, maxHeight, minWidth, maxWidth, size,
+    width, height, minHeight, maxHeight, minWidth, maxWidth,
     position, top, right, bottom, left,
     fullWidth, fullHeight, cover,
     gridArea, gridRow, gridColumn, ...passthroughProps
   } = props;
   const layoutProps = {
     m, mt, mr, mb, ml, mx, my,
-    width, height, minHeight, maxHeight, minWidth, maxWidth, size,
+    width, height, minHeight, maxHeight, minWidth, maxWidth,
     position, top, right, bottom, left,
     fullWidth, fullHeight, cover,
     gridArea, gridRow, gridColumn,
