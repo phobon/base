@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Box } from '../containers';
+import { Box, Stack } from '../containers';
 
 import Heading from './Heading';
 
@@ -8,6 +8,16 @@ export default {
   component: Heading,
   title: 'Typography/Heading',
 };
+
+export const withWhitespaceRemoved = () => (
+  <Stack alignItems="flex-start" fullWidth bg="purples.7">
+    <Heading.H1>Hello world</Heading.H1>
+    <Heading.H1>Hello world</Heading.H1>
+    <Heading.H1>Hello world</Heading.H1>
+    <Heading.H1>Hello world</Heading.H1>
+    <Heading.H1>Hello world</Heading.H1>
+  </Stack>
+);
 
 export const withDifferentHeadingSizes = () => (
   <Box flexDirection="column" alignItems="flex-start">
