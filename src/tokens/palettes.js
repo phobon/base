@@ -21,10 +21,10 @@ const hues = {
 };
 
 const baseSaturations = [
+  96,
   95,
-  94,
-  92,
-  89,
+  93,
+  90,
   86,
   81,
   74,
@@ -34,15 +34,15 @@ const baseSaturations = [
 ];
 
 const baseLightnesses = [
-  18,
-  27,
-  36,
-  45,
-  54,
-  62,
+  17,
+  25,
+  34,
+  42,
+  49,
+  61,
   71,
-  80,
-  89,
+  82,
+  93,
   98,
 ];
 
