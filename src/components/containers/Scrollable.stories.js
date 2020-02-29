@@ -14,9 +14,7 @@ const generatedItems = (height = 100, width = '100%', colour = 'purples', prefix
   let counter = 2;
   let increment = true;
   for (let i = 0; i < 15; i++) {
-    items.push(
-      <Box key={`${prefix}__${i}`} height={height} width={width} bg={`${colour}.${counter}`}>{`Box ${i}`}</Box>
-    );
+    items.push(<Box key={`${prefix}__${i}`} height={height} width={width} bg={`${colour}.${counter}`}>{`Box ${i}`}</Box>);
     if (increment) {
       counter++;
       if (counter === 4) {

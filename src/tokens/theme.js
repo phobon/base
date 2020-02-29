@@ -45,7 +45,7 @@ const baseColors = {
   },
 };
 
-const lightColors = Object.assign({}, baseColors, lightSwatch);
+const lightColors = { ...baseColors, ...lightSwatch };
 
 // Construct a base theme with values we want.
 const baseTheme = {
@@ -63,5 +63,5 @@ const baseTheme = {
   densities,
 };
 
-const lightTheme = Object.assign({}, baseTheme, { colors: lightColors });
+const lightTheme = { ...baseTheme, ...{ colors: lightColors }};
 export default lightTheme;
