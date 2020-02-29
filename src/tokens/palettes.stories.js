@@ -136,7 +136,7 @@ export const withContrastRatios = () => {
       <Grid fullWidth gridTemplateColumns="repeat(10, 1fr)" gridAutoRows="50px">
         {merged.map((c, i) => (
           <Box key={`black__${i}`} fullWidth fullHeight bg={c}>
-            <Box bg="hsla(0, 0%, 0%, 0.7)" borderRadius={3} px={1} lineHeight={1} color="white">{contrast('#000', c).toFixed(2)}</Box>
+            <Box bg="hsla(0, 0%, 0%, 0.7)" borderRadius={3} px={1} lineHeight={1} color="white">{contrast('#232b30', c).toFixed(2)}</Box>
           </Box>
         ))}
       </Grid>
@@ -152,11 +152,30 @@ export const withContrastRatios = () => {
       <Grid fullWidth gridTemplateColumns="repeat(10, 1fr)" gridAutoRows="50px" bg="grayscale.0">
         {merged.map((c, i) => (
           <Box key={`colour__${i}`} fullWidth fullHeight>
-            <Text color={c} fontSize={2}>{`${contrast('hsl(213, 10%, 17%)', c).toFixed(2)}`}</Text>
+            <Text color={c} fontSize={2}>{`${contrast('#232b30', c).toFixed(2)}`}</Text>
           </Box>
         ))}
       </Grid>
     </Stack>
   );
 };
+
+export const withRawValues = () => {
+  const t = Object.keys(colourSet).map(c => colourSet[c]);
+  return (
+    <Box fullWidth fullHeight p={6}>
+      <Grid fullWidth fullHeight gridTemplateColumns="repeat(10, 1fr)" gridColumnGap={4}>
+        {t.map((i, count) => (
+          <Stack fullWidth key={`palette_${count}`}>
+            {i.map(c => (
+              <Box key={c} fullWidth height={40} bg={c}>
+                {`"${c}",`}
+              </Box>
+            ))}
+          </Stack>
+        ))}
+      </Grid>
+    </Box>
+  );
+}
 
