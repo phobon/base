@@ -71,6 +71,18 @@ const saturations = {
     25,
     29,
   ],
+  greens: [
+    98,
+    98,
+    98,
+    98,
+    98,
+    78,
+    65,
+    45,
+    35,
+    30,
+  ],
 };
 
 const lightnesses = {
