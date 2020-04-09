@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Box, Stack } from '../containers';
+import { Box } from '../containers';
 
 import Text from './Text';
 
@@ -10,15 +10,6 @@ export default {
 };
 
 const text = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque id sodales lectus. Nulla condimentum in turpis nec posuere. Cras ac mollis ligula, vitae volutpat risus.';
-
-export const withWhitespaceRemoved = () => (
-  <Stack alignItems="flex-start" fullWidth bg="purples.7">
-    <Text>Hello world</Text>
-    <Text>Hello world</Text>
-    <Text>Hello world</Text>
-    <Text>Hello world</Text>
-  </Stack>
-);
 
 export const withDifferentTextStyles = () => (
   <Box flexDirection="column" alignItems="flex-start" fullWidth>

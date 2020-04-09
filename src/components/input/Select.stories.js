@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Box } from '../containers';
+import { Stack } from '../containers';
 import Select from './Select';
 
 export default {
@@ -16,18 +16,18 @@ const TestSelect = props => (
   </Select>
 );
 
-export const withDifferentPaddings = () => (
-  <Box width={1 / 2} flexDirection="column" alignItems="flex-start">
-    <TestSelect value={null} mb={3} />
-    <TestSelect value={null} mb={3} fullWidth />
-    <TestSelect value={null} mb={3} width={1 / 2} />
+export const withDifferentWidths = () => (
+  <Stack width={1 / 2} space={3} flexDirection="column" alignItems="flex-start">
+    <TestSelect value={null} />
+    <TestSelect value={null} fullWidth />
+    <TestSelect value={null} width={1 / 2} />
     <TestSelect value={null} width={400} />
-  </Box>
+  </Stack>
 );
 
 export const withDifferentStates = () => (
-  <Box width={1 / 2} flexDirection="column" alignItems="flex-start">
-    <TestSelect value={null} mb={3} invalid />
-    <TestSelect value={null} mb={3} fullWidth disabled />
-  </Box>
+  <Stack width={1 / 2} flexDirection="column" alignItems="flex-start">
+    <TestSelect value={null} invalid />
+    <TestSelect value={null} fullWidth disabled />
+  </Stack>
 );

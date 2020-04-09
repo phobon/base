@@ -18,8 +18,7 @@ const TextInput = styled.input.attrs(props => ({
   padding-right: ${props => props.theme.space[2]}px;
   line-height: ${props => props.theme.fontSizes[props.fontSize]}px;
 
-  box-shadow: 0px 2px 0px 0px ${props => props.theme.colors.grayscale[7]};
-  border-radius: ${props => `${props.theme.radii[props.borderRadius]}px ${props.theme.radii[props.borderRadius]}px 0px 0px`};
+  transition: border-color 90ms ease-out;
 
   ${textInputSystem}
 
@@ -32,23 +31,21 @@ const TextInput = styled.input.attrs(props => ({
 
   &:focus {
     outline: 0;
-    box-shadow: 0px 2px 0px 0px ${props => props.theme.colors.guidance.focus};
-    padding-left: ${props => props.theme.space[2]}px;
-    padding-right: ${props => props.theme.space[2]}px;
+    border-color: ${props => props.theme.colors.guidance.focus};
   }
 
   &:disabled {
     opacity: 0.2;
     pointer-events: none;
     background-color: ${props => props.theme.colors.grayscale[7]};
-    box-shadow: 0px 2px 0px 0px ${props => props.theme.colors.grayscale[6]};
+    border-color: ${props => props.theme.colors.grayscale[6]};
   }
 
   &[aria-invalid="true"] {
-    box-shadow: 0px 2px 0px 0px ${props => props.theme.colors.reds[5]};
+    border-color: ${props => props.theme.colors.reds[5]};
 
     &:hover {
-      box-shadow: 0px 2px 0px 0px ${props => props.theme.colors.reds[7]};
+      border-color: ${props => props.theme.colors.reds[7]};
     }
   }
 `;
@@ -71,13 +68,13 @@ TextInput.defaultProps = {
   disabled: false,
   invalid: false,
   fullWidth: false,
-  borderRadius: '4px 4px 0 0',
+  borderRadius: 3,
   px: 2,
   fontSize: 1,
-  bg: 'grayscale.8',
+  bg: 'grayscale.9',
   border: '2px solid',
   color: 'foreground',
-  borderColor: 'grayscale.8',
+  borderColor: 'grayscale.7',
   density: 'normal',
 };
 

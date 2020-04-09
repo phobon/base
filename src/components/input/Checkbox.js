@@ -44,7 +44,7 @@ const CheckboxContainer = styled.div.attrs(props => ({
       height: ${props => props.theme.space[props.size]}px;
       border: ${props => `${props.borderThickness}px ${props.borderStyle} ${themeGet(`colors.${props.borderColor}`)(props)}`};
       ${borderRadius};
-      background-color: ${props => props.theme.colors.grayscale[7]};
+      background-color: ${props => props.theme.colors.grayscale[9]};
       box-sizing: content-box;
     }
 

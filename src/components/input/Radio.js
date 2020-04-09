@@ -44,7 +44,7 @@ const RadioContainer = styled.div.attrs(props => ({
       height: ${props => props.theme.space[props.size]}px;
       border-radius: 100%;
       border: ${props => `${props.borderThickness}px ${props.borderStyle} ${themeGet(`colors.${props.borderColor}`)(props)}`};
-      background-color: ${props => props.theme.colors.grayscale[7]};
+      background-color: ${props => props.theme.colors.grayscale[9]};
       box-sizing: content-box;
     }
 
