@@ -3,7 +3,6 @@ import Text from './Text';
 
 const defaultProps = {
   color: 'grayscale.1',
-  m: 0,
   fontWeight: 'light',
   lineHeight: 0,
   fontSize: [6, 8],
