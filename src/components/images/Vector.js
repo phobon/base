@@ -1,17 +1,17 @@
 import styled from 'styled-components';
-import { themeGet } from '@styled-system/theme-get';
+
+import { paint } from '../../utils';
 
 import Image from './Image';
 
 const Vector = styled(Image).attrs(() => ({
   as: 'svg',
   xmlns: 'http://www.w3.org/2000/svg',
-}))`
-  fill: ${props => themeGet(`colors.${props.color}`, '#FFF')};
-`;
+}))(paint);
 
 Vector.defaultProps = {
-  color: 'foreground',
+  fill: 'foreground',
+  stroke: 'none',
 };
 
 Vector.displayName = 'Vector';

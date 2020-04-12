@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import {
   compose,
-  style,
+  system,
   space,
   layout,
   borderRadius,
@@ -13,7 +13,7 @@ import PropTypes from 'prop-types';
 
 import { fullWidth, fullHeight, round, gridPosition } from '../../utils';
 
-const cover = style({
+const cover = system({
   prop: 'cover',
   cssProperty: 'backgroundSize',
   transformValue: n => n ? 'cover' : 'auto',

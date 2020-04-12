@@ -17,7 +17,7 @@ import {
 } from './hooks';
 
 import {
-  focus, gridPosition, fill,
+  focus, gridPosition, paint,
   density, cover, fullWidth, fullHeight, round,
   Normalize,
   destructureLayoutProps,
@@ -31,7 +31,7 @@ export {
   Link,
   Table,
   Checkbox, TextInput, NumberInput, PasswordInput, Label, Select, TextArea, Radio,
-  focus, gridPosition, fill,
+  focus, gridPosition, paint,
   density, cover, fullWidth, fullHeight, round,
   Normalize,
   destructureLayoutProps,
