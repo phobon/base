@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { compose, space, layout, flexbox, border, color, position, background } from 'styled-system';
 import propTypes from '@styled-system/prop-types';
+import shouldForwardProp from '@styled-system/should-forward-prop';
 
 import {
   gridPosition,
@@ -10,7 +11,9 @@ import {
 
 const boxSystem = compose(space, layout, flexbox, border, color, position, background);
 
-const Box = styled.div({
+const Box = styled('div').withConfig({
+  shouldForwardProp,
+})({
   display: 'flex',
   boxSizing: 'border-box',
   minWidth: 0,

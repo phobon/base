@@ -1,10 +1,11 @@
 /* eslint-disable react/default-props-match-prop-types */
-import React from 'react';
+import React, { forwardRef } from 'react';
 import styled, { css } from 'styled-components';
 import { space, borderRadius } from 'styled-system';
 import themeGet from '@styled-system/theme-get';
 import propTypes from '@styled-system/prop-types';
 import PropTypes from 'prop-types';
+import shouldForwardProp from '@styled-system/should-forward-prop';
 
 import Label from './Label';
 
@@ -16,7 +17,9 @@ const checkedLabelBackground = props => {
   `;
 }
 
-const CheckboxContainer = styled.div.attrs(props => ({
+const CheckboxContainer = styled('div').withConfig({
+  shouldForwardProp,
+}).attrs(props => ({
   'aria-invalid': props.invalid ? true : undefined,
 }))`
   display: flex;
@@ -122,7 +125,7 @@ const CheckboxContainer = styled.div.attrs(props => ({
   }
 `;
 
-const Checkbox = ({
+const Checkbox = forwardRef(({
   id,
   label,
   labelColor,
@@ -137,9 +140,10 @@ const Checkbox = ({
   size,
   invalid,
   className,
-  ...props }) => (
+  ...props }, ref) => (
     <CheckboxContainer {...props} size={size} disabled={disabled} invalid={invalid} className={className}>
       <input
+        ref={ref}
         type="checkbox"
         id={id}
         onChange={onChange}
@@ -159,7 +163,7 @@ const Checkbox = ({
         {label}
       </Label>
     </CheckboxContainer>
-  );
+  ));
 
 Checkbox.displayName = 'Checkbox';
 

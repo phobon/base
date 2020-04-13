@@ -70,6 +70,7 @@
     "@storybook/addon-info": "^5.3.18",
     "@storybook/addon-knobs": "^5.3.18",
     "@styled-system/prop-types": "^5.0.8",
+    "@styled-system/should-forward-prop": "^5.1.5",
     "@styled-system/theme-get": "^5.0.6",
     "react-test-render": "^1.1.2"
   },

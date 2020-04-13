@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import styled, { css } from 'styled-components';
 import { themeGet } from '@styled-system/theme-get';
 import PropTypes from 'prop-types';
@@ -71,20 +71,19 @@ const ScrollableFlex = styled(Flex)`
 
   > div {
     position: absolute;
-    
     ${childDirection}
   }
 
   ${minimalStyle}
 `;
 
-const Scrollable = ({ minimal, scrollDirection, scrollbarColor, children, bg, ...props }) => (
+const Scrollable = forwardRef(({ minimal, scrollDirection, scrollbarColor, children, bg, ...props }, ref) => (
   <ScrollableFlex minimal={minimal} scrollDirection={scrollDirection} bg={bg} scrollbarColor={scrollbarColor}>
-    <Flex alignItems="flex-start" justifyContent="flex-start" bg={bg} {...props}>
+    <Flex ref={ref} alignItems="flex-start" justifyContent="flex-start" bg={bg} {...props}>
       {children}
     </Flex>
   </ScrollableFlex>
-);
+));
 
 Scrollable.displayName = 'Scrollable';
 

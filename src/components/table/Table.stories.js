@@ -45,7 +45,7 @@ export const withWrappingText = () => {
 export const withTruncatedText = () => {
   const firstColumnData = [
     { label: 'Column 1' },
-    { label: 'Column 2', truncate: true, fill: true },
+    { label: 'Column 2', truncate: true, fill: true, lines: 2 },
     { label: 'Column 3' },
   ];
 

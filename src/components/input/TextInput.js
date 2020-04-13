@@ -2,12 +2,15 @@ import styled from 'styled-components';
 import { compose, color, space, border, fontSize, width } from 'styled-system';
 import propTypes from '@styled-system/prop-types';
 import PropTypes from 'prop-types';
+import shouldForwardProp from '@styled-system/should-forward-prop';
 
 import { density, cover } from '../../utils';
 
 const textInputSystem = compose(color, space, border, fontSize, width);
 
-const TextInput = styled.input.attrs(props => ({
+const TextInput = styled('input').withConfig({
+  shouldForwardProp,
+}).attrs(props => ({
   'aria-invalid': props.invalid ? true : undefined,
 }))`
   box-sizing: border-box;

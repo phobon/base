@@ -9,12 +9,15 @@ import {
   textStyle,
 } from 'styled-system';
 import propTypes from '@styled-system/prop-types';
+import shouldForwardProp from '@styled-system/should-forward-prop';
 
 import { cover, gridPosition } from '../../utils';
 
 const textSystem = compose(space, color, layout, typography, position, textStyle);
 
-const Text = styled.span({
+const Text = styled('span').withConfig({
+  shouldForwardProp,
+})({
   boxSizing: 'border-box',
   display: 'block',
 },

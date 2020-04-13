@@ -10,6 +10,7 @@ import {
 } from 'styled-system';
 import propTypes from '@styled-system/prop-types';
 import PropTypes from 'prop-types';
+import shouldForwardProp from '@styled-system/should-forward-prop';
 
 import { fullWidth, fullHeight, round, gridPosition } from '../../utils';
 
@@ -32,7 +33,9 @@ responsive.propTypes = {
 
 const imageSystem = compose(space, layout, borderRadius, background, position);
 
-const Image = styled.img({
+const Image = styled('img').withConfig({
+  shouldForwardProp,
+})({
   display: 'block',
 },
   imageSystem,
