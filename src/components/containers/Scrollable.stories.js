@@ -36,37 +36,29 @@ const colours = [
 ];
 
 export const withVerticalScrolling = () => (
-  <Box width={1 / 3} height={450} flexDirection="column">
-    <Scrollable>
-      {generatedItems()}
-    </Scrollable>
-  </Box>
+  <Scrollable width={1 / 3} height={450}>
+    {generatedItems()}
+  </Scrollable>
 );
 
 export const withHorizontalScrolling = () => (
-  <Box width={2 / 3} height={150}>
-    <Scrollable scrollDirection="horizontal">
-      {generatedItems('100%', 100, 'reds')}
-    </Scrollable>
-  </Box>
+  <Scrollable width={2 / 3} height={150} scrollDirection="horizontal">
+    {generatedItems('100%', 100, 'reds')}
+  </Scrollable>
 );
 
 export const withMinimallyStyledScrollbar = () => (
-  <Box width={1 / 3} height={450} flexDirection="column">
-    <Scrollable minimal>
-      {generatedItems()}
-    </Scrollable>
-  </Box>
+  <Scrollable minimal width={1 / 3} height={450}>
+    {generatedItems()}
+  </Scrollable>
 );
 
 export const withDifferentMinimallyStyledScrollbarColours = () => (
   <Stack flexDirection="row" space={3}>
     {colours.map(c => (
-      <Box width={150} key={c} height={450} flexDirection="column">
-        <Scrollable minimal scrollbarColor={c}>
-          {generatedItems(100, '100%', 'grayscale', c)}
-        </Scrollable>
-      </Box>
+      <Scrollable width={150} key={c} height={450} minimal scrollbarColor={c}>
+        {generatedItems(100, '100%', 'grayscale', c)}
+      </Scrollable>
     ))}
   </Stack>
 );
