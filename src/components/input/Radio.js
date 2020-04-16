@@ -1,5 +1,5 @@
 /* eslint-disable react/default-props-match-prop-types */
-import React from 'react';
+import React, { forwardRef } from 'react';
 import styled, { css } from 'styled-components';
 import { space, borderRadius } from 'styled-system';
 import themeGet from '@styled-system/theme-get';
@@ -16,7 +16,7 @@ const checkedLabelBackground = props => {
   `;
 }
 
-const RadioContainer = styled.div.attrs(props => ({
+const RadioContainer = styled('div').attrs(props => ({
   'aria-invalid': props.invalid ? true : undefined,
 }))`
   display: flex;
@@ -44,7 +44,7 @@ const RadioContainer = styled.div.attrs(props => ({
       height: ${props => props.theme.space[props.size]}px;
       border-radius: 100%;
       border: ${props => `${props.borderThickness}px ${props.borderStyle} ${themeGet(`colors.${props.borderColor}`)(props)}`};
-      background-color: ${props => props.theme.colors.grayscale[7]};
+      background-color: ${props => props.theme.colors.grayscale[9]};
       box-sizing: content-box;
     }
 
@@ -122,7 +122,7 @@ const RadioContainer = styled.div.attrs(props => ({
   }
 `;
 
-const Radio = ({
+const Radio = forwardRef(({
   id,
   label,
   labelColor,
@@ -137,10 +137,11 @@ const Radio = ({
   size,
   className,
   invalid,
-  ...props }) => (
+  ...props }, ref) => (
     <RadioContainer {...props} size={size} disabled={disabled} invalid={invalid} className={className}>
       <input
         type="radio"
+        ref={ref}
         id={id}
         onChange={onChange}
         disabled={disabled}
@@ -159,7 +160,7 @@ const Radio = ({
         {label}
       </Label>
     </RadioContainer>
-  );
+  ));
 
 Radio.displayName = 'Radio';
 

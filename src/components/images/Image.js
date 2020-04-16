@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import {
   compose,
-  style,
+  system,
   space,
   layout,
   borderRadius,
@@ -10,10 +10,11 @@ import {
 } from 'styled-system';
 import propTypes from '@styled-system/prop-types';
 import PropTypes from 'prop-types';
+import shouldForwardProp from '@styled-system/should-forward-prop';
 
 import { fullWidth, fullHeight, round, gridPosition } from '../../utils';
 
-const cover = style({
+const cover = system({
   prop: 'cover',
   cssProperty: 'backgroundSize',
   transformValue: n => n ? 'cover' : 'auto',
@@ -32,7 +33,9 @@ responsive.propTypes = {
 
 const imageSystem = compose(space, layout, borderRadius, background, position);
 
-const Image = styled.img({
+const Image = styled('img').withConfig({
+  shouldForwardProp,
+})({
   display: 'block',
 },
   imageSystem,

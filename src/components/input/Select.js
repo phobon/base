@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { forwardRef } from 'react';
 import styled from 'styled-components';
 
 import TextInput from './TextInput';
@@ -28,14 +28,14 @@ const SelectContainer = styled(Box)`
   }
 `;
 
-const Select = (props) => {
+const Select = forwardRef((props, ref) => {
   const [layoutProps, passthroughProps] = destructureLayoutProps(props);
   return (
     <SelectContainer {...layoutProps}>
-      <SelectInput fullWidth {...passthroughProps} />
+      <SelectInput ref={ref} fullWidth {...passthroughProps} />
     </SelectContainer>
   );
-};
+});
 
 Select.displayName = 'Select';
 

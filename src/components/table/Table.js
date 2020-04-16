@@ -1,9 +1,10 @@
 /* eslint-disable react/no-array-index-key */
-import React from 'react';
+import React, { forwardRef } from 'react';
 import styled, { css } from 'styled-components';
 import { compose, space, layout, width } from 'styled-system';
 import propTypes from '@styled-system/prop-types';
 import PropTypes from 'prop-types';
+import shouldForwardProp from '@styled-system/should-forward-prop';
 
 import { gridPosition } from '../../utils';
 
@@ -57,7 +58,9 @@ const showSeparator = props => props.showSeparator ? css`
 
 const tableSystem = compose(space, layout, width);
 
-const StyledTable = styled.table`
+const StyledTable = styled('table').withConfig({
+  shouldForwardProp,
+})`
   width: 100%;
   border-spacing: 0;
   border-collapse: separate;
@@ -89,12 +92,10 @@ const StyledTable = styled.table`
       position: relative;
 
       > * {
-        position: absolute;
-        left: 0;
-        right: ${props => props.theme.space[3]}px;
         overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: ${props => props.lines ?? 1};
       }
     }
 
@@ -152,7 +153,7 @@ const Col = styled('col')(
   width, space,
 );
 
-const Table = ({ id, columns, rows, ...props }) => {  
+const Table = forwardRef(({ id, columns, rows, ...props }, ref) => {  
   const cols = columns.map(({ fill, truncate, ...rest }, i) => (
     <Col key={`${id}__col__${i}`} {...rest} />
   ));
@@ -187,7 +188,7 @@ const Table = ({ id, columns, rows, ...props }) => {
   });
 
   return (
-    <StyledTable {...props}>
+    <StyledTable ref={ref} {...props}>
       <colgroup>
         {cols}
       </colgroup>
@@ -201,7 +202,7 @@ const Table = ({ id, columns, rows, ...props }) => {
       </tbody>
     </StyledTable>
   );
-};
+});
 
 Table.displayName = 'Table';
 

@@ -22,7 +22,7 @@ export const withDifferentSpaces = () => (
   <Box alignItems="flex-start" flexDirection="column">
     {space.map((s, i) => (
       <Box key={s} mb={2}>
-        <Box bg="oranges.3" width={s} borderRadius={2} height={24} />
+        <Box bg="oranges.6" width={s} borderRadius={2} height={24} />
         <Box px={1} py="1px" fullHeight bg="grayscale.2" borderRadius={3} ml={2}>
           <Text fontSize={0} color="white">{`${i}: ${s}px`}</Text>
         </Box>
