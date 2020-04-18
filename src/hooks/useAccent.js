@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
+import { useCachedState } from '@phobon/hooks';
 
-import useCachedState from './useCachedState';
 import { colour } from '../tokens/palettes';
 
 const useAccent = (initial = 'greens', accentFunction = null) => {

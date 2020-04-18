@@ -1,25 +1,27 @@
+import { compose, space, layout, position } from 'styled-system';
+import gridPosition from './gridPosition';
+
+const allLayoutProps = compose(space, layout, position, gridPosition);
+const { propNames } = allLayoutProps;
+
 /**
  * A utility function to destructure layout props from a set of props.
  * This is useful for positioning items within an Higher Order Component and simplify the incoming API.
  */
 const destructureLayoutProps = (props) => {
-  const {
-    m, mt, mr, mb, ml, mx, my,
-    width, height, minHeight, maxHeight, minWidth, maxWidth,
-    position, top, right, bottom, left,
-    fullWidth, fullHeight, cover,
-    gridArea, gridRow, gridColumn, ...passthroughProps
-  } = props;
-  const layoutProps = {
-    m, mt, mr, mb, ml, mx, my,
-    width, height, minHeight, maxHeight, minWidth, maxWidth,
-    position, top, right, bottom, left,
-    fullWidth, fullHeight, cover,
-    gridArea, gridRow, gridColumn,
-  };
+  const passthroughProps = {};
+  const layoutProps = {};
+   Object.keys(props).forEach(key => {
+    const prop = props[key];
 
-  // Delete any undefined objects from this object so it doesn't mess with layout props.
-  Object.keys(layoutProps).forEach(key => layoutProps[key] === undefined && delete layoutProps[key])
+    if (!propNames.includes(key)) {
+      passthroughProps[key] = prop;
+      return false;
+    }
+
+    layoutProps[key] = prop;
+    return true;
+  });
 
   return [layoutProps, passthroughProps];
 };
