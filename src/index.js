@@ -1,6 +1,5 @@
 import {
   Box, Flex, Scrollable, Grid, Card, Stack,
-  BoxList, BoxListItem,
   Heading, Text, Truncate,
   Image, Vector,
   Link,
@@ -25,7 +24,6 @@ import {
 
 export {
   Box, Flex, Scrollable, Grid, Card, Stack,
-  BoxList, BoxListItem,
   Heading, Text, Truncate,
   Image, Vector,
   Link,
