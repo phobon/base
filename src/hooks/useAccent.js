@@ -4,7 +4,7 @@ import { useCachedState } from '@phobon/hooks';
 import { colour } from '../tokens/palettes';
 
 const useAccent = (initial = 'greens', accentFunction = null) => {
-  const [accent, setAccent] = useCachedState('theme', initial);
+  const [accent, setAccent] = useCachedState('phobon__base:accent', initial);
 
   useEffect(() => void requestAnimationFrame(() => { // eslint-disable-line no-void
     const root = document.querySelector(':root');

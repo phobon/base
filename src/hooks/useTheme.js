@@ -1,8 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { useCachedState } from '@phobon/hooks';
+
 import getTheme from './getTheme';
 
 const useTheme = (initial = 'light', themeFunction = getTheme) => {
-  const [theme, setTheme] = useState(initial);
+  const [theme, setTheme] = useCachedState('phobon__base:theme', initial);
 
   useEffect(() => {
     if (theme) {
@@ -17,7 +19,7 @@ const useTheme = (initial = 'light', themeFunction = getTheme) => {
         });
       });
     }
-  }, [theme]);  
+  }, [theme]);
 
   return [theme, setTheme];
 };
