@@ -4,7 +4,7 @@
 import React from 'react';
 import { contrast } from 'chroma-js';
 
-import { Stack, Box, Flex, Grid, Heading, Text } from '../components';
+import { Stack, Box, Grid, Heading, Text } from '../components';
 
 import { colour, focus } from './palettes';
 
@@ -45,9 +45,9 @@ export const withLightTheme = () => {
               <Text color={g} mb={5}>Some Text here</Text>
             </Box>
           
-            <Flex fullWidth fullHeight borderRadius={4} bg={g}>
+            <Box flex={1} fullWidth fullHeight borderRadius={4} bg={g}>
               <Heading.H1 color="foreground" css={{ textAlign: 'center' }}>{`grayscale.${lightGrayscale.length - 1 - i}`}</Heading.H1>
-            </Flex>
+            </Box>
           </Box>
         ))}
       </Grid>
@@ -78,9 +78,9 @@ export const withDarkTheme = () => {
               <Text color={g} mb={5}>Some Text here</Text>
             </Box>
           
-            <Flex fullWidth fullHeight borderRadius={4} bg={g}>
+            <Box flex={1} fullWidth fullHeight borderRadius={4} bg={g}>
               <Heading.H1 color="hsl(228, 62%, 95%)" css={{ textAlign: 'center' }}>{`grayscale.${darkGrayscale.length - 1 - i}`}</Heading.H1>
-            </Flex>
+            </Box>
           </Box>
         ))}
       </Grid>

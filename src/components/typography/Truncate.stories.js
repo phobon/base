@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Box } from '../containers';
+import { Stack } from '../containers';
 
 import Truncate from './Truncate';
 
@@ -12,65 +12,81 @@ export default {
 const text = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque id sodales lectus. Nulla condimentum in turpis nec posuere. Cras ac mollis ligula, vitae volutpat risus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque id sodales lectus. Nulla condimentum in turpis nec posuere. Cras ac mollis ligula, vitae volutpat risus.';
 
 export const withWidthConstraints = () => (
-  <Box flexDirection="column" fullWidth alignItems="flex-start">
-    <Truncate mb={4} p={0} width={350} color="grayscale.2">
+  <Stack fullWidth alignItems="flex-start" space={4}>
+    <Truncate p={0} width={350} color="grayscale.2">
       {text}
     </Truncate>
 
-    <Truncate mb={4} p={0} width={350} color="grayscale.2" textStyle="monospace">
+    <Truncate p={0} width={350} color="grayscale.2" textStyle="monospace">
       {text}
     </Truncate>
 
-    <Truncate mb={4} p={0} width={350} color="grayscale.2" textStyle="caps">
+    <Truncate p={0} width={350} color="grayscale.2" textStyle="caps">
       {text}
     </Truncate>
-  </Box>
+  </Stack>
 );
 
 export const withoutWidthConstraints = () => (
-  <Box flexDirection="column" fullWidth alignItems="flex-start">
-    <Truncate mb={4} p={0} color="grayscale.2" fullWidth>
+  <Stack fullWidth alignItems="flex-start" space={4}>
+    <Truncate p={0} color="grayscale.2" fullWidth>
       {text}
     </Truncate>
 
-    <Truncate mb={4} p={0} color="grayscale.2" textStyle="monospace" fullWidth>
+    <Truncate p={0} color="grayscale.2" textStyle="monospace" fullWidth>
       {text}
     </Truncate>
 
-    <Truncate mb={4} p={0} color="grayscale.2" textStyle="caps" fullWidth>
+    <Truncate p={0} color="grayscale.2" textStyle="caps" fullWidth>
       {text}
     </Truncate>
-  </Box>
+  </Stack>
 );
 
 export const withDifferentNumbersOfLines = () => (
-  <Box flexDirection="column" fullWidth alignItems="flex-start">
-    <Truncate bg="background" mb={4} p={0} color="grayscale.2" fullWidth>
+  <Stack fullWidth alignItems="flex-start" space={4}>
+    <Truncate bg="background" p={0} color="grayscale.2" fullWidth>
       {text}
     </Truncate>
 
-    <Truncate bg="background" mb={4} p={0} color="grayscale.2" textStyle="monospace" fullWidth lines={2}>
+    <Truncate bg="background" p={0} color="grayscale.2" textStyle="monospace" fullWidth lines={2}>
       {text}
     </Truncate>
 
-    <Truncate bg="background" mb={4} p={0} color="grayscale.2" textStyle="caps" fullWidth lines={3}>
+    <Truncate bg="background" p={0} color="grayscale.2" textStyle="caps" fullWidth lines={3}>
       {text}
     </Truncate>
-  </Box>
+  </Stack>
 );
 
 export const withDifferentBackgroundColours = () => (
-  <Box flexDirection="column" fullWidth alignItems="flex-start">
-    <Truncate mb={4} p={0} color="reds.0" fullWidth bg="reds.5">
+  <Stack fullWidth alignItems="flex-start" space={4}>
+    <Truncate p={0} color="reds.0" fullWidth bg="reds.5">
       {text}
     </Truncate>
   
-    <Truncate mb={4} p={0} color="greens.0" textStyle="monospace" fullWidth lines={2} bg="greens.6">
+    <Truncate p={0} color="greens.0" textStyle="monospace" fullWidth lines={2} bg="greens.6">
       {text}
     </Truncate>
 
-    <Truncate mb={4} p={0} color="oranges.0" textStyle="caps" fullWidth lines={3} bg="oranges.6">
+    <Truncate p={0} color="oranges.0" textStyle="caps" fullWidth lines={3} bg="oranges.6">
       {text}
     </Truncate>
-  </Box>
+  </Stack>
+);
+
+export const withDifferentAlignments = () => (
+  <Stack space={4} fullWidth>
+    <Truncate textAlign="left" fullWidth>
+      Shorter Text
+    </Truncate>
+  
+    <Truncate textAlign="center" fullWidth>
+      Shorter Text
+    </Truncate>
+
+    <Truncate textAlign="right" fullWidth>
+      Shorter Text
+    </Truncate>
+  </Stack>
 );

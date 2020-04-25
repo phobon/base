@@ -4,7 +4,8 @@ import styled, { css } from 'styled-components';
 import { themeGet } from '@styled-system/theme-get';
 import PropTypes from 'prop-types';
 
-import Flex from './Flex';
+import Box from './Box';
+import { destructureLayoutProps } from '../../utils';
 
 const scrollDirectionProps = ({ scrollDirection }) => {
   const scrollDirections = {
@@ -67,28 +68,39 @@ const minimalStyle = ({ minimal, ...props }) => {
   return null;
 };
 
-const ScrollableFlex = styled(Flex)`
-  position: relative;
-  overflow: hidden;
-  flex: none;
-
-  ${scrollDirectionProps}
-
-  ${minimalStyle}
-`;
-
-const Scrollable = ({ minimal, scrollDirection, scrollbarColor, children, ...props }) => (
-  <ScrollableFlex minimal={minimal} scrollDirection={scrollDirection} scrollbarColor={scrollbarColor} {...props}>
-    <Flex alignItems="flex-start" justifyContent="flex-start">
-      {children}
-    </Flex>
-  </ScrollableFlex>
+const Container = styled(Box)({
+    position: 'relative',
+    overflow: 'hidden',
+  },
+  scrollDirectionProps,
+  minimalStyle,
 );
+
+const Scrollable = ({ minimal, scrollDirection, scrollbarColor, children, ...props }) => {
+  const [layoutProps, passthroughProps] = destructureLayoutProps(props);
+
+  const { width, height, fullWidth, fullHeight, flex, ...rest } = layoutProps;
+  const containerProps = {
+    width, height, fullWidth, fullHeight, flex,
+  };
+
+  return (
+    <Container
+      minimal={minimal}
+      scrollDirection={scrollDirection}
+      scrollbarColor={scrollbarColor}
+      {...containerProps}>
+      <Box flex={1} alignItems="flex-start" justifyContent="flex-start" {...passthroughProps} {...rest}>
+        {children}
+      </Box>
+    </Container>
+  );
+};
 
 Scrollable.displayName = 'Scrollable';
 
 Scrollable.propTypes = {
-  ...Flex.propTypes,
+  ...Box.propTypes,
 
   /** Display a minimal scrollable */
   minimal: PropTypes.bool,

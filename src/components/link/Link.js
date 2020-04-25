@@ -6,20 +6,20 @@ import { focus } from '../../utils';
 
 const Link = styled(Text).attrs(() => ({ as: 'a' }),
   focus,
-)`
-  text-decoration: ${props => props.clean ? 'none' : 'underline dashed'};
-  position: relative;
-  border-radius: ${props => props.theme.radii[3]}px;
-
-  &:hover {
-    color: ${props => props.theme.colors.accent[3]};
-    text-decoration: underline;
-  }
-
-  &:visited, &:focus {
-    text-decoration: none;
-  }
-`;
+)(
+  ({ clean, theme }) => ({
+    textDecoration: clean ? 'none' : 'underline dashed',
+    position: 'relative',
+    borderRadius: theme.radii[3],
+    '&:hover': {
+      color: theme.colors.accent[3],
+      textDecoration: 'underline',
+    },
+    '&:visited, &:focus': {
+      textDecoration: 'none',
+    },
+  }),
+);
 
 Link.displayName = 'Link';
 

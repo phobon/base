@@ -4,10 +4,12 @@ import propTypes from '@styled-system/prop-types';
 
 import TextInput from './TextInput';
 
-const TextArea = styled(TextInput).attrs(() => ({ as: 'textarea' }))`
-  ${height}
-  min-height: ${props => props.theme.space[5]}px;
-`;
+const TextArea = styled(TextInput).attrs(() => ({ as: 'textarea' }))(
+  ({ theme }) => ({
+    minHeight: theme.space[5],
+  }),
+  height,
+);
 
 TextArea.displayName = 'TextArea';
 

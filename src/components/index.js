@@ -1,4 +1,4 @@
-import { Box, Flex, Scrollable, Grid, Card, Stack } from './containers';
+import { Box, Scrollable, Grid, Card, Stack } from './containers';
 import { Heading, Text, Truncate } from './typography';
 import { Image, Vector } from './images';
 import Link from './link';
@@ -9,7 +9,7 @@ import {
 } from './input';
 
 export {
-  Box, Flex, Scrollable, Grid, Card, Stack,
+  Box, Scrollable, Grid, Card, Stack,
   Heading, Text, Truncate,
   Image, Vector,
   Link,

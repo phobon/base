@@ -1,23 +1,23 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 import Box from './Box';
 
-const stackDirections = props => {
+const stackDirections = ({ space, theme, flexDirection }) => {
   const directions = {
-    column: css`
-      > * + * {
-        margin-top: ${typeof props.space === 'string' ? props.space : `${props.theme.space[props.space]}px`}
-      }
-    `,
-    row: css`
-      > * + * {
-        margin-left: ${typeof props.space === 'string' ? props.space : `${props.theme.space[props.space]}px`}
-      }
-    `,
+    column: {
+      '> * + *': {
+        marginTop: typeof space === 'string' ? space : theme.space[space],
+      },
+    },
+    row: {
+      '> * + *': {
+        marginLeft: typeof space === 'string' ? space : theme.space[space],
+      },
+    },
   };
 
-  return directions[props.flexDirection];
+  return directions[flexDirection];
 };
 
 const Stack = styled(Box)(

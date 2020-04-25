@@ -47,6 +47,21 @@ export const withHorizontalScrolling = () => (
   </Scrollable>
 );
 
+export const withFlexibility = () => (
+  <Stack width={350} height={400}>
+    <Box fullWidth bg="oranges.7" height={200} />
+    <Scrollable fullWidth flex={1}>
+      {generatedItems()}
+    </Scrollable>
+  </Stack>
+);
+
+export const withInternalPadding = () => (
+  <Scrollable width={350} height={400} px={5} pt={5} bg="grayscale.7">
+    {generatedItems()}
+  </Scrollable>
+);
+
 export const withMinimallyStyledScrollbar = () => (
   <Scrollable minimal width={1 / 3} height={450}>
     {generatedItems()}

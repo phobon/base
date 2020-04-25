@@ -1,38 +1,43 @@
 import PropTypes from 'prop-types';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 import Stack from './Stack';
 
-const boxShadow = props => {
+const boxShadow = ({ boxShadowSize, theme }) => {
   const boxShadows = {
-    none: css`box-shadow: 0;`,
-    s: css`box-shadow: ${props.theme.boxShadows[0]};`,
-    m: css`box-shadow: ${props.theme.boxShadows[1]};`,
-    l: css`box-shadow: ${props.theme.boxShadows[2]};`,
-    xl: css`box-shadow: ${props.theme.boxShadows[3]};`,
-    xxl: css`box-shadow: ${props.theme.boxShadows[4]};`,
+    none: 0,
+    s: 0,
+    m: 1,
+    l: 2,
+    xl: 3,
+    xxl: 4,
   };
 
-  return boxShadows[props.boxShadowSize];
+  return {
+    '&::before': {
+      boxShadow: theme.boxShadows[boxShadows[boxShadowSize]],
+    },
+  };
 };
 
-const Card = styled(Stack)`
-  position: relative;
-
-  &::before {
-    position: absolute;
-    content: '';
-    width: 100%;
-    height: 100%;
-    ${boxShadow}
-    pointer-events: none;
-    border-radius: inherit;
-    opacity: ${props => props.boxShadowIntensity};
-    left: 0;
-    top: 0;
-    transition: opacity 180ms ease-out;
-  }
-`;
+const Card = styled(Stack)(
+  ({ boxShadowIntensity }) => ({
+    position: 'relative',
+    '&::before': {
+      position: 'absolute',
+      content: '""',
+      width: '100%',
+      height: '100%',
+      pointerEvents: 'none',
+      borderRadius: 'inherit',
+      opacity: boxShadowIntensity,
+      left: 0,
+      top: 0,
+      transition: 'opacity 180ms ease-out',
+    },
+  }),
+  boxShadow,
+);
 
 Card.displayName = 'Card';
 

@@ -1,57 +1,47 @@
 import styled from 'styled-components';
-import { compose, color, space, border, fontSize, width } from 'styled-system';
+import { compose, color, space, border, fontSize as styledFontSize, width } from 'styled-system';
 import propTypes from '@styled-system/prop-types';
 import PropTypes from 'prop-types';
 import shouldForwardProp from '@styled-system/should-forward-prop';
 
 import { density, cover } from '../../utils';
 
-const textInputSystem = compose(color, space, border, fontSize, width);
+const textInputSystem = compose(color, space, border, styledFontSize, width, density, cover);
 
 const TextInput = styled('input').withConfig({
   shouldForwardProp,
 }).attrs(props => ({
   'aria-invalid': props.invalid ? true : undefined,
-}))`
-  box-sizing: border-box;
-  position: relative;
-  overflow: hidden;
-
-  padding-left: ${props => props.theme.space[2]}px;
-  padding-right: ${props => props.theme.space[2]}px;
-  line-height: ${props => props.theme.fontSizes[props.fontSize]}px;
-
-  transition: border-color 90ms ease-out;
-
-  ${textInputSystem}
-
-  ${cover}
-  ${density}
-
-  &::-webkit-input-placeholder {
-    color: ${props => props.theme.colors.grayscale[5]};
-  }
-
-  &:focus {
-    outline: 0;
-    border-color: ${props => props.theme.colors.guidance.focus};
-  }
-
-  &:disabled {
-    opacity: 0.2;
-    pointer-events: none;
-    background-color: ${props => props.theme.colors.grayscale[7]};
-    border-color: ${props => props.theme.colors.grayscale[6]};
-  }
-
-  &[aria-invalid="true"] {
-    border-color: ${props => props.theme.colors.reds[5]};
-
-    &:hover {
-      border-color: ${props => props.theme.colors.reds[7]};
-    }
-  }
-`;
+}))(
+  ({ theme, fontSize }) => ({
+    boxSizing: 'border-box',
+    position: 'relative',
+    overflow: 'hidden',
+    padding: theme.space[2],
+    lineHeight: `${theme.fontSizes[fontSize]}px`,
+    transition: 'border-color 90ms ease-out',
+    '&::-webkit-input-placeholder': {
+      color: theme.colors.grayscale[5],
+    },  
+    '&:focus': {
+      outline: 0,
+      borderColor: theme.colors.guidance.focus,
+    },
+    '&:disabled': {
+      opacity: 0.2,
+      pointerEvents: 'none',
+      backgroundColor: theme.colors.grayscale[7],
+      borderColor: theme.colors.grayscale[6],
+    },
+    '&[aria-invalid="true"]': {
+      borderColor: theme.colors.reds[5],
+      '&:hover': {
+        borderColor: theme.colors.reds[7],
+      },
+    },
+  }),
+  textInputSystem,
+);
 
 TextInput.displayName = 'TextInput';
 

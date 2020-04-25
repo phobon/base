@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import {
   compose,
   system,
@@ -23,10 +23,11 @@ cover.propTypes = {
   cover: PropTypes.bool,
 };
 
-const responsive = props => props.responsive ? css`
-  width: 100%;
-  height: auto;
-` : null;
+const responsive = props => props.responsive ? ({
+  width: '100%',
+  height: 'auto',
+}) : null;
+
 responsive.propTypes = {
   responsive: PropTypes.bool,
 };
