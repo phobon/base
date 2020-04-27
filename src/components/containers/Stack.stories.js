@@ -48,3 +48,11 @@ export const withDifferentHorizontalSpacings = () => (
     </Stack>
   </Stack>
 );
+
+export const withResponsiveSpace = () => (
+  <Stack space={[8, 4]} bg="grayscale.7">
+    <Text>Item 1</Text>
+    <Text>Item 2</Text>
+    <Text>Item 3</Text>
+  </Stack>
+);
