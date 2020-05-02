@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Box from './Box';
+import Grid from './Grid';
 import Stack from './Stack';
 import Scrollable from './Scrollable';
 
@@ -54,6 +55,15 @@ export const withFlexibility = () => (
       {generatedItems()}
     </Scrollable>
   </Stack>
+);
+
+export const withGridContainer = () => (
+  <Grid width={350} height={400} gridTemplateColumns="100px 250px" gridTemplateRows="1fr">
+    <Box bg="reds.7" fullWidth fullHeight />
+    <Scrollable fullWidth fullHeight>
+      {generatedItems()}
+    </Scrollable>
+  </Grid>
 );
 
 export const withInternalPadding = () => (

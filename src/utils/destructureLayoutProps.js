@@ -3,6 +3,7 @@ import gridPosition from './gridPosition';
 
 const allLayoutProps = compose(space, layout, position, gridPosition);
 const { propNames } = allLayoutProps;
+const allProps = ['fullWidth', 'fullHeight', 'cover', ...propNames];
 
 /**
  * A utility function to destructure layout props from a set of props.
@@ -14,7 +15,7 @@ const destructureLayoutProps = (props) => {
    Object.keys(props).forEach(key => {
     const prop = props[key];
 
-    if (!propNames.includes(key)) {
+    if (!allProps.includes(key)) {
       passthroughProps[key] = prop;
       return false;
     }

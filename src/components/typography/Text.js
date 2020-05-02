@@ -13,7 +13,7 @@ import shouldForwardProp from '@styled-system/should-forward-prop';
 
 import { cover, gridPosition } from '../../utils';
 
-const textSystem = compose(space, color, layout, typography, position, textStyle);
+const textSystem = compose(space, color, layout, typography, position, textStyle, gridPosition);
 
 const Text = styled('span').withConfig({
   shouldForwardProp,
@@ -23,7 +23,6 @@ const Text = styled('span').withConfig({
 },
   textSystem,
   cover,
-  gridPosition,
 );
 
 Text.displayName = 'Text';
@@ -36,7 +35,6 @@ Text.propTypes = {
   ...propTypes.position,
   ...propTypes.textStyle,
   ...cover.propTypes,
-  ...gridPosition.propTypes,
 };
 
 Text.defaultProps = {

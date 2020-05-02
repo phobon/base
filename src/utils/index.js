@@ -2,7 +2,7 @@ import focus from './focus';
 import gridPosition from './gridPosition';
 import paint from './paint';
 
-import cover, { fullWidth, fullHeight } from './cover';
+import { cover, fullWidth, fullHeight } from './cover';
 import round from './round';
 
 import density from './density';

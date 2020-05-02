@@ -22,6 +22,19 @@ export const withDifferentPaddings = () => (
   </>
 );
 
+export const withCover = () => (
+  <Box width={500} height={500}>
+    <Box cover bg="greens.8">Cover</Box>
+  </Box>
+);
+
+export const withFullWidthAndHeight = () => (
+  <Box width={500} height={500}>
+    <Box fullWidth bg="greens.8">fullWidth</Box>
+    <Box fullHeight bg="oranges.8">fullHeight</Box>
+  </Box>
+);
+
 export const withDifferentMargins = () => (
   <>
     <TestBox p={2} mr={3}>Theme margin: 3</TestBox>

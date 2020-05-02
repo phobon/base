@@ -71,6 +71,8 @@ const minimalStyle = ({ minimal, ...props }) => {
 const Container = styled(Box)({
     position: 'relative',
     overflow: 'hidden',
+    alignItems: 'flex-start',
+    justifycontent: 'flex-start',
   },
   scrollDirectionProps,
   minimalStyle,
@@ -79,9 +81,9 @@ const Container = styled(Box)({
 const Scrollable = ({ minimal, scrollDirection, scrollbarColor, children, ...props }) => {
   const [layoutProps, passthroughProps] = destructureLayoutProps(props);
 
-  const { width, height, fullWidth, fullHeight, flex, ...rest } = layoutProps;
+  const { width, height, fullWidth, fullHeight, flex, gridArea, ...rest } = layoutProps;
   const containerProps = {
-    width, height, fullWidth, fullHeight, flex,
+    width, height, fullWidth, fullHeight, flex, gridArea, 
   };
 
   return (
@@ -116,6 +118,8 @@ Scrollable.defaultProps = {
   scrollDirection: 'vertical',
 
   scrollbarColor: 'hsla(0, 0%, 0%, 0.4)',
+
+  flex: 1,
 
   width: 'inherit',
   height: 'inherit',

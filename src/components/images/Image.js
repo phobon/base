@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import {
   compose,
-  system,
   space,
   layout,
   borderRadius,
@@ -14,20 +13,15 @@ import shouldForwardProp from '@styled-system/should-forward-prop';
 
 import { fullWidth, fullHeight, round, gridPosition } from '../../utils';
 
-const cover = system({
-  prop: 'cover',
-  cssProperty: 'backgroundSize',
-  transformValue: n => n ? 'cover' : 'auto',
-});
+const cover = props => props.cover ? { backgroundSize: 'cover' } : { backgroundSize: 'auto' };
 cover.propTypes = {
   cover: PropTypes.bool,
 };
 
-const responsive = props => props.responsive ? ({
+const responsive = props => props.responsive ? {
   width: '100%',
   height: 'auto',
-}) : null;
-
+} : null;
 responsive.propTypes = {
   responsive: PropTypes.bool,
 };

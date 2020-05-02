@@ -4,9 +4,9 @@ import propTypes from '@styled-system/prop-types';
 import PropTypes from 'prop-types';
 import shouldForwardProp from '@styled-system/should-forward-prop';
 
-import { density, cover } from '../../utils';
+import { density, fullWidth, fullHeight, cover } from '../../utils';
 
-const textInputSystem = compose(color, space, border, styledFontSize, width, density, cover);
+const textInputSystem = compose(color, space, border, styledFontSize, width);
 
 const TextInput = styled('input').withConfig({
   shouldForwardProp,
@@ -41,6 +41,10 @@ const TextInput = styled('input').withConfig({
     },
   }),
   textInputSystem,
+  density,
+  cover,
+  fullWidth,
+  fullHeight,
 );
 
 TextInput.displayName = 'TextInput';
@@ -52,6 +56,9 @@ TextInput.propTypes = {
   ...propTypes.width,
   ...propTypes.border,
   ...density.propTypes,
+  ...cover.propTypes,
+  ...fullWidth.propTypes,
+  ...fullHeight.propTypes,
 
   /** If this input is invalid, or not */
   invalid: PropTypes.bool,

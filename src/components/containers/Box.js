@@ -6,6 +6,8 @@ import shouldForwardProp from '@styled-system/should-forward-prop';
 import {
   gridPosition,
   cover,
+  fullWidth,
+  fullHeight,
   round,
 } from '../../utils';
 
@@ -19,8 +21,10 @@ const Box = styled('div').withConfig({
   minWidth: 0,
 },
   boxSystem,
-  gridPosition,
   cover,
+  fullWidth,
+  fullHeight,
+  gridPosition,
   round,
 );
 
