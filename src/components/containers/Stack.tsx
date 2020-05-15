@@ -23,13 +23,13 @@ const getMargin = (n: any, scale: ObjectOrArray<string | number, string | number
   return r;
 };
 
-const stackSpace = system({
-  space: {
-    property: '> * + *',
-    scale: 'space',
-    transform: getMargin,
-  },
-});
+// Casting this as any to get around styled-system TS definitions not being correct
+const space: any = {
+  property: '> * + *',
+  scale: 'space',
+  transform: getMargin,
+}
+const stackSpace = system({ space });
 
 interface IStackProps {
   space?: ResponsiveValue<ThemeValue<'space', RequiredTheme>>;
