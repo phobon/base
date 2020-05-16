@@ -12,7 +12,7 @@ const useTheme = (initial = 'light', themeFunction = getTheme) => {
     }
 
     requestAnimationFrame(() => {
-      const root = document.querySelector(':root');
+      const root: HTMLElement = document.querySelector(':root');
       const newTheme = themeFunction(theme);
   
       root.style.setProperty('--c-foreground', newTheme.foreground);

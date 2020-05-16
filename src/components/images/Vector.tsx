@@ -4,7 +4,10 @@ import { paint, PaintProps } from '../../utils';
 
 import { Image, ImageProps } from './Image';
 
-export type VectorProps = PaintProps & ImageProps;
+interface IVectorProps {
+  viewBox?: string;
+}
+export type VectorProps = IVectorProps & PaintProps & ImageProps;
 
 export const Vector = styled(Image).attrs(() => ({
   as: 'svg',
@@ -17,5 +20,4 @@ const defaultProps: VectorProps = {
   fill: 'foreground',
   stroke: 'none',
 };
-
 Vector.defaultProps = defaultProps;

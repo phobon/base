@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import {
+  system,
   compose,
   space,
   layout,
@@ -8,7 +9,6 @@ import {
   position,
   SpaceProps, LayoutProps, BorderRadiusProps, BackgroundProps, PositionProps,
 } from 'styled-system';
-import propTypes from '@styled-system/prop-types';
 import shouldForwardProp from '@styled-system/should-forward-prop';
 
 import {
@@ -16,22 +16,37 @@ import {
   FullWidthProps, FullHeightProps, RoundProps, GridPositionProps,
 } from '../../utils';
 
-const cover = props => props.cover ? { backgroundSize: 'cover' } : { backgroundSize: 'auto' };
+export const cover = system({
+  space: {
+    property: 'backgroundSize',
+    transform: n => n ? 'cover' : 'auto',
+  },
+});
 
 const responsive = props => props.responsive ? {
   width: '100%',
   height: 'auto',
 } : null;
 
-const imageSystem = compose(space, layout, borderRadius, background, position, fullWidth, fullHeight, round, gridPosition);
+const imageSystem = compose(space, layout, borderRadius, background, position, fullWidth, fullHeight, round, gridPosition, cover);
 
+interface IImageProps {
+  cover?: boolean;
+  responsive?: boolean;
+}
 export type ImageProps =
-  SpaceProps & LayoutProps & BorderRadiusProps & BackgroundProps & PositionProps
-  & FullWidthProps & FullHeightProps & RoundProps & GridPositionProps;
+  IImageProps
+  & SpaceProps
+  & LayoutProps
+  & BorderRadiusProps
+  & BackgroundProps
+  & PositionProps
+  & FullWidthProps
+  & FullHeightProps
+  & RoundProps
+  & GridPositionProps;
 
-export const Image = styled('img').withConfig({
-  shouldForwardProp,
-})<ImageProps>({
+export const Image = styled('img').withConfig({ shouldForwardProp })<ImageProps>({
   display: 'block',
 },
   imageSystem,

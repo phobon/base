@@ -139,8 +139,9 @@ const accent = c.blues.map((g, i) => `var(--c-accent-${i}, ${g})`)
 
 export const grayscale = c.lightGrayscale.map((g, i) => `var(--c-grayscale-${i}, ${g})`);
 
-export const colour = {
-  accent, ...c,
+export const colour: any = {
+  accent,
+  ...c,
 }
 const palettes = Object.keys(hues);
 

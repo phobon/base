@@ -53,7 +53,7 @@ H6.defaultProps = {
   lineHeight: 4,
 };
 
-const Heading = () => H3;
+export const Heading = () => H3;
 
 Heading.H1 = H1;
 Heading.H2 = H2;
@@ -61,5 +61,3 @@ Heading.H3 = H3;
 Heading.H4 = H4;
 Heading.H5 = H5;
 Heading.H6 = H6;
-
-export default Heading;

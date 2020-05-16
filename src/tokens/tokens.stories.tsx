@@ -1,10 +1,8 @@
 import React from 'react';
 
-import { Box, Text } from '../components';
+import { fontSizes, space, radii } from './tokens';
 
-import fontSizes from './fontSizes';
-import space from './space';
-import radii from './radii';
+import { Box, Text } from '../components';
 
 export default {
   title: 'Tokens',

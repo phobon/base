@@ -129,14 +129,14 @@ export const withContrastRatios = () => {
       <Grid fullWidth gridTemplateColumns="repeat(10, 1fr)" gridAutoRows="50px">
         {merged.map((c, i) => (
           <Box key={`white__${i}`} fullWidth fullHeight bg={c}>
-            <Box bg="hsla(0, 0%, 0%, 0.7)" borderRadius={3} px={1} lineHeight={1} color="white">{contrast('#fff', c).toFixed(2)}</Box>
+            <Box bg="hsla(0, 0%, 0%, 0.7)" borderRadius={3} px={1} color="white">{contrast('#fff', c).toFixed(2)}</Box>
           </Box>
         ))}
       </Grid>
       <Grid fullWidth gridTemplateColumns="repeat(10, 1fr)" gridAutoRows="50px">
         {merged.map((c, i) => (
           <Box key={`black__${i}`} fullWidth fullHeight bg={c}>
-            <Box bg="hsla(0, 0%, 0%, 0.7)" borderRadius={3} px={1} lineHeight={1} color="white">{contrast('#232b30', c).toFixed(2)}</Box>
+            <Box bg="hsla(0, 0%, 0%, 0.7)" borderRadius={3} px={1} color="white">{contrast('#232b30', c).toFixed(2)}</Box>
           </Box>
         ))}
       </Grid>

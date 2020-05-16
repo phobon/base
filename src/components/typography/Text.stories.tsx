@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Box } from '../containers';
 
-import Text from './Text';
+import { Text } from './Text';
 
 export default {
   component: Text,

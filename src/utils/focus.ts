@@ -1,4 +1,6 @@
-export const focus = ({ theme }) => ({
+import { CSSObject, InterpolationFunction } from "styled-components";
+
+export const focus = ({ theme }): CSSObject | InterpolationFunction<any> | TemplateStringsArray => ({
   '&:focus': {
     outline: 0,
     '&::after': {

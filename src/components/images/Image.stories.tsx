@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Box } from '../containers';
-import Image from './Image';
+import { Image } from './Image';
 
 export default {
   component: Image,

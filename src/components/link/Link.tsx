@@ -1,12 +1,15 @@
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { Text } from '../typography';
+import { Text, TextProps } from '../typography';
 import { focus } from '../../utils';
 
-const Link = styled(Text).attrs(() => ({ as: 'a' }),
+interface ILinkProps {
+  clean?: boolean;
+  active?: boolean;
+}
+type LinkProps = ILinkProps & TextProps;
+export const Link = styled(Text).attrs(() => ({ as: 'a' }))<LinkProps>(
   focus,
-)(
   ({ clean, theme }) => ({
     textDecoration: clean ? 'none' : 'underline dashed',
     position: 'relative',
@@ -23,22 +26,10 @@ const Link = styled(Text).attrs(() => ({ as: 'a' }),
 
 Link.displayName = 'Link';
 
-Link.propTypes = {
-  ...Text.propTypes,
-
-  /** Represents a link with text-decoration removed. */
-  clean: PropTypes.bool,
-
-  /** Represents an active link. */
-  active: PropTypes.bool,
-};
-
-Link.defaultProps = {
-  ...Text.defaultProps,
+const defaultProps: LinkProps = {
   color: 'accent.1',
   fontSize: 1,
   textAlign: 'left',
   active: false,
 };
-
-export default Link;
+Link.defaultProps = defaultProps;

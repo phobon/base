@@ -7,7 +7,7 @@ const useAccent = (initial = 'greens', accentFunction = null) => {
   const [accent, setAccent] = useCachedState('phobon__base:accent', initial);
 
   useEffect(() => void requestAnimationFrame(() => { // eslint-disable-line no-void
-    const root = document.querySelector(':root');
+    const root: HTMLElement = document.querySelector(':root');
 
     const newColours = accentFunction || [...colour[accent]];
     newColours.forEach((c, i) => {

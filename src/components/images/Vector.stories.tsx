@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Vector from './Vector';
+import { Vector } from './Vector';
 import { Stack } from '../containers';
 
 export default {

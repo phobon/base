@@ -1,9 +1,13 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/default-props-match-prop-types */
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
+import { system } from 'styled-system';
 
-import Text from './Text'
+import { Text, TextProps } from './Text'
+
+const wordBreak = system({
+  wordBreak: true,
+});
 
 const boxAlign = ({ textAlign }) => {
   const boxAlignments = {
@@ -21,29 +25,28 @@ const boxAlign = ({ textAlign }) => {
   return boxAlignments[textAlign || 'center'];
 };
 
-const Truncate = styled(Text)(
+interface ITruncateProps {
+  lines?: number;
+  wordBreak?: string;
+}
+export type TruncateProps = ITruncateProps & TextProps;
+export const Truncate = styled(Text)(
   boxAlign,
-  ({ lines, wordBreak }) => ({
+  wordBreak,
+  ({ lines }) => ({
     overflow: 'hidden',
     display: '-webkit-box',
     '-webkit-box-orient': 'vertical',
     '-webkit-line-clamp': `${lines}`,
-    wordBreak,
   }),
 );
 
 Truncate.displayName = 'Truncate';
 
-Truncate.propTypes = {
-  /* The number of lines to clamp text length to */
-  lines: PropTypes.number,
-};
-
-Truncate.defaultProps = {
+const defaultProps: TruncateProps = {
   lines: 1,
   lineHeight: 4,
   textAlign: 'left',
   wordBreak: 'break-word',
 };
-
-export default Truncate;
+Truncate.defaultProps = defaultProps;

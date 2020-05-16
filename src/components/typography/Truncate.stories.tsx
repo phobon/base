@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Stack } from '../containers';
 
-import Truncate from './Truncate';
+import { Truncate } from './Truncate';
 
 export default {
   component: Truncate,
