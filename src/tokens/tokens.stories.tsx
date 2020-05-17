@@ -2,7 +2,8 @@ import React from 'react';
 
 import { fontSizes, space, radii } from './tokens';
 
-import { Box, Text } from '../components';
+import { Box } from '../components/containers/Box';
+import { Text } from '../components/typography/Text';
 
 export default {
   title: 'Tokens',

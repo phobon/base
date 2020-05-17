@@ -16,7 +16,7 @@ import {
   FullWidthProps, FullHeightProps, RoundProps, GridPositionProps,
 } from '../../utils';
 
-export const cover = system({
+const cover = system({
   space: {
     property: 'backgroundSize',
     transform: n => n ? 'cover' : 'auto',
