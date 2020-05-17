@@ -5,7 +5,7 @@ export const black = 'hsl(0, 0%, 0%)';
 export const transparent = 'hsla(0, 0%, 0%, 0)';
 export const focus = 'hsl(211, 97%, 61%)';
 
-const hsluvMap = c => hsluv.hsluvToHex(c);
+const hsluvMap = (c: hsluv.ColorTuple) => hsluv.hsluvToHex(c);
 
 export type PaletteType = 'grayscale' | 'blues' | 'cyans' | 'greens' | 'yellows' | 'oranges' | 'reds' | 'purples' | 'violets';
 

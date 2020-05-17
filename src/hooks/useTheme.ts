@@ -3,7 +3,8 @@ import { useCachedState } from '@phobon/hooks';
 
 import { getTheme, ThemeType, IThemeDefinition } from '../tokens/palettes';
 
-export const useTheme = (initial: ThemeType = 'light', themeFunction: (type: ThemeType) => IThemeDefinition = getTheme): Array<ThemeType | React.Dispatch<React.SetStateAction<ThemeType>>> => {
+type UseThemeType = [ThemeType, React.Dispatch<React.SetStateAction<ThemeType>>];
+export const useTheme = (initial: ThemeType = 'light', themeFunction: (type: ThemeType) => IThemeDefinition = getTheme): UseThemeType => {
   const [theme, setTheme] = useCachedState<ThemeType>('phobon__base:theme', initial);
 
   useEffect(() => {
@@ -12,7 +13,11 @@ export const useTheme = (initial: ThemeType = 'light', themeFunction: (type: The
     }
 
     requestAnimationFrame(() => {
-      const root: HTMLElement = document.querySelector(':root');
+      const root: HTMLElement | null = document.querySelector(':root');
+      if (!root) {
+        throw Error(':root element not found');
+      }
+
       const newTheme = themeFunction(theme as ThemeType);
   
       root.style.setProperty('--c-foreground', newTheme.foreground);
@@ -23,5 +28,5 @@ export const useTheme = (initial: ThemeType = 'light', themeFunction: (type: The
     });
   }, [theme]);
 
-  return [theme, setTheme];
+  return [theme, setTheme] as UseThemeType;
 };

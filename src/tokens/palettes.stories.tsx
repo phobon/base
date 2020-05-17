@@ -3,7 +3,6 @@
 /* eslint-disable prefer-spread */
 import React from 'react';
 import { contrast } from 'chroma-js';
-import {} from 'styled-components/cssprop';
 
 import { Stack, Box, Grid, Heading, Text } from '../components';
 
@@ -18,7 +17,7 @@ const guidance = ['success', 'error', 'warning', 'info'];
 const colourSet = {...colour};
 delete colourSet.accent;
 
-const SmallColourBox = ({ children, ...props }) => (
+const SmallColourBox = ({ children, ...props }: any) => (
   <Box fullHeight fullWidth borderRadius={4} {...props}>{children}</Box>
 );
 
@@ -128,14 +127,14 @@ export const withContrastRatios = () => {
   return (
     <Stack space={4} fullWidth>
       <Grid fullWidth gridTemplateColumns="repeat(10, 1fr)" gridAutoRows="50px">
-        {merged.map((c, i) => (
+        {merged.map((c: string, i: number) => (
           <Box key={`white__${i}`} fullWidth fullHeight bg={c}>
             <Box bg="hsla(0, 0%, 0%, 0.7)" borderRadius={3} px={1} color="white">{contrast('#fff', c).toFixed(2)}</Box>
           </Box>
         ))}
       </Grid>
       <Grid fullWidth gridTemplateColumns="repeat(10, 1fr)" gridAutoRows="50px">
-        {merged.map((c, i) => (
+        {merged.map((c: string, i: number) => (
           <Box key={`black__${i}`} fullWidth fullHeight bg={c}>
             <Box bg="hsla(0, 0%, 0%, 0.7)" borderRadius={3} px={1} color="white">{contrast('#232b30', c).toFixed(2)}</Box>
           </Box>
@@ -143,7 +142,7 @@ export const withContrastRatios = () => {
       </Grid>
 
       <Grid fullWidth gridTemplateColumns="repeat(10, 1fr)" gridAutoRows="50px">
-        {merged.map((c, i) => (
+        {merged.map((c: string, i: number) => (
           <Box key={`colour__${i}`} fullWidth fullHeight>
             <Text color={c} fontSize={2}>{`${contrast('#fff', c).toFixed(2)}`}</Text>
           </Box>
@@ -151,7 +150,7 @@ export const withContrastRatios = () => {
       </Grid>
 
       <Grid fullWidth gridTemplateColumns="repeat(10, 1fr)" gridAutoRows="50px" bg="grayscale.0">
-        {merged.map((c, i) => (
+        {merged.map((c: string, i: number) => (
           <Box key={`colour__${i}`} fullWidth fullHeight>
             <Text color={c} fontSize={2}>{`${contrast('#232b30', c).toFixed(2)}`}</Text>
           </Box>
