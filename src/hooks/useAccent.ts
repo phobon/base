@@ -3,7 +3,7 @@ import { useCachedState } from '@phobon/hooks';
 
 import { colour, PaletteType } from '../tokens/palettes';
 
-const useAccent = (initial: PaletteType = 'greens', accentFunction: (key: PaletteType) => string[] = null): Array<PaletteType | React.Dispatch<React.SetStateAction<PaletteType>>> => {
+export const useAccent = (initial: PaletteType = 'greens', accentFunction: (key: PaletteType) => string[] = null): Array<PaletteType | React.Dispatch<React.SetStateAction<PaletteType>>> => {
   const [accent, setAccent] = useCachedState<PaletteType>('phobon__base:accent', initial);
 
   useEffect(() => void requestAnimationFrame(() => {
@@ -17,6 +17,3 @@ const useAccent = (initial: PaletteType = 'greens', accentFunction: (key: Palett
 
   return [accent, setAccent];
 };
-
-export default useAccent;
-
