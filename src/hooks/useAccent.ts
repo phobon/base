@@ -1,19 +1,19 @@
 import { useEffect } from 'react';
 import { useCachedState } from '@phobon/hooks';
 
-import { colour } from '../tokens/palettes';
+import { colour, PaletteType } from '../tokens/palettes';
 
-const useAccent = (initial = 'greens', accentFunction = null) => {
-  const [accent, setAccent] = useCachedState('phobon__base:accent', initial);
+const useAccent = (initial: PaletteType = 'greens', accentFunction: (key: PaletteType) => string[] = null): Array<PaletteType | React.Dispatch<React.SetStateAction<PaletteType>>> => {
+  const [accent, setAccent] = useCachedState<PaletteType>('phobon__base:accent', initial);
 
-  useEffect(() => void requestAnimationFrame(() => { // eslint-disable-line no-void
+  useEffect(() => void requestAnimationFrame(() => {
     const root: HTMLElement = document.querySelector(':root');
 
-    const newColours = accentFunction || [...colour[accent]];
+    const newColours = accentFunction(accent) || [...colour[accent]] as string[];
     newColours.forEach((c, i) => {
       root.style.setProperty(`--c-accent-${i}`, c);
     });
-  }, [accent]));
+  }), [accent]);
 
   return [accent, setAccent];
 };

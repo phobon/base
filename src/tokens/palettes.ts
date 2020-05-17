@@ -7,6 +7,8 @@ export const focus = 'hsl(211, 97%, 61%)';
 
 const hsluvMap = c => hsluv.hsluvToHex(c);
 
+export type PaletteType = 'grayscale' | 'blues' | 'cyans' | 'greens' | 'yellows' | 'oranges' | 'reds' | 'purples' | 'violets';
+
 const hues: { [key: string]: number } = {
   lightGrayscale: 240,
   darkGrayscale: 216,
@@ -139,7 +141,7 @@ const accent = c.blues.map((g, i) => `var(--c-accent-${i}, ${g})`)
 
 export const grayscale = c.lightGrayscale.map((g, i) => `var(--c-grayscale-${i}, ${g})`);
 
-export const colour: any = {
+export const colour: { [key: string]: string[] } = {
   accent,
   ...c,
 }
@@ -162,7 +164,13 @@ export const randomColor = () => {
   return colour[palette][item];
 };
 
-export const themeDefinitions = {
+export type ThemeType = 'light' | 'dark';
+export interface IThemeDefinition {
+  foreground: string;
+  background: string;
+  grayscale: string[];
+}
+export const themeDefinitions: { [key: string]: IThemeDefinition } = {
   light: {
     foreground: 'hsl(228, 34%, 11%)',
     background: 'hsl(0, 0%, 100%)',
@@ -174,3 +182,4 @@ export const themeDefinitions = {
     grayscale: [...colour.darkGrayscale],
   },
 };
+export const getTheme = (type: ThemeType): IThemeDefinition => themeDefinitions[type];

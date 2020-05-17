@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 import { useCachedState } from '@phobon/hooks';
 
-import getTheme from './getTheme';
+import { getTheme, ThemeType, IThemeDefinition } from '../tokens/palettes';
 
-const useTheme = (initial = 'light', themeFunction = getTheme) => {
-  const [theme, setTheme] = useCachedState('phobon__base:theme', initial);
+export const useTheme = (initial: ThemeType = 'light', themeFunction: (type: ThemeType) => IThemeDefinition = getTheme): Array<ThemeType | React.Dispatch<React.SetStateAction<ThemeType>>> => {
+  const [theme, setTheme] = useCachedState<ThemeType>('phobon__base:theme', initial);
 
   useEffect(() => {
     if (!theme) {
@@ -25,6 +25,3 @@ const useTheme = (initial = 'light', themeFunction = getTheme) => {
 
   return [theme, setTheme];
 };
-
-
-export default useTheme;

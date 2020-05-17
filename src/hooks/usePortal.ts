@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { createPortal } from 'react-dom';
 
-const usePortal = (child, selector = '#base__portal') => {
+const usePortal = (child: React.ReactNode, selector: string = '#base__portal'): null | React.ReactPortal => {
   const [container, setContainer] = useState(null);
 
   if (!container) {
