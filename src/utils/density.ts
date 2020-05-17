@@ -1,8 +1,8 @@
 import { system } from 'styled-system';
 
-type Density = 'compact' | 'normal' | 'spacious';
+export type DensityType = 'compact' | 'normal' | 'spacious';
 export interface DensityProps {
-  density?: Density;
+  density?: DensityType;
 }
 export const density = system({
   space: {

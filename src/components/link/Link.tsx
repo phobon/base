@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 
-import { Text, TextProps } from '../typography';
+import { Text, TextProps } from '../typography/Text';
 import { focus } from '../../utils';
 
 interface ILinkProps {
+  href?: string;
   clean?: boolean;
   active?: boolean;
 }

@@ -1,12 +1,18 @@
 /* eslint-disable react/no-array-index-key */
 import React, { forwardRef } from 'react';
 import styled, { css } from 'styled-components';
-import { compose, space, layout, width } from 'styled-system';
-import propTypes from '@styled-system/prop-types';
-import PropTypes from 'prop-types';
+import {
+  compose,
+  space,
+  layout,
+  width,
+  SpaceProps,
+  LayoutProps,
+  WidthProps,
+} from 'styled-system';
 import shouldForwardProp from '@styled-system/should-forward-prop';
 
-import { gridPosition } from '../../utils';
+import { gridPosition, GridPositionProps, DensityType } from '../../utils';
 
 const density = props => {
   const densityValues = {
@@ -56,11 +62,39 @@ const showSeparator = props => props.showSeparator ? css`
   border-bottom: 1px solid transparent;
 `;
 
-const tableSystem = compose(space, layout, width);
+const tableSystem = compose(space, layout, width, gridPosition);
 
-const StyledTable = styled('table').withConfig({
-  shouldForwardProp,
-})`
+interface IColumn {
+  fill?: boolean;
+  truncate?: boolean;
+  lines?: number;
+  variant?: 'numeric' | 'other';
+  label?: string;
+}
+type Column = IColumn & SpaceProps & WidthProps;
+
+interface IRow {
+  id?: string | number;
+  cells?: { content: React.ReactNode }[];
+  disabled?: boolean;
+}
+
+interface ITableProps {
+  id?: string | number;
+  columns?: IColumn[];
+  rows?: IRow[];
+  horizontalCellPadding?: number;
+  showSeparator?: boolean;
+  density?: DensityType;
+}
+export type TableProps =
+  ITableProps
+  & SpaceProps
+  & LayoutProps
+  & WidthProps
+  & GridPositionProps;
+
+const StyledTable = styled('table').withConfig({ shouldForwardProp })<TableProps>`
   width: 100%;
   border-spacing: 0;
   border-collapse: separate;
@@ -95,7 +129,6 @@ const StyledTable = styled('table').withConfig({
         overflow: hidden;
         display: -webkit-box;
         -webkit-box-orient: vertical;
-        -webkit-line-clamp: ${props => props.lines ?? 1};
       }
     }
 
@@ -149,11 +182,21 @@ const StyledTable = styled('table').withConfig({
   ${density}
 `;
 
-const Col = styled('col')(
-  width, space,
+const Col = styled('col')<Column>(
+  width,
+  space,
+  props => ({
+    'th, td': {
+      '&.cell--truncate': {
+        '> *': {
+          '-webkit-line-clamp': props.lines ?? 1,
+        },
+      },
+    },
+  })
 );
 
-const Table = forwardRef(({ id, columns, rows, ...props }, ref) => {  
+export const Table = forwardRef(({ id, columns, rows, ...props }: TableProps, ref: any) => {  
   const cols = columns.map(({ fill, truncate, ...rest }, i) => (
     <Col key={`${id}__col__${i}`} {...rest} />
   ));
@@ -161,7 +204,7 @@ const Table = forwardRef(({ id, columns, rows, ...props }, ref) => {
   const header = columns.map((c, i) => (
     <th
       key={`${id}__header__${i}`}
-      className={`${c.type === 'numeric' ? 'cell--numeric' : ''}`}>
+      className={`${c.variant === 'numeric' ? 'cell--numeric' : ''}`}>
       {c.label}
     </th>
   ));
@@ -174,7 +217,7 @@ const Table = forwardRef(({ id, columns, rows, ...props }, ref) => {
         ${truncate ? 'cell--truncate': ''} 
         ${r.disabled ? 'cell--disabled': ''}`;
       return (
-        <td key={`${r.id}-cell__${cellIndex}`} className={cell} style={rest}>
+        <td key={`${r.id}-cell__${cellIndex}`} className={cell} style={rest as any}>
           <span>{c.content}</span>
         </td>
       );
@@ -206,30 +249,7 @@ const Table = forwardRef(({ id, columns, rows, ...props }, ref) => {
 
 Table.displayName = 'Table';
 
-Table.propTypes = {
-  ...propTypes.space,
-  ...propTypes.layout,
-
-  /** Optional identifier */
-  id: PropTypes.node,
-
-  /** Horizontal padding */
-  horizontalCellPadding: PropTypes.number,
-
-  /** Whether to show a separator between rows, or not */
-  showSeparator: PropTypes.bool,
-
-  /** Columns to display in this table */
-  columns: PropTypes.array,
-
-  /** Rows to display in this table */
-  rows: PropTypes.array,
-
-  /** Information density */
-  density: PropTypes.oneOf(['compact', 'normal', 'spacious']),
-};
-
-Table.defaultProps = {
+const defaultProps: TableProps = {
   id: Math.random() * 100,
   showSeparator: true,
   horizontalCellPadding: 5,
@@ -237,5 +257,4 @@ Table.defaultProps = {
   rows: null,
   density: 'normal',
 };
-
-export default Table;
+Table.defaultProps = defaultProps;
