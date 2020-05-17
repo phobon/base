@@ -2,11 +2,11 @@
 import React, { forwardRef } from 'react';
 import styled from 'styled-components';
 
-import TextInput from './TextInput';
-import { Box } from '../containers';
+import { Input, InputProps } from './Input';
+import { Box, BoxProps } from '../containers';
 import { destructureLayoutProps } from '../../utils';
 
-const SelectInput = styled(TextInput).attrs(() => ({ as: 'select' }))({
+const SelectInput = styled(Input).attrs(() => ({ as: 'select' }))({
   '-webkit-appearance': 'none',
   minWidth: 150,
 });
@@ -28,7 +28,8 @@ const SelectContainer = styled(Box)({
   },
 });
 
-const Select = forwardRef((props, ref) => {
+export type SelectProps = InputProps & BoxProps;
+export const Select = forwardRef((props: SelectProps, ref: any) => {
   const [layoutProps, passthroughProps] = destructureLayoutProps(props);
   return (
     <SelectContainer {...layoutProps}>
@@ -38,6 +39,4 @@ const Select = forwardRef((props, ref) => {
 });
 
 Select.displayName = 'Select';
-
-export default Select;
  
