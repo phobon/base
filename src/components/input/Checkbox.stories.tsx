@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Box } from '../containers';
-import Checkbox from './Checkbox';
+import { Checkbox } from './Checkbox';
 
 export default {
   component: Checkbox,

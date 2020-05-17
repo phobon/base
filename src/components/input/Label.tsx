@@ -5,7 +5,7 @@ import { Text, TextProps } from '../typography/Text';
 
 interface ILabelProps {
 }
-export type LabelProps = ILabelProps & FlexboxProps & TextProps;
+export type LabelProps = ILabelProps & FlexboxProps & TextProps & React.InputHTMLAttributes<HTMLLabelElement>;
 export const Label = styled(Text).attrs(() => ({ as: 'label' }))<LabelProps>({
     display: 'flex',
   },

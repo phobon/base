@@ -1,128 +1,130 @@
 /* eslint-disable react/default-props-match-prop-types */
 import React, { forwardRef } from 'react';
-import styled, { css } from 'styled-components';
-import { space, borderRadius } from 'styled-system';
+import styled from 'styled-components';
+import {
+  compose,
+  space,
+  border,
+  SpaceProps,
+  BorderProps,
+  TypographyProps,
+} from 'styled-system';
 import themeGet from '@styled-system/theme-get';
-import propTypes from '@styled-system/prop-types';
-import PropTypes from 'prop-types';
+import shouldForwardProp from '@styled-system/should-forward-prop';
 
-import Label from './Label';
+import { Label } from './Label';
 
-const checkedLabelBackground = props => {
-  const color = themeGet(`colors.${props.color}`)(props);
+const radioSystem = compose(space, border);
 
-  return css`
-    background-color: ${color || props.color};
-  `;
+interface IRadioProps {
+  id?: string;
+  label?: React.ReactNode;
+  labelColor?: string;
+  size?: number;
+  invalid?: boolean;
+  borderThickness?: number;
+  'aria-invalid'?: string;
 }
-
-const RadioContainer = styled('div').attrs(props => ({
+type RadioContainerProps =
+  IRadioProps
+  & SpaceProps
+  & BorderProps
+  & TypographyProps;
+const RadioContainer = styled('div').withConfig({ shouldForwardProp }).attrs((props: RadioProps) => ({
   'aria-invalid': props.invalid ? true : undefined,
-}))`
-  display: flex;
-  flex: none;
-  align-items: flex-start;
-  justify-content: flex-start;
-  position: relative;
+}))<RadioProps>(
+  radioSystem,
+  props => ({
+    display: 'flex',
+    flex: 'none',
+    alignItems: 'flex-start',
+    justifyContent: 'flex-start',
+    position: 'relative',
+    height: props.theme.space[props.size] + (props.borderThickness * 2),
+    minWidth: props.theme.space[props.size] + (props.borderThickness * 2),
+    label: {
+      height: '100%',
+      '&::before': {
+        content: '""',
+        opacity: 0.7,
+        transition: '80ms opacity ease-out',
+        position: 'absolute',
+        left: 0,
+        top: 0,
+        width: props.theme.space[props.size],
+        height: props.theme.space[props.size],
+        border: `${props.borderThickness}px ${props.borderStyle} ${themeGet(`colors.${props.borderColor as string}`)(props)}`,
+        backgroundColor: props.theme.colors.grayscale[9],
+        'box-sizing': 'content-box',
+      },
+      '&::after': {
+        content: '""',
+        position: 'absolute',
+        opacity: 0,
+        left: 0,
+        top: 0,
+        width: props.theme.space[props.size] + (props.borderThickness * 2),
+        height: props.theme.space[props.size] + (props.borderThickness * 2),
+        backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='4' fill='white'/%3E%3C/svg%3E")`,
+        backgroundPosition: '50% 50%',
+        backgroundRepeat: 'no-repeat',
+        transition: '80ms opacity ease-out',
+        pointerEvents: 'none',
+        boxSizing: 'content-box',
+      },
+    },
+    'input[type="radio"]': {
+      margin: 0,
+      opacity: 0,
+      'label::after': {
+        content: 'none',
+      },
+      '&:checked + label::after': {
+        opacity: 1,
+      },
+      '&:checked + label::before': {
+        opacity: 0.9,
+        border: `${props.borderThickness}px ${props.borderStyle} ${themeGet(`colors.${props.color}`)(props)}`,
+        backgroundColor: themeGet(`colors.${props.color}`)(props),
+      },
+      '&:focus + label::before': {
+        outline: 0,
+        opacity: 1,
+        border: `${props.borderThickness}px ${props.borderStyle} ${props.theme.colors.guidance.focus}`,
+      },
+      '&:disabled + label::before': {
+        opacity: 0.5,
+        pointerEvents: 'none',
+        backgroundColor: props.theme.colors.grayscale[6],
+        border: `${props.borderThickness}px ${props.borderStyle} ${props.theme.colors.grayscale[5]}`,
+      },
+    },
+    '&:hover': {
+      label: {
+        '&::before': {
+          opacity: 1,
+        },
+      },
+    },
+    '&[aria-invalid="true"]': {
+      label: {
+        '&::before': {
+          border: `2px solid ${props.theme.colors.reds[3]}`,
+          backgroundColor: props.theme.colors.guidance.error[1],
+        },
+      },
+      'input[type="radio"]': {
+        '&:checked + label::before': {
+          border: `2px solid ${props.theme.colors.reds[3]}`,
+          backgroundColor: props.theme.colors.guidance.error[1],
+        },
+      },
+    },
+  }),
+);
 
-  height: ${props => props.theme.space[props.size] + (props.borderThickness * 2)}px;
-  min-width: ${props => props.theme.space[props.size] + (props.borderThickness * 2)}px;
-
-  ${space}
-
-  label {
-    height: 100%;
-
-    &::before {
-      content: "";
-      opacity: 0.7;
-      transition: 80ms opacity ease-out;
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: ${props => props.theme.space[props.size]}px;
-      height: ${props => props.theme.space[props.size]}px;
-      border-radius: 100%;
-      border: ${props => `${props.borderThickness}px ${props.borderStyle} ${themeGet(`colors.${props.borderColor}`)(props)}`};
-      background-color: ${props => props.theme.colors.grayscale[9]};
-      box-sizing: content-box;
-    }
-
-    &::after {
-      content: "";
-      position: absolute;
-      opacity: 0;
-      left: 0;
-      top: 0;
-      width: ${props => props.theme.space[props.size] + (props.borderThickness * 2)}px;
-      height: ${props => props.theme.space[props.size] + (props.borderThickness * 2)}px;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='4' fill='white'/%3E%3C/svg%3E");
-      background-position: 50% 50%;
-      background-repeat: no-repeat;
-      transition: 80ms opacity ease-out;
-      pointer-events: none;
-      box-sizing: content-box;
-    }
-  }
-
-  input[type="radio"] {
-    margin: 0;
-    opacity: 0;
-
-    label::after {
-      content: none;
-    }
-
-    &:checked + label::after {
-      opacity: 1;
-    }
-
-    &:checked + label::before {
-      opacity: 0.9;
-      border: ${props => `${props.borderThickness}px ${props.borderStyle} ${themeGet(`colors.${props.color}`)(props)}`};
-      ${checkedLabelBackground}
-    }
-
-    &:focus + label::before {
-      outline: 0;
-      opacity: 1;
-      border: ${props => `${props.borderThickness}px ${props.borderStyle} ${props.theme.colors.guidance.focus}`};
-    }
-    
-    &:disabled + label::before {
-      opacity: 0.5;
-      pointer-events: none;
-      background-color: ${props => props.theme.colors.grayscale[6]};
-      border: ${props => `${props.borderThickness}px ${props.borderStyle} ${props.theme.colors.grayscale[5]}`};
-    }
-  }
-
-  &:hover {
-    label {
-      &::before {
-        opacity: 1;
-      }
-    }
-  }
-
-  &[aria-invalid="true"] {
-    label {
-      &::before {
-        border: 2px solid ${props => props.theme.colors.reds[3]};
-        background-color: ${props => props.theme.colors.guidance.error[1]};
-      }
-    }
-
-    input[type="radio"] {
-      &:checked + label::before {
-        border: 2px solid ${props => props.theme.colors.reds[3]};
-        background-color: ${props => props.theme.colors.guidance.error[1]};
-      }
-    }
-  }
-`;
-
-const Radio = forwardRef(({
+export type RadioProps = RadioContainerProps & React.InputHTMLAttributes<HTMLInputElement>;
+export const Radio = forwardRef(({
   id,
   label,
   labelColor,
@@ -132,55 +134,38 @@ const Radio = forwardRef(({
   required,
   fontSize,
   fontWeight,
-  textStyle,
   name,
   size,
-  className,
   invalid,
-  ...props }, ref) => (
-    <RadioContainer {...props} size={size} disabled={disabled} invalid={invalid} className={className}>
-      <input
-        type="radio"
-        ref={ref}
-        id={id}
-        onChange={onChange}
-        disabled={disabled}
-        required={required}
-        className={className}
-        checked={checked}
-        name={name} />
-      <Label
-        alignItems="center"
-        color={labelColor}
-        fontSize={fontSize}
-        fontWeight={fontWeight}
-        textStyle={textStyle}
-        htmlFor={id}
-        ml={label ? size : 0}>
-        {label}
-      </Label>
-    </RadioContainer>
-  ));
+  className,
+  ...props
+}: RadioProps, ref: any) => (
+  <RadioContainer {...props} size={size} disabled={disabled} invalid={invalid} className={className}>
+    <input
+      ref={ref}
+      type="radio"
+      id={id}
+      onChange={onChange}
+      disabled={disabled}
+      required={required}
+      className={className}
+      checked={checked}
+      name={name} />
+    <Label
+      alignItems="center"
+      color={labelColor}
+      fontSize={fontSize}
+      fontWeight={fontWeight}
+      htmlFor={id}
+      ml={label ? size : 0}>
+      {label}
+    </Label>
+  </RadioContainer>
+));
 
 Radio.displayName = 'Radio';
 
-Radio.propTypes = {
-  ...propTypes.space,
-  ...propTypes.border,
-  ...borderRadius.propTypes,
-
-  /** Id, required for accessibility */
-  id: PropTypes.string.isRequired,
-
-  label: PropTypes.node,
-
-  labelColor: PropTypes.string,
-
-  /** Sizing based on theme space values */
-  size: PropTypes.number,
-};
-
-Radio.defaultProps = {
+const defaultProps: RadioProps = {
   label: null,
   labelColor: 'foreground',
   color: 'accent.3',
@@ -191,5 +176,4 @@ Radio.defaultProps = {
   size: 3,
   invalid: false,
 };
-
-export default Radio;
+Radio.defaultProps = defaultProps;

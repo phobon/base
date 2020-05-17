@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Box } from '../containers';
-import Radio from './Radio';
+import { Radio } from './Radio';
 
 export default {
   component: Radio,
