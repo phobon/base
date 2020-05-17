@@ -5,7 +5,7 @@ import { Text, TextProps } from '../typography/Text';
 
 interface ILabelProps {
 }
-export type LabelProps = ILabelProps & FlexboxProps & TextProps & React.InputHTMLAttributes<HTMLLabelElement>;
+export type LabelProps = ILabelProps & FlexboxProps & TextProps & React.HTMLAttributes<HTMLLabelElement>;
 export const Label = styled(Text).attrs(() => ({ as: 'label' }))<LabelProps>({
     display: 'flex',
   },
@@ -14,7 +14,7 @@ export const Label = styled(Text).attrs(() => ({ as: 'label' }))<LabelProps>({
 
 Label.displayName = 'Label';
 
-const defaultProps: LabelProps = {
+const defaultProps: any = {
   color: 'grayscale.2',
   fontSize: 1,
   justifyContent: 'center',

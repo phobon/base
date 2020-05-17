@@ -40,7 +40,7 @@ export const Stack = styled(Box)<StackProps>(
   stackSpace,
 );
 
-const defaultProps: StackProps = {
+const defaultProps: any = {
   space: 0,
   flexDirection: 'column',
 };

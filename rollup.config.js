@@ -30,6 +30,7 @@ export default {
   plugins: [
     babel({
       exclude: ['node_modules/**'],
+      extensions: ['.ts', '.tsx', '.js', '.jsx'],
     }),
     typescript({
       exclude: '*.test.ts',

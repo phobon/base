@@ -14,7 +14,7 @@
   ],
   "sideEffects": false,
   "scripts": {
-    "build": "rollup -c",
+    "build": "tsc --outDir dist/lib --declarationDir dist/types --declaration true && rollup -c",
     "clean": "npx shx rm -rf dist && mkdir dist",
     "storybook": "start-storybook",
     "test": "jest -c jest.tsc.config.js",
@@ -36,6 +36,7 @@
     "@storybook/addon-info": "^5.3.18",
     "@storybook/addon-knobs": "^5.3.18",
     "@storybook/addons": "^5.3.18",
+    "@storybook/preset-typescript": "^3.0.0",
     "@storybook/react": "^5.3.18",
     "@storybook/theming": "^5.3.18",
     "@testing-library/react-hooks": "^3.2.1",
@@ -69,6 +70,7 @@
     "rollup-plugin-node-resolve": "^5.2.0",
     "styled-components": "^5.1.0",
     "styled-system": "^5.1.5",
+    "ts-loader": "^7.0.4",
     "tslib": "^2.0.0",
     "typescript": "^3.9.2"
   },

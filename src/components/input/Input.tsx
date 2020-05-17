@@ -51,7 +51,8 @@ export type InputProps =
   & DensityProps
   & FullWidthProps
   & FullHeightProps
-  & CoverProps;
+  & CoverProps
+  & React.InputHTMLAttributes<HTMLInputElement>;
 
 export const Input = styled('input').withConfig({ shouldForwardProp }).attrs((props: InputProps) => ({
   'aria-invalid': props.invalid ? true : undefined,
@@ -90,7 +91,7 @@ export const Input = styled('input').withConfig({ shouldForwardProp }).attrs((pr
 
 Input.displayName = 'Input';
 
-const defaultProps: InputProps = {
+const defaultProps: any = {
   variant: 'text',
   disabled: false,
   invalid: false,

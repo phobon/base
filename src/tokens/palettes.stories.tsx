@@ -3,6 +3,7 @@
 /* eslint-disable prefer-spread */
 import React from 'react';
 import { contrast } from 'chroma-js';
+import {} from 'styled-components/cssprop';
 
 import { Stack, Box, Grid, Heading, Text } from '../components';
 

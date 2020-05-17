@@ -13,7 +13,7 @@ export const useTheme = (initial: ThemeType = 'light', themeFunction: (type: The
 
     requestAnimationFrame(() => {
       const root: HTMLElement = document.querySelector(':root');
-      const newTheme = themeFunction(theme);
+      const newTheme = themeFunction(theme as ThemeType);
   
       root.style.setProperty('--c-foreground', newTheme.foreground);
       root.style.setProperty('--c-background', newTheme.background);

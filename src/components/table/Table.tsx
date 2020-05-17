@@ -249,7 +249,7 @@ export const Table = forwardRef(({ id, columns, rows, ...props }: TableProps, re
 
 Table.displayName = 'Table';
 
-const defaultProps: TableProps = {
+const defaultProps: any = {
   id: Math.random() * 100,
   showSeparator: true,
   horizontalCellPadding: 5,

@@ -16,7 +16,7 @@ export const Vector = styled(Image).attrs(() => ({
 
 Vector.displayName = 'Vector';
 
-const defaultProps: VectorProps = {
+const defaultProps: any = {
   fill: 'foreground',
   stroke: 'none',
 };

@@ -40,7 +40,7 @@ export const Text = styled('span').withConfig({ shouldForwardProp })<TextProps>(
 
 Text.displayName = 'Text';
 
-const defaultProps: TextProps = {
+const defaultProps: any = {
   color: 'foreground',
   fontSize: 1,
   textAlign: 'left',

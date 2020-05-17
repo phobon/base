@@ -13,7 +13,7 @@ export const TextArea = styled(Input).attrs(() => ({ as: 'textarea' }))<TextArea
 
 TextArea.displayName = 'TextArea';
 
-const defaultProps: TextAreaProps = {
+const defaultProps: any = {
   height: 'auto',
   py: 2,
 };

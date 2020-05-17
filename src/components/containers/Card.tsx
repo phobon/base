@@ -47,7 +47,7 @@ export const Card = styled(Stack)<CardProps>(
 
 Card.displayName = 'Card';
 
-const defaultProps: CardProps = {
+const defaultProps: any = {
   boxShadowSize: 'l',
   boxShadowIntensity: 1,
 }

@@ -57,7 +57,7 @@ export const Box = styled('div').withConfig({ shouldForwardProp })<BoxProps>({
 
 Box.displayName = 'Box';
 
-const defaultProps: BoxProps = {
+const defaultProps: any = {
   flex: 'none',
   color: 'foreground',
   alignItems: 'center',

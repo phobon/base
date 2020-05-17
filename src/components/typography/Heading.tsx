@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import Text from './Text';
+import { Text } from './Text';
 
-const defaultProps = {
+const defaultProps: any = {
   color: 'grayscale.1',
   fontWeight: 'light',
   lineHeight: 0,

@@ -13,11 +13,10 @@ export const Grid = styled(Box)<GridProps>({
 
 Grid.displayName = 'Grid';
 
-const defaultProps: GridProps = {
+const defaultProps: any = {
   flex: 'none',
   alignItems: 'center',
   justifyContent: 'center',
   color: 'foreground',
-}
-
+};
 Grid.defaultProps = defaultProps;

@@ -9,7 +9,7 @@ export const useAccent = (initial: PaletteType = 'greens', accentFunction: (key:
   useEffect(() => void requestAnimationFrame(() => {
     const root: HTMLElement = document.querySelector(':root');
 
-    const newColours = accentFunction(accent) || [...colour[accent]] as string[];
+    const newColours = accentFunction(accent as PaletteType) || [...colour[accent as PaletteType]] as string[];
     newColours.forEach((c, i) => {
       root.style.setProperty(`--c-accent-${i}`, c);
     });

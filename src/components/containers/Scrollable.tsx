@@ -1,8 +1,9 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { themeGet } from '@styled-system/theme-get';
 
 import { Box, BoxProps } from './Box';
+
 import { destructureLayoutProps } from '../../utils';
 
 const scrollDirectionProps = ({ scrollDirection = 'vertical' }) => {
@@ -68,28 +69,28 @@ interface IScrollableProps {
   scrollDirection?: 'vertical' | 'horizontal';
   scrollbarColor?: string;
 }
-type ScrollableProps = IScrollableProps & BoxProps;
-
-const Container = styled(Box)<ScrollableProps>({
-    position: 'relative',
-    overflow: 'hidden',
-    alignItems: 'flex-start',
-    justifycontent: 'flex-start',
-  },
+export type ScrollableProps =
+  IScrollableProps
+  & BoxProps;
+export const ScrollableContainer = styled(Box)<ScrollableProps>({
+  position: 'relative',
+  overflow: 'hidden',
+  alignItems: 'flex-start',
+  justifycontent: 'flex-start',
+},
   scrollDirectionProps,
   minimalStyle,
 );
 
-export const Scrollable: FunctionComponent<ScrollableProps> = ({ minimal, scrollDirection, scrollbarColor, children, ...props }) => {
+export const Scrollable = ({ minimal, scrollDirection, scrollbarColor, children, ...props }: ScrollableProps & { children?: React.ReactNode }) => {
   const [layoutProps, passthroughProps] = destructureLayoutProps(props);
 
   const { width, height, fullWidth, fullHeight, flex, gridArea, ...rest } = layoutProps;
-  const containerProps = {
-    width, height, fullWidth, fullHeight, flex, gridArea, 
+  const containerProps: any = {
+    width, height, fullWidth, fullHeight, flex, gridArea,
   };
-
   return (
-    <Container
+    <ScrollableContainer
       minimal={minimal}
       scrollDirection={scrollDirection}
       scrollbarColor={scrollbarColor}
@@ -97,19 +98,18 @@ export const Scrollable: FunctionComponent<ScrollableProps> = ({ minimal, scroll
       <Box flex={1} alignItems="flex-start" justifyContent="flex-start" {...passthroughProps} {...rest}>
         {children}
       </Box>
-    </Container>
+    </ScrollableContainer>
   );
 };
 
 Scrollable.displayName = 'Scrollable';
 
-const defaultProps: ScrollableProps = {
+const defaultProps: any = {
   minimal: false,
   scrollDirection: 'vertical',
   scrollbarColor: 'hsla(0, 0%, 0%, 0.4)',
   flex: 1,
   width: 'inherit',
   height: 'inherit',
-}
-
+};
 Scrollable.defaultProps = defaultProps;

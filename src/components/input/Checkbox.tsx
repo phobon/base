@@ -156,7 +156,6 @@ export const Checkbox = forwardRef(({
       color={labelColor}
       fontSize={fontSize}
       fontWeight={fontWeight}
-      htmlFor={id}
       ml={label ? size : 0}>
       {label}
     </Label>
@@ -165,7 +164,7 @@ export const Checkbox = forwardRef(({
 
 Checkbox.displayName = 'Checkbox';
 
-const defaultProps: CheckboxProps = {
+const defaultProps: any = {
   label: null,
   labelColor: 'foreground',
   color: 'accent.3',

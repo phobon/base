@@ -43,7 +43,7 @@ export const Truncate = styled(Text)(
 
 Truncate.displayName = 'Truncate';
 
-const defaultProps: TruncateProps = {
+const defaultProps: any = {
   lines: 1,
   lineHeight: 4,
   textAlign: 'left',

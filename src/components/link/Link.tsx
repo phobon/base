@@ -27,7 +27,7 @@ export const Link = styled(Text).attrs(() => ({ as: 'a' }))<LinkProps>(
 
 Link.displayName = 'Link';
 
-const defaultProps: LinkProps = {
+const defaultProps: any = {
   color: 'accent.1',
   fontSize: 1,
   textAlign: 'left',
