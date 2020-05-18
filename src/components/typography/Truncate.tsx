@@ -9,7 +9,7 @@ const wordBreak = system({
   wordBreak: true,
 });
 
-const boxAlign = ({ textAlign }) => {
+const boxAlign = ({ textAlign }: any) => {
   const boxAlignments = {
     left: {
       '-webkit-box-align': 'start',

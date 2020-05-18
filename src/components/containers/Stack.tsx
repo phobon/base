@@ -3,12 +3,14 @@ import { get, system, ResponsiveValue, ThemeValue, RequiredTheme, ObjectOrArray 
 
 import { Box, BoxProps } from './Box';
 
-const isNumber = n => typeof n === 'number' && !isNaN(n);
+const isNumber = (n: any) => typeof n === 'number' && !isNaN(n);
 
-const getMargin = (n: any, scale: ObjectOrArray<string | number, string | number | symbol>, { flexDirection }): any => {
+const getMargin = (n: any, scale: ObjectOrArray<string | number, string | number | symbol>, props: any): any => {
   if (!isNumber(n)) {
     return get(scale, n, n);
   }
+
+  const { flexDirection } = props;
 
   const isNegative = n < 0;
   const absolute = Math.abs(n);

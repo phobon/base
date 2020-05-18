@@ -19,32 +19,40 @@ const lightSwatch: { [key: string]: string | object[] | object } = {
   grayscale: [...grayscale],
 };
 
-const secondary = { ...colour };
-delete secondary.lightGrayscale;
-delete secondary.darkGrayscale;
+const excludes = ['lightGrayscale', 'darkGrayscale'];
+let secondary = {};
+Object.keys(colour).forEach(k => {
+  if (excludes.includes(k)) {
+    return;
+  }
+
+  const c = colour[k];
+  secondary[k] = c;
+});
 
 // Construct a base colors object to use in a theme.
+const guidance: GuidanceColours = {
+  info: [colour.blues[0], colour.blues[8]],
+  error: [colour.reds[0], colour.reds[8]],
+  warning: [colour.oranges[0], colour.oranges[8]],
+  success: [colour.greens[0], colour.greens[8]],
+  focus,
+};
 const baseColors = {
   // Primary palettes
   black,
   white,
   
-  ...secondary,
+  ...secondary as SecondaryColours,
 
   // Guidance palettes
-  guidance: {
-    info: [colour.blues[0], colour.blues[8]],
-    error: [colour.reds[0], colour.reds[8]],
-    warning: [colour.oranges[0], colour.oranges[8]],
-    success: [colour.greens[0], colour.greens[8]],
-    focus,
-  },
+  guidance,
 };
 
 const lightColors = { ...baseColors, ...lightSwatch };
 
 // Construct a base theme with values we want.
-const baseTheme = {
+const tokens = {
   breakpoints,
   fonts,
   fontSizes,
@@ -58,5 +66,46 @@ const baseTheme = {
   densities,
 };
 
-export const theme = { ...baseTheme, ...{ colors: lightColors }};
+interface GuidanceColours {
+  info: [string, string];
+  error: [string, string];
+  warning: [string, string];
+  success: [string, string];
+  focus: string;
+}
+interface SecondaryColours {
+  grayscale?: string[];
+  accent: string[];
+  blues: string[];
+  cyans: string[];
+  greens: string[];
+  yellows: string[];
+  oranges: string[];
+  reds: string[];
+  purples: string[];
+  violets: string[];
+}
+interface Colours extends SecondaryColours {
+  black: string;
+  white: string;
+  guidance: GuidanceColours,
+}
+export interface BaseTheme {
+  colors: Colours;
+  breakpoints: string[];
+  fonts: { [key: string]: string };
+  fontSizes: number[];
+  fontWeights: { [key: string]: number };
+  letterSpacings: { [key: string]: string };
+  lineHeights: number[];
+  radii: (number | string)[];
+  boxShadows: string[];
+  space: number[];
+  textStyles: { [key: string]: { [key: string]: string } };
+  densities: { [key: string]: number };
+}
+export const theme: BaseTheme = {
+  ...tokens,
+  colors: { ...lightColors },
+};
 export { randomA11y, randomColor } from './palettes';
