@@ -20,7 +20,9 @@ import { cover, gridPosition, CoverProps, GridPositionProps } from '../../utils'
 
 const textSystem = compose(space, color, layout, typography, position, textStyle, gridPosition, cover);
 
-interface ITextProps { }
+export interface ITextProps {
+  as?: React.ElementType | keyof JSX.IntrinsicElements
+}
 export type TextProps =
   ITextProps
   & SpaceProps

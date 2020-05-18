@@ -3,12 +3,12 @@ import styled from 'styled-components';
 import { Text, TextProps } from '../typography/Text';
 import { focus } from '../../utils';
 
-interface ILinkProps {
+export interface ILinkProps {
   href?: string;
   clean?: boolean;
   active?: boolean;
 }
-type LinkProps = ILinkProps & TextProps;
+export type LinkProps = ILinkProps & TextProps;
 export const Link = styled(Text).attrs(() => ({ as: 'a' }))<LinkProps>(
   focus,
   ({ clean, theme }) => ({

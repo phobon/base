@@ -33,7 +33,7 @@ export type TruncateProps = ITruncateProps & TextProps;
 export const Truncate = styled(Text)(
   boxAlign,
   wordBreak,
-  ({ lines }) => ({
+  ({ lines }: ITruncateProps) => ({
     overflow: 'hidden',
     display: '-webkit-box',
     '-webkit-box-orient': 'vertical',

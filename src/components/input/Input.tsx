@@ -27,7 +27,7 @@ import {
 
 const textInputSystem = compose(color, space, border, styledFontSize, width, fullWidth, fullHeight, cover, density);
 
-const browserChrome = props => props.hideBrowserChrome && ({
+const browserChrome = ({ hideBrowserChrome }: IInputProps) => hideBrowserChrome && ({
   '&::-webkit-inner-spin-button, &::-webkit-outer-spin-button': { 
     '-webkit-appearance': 'none',
     margin: 0,
@@ -35,7 +35,7 @@ const browserChrome = props => props.hideBrowserChrome && ({
   '-moz-appearance': 'textfield',
 });
 
-interface IInputProps {
+export interface IInputProps {
   variant?: 'text' | 'number' | 'password';
   invalid?: boolean;
   disabled?: boolean;
@@ -51,13 +51,12 @@ export type InputProps =
   & DensityProps
   & FullWidthProps
   & FullHeightProps
-  & CoverProps
-  & React.InputHTMLAttributes<HTMLInputElement>;
+  & CoverProps;
 
 export const Input = styled('input').withConfig({ shouldForwardProp }).attrs((props: InputProps) => ({
   'aria-invalid': props.invalid ? true : undefined,
   type: props.variant === 'text' ? undefined : props.variant,
-}))<InputProps>(
+}))<InputProps & React.InputHTMLAttributes<HTMLInputElement>>(
   ({ theme, fontSize }) => ({
     boxSizing: 'border-box',
     position: 'relative',

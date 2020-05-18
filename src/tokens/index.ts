@@ -13,7 +13,7 @@ import {
   densities
 } from './tokens';
 
-const lightSwatch: { [key: string]: string | object[] | object } = {
+const lightSwatch: any = {
   background: `var(--c-background, ${white})`,
   foreground: `var(--c-foreground, ${grayscale[0]})`,  
   grayscale: [...grayscale],
@@ -74,7 +74,7 @@ interface GuidanceColours {
   focus: string;
 }
 interface SecondaryColours {
-  grayscale?: string[];
+  grayscale: string[];
   accent: string[];
   blues: string[];
   cyans: string[];
@@ -89,6 +89,8 @@ interface Colours extends SecondaryColours {
   black: string;
   white: string;
   guidance: GuidanceColours,
+  foreground: string;
+  background: string;
 }
 export interface BaseTheme {
   colors: Colours;

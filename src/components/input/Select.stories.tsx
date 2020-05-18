@@ -8,7 +8,7 @@ export default {
   title: 'Input/Select',
 };
 
-const TestSelect = props => (
+const TestSelect = (props: any) => (
   <Select {...props}>
     <option>Option 1</option>
     <option>Option 2</option>

@@ -3,7 +3,7 @@ import { flexbox, FlexboxProps } from 'styled-system';
 
 import { Text, TextProps } from '../typography/Text';
 
-interface ILabelProps {
+export interface ILabelProps {
 }
 export type LabelProps = ILabelProps & FlexboxProps & TextProps & React.HTMLAttributes<HTMLLabelElement>;
 export const Label = styled(Text).attrs(() => ({ as: 'label' }))<LabelProps>({

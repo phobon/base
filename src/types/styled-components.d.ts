@@ -9,7 +9,7 @@ declare module 'styled-components' {
     focus: string;
   }
   interface SecondaryColours {
-    grayscale?: string[];
+    grayscale: string[];
     accent: string[];
     blues: string[];
     cyans: string[];
@@ -24,6 +24,8 @@ declare module 'styled-components' {
     black: string;
     white: string;
     guidance: GuidanceColours,
+    foreground: string;
+    background: string;
   }
   export interface DefaultTheme {
     colors: Colours;

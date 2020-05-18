@@ -14,7 +14,7 @@ import shouldForwardProp from '@styled-system/should-forward-prop';
 
 import { gridPosition, GridPositionProps, DensityType } from '../../utils';
 
-const density = props => {
+const density = (props: any) => {
   const densityValues = {
     compact: 1,
     normal: 2,
@@ -56,7 +56,7 @@ const density = props => {
   `;
 };
 
-const showSeparator = props => props.showSeparator ? css`
+const showSeparator = (props: any) => props.showSeparator ? css`
   border-bottom: 1px dashed ${props.theme.colors.grayscale[7]};
 `: css`
   border-bottom: 1px solid transparent;
@@ -75,14 +75,14 @@ type Column = IColumn & SpaceProps & WidthProps;
 
 interface IRow {
   id?: string | number;
-  cells?: { content: React.ReactNode }[];
+  cells: { content: React.ReactNode }[];
   disabled?: boolean;
 }
 
-interface ITableProps {
+export interface ITableProps {
   id?: string | number;
-  columns?: IColumn[];
-  rows?: IRow[];
+  columns: IColumn[];
+  rows: IRow[];
   horizontalCellPadding?: number;
   showSeparator?: boolean;
   density?: DensityType;
@@ -94,7 +94,8 @@ export type TableProps =
   & WidthProps
   & GridPositionProps;
 
-const StyledTable = styled('table').withConfig({ shouldForwardProp })<TableProps>`
+type StyledTableProps = SpaceProps & LayoutProps & WidthProps & GridPositionProps;
+const StyledTable = styled('table').withConfig({ shouldForwardProp })<StyledTableProps>`
   width: 100%;
   border-spacing: 0;
   border-collapse: separate;
@@ -211,6 +212,11 @@ export const Table = forwardRef(({ id, columns, rows, ...props }: TableProps, re
 
   const rowItems = rows.map((r, rowIndex) => {
     const cells = r.cells.map((c, cellIndex) => {
+      const columnCell = columns[cellIndex];
+      if (!columnCell) {
+        throw Error(`Cell at index: ${cellIndex} is not found.`);
+      }
+
       const { fill, truncate, ...rest } = columns[cellIndex];
       const cell = 
         `${fill ? 'cell--fill' : ''} 

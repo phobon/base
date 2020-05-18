@@ -10,17 +10,17 @@ export default {
 
 export const withDifferentPaddings = () => (
   <Stack width={1 / 2} flexDirection="column" alignItems="flex-start" space={3}>
-    <Input value={null} mb={3} placeholder="default width" />
-    <Input value={null} mb={3} fullWidth placeholder="fullWidth" />
-    <Input value={null} mb={3} width={1 / 2} placeholder="width: 1/2" />
-    <Input value={null} width={400} placeholder="width: 400px" />
+    <Input mb={3} placeholder="default width" />
+    <Input mb={3} fullWidth placeholder="fullWidth" />
+    <Input mb={3} width={1 / 2} placeholder="width: 1/2" />
+    <Input width={400} placeholder="width: 400px" />
   </Stack>
 );
 
 export const withDifferentStates = () => (
   <Stack width={1 / 2} flexDirection="column" alignItems="flex-start" space={3}>
-    <Input value={null} mb={3} placeholder="invalid" invalid />
-    <Input value={null} mb={3} fullWidth placeholder="disabled" disabled />
+    <Input mb={3} placeholder="invalid" invalid />
+    <Input mb={3} fullWidth placeholder="disabled" disabled />
   </Stack>
 );
 
@@ -29,7 +29,7 @@ export const withDifferentVariants = () => {
   return (
     <Stack width={1 / 2} flexDirection="column" alignItems="flex-start" space={3}>
       {variants.map(v => (
-        <Input key={v} value={null} placeholder={v} variant={v} />
+        <Input key={v} placeholder={v} variant={v} />
       ))}
     </Stack>
   );

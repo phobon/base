@@ -36,17 +36,17 @@ export const withLightTheme = () => {
         {lightGrayscale.map((g, i) => (
           <Box fullWidth fullHeight key={g}>
             <Box flexDirection="column" alignItems="flex-start" mr={3}>
-              <Heading.H1 color={g} mb={3}>Heading.H1</Heading.H1>
-              <Heading.H2 color={g} mb={3}>Heading.H2</Heading.H2>
-              <Heading.H3 color={g} mb={3}>Heading.H3</Heading.H3>
-              <Heading.H4 color={g} mb={3}>Heading.H4</Heading.H4>
-              <Heading.H5 color={g} mb={3}>Heading.H5</Heading.H5>
-              <Heading.H6 color={g} mb={3}>Heading.H6</Heading.H6>
+              <Heading as="h1" color={g} mb={3}>Heading.H1</Heading>
+              <Heading as="h2" color={g} mb={3}>Heading.H2</Heading>
+              <Heading color={g} mb={3}>Heading.H3</Heading>
+              <Heading as="h4" color={g} mb={3}>Heading.H4</Heading>
+              <Heading as="h5" color={g} mb={3}>Heading.H5</Heading>
+              <Heading as="h6" color={g} mb={3}>Heading.H6</Heading>
               <Text color={g} mb={5}>Some Text here</Text>
             </Box>
           
             <Box flex={1} fullWidth fullHeight borderRadius={4} bg={g}>
-              <Heading.H1 color="foreground" css={{ textAlign: 'center' }}>{`grayscale.${lightGrayscale.length - 1 - i}`}</Heading.H1>
+              <Heading as="h1" color="foreground" css={{ textAlign: 'center' }}>{`grayscale.${lightGrayscale.length - 1 - i}`}</Heading>
             </Box>
           </Box>
         ))}
@@ -69,17 +69,17 @@ export const withDarkTheme = () => {
         {darkGrayscale.map((g, i) => (
           <Box fullWidth fullHeight key={g}>
             <Box flexDirection="column" alignItems="flex-start" mr={3}>
-              <Heading.H1 color={g} mb={3}>Heading.H1</Heading.H1>
-              <Heading.H2 color={g} mb={3}>Heading.H2</Heading.H2>
-              <Heading.H3 color={g} mb={3}>Heading.H3</Heading.H3>
-              <Heading.H4 color={g} mb={3}>Heading.H4</Heading.H4>
-              <Heading.H5 color={g} mb={3}>Heading.H5</Heading.H5>
-              <Heading.H6 color={g} mb={3}>Heading.H6</Heading.H6>
+              <Heading as="h1" color={g} mb={3}>Heading.H1</Heading>
+              <Heading as="h2" color={g} mb={3}>Heading.H2</Heading>
+              <Heading color={g} mb={3}>Heading.H3</Heading>
+              <Heading as="h4" color={g} mb={3}>Heading.H4</Heading>
+              <Heading as="h5" color={g} mb={3}>Heading.H5</Heading>
+              <Heading as="h6" color={g} mb={3}>Heading.H6</Heading>
               <Text color={g} mb={5}>Some Text here</Text>
             </Box>
           
             <Box flex={1} fullWidth fullHeight borderRadius={4} bg={g}>
-              <Heading.H1 color="hsl(228, 62%, 95%)" css={{ textAlign: 'center' }}>{`grayscale.${darkGrayscale.length - 1 - i}`}</Heading.H1>
+              <Heading as="h1" color="hsl(228, 62%, 95%)" css={{ textAlign: 'center' }}>{`grayscale.${darkGrayscale.length - 1 - i}`}</Heading>
             </Box>
           </Box>
         ))}

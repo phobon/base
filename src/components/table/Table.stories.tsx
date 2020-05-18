@@ -92,20 +92,20 @@ export const withDifferentInformationDensities = () => {
 
   return (
     <Box flexDirection="column" fullWidth alignItems="flex-start">
-      <Heading.H6 mb={3}>Compact density</Heading.H6>
+      <Heading as="h6" mb={3}>Compact density</Heading>
       <Table
         mb={6}
         density="compact"
         columns={firstColumnData}
         rows={firstRows} />
 
-      <Heading.H6 mb={3}>Normal density</Heading.H6>
+      <Heading as="h6" mb={3}>Normal density</Heading>
       <Table
         mb={6}
         columns={firstColumnData}
         rows={firstRows} />
 
-      <Heading.H6 mb={3}>Spacious density</Heading.H6>
+      <Heading as="h6" mb={3}>Spacious density</Heading>
       <Table
         density="spacious"
         columns={firstColumnData}
