@@ -4,7 +4,7 @@ export interface RoundProps {
   round?: boolean;
 }
 export const round = system({
-  space: {
+  round: {
     property: 'borderRadius',
     transform: n => n ? '50%' : null,
   },

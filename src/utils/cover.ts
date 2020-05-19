@@ -4,7 +4,7 @@ export interface FullWidthProps {
   fullWidth?: boolean;
 }
 export const fullWidth = system({
-  space: {
+  fullWidth: {
     property: 'width',
     transform: n => n ? '100%' : null,
   },
@@ -14,7 +14,7 @@ export interface FullHeightProps {
   fullHeight?: boolean;
 }
 export const fullHeight = system({
-  space: {
+  fullHeight: {
     property: 'height',
     transform: n => n ? '100%' : null,
   },
@@ -24,7 +24,7 @@ export interface CoverProps {
   cover?: boolean;
 }
 export const cover = system({
-  space: {
+  cover: {
     properties: ['width', 'height'],
     transform: n => n ? '100%' : null,
   },

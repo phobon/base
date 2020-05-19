@@ -30,7 +30,7 @@ interface ITruncateProps {
   wordBreak?: string;
 }
 export type TruncateProps = ITruncateProps & TextProps;
-export const Truncate = styled(Text)(
+export const Truncate = styled(Text)<TruncateProps>(
   boxAlign,
   wordBreak,
   ({ lines }: ITruncateProps) => ({

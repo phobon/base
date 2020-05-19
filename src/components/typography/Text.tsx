@@ -16,9 +16,9 @@ import {
 } from 'styled-system';
 import shouldForwardProp from '@styled-system/should-forward-prop';
 
-import { cover, gridPosition, CoverProps, GridPositionProps } from '../../utils';
+import { cover, fullWidth, fullHeight, gridPosition, CoverProps, FullWidthProps, FullHeightProps, GridPositionProps } from '../../utils';
 
-const textSystem = compose(space, color, layout, typography, position, textStyle, gridPosition, cover);
+const textSystem = compose(space, color, layout, typography, position, textStyle, gridPosition, cover, fullWidth, fullHeight);
 
 export interface ITextProps {
   as?: React.ElementType | keyof JSX.IntrinsicElements
@@ -32,6 +32,8 @@ export type TextProps =
   & PositionProps
   & TextStyleProps
   & CoverProps
+  & FullWidthProps
+  & FullHeightProps
   & GridPositionProps;
 export const Text = styled('span').withConfig({ shouldForwardProp })<TextProps>({
   boxSizing: 'border-box',

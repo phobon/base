@@ -1,18 +1,41 @@
 import styled from 'styled-components';
+import {
+  compose,
+  space,
+  layout,
+  borderRadius,
+  background,
+  position,
+  SpaceProps, LayoutProps, BorderRadiusProps, BackgroundProps, PositionProps,
+} from 'styled-system';
+import shouldForwardProp from '@styled-system/should-forward-prop';
 
-import { paint, PaintProps } from '../../utils';
+import {
+  fullWidth, fullHeight, gridPosition, paint,
+  FullWidthProps, FullHeightProps, GridPositionProps, PaintProps,
+} from '../../utils';
 
-import { Image, ImageProps } from './Image';
+const vectorSystem = compose(space, layout, borderRadius, background, position, fullWidth, fullHeight, gridPosition, paint);
 
 export interface IVectorProps {
-  viewBox?: string;
 }
-export type VectorProps = IVectorProps & PaintProps & ImageProps;
+export type VectorProps =
+  IVectorProps
+  & SpaceProps
+  & LayoutProps
+  & BorderRadiusProps
+  & BackgroundProps
+  & PositionProps
+  & FullWidthProps
+  & FullHeightProps
+  & GridPositionProps
+  & PaintProps;
 
-export const Vector = styled(Image).attrs(() => ({
-  as: 'svg',
-  xmlns: 'http://www.w3.org/2000/svg',
-}))<VectorProps>(paint);
+export const Vector = styled('svg').attrs(() => ({
+    xmlns: 'http://www.w3.org/2000/svg',
+  })).withConfig({ shouldForwardProp })<VectorProps>(
+  vectorSystem,
+);
 
 Vector.displayName = 'Vector';
 

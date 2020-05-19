@@ -26,7 +26,7 @@ export const withDifferentWidths = () => (
 );
 
 export const withDifferentStates = () => (
-  <Stack width={1 / 2} flexDirection="column" alignItems="flex-start">
+  <Stack width={1 / 2} space={3} flexDirection="column" alignItems="flex-start">
     <TestSelect value={null} invalid />
     <TestSelect value={null} fullWidth disabled />
   </Stack>

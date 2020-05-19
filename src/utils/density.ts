@@ -5,7 +5,7 @@ export interface DensityProps {
   density?: DensityType;
 }
 export const density = system({
-  space: {
+  density: {
     property: 'height',
     transform: n => {
       const densities = {

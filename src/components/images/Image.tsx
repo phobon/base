@@ -17,7 +17,7 @@ import {
 } from '../../utils';
 
 const cover = system({
-  space: {
+  cover: {
     property: 'backgroundSize',
     transform: n => n ? 'cover' : 'auto',
   },
