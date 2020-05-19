@@ -35,6 +35,7 @@
     "@babel/preset-env": "^7.8.6",
     "@babel/preset-react": "^7.8.3",
     "@babel/preset-typescript": "^7.9.0",
+    "@phobon/hooks": "^2.0.1",
     "@rollup/plugin-typescript": "^4.1.1",
     "@storybook/addon-a11y": "^5.3.18",
     "@storybook/addon-actions": "^5.3.18",
@@ -44,6 +45,9 @@
     "@storybook/preset-typescript": "^3.0.0",
     "@storybook/react": "^5.3.18",
     "@storybook/theming": "^5.3.18",
+    "@styled-system/prop-types": "^5.0.8",
+    "@styled-system/should-forward-prop": "^5.1.5",
+    "@styled-system/theme-get": "^5.0.6",
     "@testing-library/react-hooks": "^3.2.1",
     "@types/chroma-js": "^2.0.0",
     "@types/jest": "^25.2.2",
@@ -86,12 +90,6 @@
     "react-dom": "^16.8.x",
     "styled-components": "^5.x",
     "styled-system": "^5.x"
-  },
-  "dependencies": {
-    "@phobon/hooks": "^2.0.1",
-    "@styled-system/prop-types": "^5.0.8",
-    "@styled-system/should-forward-prop": "^5.1.5",
-    "@styled-system/theme-get": "^5.0.6"
   },
   "repository": {
     "type": "git",
