@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { DefaultTheme, StyledComponent } from 'styled-components';
 import {
   compose,
   color,
@@ -24,7 +24,10 @@ const textAreaSystem = compose(color, space, border, styledFontSize, width, heig
 
 export type TextAreaProps = InputProps & HeightProps & React.InputHTMLAttributes<HTMLTextAreaElement>;
 
-export const TextArea = styled('textarea').withConfig({ shouldForwardProp }).attrs((props: TextAreaProps) => ({
+export const TextArea: StyledComponent<'textarea', DefaultTheme, TextAreaProps, never> = 
+  styled('textarea')
+  .withConfig({ shouldForwardProp })
+  .attrs((props: TextAreaProps) => ({
   'aria-invalid': props.invalid ? true : undefined,
   type: props.variant === 'text' ? undefined : props.variant,
 }))<TextAreaProps>(

@@ -29,7 +29,7 @@ const SelectContainer = styled(Box)({
 });
 
 export type SelectProps = InputProps & BoxProps;
-export const Select = forwardRef((props: SelectProps, ref: any) => {
+export const Select: React.FunctionComponent<SelectProps> = forwardRef((props: SelectProps, ref: any) => {
   const [layoutProps, passthroughProps] = destructureLayoutProps(props);
   return (
     <SelectContainer {...layoutProps}>

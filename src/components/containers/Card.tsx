@@ -1,8 +1,8 @@
-import styled from 'styled-components';
+import styled, { StyledComponent, DefaultTheme } from 'styled-components';
 
 import { Stack, StackProps } from './Stack';
 
-const boxShadow = ({ boxShadowSize = 'l', theme }) => {
+const boxShadow = ({ boxShadowSize = 'l', theme }: any) => {
   const boxShadows = {
     none: 0,
     s: 0,
@@ -26,7 +26,7 @@ interface ICardProps {
 }
 export type CardProps = ICardProps & StackProps;
 
-export const Card = styled(Stack)<CardProps>(
+export const Card: StyledComponent<'div', DefaultTheme, CardProps, never> = styled(Stack)<CardProps>(
   ({ boxShadowIntensity }) => ({
     position: 'relative',
     '&::before': {
@@ -51,5 +51,4 @@ const defaultProps: any = {
   boxShadowSize: 'l',
   boxShadowIntensity: 1,
 }
-
 Card.defaultProps = defaultProps;

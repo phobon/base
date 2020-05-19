@@ -23,14 +23,14 @@ const cover = system({
   },
 });
 
-const responsive = props => props.responsive ? {
+const responsive = ({ responsive }: IImageProps) => responsive ? {
   width: '100%',
   height: 'auto',
 } : null;
 
 const imageSystem = compose(space, layout, borderRadius, background, position, fullWidth, fullHeight, round, gridPosition, cover);
 
-interface IImageProps {
+export interface IImageProps {
   cover?: boolean;
   responsive?: boolean;
 }

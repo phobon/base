@@ -4,7 +4,7 @@ import { paint, PaintProps } from '../../utils';
 
 import { Image, ImageProps } from './Image';
 
-interface IVectorProps {
+export interface IVectorProps {
   viewBox?: string;
 }
 export type VectorProps = IVectorProps & PaintProps & ImageProps;

@@ -1,18 +1,49 @@
-import styled from 'styled-components';
-import { flexbox, FlexboxProps } from 'styled-system';
+import styled, { StyledComponent, DefaultTheme } from 'styled-components';
+import {
+  compose,
+  space,
+  color,
+  layout,
+  typography,
+  position,
+  textStyle,
+  flexbox,
+  SpaceProps,
+  ColorProps,
+  LayoutProps,
+  TypographyProps,
+  PositionProps,
+  TextStyleProps,
+  FlexboxProps,
+} from 'styled-system';
+import shouldForwardProp from '@styled-system/should-forward-prop';
 
-import { Text, TextProps } from '../typography/Text';
+import { cover, gridPosition, CoverProps, GridPositionProps } from '../../utils';
+
+const labelSystem = compose(space, color, layout, typography, position, textStyle, gridPosition, cover, flexbox);
 
 export interface ILabelProps {
 }
-export type LabelProps = ILabelProps & FlexboxProps & TextProps & React.HTMLAttributes<HTMLLabelElement>;
-export const Label = styled(Text).attrs(() => ({ as: 'label' }))<LabelProps>({
+export type LabelProps =
+  ILabelProps
+  & SpaceProps
+  & ColorProps
+  & LayoutProps
+  & TypographyProps
+  & PositionProps
+  & TextStyleProps
+  & CoverProps
+  & GridPositionProps
+  & FlexboxProps;
+export const Label: StyledComponent<'label', DefaultTheme, LabelProps, never> =
+  styled('label').withConfig({ shouldForwardProp })<LabelProps>({
+    boxSizing: 'border-box',
     display: 'flex',
   },
-  flexbox,
+  labelSystem,
 );
 
-Label.displayName = 'Label';
+Label.displayName = 'Text';
 
 const defaultProps: any = {
   color: 'grayscale.2',

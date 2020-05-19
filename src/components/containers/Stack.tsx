@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { StyledComponent, DefaultTheme } from 'styled-components';
 import { get, system, ResponsiveValue, ThemeValue, RequiredTheme, ObjectOrArray } from 'styled-system';
 
 import { Box, BoxProps } from './Box';
@@ -33,12 +33,12 @@ const space: any = {
 }
 const stackSpace = system({ space });
 
-interface IStackProps {
+export interface IStackProps {
   space?: ResponsiveValue<ThemeValue<'space', RequiredTheme>>;
 }
 export type StackProps = IStackProps & BoxProps;
 
-export const Stack = styled(Box)<StackProps>(
+export const Stack: StyledComponent<'div', DefaultTheme, StackProps, never> = styled(Box)<StackProps>(
   stackSpace,
 );
 

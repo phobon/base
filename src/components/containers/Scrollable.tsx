@@ -1,6 +1,6 @@
 import React from 'react';
-import styled from 'styled-components';
-import { themeGet } from '@styled-system/theme-get';
+import styled, { StyledComponent, DefaultTheme } from 'styled-components';
+import themeGet from '@styled-system/theme-get';
 
 import { Box, BoxProps } from './Box';
 
@@ -64,7 +64,7 @@ const minimalStyle = ({ minimal = false, ...props }) => {
   return null;
 };
 
-interface IScrollableProps {
+export interface IScrollableProps {
   minimal?: boolean;
   scrollDirection?: 'vertical' | 'horizontal';
   scrollbarColor?: string;
@@ -72,7 +72,7 @@ interface IScrollableProps {
 export type ScrollableProps =
   IScrollableProps
   & BoxProps;
-export const ScrollableContainer = styled(Box)<ScrollableProps>({
+export const ScrollableContainer: StyledComponent<'div', DefaultTheme, ScrollableProps, never> = styled(Box)<ScrollableProps>({
   position: 'relative',
   overflow: 'hidden',
   alignItems: 'flex-start',
@@ -82,7 +82,7 @@ export const ScrollableContainer = styled(Box)<ScrollableProps>({
   minimalStyle,
 );
 
-export const Scrollable = ({ minimal, scrollDirection, scrollbarColor, children, ...props }: ScrollableProps & { children?: React.ReactNode }) => {
+export const Scrollable: React.FunctionComponent<ScrollableProps> = ({ minimal, scrollDirection, scrollbarColor, children, ...props }: ScrollableProps & { children?: React.ReactNode }) => {
   const [layoutProps, passthroughProps] = destructureLayoutProps(props);
 
   const { width, height, fullWidth, fullHeight, flex, gridArea, ...rest } = layoutProps;

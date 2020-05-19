@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { StyledComponent, DefaultTheme } from 'styled-components';
 import {
   compose,
   color,
@@ -53,7 +53,7 @@ export type InputProps =
   & FullHeightProps
   & CoverProps;
 
-export const Input = styled('input').withConfig({ shouldForwardProp }).attrs((props: InputProps) => ({
+export const Input: StyledComponent<'input', DefaultTheme, InputProps, never> = styled('input').withConfig({ shouldForwardProp }).attrs((props: InputProps) => ({
   'aria-invalid': props.invalid ? true : undefined,
   type: props.variant === 'text' ? undefined : props.variant,
 }))<InputProps & React.InputHTMLAttributes<HTMLInputElement>>(

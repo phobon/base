@@ -2,40 +2,49 @@ import babel from 'rollup-plugin-babel';
 import typescript from '@rollup/plugin-typescript';
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
+import pkg from './package.json'
 
-export default {
+export default [{
   input: 'src/index.ts',
-  output: [
-    {
-      file: 'dist/index.js',
-      format: 'cjs',
-      globals: {
-        'react': 'React',
-        'styled-components': 'Styled Components',
-        'styled-system': 'Styled System',
-      },
-    },
-    {
-      file: 'dist/bundle.js',
-      format: 'umd',
-      name: 'Base',
-      globals: {
-        'react': 'React',
-        'styled-components': 'Styled Components',
-        'styled-system': 'Styled System',
-      },
-    },
+  external: [
+    ...Object.keys(pkg.dependencies || {}),
+    ...Object.keys(pkg.peerDependencies || {}),
   ],
-  external: id => /^react|react-|styled-components|styled-system/.test(id),
   plugins: [
-    babel({
-      exclude: ['node_modules/**'],
-      extensions: ['.ts', '.tsx', '.js', '.jsx'],
-    }),
     typescript({
-      exclude: '*.test.ts',
+      declaration: true,
+      declarationDir: 'dist/types',
     }),
     resolve(),
     commonjs(),
+    babel({
+      exclude: ['node_modules/**'],
+      extensions: ['.ts', '.tsx'],
+    }),
   ],
-};
+  output: {
+    dir: 'dist/types',
+  },
+}, {
+  input: 'src/index.ts',
+  external: [
+    ...Object.keys(pkg.dependencies || {}),
+    ...Object.keys(pkg.peerDependencies || {}),
+  ],
+  plugins: [
+    typescript(),
+    resolve(),
+    commonjs(),
+    babel({
+      exclude: ['node_modules/**'],
+      extensions: ['.ts', '.tsx'],
+    }),
+  ],
+  output: [{
+    file: pkg.main,
+    format: 'cjs',
+  }, {
+    file: pkg.module,
+    format: 'esm',
+  }],
+}];
