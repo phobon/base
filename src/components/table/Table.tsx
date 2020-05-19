@@ -183,19 +183,20 @@ const StyledTable = styled('table').withConfig({ shouldForwardProp })<StyledTabl
   ${density}
 `;
 
+const colSystem = compose(width, space);
 const Col = styled('col')<Column>(
-  width,
-  space,
-  props => ({
-    'th, td': {
-      '&.cell--truncate': {
-        '> *': {
-          '-webkit-line-clamp': props.lines ?? 1,
-        },
+  colSystem,
+);
+
+const Td = styled('td')<{ lines?: number }>(
+  ({ lines }: any) => ({
+    '&.cell--truncate': {
+      '> *': {
+        '-webkit-line-clamp': lines ?? '1',
       },
     },
   })
-);
+)
 
 export const Table = forwardRef(({ id, columns, rows, ...props }: TableProps, ref: any) => {  
   const cols = columns.map(({ fill, truncate, ...rest }, i) => (
@@ -217,15 +218,15 @@ export const Table = forwardRef(({ id, columns, rows, ...props }: TableProps, re
         throw Error(`Cell at index: ${cellIndex} is not found.`);
       }
 
-      const { fill, truncate, ...rest } = columns[cellIndex];
+      const { fill, truncate, lines, ...rest } = columns[cellIndex];
       const cell = 
         `${fill ? 'cell--fill' : ''} 
         ${truncate ? 'cell--truncate': ''} 
         ${r.disabled ? 'cell--disabled': ''}`;
       return (
-        <td key={`${r.id}-cell__${cellIndex}`} className={cell} style={rest as any}>
+        <Td key={`${r.id}-cell__${cellIndex}`} className={cell} lines={lines} style={rest as any}>
           <span>{c.content}</span>
-        </td>
+        </Td>
       );
     });
 
