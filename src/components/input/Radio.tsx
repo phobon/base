@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import {
   compose,
   space,
-  border,
   SpaceProps,
   BorderProps,
   TypographyProps,
@@ -14,7 +13,7 @@ import shouldForwardProp from '@styled-system/should-forward-prop';
 
 import { Label } from './Label';
 
-const radioSystem = compose(space, border);
+const radioSystem = compose(space);
 
 export interface IRadioProps {
   id?: string;
@@ -55,6 +54,7 @@ const RadioContainer = styled('div').withConfig({ shouldForwardProp }).attrs((pr
           top: 0,
           width: theme.space[size],
           height: theme.space[size],
+          borderRadius: '50%',
           border: `${borderThickness}px ${borderStyle} ${themeGet(`colors.${borderColor}`)(props)}`,
           backgroundColor: theme.colors.grayscale[9],
           'box-sizing': 'content-box',
@@ -87,7 +87,7 @@ const RadioContainer = styled('div').withConfig({ shouldForwardProp }).attrs((pr
         '&:checked + label::before': {
           opacity: 0.9,
           border: `${borderThickness}px ${borderStyle} ${themeGet(`colors.${color}`)(props)}`,
-          backgroundColor: themeGet(`colors.${color}`)(props),
+          backgroundColor: themeGet(`colors.${color}`)(props) || props.color,
         },
         '&:focus + label::before': {
           outline: 0,
@@ -159,6 +159,7 @@ export const Radio = forwardRef(({
       color={labelColor}
       fontSize={fontSize}
       fontWeight={fontWeight}
+      htmlFor={id}
       ml={label ? size : 0}>
       {label}
     </Label>

@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import {
   compose,
   space,
-  border,
   SpaceProps,
   BorderProps,
   TypographyProps,
@@ -14,7 +13,7 @@ import shouldForwardProp from '@styled-system/should-forward-prop';
 
 import { Label } from './Label';
 
-const checkboxSystem = compose(space, border);
+const checkboxSystem = compose(space);
 
 export interface ICheckboxProps {
   id?: string;
@@ -87,7 +86,7 @@ const CheckboxContainer = styled('div').withConfig({ shouldForwardProp }).attrs(
         '&:checked + label::before': {
           opacity: 0.9,
           border: `${borderThickness}px ${borderStyle} ${themeGet(`colors.${color}`)(props)}`,
-          backgroundColor: themeGet(`colors.${color}`)(props),
+          backgroundColor: themeGet(`colors.${color}`)(props) || props.color,
         },
         '&:focus + label::before': {
           outline: 0,
@@ -159,6 +158,7 @@ export const Checkbox = forwardRef(({
       color={labelColor}
       fontSize={fontSize}
       fontWeight={fontWeight}
+      htmlFor={id}
       ml={label ? size : 0}>
       {label}
     </Label>
