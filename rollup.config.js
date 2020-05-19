@@ -13,7 +13,7 @@ export default [{
   plugins: [
     typescript({
       declaration: true,
-      declarationDir: 'dist/types',
+      declarationDir: 'dist',
     }),
     resolve(),
     commonjs(),
@@ -23,7 +23,7 @@ export default [{
     }),
   ],
   output: {
-    dir: 'dist/types',
+    dir: 'dist',
   },
 }, {
   input: 'src/index.ts',
