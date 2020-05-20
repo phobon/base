@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { StyledComponent, DefaultTheme } from 'styled-components';
 import {
   height,
   HeightProps,
@@ -8,7 +8,7 @@ import { Input, InputProps } from './Input';
 
 export type TextAreaProps = InputProps & HeightProps & React.InputHTMLAttributes<HTMLTextAreaElement>;
 
-export const TextArea = styled(Input).attrs(() => ({ as: 'textarea' }))<TextAreaProps>(
+export const TextArea: StyledComponent<any, DefaultTheme, TextAreaProps, never> = styled(Input).attrs(() => ({ as: 'textarea' }))<TextAreaProps>(
   height,
 );
 
