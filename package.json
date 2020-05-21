@@ -86,10 +86,10 @@
     "typescript": "^3.9.2"
   },
   "peerDependencies": {
-    "react": "^16.8.x",
-    "react-dom": "^16.8.x",
-    "styled-components": "^5.x",
-    "styled-system": "^5.x"
+    "react": "^16.13.x",
+    "react-dom": "^16.13.x",
+    "styled-components": "^5.1.x",
+    "styled-system": "^5.1.x"
   },
   "repository": {
     "type": "git",
