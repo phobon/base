@@ -95,7 +95,7 @@ export type TableProps =
   & GridPositionProps;
 
 type StyledTableProps = SpaceProps & LayoutProps & WidthProps & GridPositionProps;
-const StyledTable = styled('table').withConfig({ shouldForwardProp })<StyledTableProps>`
+const StyledTable = styled('table').withConfig({ shouldForwardProp })<StyledTableProps & any>`
   width: 100%;
   border-spacing: 0;
   border-collapse: separate;
@@ -198,7 +198,7 @@ const Td = styled('td')<{ lines?: number }>(
   })
 )
 
-export const Table = forwardRef(({ id, columns, rows, ...props }: TableProps, ref: any) => {  
+export const Table: React.FunctionComponent<TableProps> = forwardRef(({ id, columns, rows, ...props }: TableProps, ref: any) => {  
   const cols = columns.map(({ fill, truncate, ...rest }, i) => (
     <Col key={`${id}__col__${i}`} {...rest} />
   ));
