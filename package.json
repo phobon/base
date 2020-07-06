@@ -1,6 +1,6 @@
 {
   "name": "@phobon/base",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Essential compositional components using styled-components and styled-system",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
@@ -86,6 +86,9 @@
     "typescript": "^3.9.2"
   },
   "peerDependencies": {
+    "@styled-system/prop-types": "^5.0.x",
+    "@styled-system/should-forward-prop": "^5.1.x",
+    "@styled-system/theme-get": "^5.0.x",
     "react": "^16.13.x",
     "react-dom": "^16.13.x",
     "styled-components": "^5.1.x",
